@@ -1,9 +1,9 @@
 using UnityEngine;
-using BasicAppUtility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
+using BasicAppUtility;
 
 namespace HypnicEmpire
 {
@@ -16,152 +16,80 @@ namespace HypnicEmpire
         public static GameState CurrentGameState = new();
         public UIView_MainGame MainGameUIView;
 
-        private const float SaveInterval = 600.0f; // Save every 10 minutes
-        private float SaveTimer = 0.0f;
-
         public void Start()
         {
-            if (InitialGameState != null)
-                CurrentGameState.Initialize(InitialGameState);
-
+            CurrentGameState.Initialize(InitialGameState);
             SetupMainGameUI();
         }
 
         public void Update()
         {
-            CheckForAutoSave();
-        }
-
-        private void CheckForAutoSave()
-        {
-            //  Iterate the SaveTimer and save the game if the interval is reached
-            SaveTimer += Time.deltaTime;
-            if (SaveTimer >= SaveInterval)
-            {
-                SaveGame();
-                MainGameUIView.AddJournalEntry(Localization.JournalEntry_GameSaved());
-                SaveTimer = 0.0f;
-            }
+            SaveUtility.Update();
         }
 
         private void SetupMainGameUI()
         {
             if (MainGameUIView != null)
             {
-                // Assign button actions
+                //  Assign button actions
                 MainGameUIView.SaveAndExitButtonAction = SaveAndExitGame;
                 MainGameUIView.SaveButtonAction = SaveGame;
                 MainGameUIView.LoadButtonAction = LoadGame;
 
-                if (MainGameUIView.MasterVolumeControlEntry != null) MainGameUIView.MasterVolumeControlEntry.SetContent(
+                //  Define out the UINumberOptionControlEntry menu instances
+                MainGameUIView.MasterVolumeControlEntry?.SetContent(
                     "Master",
                     CurrentGameState.MasterVolume.ToString(),
                     () =>
                     {
                         CurrentGameState.MasterVolume = Mathf.Clamp(CurrentGameState.MasterVolume + 5, 0, 100);
-                        MainGameUIView.MasterVolumeControlEntry.SetDisplayTexts("Master", CurrentGameState.MasterVolume.ToString());
-                        MainGameUIView.MasterVolumeControlEntry.IncreaseButton.interactable = CurrentGameState.MasterVolume != 100;
-                        MainGameUIView.MasterVolumeControlEntry.DecreaseButton.interactable = CurrentGameState.MasterVolume != 0;
+                        MainGameUIView.MasterVolumeControlEntry.SetDisplayDetails("Master", CurrentGameState.MasterVolume.ToString(), CurrentGameState.MasterVolume != 100, CurrentGameState.MasterVolume != 0);
                     },
                     () =>
                     {
                         CurrentGameState.MasterVolume = Mathf.Clamp(CurrentGameState.MasterVolume - 5, 0, 100);
-                        MainGameUIView.MasterVolumeControlEntry.SetDisplayTexts("Master", CurrentGameState.MasterVolume.ToString());
-                        MainGameUIView.MasterVolumeControlEntry.IncreaseButton.interactable = CurrentGameState.MasterVolume != 100;
-                        MainGameUIView.MasterVolumeControlEntry.DecreaseButton.interactable = CurrentGameState.MasterVolume != 0;
+                        MainGameUIView.MasterVolumeControlEntry.SetDisplayDetails("Master", CurrentGameState.MasterVolume.ToString(), CurrentGameState.MasterVolume != 100, CurrentGameState.MasterVolume != 0);
                     });
 
-                if (MainGameUIView.SFXVolumeControlEntry != null) MainGameUIView.SFXVolumeControlEntry.SetContent(
+                MainGameUIView.SFXVolumeControlEntry?.SetContent(
                     "Soundeffects",
                     CurrentGameState.SFXVolume.ToString(),
                     () =>
                     {
                         CurrentGameState.SFXVolume = Mathf.Clamp(CurrentGameState.SFXVolume + 5, 0, 100);
-                        MainGameUIView.SFXVolumeControlEntry.SetDisplayTexts("Soundeffects", CurrentGameState.SFXVolume.ToString());
-                        MainGameUIView.SFXVolumeControlEntry.IncreaseButton.interactable = CurrentGameState.SFXVolume != 100;
-                        MainGameUIView.SFXVolumeControlEntry.DecreaseButton.interactable = CurrentGameState.SFXVolume != 0;
+                        MainGameUIView.SFXVolumeControlEntry.SetDisplayDetails("Soundeffects", CurrentGameState.SFXVolume.ToString(), CurrentGameState.SFXVolume != 100, CurrentGameState.SFXVolume != 0);
                     },
                     () =>
                     {
                         CurrentGameState.SFXVolume = Mathf.Clamp(CurrentGameState.SFXVolume - 5, 0, 100);
-                        MainGameUIView.SFXVolumeControlEntry.SetDisplayTexts("Soundeffects", CurrentGameState.SFXVolume.ToString());
-                        MainGameUIView.SFXVolumeControlEntry.IncreaseButton.interactable = CurrentGameState.SFXVolume != 100;
-                        MainGameUIView.SFXVolumeControlEntry.DecreaseButton.interactable = CurrentGameState.SFXVolume != 0;
+                        MainGameUIView.SFXVolumeControlEntry.SetDisplayDetails("Soundeffects", CurrentGameState.SFXVolume.ToString(), CurrentGameState.SFXVolume != 100, CurrentGameState.SFXVolume != 0);
                     });
 
-                if (MainGameUIView.MusicVolumeControlEntry != null) MainGameUIView.MusicVolumeControlEntry.SetContent(
+                MainGameUIView.MusicVolumeControlEntry?.SetContent(
                     "Music",
                     CurrentGameState.MusicVolume.ToString(),
                     () =>
                     {
                         CurrentGameState.MusicVolume = Mathf.Clamp(CurrentGameState.MusicVolume + 5, 0, 100);
-                        MainGameUIView.MusicVolumeControlEntry.SetDisplayTexts("Music", CurrentGameState.MusicVolume.ToString());
-                        MainGameUIView.MusicVolumeControlEntry.IncreaseButton.interactable = CurrentGameState.MusicVolume != 100;
-                        MainGameUIView.MusicVolumeControlEntry.DecreaseButton.interactable = CurrentGameState.MusicVolume != 0;
+                        MainGameUIView.MusicVolumeControlEntry.SetDisplayDetails("Music", CurrentGameState.MusicVolume.ToString(), CurrentGameState.MusicVolume != 100, CurrentGameState.MusicVolume != 0);
                     },
                     () =>
                     {
                         CurrentGameState.MusicVolume = Mathf.Clamp(CurrentGameState.MusicVolume - 5, 0, 100);
-                        MainGameUIView.MusicVolumeControlEntry.SetDisplayTexts("Music", CurrentGameState.MusicVolume.ToString());
-                        MainGameUIView.MusicVolumeControlEntry.IncreaseButton.interactable = CurrentGameState.MusicVolume != 100;
-                        MainGameUIView.MusicVolumeControlEntry.DecreaseButton.interactable = CurrentGameState.MusicVolume != 0;
+                        MainGameUIView.MusicVolumeControlEntry.SetDisplayDetails("Music", CurrentGameState.MusicVolume.ToString(), CurrentGameState.MusicVolume != 100, CurrentGameState.MusicVolume != 0);
                     });
 
-                if (MainGameUIView.ActionSoundExcessControlEntry != null)
-                {
-                    MainGameUIView.ActionSoundExcessControlEntry.AddListener(() =>
-                    {
-                        CurrentGameState.ActionSoundExcess = !CurrentGameState.ActionSoundExcess;
-                    });
-                }
+                MainGameUIView.ActionSoundExcessControlEntry?.AddListener(() => { CurrentGameState.ActionSoundExcess = !CurrentGameState.ActionSoundExcess; });
+                MainGameUIView.FullscreenControlEntry?.AddListener(() => { BasicAppUtilities.SetWindowFullscreen(CurrentGameState.Fullscreen = !CurrentGameState.Fullscreen); });
+                MainGameUIView.HardResetButton?.onClick.AddListener(() => { MainGameUIView.SetResetButtonUnpacked(true); });
+                MainGameUIView.HardResetConfirmButton?.onClick.AddListener(() => { ResetGame(); });
+                MainGameUIView.HardResetCancelButton?.onClick.AddListener(() => { MainGameUIView.SetResetButtonUnpacked(false); });
 
-                if (MainGameUIView.FullscreenControlEntry != null)
-                {
-                    MainGameUIView.FullscreenControlEntry.AddListener(() =>
-                    {
-                        CurrentGameState.Fullscreen = !CurrentGameState.Fullscreen;
-                        BasicAppUtilities.SetWindowFullscreen(CurrentGameState.Fullscreen);
-                    });
-                }
+                CurrentGameState.LevelReached = 7;
+                MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent, CurrentGameState.LevelReached, GameLevelsData.GetLevel(CurrentGameState.LevelCurrent), CurrentLevelUp, CurrentLevelDown);
+                MainGameUIView.DelveTaskButton?.SetContents("Delve", 20f, 64f, CompleteDelve);
 
-                if (MainGameUIView.HardResetButton != null)
-                {
-                    MainGameUIView.HardResetButton.onClick.AddListener(() =>
-                    {
-                        MainGameUIView.SetResetButtonUnpacked(true);
-                    });
-                }
-
-                if (MainGameUIView.HardResetConfirmButton != null)
-                {
-                    MainGameUIView.HardResetConfirmButton.onClick.AddListener(() =>
-                    {
-                        ResetGame();
-                        PostLoadInitialState();
-                    });
-                }
-
-                if (MainGameUIView.HardResetCancelButton != null)
-                {
-                    MainGameUIView.HardResetCancelButton.onClick.AddListener(() =>
-                    {
-                        MainGameUIView.SetResetButtonUnpacked(false);
-                    });
-                }
-
-                if (MainGameUIView.DelveTaskButton != null)
-                {
-                    MainGameUIView.DelveTaskButton.SetContents("Delve", 20f, 64f, () =>
-                    {
-                        // Action to perform when Delve task is completed
-                        MainGameUIView.AddJournalEntry("You have completed a Delve task!");
-                        // For example, spend some Food as a cost
-                        var changes = GetCurrentDelveResourceChanges();
-                        if (changes.ResourceAmounts.Any(ra => ra.ResourceType == ResourceType.Treasure)) CurrentGameState.SetResourceUnlocked(ResourceType.Treasure, true);
-                        if (changes.ResourceAmounts.Any(ra => ra.ResourceType == ResourceType.Herbs)) CurrentGameState.SetResourceUnlocked(ResourceType.Herbs, true);
-                        ChangeResources(changes);
-                    });
-                }
+                SaveUtility.SaveCallback = () => { SaveGame(); };
 
                 //  Now initialize the UI
                 PostLoadInitialState();
@@ -172,7 +100,6 @@ namespace HypnicEmpire
         {
             MainGameUIView.ResetUI();
             MainGameUIView.SetDelveResourceChange(GetCurrentDelveResourceChanges());
-            MainGameUIView.DelveTaskButton.SetEnabled(GetCurrentDelveResourceChanges().CheckCanChange());
 
             CurrentGameState.SubscribeToGenericResourceAmountChange((int amount, int maxAmount) =>
             {
@@ -199,14 +126,45 @@ namespace HypnicEmpire
         public void CheckGameUnlocks()
         {
             if (MainGameUIView == null) return;
-            
+
             //  Unhide the Developments Tab and then re-hide it if our current game state has not unlocked the Ran_Out_Of_Food event that triggers it being shown
             MainGameUIView.SetDevelopmentsTabGroupHidden(false);
             if (!CurrentGameState.GameUnlockList.Contains(GameUnlock.Ran_Out_Of_Food))
                 MainGameUIView.ResetDevelopmentMenu();
 
             //  Unlock resources visually in the left-most Resource Entry list on the main game UI
-            foreach (var ru in CurrentGameState.CurrentResourceUnlocked) if (ru.Value == true) MainGameUIView.AddResourceEntry(ru.Key.ToString());
+            foreach (var ru in CurrentGameState.CurrentResourceUnlocked) if (ru.Value == true) MainGameUIView.AddResourceEntry(ru.Key);
+        }
+
+        public void CurrentLevelUp()
+        {
+            SetCurrentLevel(CurrentGameState.LevelCurrent + 1);
+            MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent, CurrentGameState.LevelReached, GameLevelsData.GetLevel(CurrentGameState.LevelCurrent), CurrentLevelUp, CurrentLevelDown);
+        }
+
+        public void CurrentLevelDown()
+        {
+            SetCurrentLevel(CurrentGameState.LevelCurrent - 1);
+            MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent, CurrentGameState.LevelReached, GameLevelsData.GetLevel(CurrentGameState.LevelCurrent), CurrentLevelUp, CurrentLevelDown);
+        }
+
+        public void SetCurrentLevel(int level)
+        {
+            if (level < 0) return;
+            if (level > CurrentGameState.LevelReached) return;
+            CurrentGameState.LevelCurrent = level;
+        }
+        
+        public void CompleteDelve()
+        {
+            // TODO: Remove this journal entry. This is just to help debug
+            MainGameUIView?.AddJournalEntry("You have completed a Delve task!");
+
+            //  Lose and gain all resources assigned to this level of the game, unlocking resources as needed
+            var changes = GetCurrentDelveResourceChanges();
+            if (changes.Any(ra => ra.ResourceType == ResourceType.Treasure)) CurrentGameState.SetResourceUnlocked(ResourceType.Treasure, true);
+            if (changes.Any(ra => ra.ResourceType == ResourceType.Herbs)) CurrentGameState.SetResourceUnlocked(ResourceType.Herbs, true);
+            ChangeResources(changes);
         }
 
         public void SaveAndExitGame()
@@ -217,8 +175,7 @@ namespace HypnicEmpire
 
         public void SaveGame()
         {
-            var gameStateJson = JsonSerialization.Serialize(CurrentGameState);
-            File.WriteAllText(SaveFilePath, gameStateJson);
+            File.WriteAllText(SaveFilePath, JsonSerialization.Serialize(CurrentGameState));
         }
 
         public void LoadGame()
@@ -237,29 +194,28 @@ namespace HypnicEmpire
             //  Set the game state to the Initial Game State, then immediately replace the existing save file with the new state
             CurrentGameState.Initialize(InitialGameState);
             SaveGame();
+
+            PostLoadInitialState();
         }
 
-        public ResourceAmountCollection GetCurrentDelveResourceChanges()
+        public List<ResourceAmount> GetCurrentDelveResourceChanges()
         {
-            if (GameLevelsData == null) return new ResourceAmountCollection();
-            if (CurrentGameState.LevelCurrent >= GameLevelsData.GameLevels.Count) return new ResourceAmountCollection();
-            if (CurrentGameState.LevelCurrent < 0) return new ResourceAmountCollection();
+            if (GameLevelsData == null) return new List<ResourceAmount>();
+            if (CurrentGameState.LevelCurrent >= GameLevelsData.GameLevels.Count || CurrentGameState.LevelCurrent < 0) return new List<ResourceAmount>();
 
-            ResourceAmountCollection resourceChangeCollection = new ResourceAmountCollection();
-            foreach (var rc in GameLevelsData.GameLevels[CurrentGameState.LevelCurrent].ResourceChanges) resourceChangeCollection.AddResourceAmount(new ResourceAmount(rc.Key, rc.Value));
-            return resourceChangeCollection;
+            List<ResourceAmount> amountsList = new();
+            foreach (var ra in GameLevelsData.GameLevels[CurrentGameState.LevelCurrent].ResourceChanges) amountsList.AddResourceAmount(new ResourceAmount(ra.Key, ra.Value));
+            return amountsList;
         }
 
-        public void ChangeResources(ResourceAmountCollection resourceChanges)
+        public void ChangeResources(List<ResourceAmount> amountsList)
         {
-            if (resourceChanges == null) return;
-            if (resourceChanges.ResourceAmounts == null) return;
-            if (resourceChanges.ResourceAmounts.Count == 0) return;
+            if (amountsList == null || amountsList.Count == 0) return;
 
-            foreach (var rc in resourceChanges.ResourceAmounts)
+            foreach (var ra in amountsList)
             {
-                CurrentGameState.AddToResource(rc.ResourceType, rc.Amount);
-                MainGameUIView.AddResourceEntry(rc.ResourceType.ToString());
+                CurrentGameState.AddToResource(ra.ResourceType, ra.Amount);
+                MainGameUIView.AddResourceEntry(ra.ResourceType);
             }
         }
     }

@@ -10,5 +10,11 @@ namespace HypnicEmpire
     public class GameLevelsScriptableObject : ScriptableObject
     {
         public List<GameLevelData> GameLevels;
+
+        public GameLevelData GetLevel(int index)
+        {
+            if (index < 0 || GameLevels == null || index >= GameLevels.Count) return null;
+            return GameLevels[index];
+        }
     }
 }

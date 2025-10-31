@@ -11,20 +11,19 @@ namespace HypnicEmpire
         [SerializeField] public TextMeshProUGUI ResourceNameText;
         [SerializeField] public TextMeshProUGUI ResourceAmountText;
 
-        [SerializeField] public string ResourceName;
+        [SerializeField] public ResourceType ResourceType;
 
-        public void SetContent(string resourceName)
+        public void SetContent(ResourceType resourceType)
         {
             try
             {
-                ResourceName = resourceName;
-                ResourceType resourceType = (ResourceType)Enum.Parse(typeof(ResourceType), resourceName, true);
+                ResourceType = resourceType;
 
                 if (ResourceIconImage != null)
-                    ResourceIconImage.sprite = Resources.Load<Sprite>($"ResourceIcons/{resourceName}");
+                    ResourceIconImage.sprite = Resources.Load<Sprite>($"ResourceIcons/{resourceType.ToString()}");
 
                 if (ResourceNameText != null)
-                    ResourceNameText.text = Localization.DisplayText_ResourceDisplayName(resourceName);
+                    ResourceNameText.text = Localization.DisplayText_ResourceDisplayName(resourceType);
 
                 if (ResourceAmountText != null)
                     ResourceAmountText.text = Localization.DisplayText_ResourceCountDivide(GameController.CurrentGameState.GetResourceAmount(resourceType), GameController.CurrentGameState.GetResourceMaxAmount(resourceType));
@@ -43,7 +42,7 @@ namespace HypnicEmpire
             }
             catch (ArgumentException)
             {
-                Debug.LogError($"Invalid resource name: {resourceName}");
+                Debug.LogError($"Invalid resource name: {resourceType.ToString()}");
             }
             catch (Exception ex)
             {

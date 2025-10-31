@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using BreakInfinity;
 using TMPro;
 using System;
 
@@ -60,6 +59,7 @@ namespace HypnicEmpire
 
         [Header("Primary Game Related UI Elements")]
         [SerializeField] public UITaskProcessButton DelveTaskButton;
+        [SerializeField] public UIMissionDataDisplay MissionDataDisplay;
 
         [Header("Secondary Game Related UI Elements")]
         [SerializeField] public GameObject[] DevelopmentsTabGroup;
@@ -77,19 +77,19 @@ namespace HypnicEmpire
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-            if (ExitButton != null) ExitButton.onClick.AddListener(() => { ShowCenterMenu(ExitButton, ExitMenu); });
-            if (OptionsButton != null) OptionsButton.onClick.AddListener(() => { ShowCenterMenu(OptionsButton, OptionsMenu); });
-            if (AchievementsButton != null) AchievementsButton.onClick.AddListener(() => { ShowCenterMenu(AchievementsButton, AchievementsMenu); });
-            if (ActionsButton != null) ActionsButton.onClick.AddListener(() => { ShowCenterMenu(ActionsButton, ActionsMenu); });
-            if (DevelopmentsButton != null) DevelopmentsButton.onClick.AddListener(() => { ShowCenterMenu(DevelopmentsButton, DevelopmentsMenu); });
+            ExitButton?.onClick.AddListener(() => { ShowCenterMenu(ExitButton, ExitMenu); });
+            OptionsButton?.onClick.AddListener(() => { ShowCenterMenu(OptionsButton, OptionsMenu); });
+            AchievementsButton?.onClick.AddListener(() => { ShowCenterMenu(AchievementsButton, AchievementsMenu); });
+            ActionsButton?.onClick.AddListener(() => { ShowCenterMenu(ActionsButton, ActionsMenu); });
+            DevelopmentsButton?.onClick.AddListener(() => { ShowCenterMenu(DevelopmentsButton, DevelopmentsMenu); });
 
-            if (DiscordButton != null) DiscordButton.onClick.AddListener(() => { Application.OpenURL(DiscordURL); });
-            if (RedditButton != null) RedditButton.onClick.AddListener(() => { Application.OpenURL(RedditURL); });
-            if (ItchIoButton != null) ItchIoButton.onClick.AddListener(() => { Application.OpenURL(ItchIoURL); });
+            DiscordButton?.onClick.AddListener(() => { Application.OpenURL(DiscordURL); });
+            RedditButton?.onClick.AddListener(() => { Application.OpenURL(RedditURL); });
+            ItchIoButton?.onClick.AddListener(() => { Application.OpenURL(ItchIoURL); });
 
-            if (SaveAndExitButton != null) SaveAndExitButton.onClick.AddListener(() => { SaveAndExitButtonAction?.Invoke(); });
-            if (SaveButton != null) SaveButton.onClick.AddListener(() => { SaveButtonAction?.Invoke(); });
-            if (LoadButton != null) LoadButton.onClick.AddListener(() => { LoadButtonAction?.Invoke(); });
+            SaveAndExitButton?.onClick.AddListener(() => { SaveAndExitButtonAction?.Invoke(); });
+            SaveButton?.onClick.AddListener(() => { SaveButtonAction?.Invoke(); });
+            LoadButton?.onClick.AddListener(() => { LoadButtonAction?.Invoke(); });
         }
 
         public void ResetUI()
@@ -97,62 +97,50 @@ namespace HypnicEmpire
             if (ResourceList != null)
             {
                 ResourceList.ClearAllResourceEntries();
-                AddResourceEntry("Food");
+                AddResourceEntry(ResourceType.Food);
             }
 
-            if (DelveTaskButton != null) DelveTaskButton.Reset();
+            DelveTaskButton?.Reset();
 
             SetResetButtonUnpacked(false);
             ShowCenterMenu(ActionsButton, ActionsMenu);
         }
 
-        public void SetDelveResourceChange(ResourceAmountCollection resourceChangeAmounts)
+        public void SetDelveResourceChange(List<ResourceAmount> amountList)
         {
-            ClearDelveResourceChanges();
+            DelveTaskButton?.SetEnabled(amountList.CheckCanChange());
 
-            foreach (var rca in resourceChangeAmounts.ResourceAmounts)
-                AddDelveResourceChange(rca.ResourceType.ToString(), rca.Amount);
+            ClearDelveResourceChanges();
+            foreach (var ra in amountList)
+                AddDelveResourceChange(ra.ResourceType, ra.Amount);
         }
 
         void ShowCenterMenu(Button button, GameObject menuToShow)
         {
             foreach (var btn in CenterMenuButtons)
-            {
                 if (btn != null)
                     btn.interactable = btn != button;
-            }
 
             foreach (var menu in Menus)
-            {
-                if (menu != null)
-                    menu.SetActive(menu == menuToShow);
-            }
+                menu?.SetActive(menu == menuToShow);
         }
 
         public void SetDevelopmentsTabGroupHidden(bool hidden)
         {
             foreach (var obj in DevelopmentsTabGroup)
-            {
-                if (obj != null)
-                    obj.SetActive(!hidden);
-            }
+                obj?.SetActive(!hidden);
         }
 
         public void SetResetButtonUnpacked(bool unpacked)
         {
-            if (HardResetButton == null) return;
-            if (HardResetConfirmButton == null) return;
-            if (HardResetCancelButton == null) return;
-
-            HardResetButton.interactable = !unpacked;
-            HardResetConfirmButton.gameObject.SetActive(unpacked);
-            HardResetCancelButton.gameObject.SetActive(unpacked);
+            if (HardResetButton != null) HardResetButton.interactable = !unpacked;
+            HardResetConfirmButton?.gameObject.SetActive(unpacked);
+            HardResetCancelButton?.gameObject.SetActive(unpacked);
         }
 
-        public void AddResourceEntry(string resourceName)
+        public void AddResourceEntry(ResourceType resourceType)
         {
-            if (ResourceList != null)
-                ResourceList.AddResourceEntry(resourceName);
+            ResourceList?.AddResourceEntry(resourceType);
         }
 
         public void ClearDelveResourceChanges()
@@ -166,12 +154,12 @@ namespace HypnicEmpire
                     Destroy(child.gameObject);
         }
 
-        public void AddDelveResourceChange(string resourceName, int resourceChange)
+        public void AddDelveResourceChange(ResourceType resourceType, int resourceChange)
         {
             if (DelveResourceLossParent != null && DelveResourceGainParent != null && UIResourceChangeEntryPrefab != null)
             {
                 var entry = Instantiate(UIResourceChangeEntryPrefab, (resourceChange < 0) ? DelveResourceLossParent : DelveResourceGainParent);
-                entry.GetComponent<UIResourceChangeEntry>().SetContent(resourceName, resourceChange);
+                entry.GetComponent<UIResourceChangeEntry>().SetContent(resourceType, resourceChange);
             }
             
         }
@@ -182,8 +170,7 @@ namespace HypnicEmpire
             {
                 var entryObject = Instantiate(UIJournalEntryPrefab, JournalDisplayParent);
                 var entryComponent = entryObject.GetComponent<UIJournalEntry>();
-                if (entryComponent != null)
-                    entryComponent.SetJournalEntryText(text);
+                entryComponent?.SetJournalEntryText(text);
             }
         }
 
@@ -194,8 +181,7 @@ namespace HypnicEmpire
             {
                 var entryObject = Instantiate(UIDevelopmentEntryPrefab, OpenDevelopmentDisplayParent);
                 var entryComponent = entryObject.GetComponent<UIDevelopmentEntry>();
-                if (entryComponent != null)
-                    entryComponent.SetContent(name, description, extraInfo);
+                entryComponent?.SetContent(name, description, extraInfo);
             }
         }
 

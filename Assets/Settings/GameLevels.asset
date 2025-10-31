@@ -46,3 +46,39 @@ MonoBehaviour:
     ResourceChanges:
       m_keys: 0000000001000000
       m_values: ffffffff01000000
+  - Sprite: {fileID: -1755681864675245641, guid: 34735cc3830462046a091f1c7356c46a, type: 3}
+    Name: Animal Burrow
+    Description: The Burrow extends deeper and deeper into the earth. The return
+      trups are ever longer. It seems like, whatever monstrous being lived here in
+      the past did not come from the surface world but rather from deep down below
+      the earth, making its way upwards
+    ResourceChanges:
+      m_keys: 0000000001000000
+      m_values: ffffffff01000000
+  - Sprite: {fileID: -1755681864675245641, guid: 34735cc3830462046a091f1c7356c46a, type: 3}
+    Name: Animal Burrow
+    Description: You finally arrive at the heart of its nest. A giant chamber filled
+      with old straw and clothes, resembling a makeshift bed.\nAll around you are
+      piles and piles of bones. The treasure here in plentiful though and it will
+      take a while to carry it all back.
+    ResourceChanges:
+      m_keys: 0000000001000000
+      m_values: ffffffff01000000
+  - Sprite: {fileID: -1755681864675245641, guid: 34735cc3830462046a091f1c7356c46a, type: 3}
+    Name: Animal Burrow
+    Description: Even deeper still you can go. You wander the paths of old, where
+      the ancient beast burrowed upwards. Soon after, the mud receeds and you find
+      stone and rock in its place. Maybe you will someday see the place where this
+      being came from.
+    ResourceChanges:
+      m_keys: 0000000001000000
+      m_values: ffffffff01000000
+  - Sprite: {fileID: 3594700679820429672, guid: 19d2f52ebfb63234f933fa78ab1808d1, type: 3}
+    Name: Petrified Forest
+    Description: The light of your lantern reflects pale gray stone. In front of
+      you, primeval monuments of ancient wilderness stretch up into the cavernous
+      air.\nDead, hardened and preserved for all eternity. A giant underground forest.
+      How peculiar.
+    ResourceChanges:
+      m_keys: 0000000001000000
+      m_values: ffffffff01000000

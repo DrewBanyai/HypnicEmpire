@@ -22,18 +22,18 @@ namespace HypnicEmpire
 
         public ResourceAmount GetResourceAmount() { return new ResourceAmount(ChangeResourceAmount.ResourceType, ChangeResourceAmount.Amount); }
 
-        public void SetContent(string resourceName, int changeAmount)
+        public void SetContent(ResourceType resourceType, int changeAmount)
         {
             try
             {
-                ChangeResourceAmount = new ResourceAmount((ResourceType)Enum.Parse(typeof(ResourceType), resourceName, true), changeAmount);
+                ChangeResourceAmount = new ResourceAmount(resourceType, changeAmount);
 
                 if (ResourceIconImage != null)
-                    ResourceIconImage.sprite = Resources.Load<Sprite>($"ResourceIcons/{resourceName}");
+                    ResourceIconImage.sprite = Resources.Load<Sprite>($"ResourceIcons/{resourceType.ToString()}");
 
                 if (ResourceNameText != null)
                 {
-                    ResourceNameText.text = Localization.DisplayText_ResourceChangeDisplayName(resourceName);
+                    ResourceNameText.text = Localization.DisplayText_ResourceChangeDisplayName(resourceType);
                     ResourceNameText.overrideColorTags = true;
                     ResourceNameText.color = (changeAmount < 0) ? ResourceLossColor : ResourceGainColor;
                 }
@@ -47,7 +47,7 @@ namespace HypnicEmpire
             }
             catch (ArgumentException)
             {
-                Debug.LogError($"Invalid resource name: {resourceName}");
+                Debug.LogError($"Invalid resource name: {resourceType.ToString()}");
             }
             catch (Exception ex)
             {

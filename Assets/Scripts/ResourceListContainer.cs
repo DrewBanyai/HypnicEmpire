@@ -7,21 +7,19 @@ namespace HypnicEmpire
     {
         [SerializeField] public GameObject ResourceEntryPrefab;
 
-        private List<string> ResourcesTracked = new();
+        private List<ResourceType> ResourcesTracked = new();
 
-        public void AddResourceEntry(string resourceName)
+        public void AddResourceEntry(ResourceType resourceType)
         {
-            if (ResourcesTracked.Contains(resourceName)) return;
-            ResourcesTracked.Add(resourceName);
+            if (ResourcesTracked.Contains(resourceType)) return;
+            ResourcesTracked.Add(resourceType);
 
             if (ResourceEntryPrefab != null && this.gameObject.transform != null)
             {
                 var entryObject = Instantiate(ResourceEntryPrefab, this.gameObject.transform);
                 var entryComponent = entryObject.GetComponent<UIResourceEntry>();
                 if (entryComponent != null)
-                {
-                    entryComponent.SetContent(resourceName);
-                }
+                    entryComponent.SetContent(resourceType);
             }
         }
 

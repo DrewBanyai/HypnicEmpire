@@ -31,4 +31,11 @@ public class UINumberOptionControlEntry : MonoBehaviour
         if (OptionValueText != null)
             OptionValueText.text = optionStartValue;
     }
+
+    public void SetDisplayDetails(string optionName, string optionStartValue, bool upInteractable, bool downInteractable)
+    {
+        SetDisplayTexts(optionName, optionStartValue);
+        if (IncreaseButton != null) IncreaseButton.interactable = upInteractable;
+        if (DecreaseButton != null) DecreaseButton.interactable = downInteractable;
+    }
 }

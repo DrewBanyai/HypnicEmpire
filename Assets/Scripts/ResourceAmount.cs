@@ -28,43 +28,30 @@ namespace HypnicEmpire
         }
     }
 
-    [Serializable]
-    public class ResourceAmountCollection
+    public static class ResourceAmountListExtension
     {
-        public List<ResourceAmount> ResourceAmounts;
+        public static void AddResourceAmount(this List<ResourceAmount> amountList, ResourceAmount add)
+        {
+            //  If no entry for the resource type exists in the list, add one with a value of 0
+            if (!amountList.Any(ra => ra.ResourceType == add.ResourceType))
+                amountList.Add(new ResourceAmount(add.ResourceType, 0));
 
-        public ResourceAmountCollection()
-        {
-            ResourceAmounts = new List<ResourceAmount>();
-        }
-        
-        public ResourceAmountCollection(ResourceAmountCollection other)
-        {
-            ResourceAmounts = new List<ResourceAmount>();
-            foreach (ResourceAmount otherResourceAmount in other.ResourceAmounts)
-                ResourceAmounts.Add(new ResourceAmount(otherResourceAmount.ResourceType, otherResourceAmount.Amount));
+            //  Find the entry for the given resource type and add the amount
+            amountList.Find(ra => ra.ResourceType == add.ResourceType).Amount += add.Amount;
         }
 
-        public void AddResourceAmount(ResourceAmount addedAmount)
+        public static bool CheckCanChange(this List<ResourceAmount> amountList)
         {
-            if (!ResourceAmounts.Any(ra => ra.ResourceType == addedAmount.ResourceType))
-                ResourceAmounts.Add(new ResourceAmount(addedAmount.ResourceType, addedAmount.Amount));
-            else
-                ResourceAmounts.Find(ra => ra.ResourceType == addedAmount.ResourceType).Amount += addedAmount.Amount;
-        }
-
-        public bool CheckCanChange()
-        {
-            foreach (ResourceAmount ar in ResourceAmounts)
-                if (!ar.CheckCanChange()) return false;
+            foreach (ResourceAmount ra in amountList)
+                if (!ra.CheckCanChange()) return false;
 
             return true;
         }
 
-        public void ExecuteChange()
+        public static void ExecuteChange(this List<ResourceAmount> amountList)
         {
-            foreach (ResourceAmount ar in ResourceAmounts)
-                GameController.CurrentGameState.AddToResource(ar.ResourceType, ar.Amount);
+            foreach (ResourceAmount ra in amountList)
+                GameController.CurrentGameState.AddToResource(ra.ResourceType, ra.Amount);
         }
     }
 }

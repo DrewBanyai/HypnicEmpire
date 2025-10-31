@@ -42,6 +42,8 @@ namespace HypnicEmpire
 
         public void Initialize(GameStateScriptableObject gameState)
         {
+            if (gameState == null) return;
+            
             ClearAllSubscriptions();
             CopyGameState(gameState.GameState);
         }
