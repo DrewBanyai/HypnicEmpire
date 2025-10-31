@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819b6f88a91aba240ad2e8156ed67062, type: 3}
+  m_Name: GameLevels
+  m_EditorClassIdentifier: Assembly-CSharp::Sleepwalking.GameLevelsScriptableObject
+  GameLevels:
+  - Sprite: {fileID: -1755681864675245641, guid: 34735cc3830462046a091f1c7356c46a, type: 3}
+    Name: Animal Burrow
+    Description: You stand at the edge of the hole. Below you is a gaping abyss of
+      darkness and intrigue.\nIt smells of old fur and damp earth. You hope it is
+      abandoned.
+    ResourceChanges:
+      m_keys: 0000000001000000
+      m_values: ffffffff01000000
+  - Sprite: {fileID: -1755681864675245641, guid: 34735cc3830462046a091f1c7356c46a, type: 3}
+    Name: Animal Burrow
+    Description: As you descend into the earth below, the air changes subtly. After
+      a while you find some recent animal carcasses strewn around.\nThe smell is
+      horridly rancid and it permeates your surroundings.
+    ResourceChanges:
+      m_keys: 0000000001000000
+      m_values: ffffffff01000000
+  - Sprite: {fileID: -1755681864675245641, guid: 34735cc3830462046a091f1c7356c46a, type: 3}
+    Name: Animal Burrow
+    Description: You fight lots of rats and vermin. They contaminate these tunnels
+      like a disease. The stench of rot is omnipresent. Between the various new and
+      old bones you find small trinkets.\nGolden rings, bracelets, a necklace here
+      and there.
+    ResourceChanges:
+      m_keys: 0000000001000000
+      m_values: ffffffff01000000
+  - Sprite: {fileID: -1755681864675245641, guid: 34735cc3830462046a091f1c7356c46a, type: 3}
+    Name: Animal Burrow
+    Description: The bones you find even deeper in the burrow are clearly humanoid.\nWhatever
+      lived here before the rats came, hunted many a victim from the surrounding
+      homesteads. And after it left, the vermin took its home for themselves.
+    ResourceChanges:
+      m_keys: 0000000001000000
+      m_values: ffffffff01000000
