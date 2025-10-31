@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System;
 using TMPro;
 
-namespace Sleepwalking
+namespace HypnicEmpire
 {
     public class UIResourceChangeEntry : MonoBehaviour
     {
@@ -60,10 +60,10 @@ namespace Sleepwalking
             if (Background != null) Background.SetActive(true);
             if (ChangeResourceAmount.Amount == 0) return true;
 
-            int currentResourceAmount = GameController.GameState.GetResourceAmount(ChangeResourceAmount.ResourceType);
+            int currentResourceAmount = GameController.CurrentGameState.GetResourceAmount(ChangeResourceAmount.ResourceType);
             if (ChangeResourceAmount.Amount < 0 && currentResourceAmount > Math.Abs(ChangeResourceAmount.Amount)) return true;
 
-            int maxResourceAmount = GameController.GameState.GetResourceMaxAmount(ChangeResourceAmount.ResourceType);
+            int maxResourceAmount = GameController.CurrentGameState.GetResourceMaxAmount(ChangeResourceAmount.ResourceType);
             if (maxResourceAmount - currentResourceAmount <= ChangeResourceAmount.Amount) return true;
 
             if (Background != null) Background.SetActive(false);

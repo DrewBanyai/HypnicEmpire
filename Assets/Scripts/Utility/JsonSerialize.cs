@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Sleepwalking
+namespace HypnicEmpire
 {
     public static class JsonSerialization
     {

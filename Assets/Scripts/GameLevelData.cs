@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 
-namespace Sleepwalking
+namespace HypnicEmpire
 {
     [Serializable]
     public class GameLevelData

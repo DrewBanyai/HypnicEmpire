@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System;
 using System.Collections.Generic;
 
-namespace Sleepwalking
+namespace HypnicEmpire
 {
     // Use the CreateAssetMenu attribute to allow creating instances of this ScriptableObject from the Unity Editor.
 

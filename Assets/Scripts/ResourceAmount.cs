@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Sleepwalking
+namespace HypnicEmpire
 {
     [Serializable]
     public class ResourceAmount
@@ -20,10 +20,10 @@ namespace Sleepwalking
         {
             if (Amount == 0) return true;
 
-            int currentResourceAmount = GameController.GameState.GetResourceAmount(ResourceType);
+            int currentResourceAmount = GameController.CurrentGameState.GetResourceAmount(ResourceType);
             if (Amount < 0) return currentResourceAmount >= Math.Abs(Amount);
 
-            int maxResourceAmount = GameController.GameState.GetResourceMaxAmount(ResourceType);
+            int maxResourceAmount = GameController.CurrentGameState.GetResourceMaxAmount(ResourceType);
             return currentResourceAmount + Amount <= maxResourceAmount;
         }
     }
@@ -64,7 +64,7 @@ namespace Sleepwalking
         public void ExecuteChange()
         {
             foreach (ResourceAmount ar in ResourceAmounts)
-                GameController.GameState.AddToResource(ar.ResourceType, ar.Amount);
+                GameController.CurrentGameState.AddToResource(ar.ResourceType, ar.Amount);
         }
     }
 }

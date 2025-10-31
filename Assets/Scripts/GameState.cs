@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace Sleepwalking
+namespace HypnicEmpire
 {
     [Serializable]
     public class GameState

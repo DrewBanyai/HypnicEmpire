@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 
-namespace Sleepwalking
+namespace HypnicEmpire
 {
     // Use the CreateAssetMenu attribute to allow creating instances of this ScriptableObject from the Unity Editor.
     [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/GameLevelsScriptableObject", order = 1)]

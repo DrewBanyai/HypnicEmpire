@@ -1,4 +1,4 @@
-namespace Sleepwalking
+namespace HypnicEmpire
 {
     public enum GameUnlock
     {

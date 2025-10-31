@@ -5,7 +5,7 @@ using BreakInfinity;
 using TMPro;
 using System;
 
-namespace Sleepwalking
+namespace HypnicEmpire
 {
     public class UIView_MainGame : MonoBehaviour
     {

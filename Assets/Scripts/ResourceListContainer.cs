@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Sleepwalking
+namespace HypnicEmpire
 {
     public class ResourceListContainer : MonoBehaviour
     {

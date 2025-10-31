@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System;
 using TMPro;
 
-namespace Sleepwalking
+namespace HypnicEmpire
 {
     public class UIResourceEntry : MonoBehaviour
     {
@@ -27,18 +27,18 @@ namespace Sleepwalking
                     ResourceNameText.text = Localization.DisplayText_ResourceDisplayName(resourceName);
 
                 if (ResourceAmountText != null)
-                    ResourceAmountText.text = Localization.DisplayText_ResourceCountDivide(GameController.GameState.GetResourceAmount(resourceType), GameController.GameState.GetResourceMaxAmount(resourceType));
+                    ResourceAmountText.text = Localization.DisplayText_ResourceCountDivide(GameController.CurrentGameState.GetResourceAmount(resourceType), GameController.CurrentGameState.GetResourceMaxAmount(resourceType));
 
-                GameController.GameState.SubscribeToResourceAmount(resourceType, (amountChange, newAmount) =>
+                GameController.CurrentGameState.SubscribeToResourceAmount(resourceType, (amountChange, newAmount) =>
                 {
                     if (ResourceAmountText != null)
-                        ResourceAmountText.text = Localization.DisplayText_ResourceCountDivide(newAmount, GameController.GameState.GetResourceMaxAmount(resourceType));
+                        ResourceAmountText.text = Localization.DisplayText_ResourceCountDivide(newAmount, GameController.CurrentGameState.GetResourceMaxAmount(resourceType));
                 });
 
-                GameController.GameState.SubscribeToResourceMaximum(resourceType, (maxChange, newMax) =>
+                GameController.CurrentGameState.SubscribeToResourceMaximum(resourceType, (maxChange, newMax) =>
                 {
                     if (ResourceAmountText != null)
-                        ResourceAmountText.text = Localization.DisplayText_ResourceCountDivide(GameController.GameState.GetResourceAmount(resourceType), newMax);
+                        ResourceAmountText.text = Localization.DisplayText_ResourceCountDivide(GameController.CurrentGameState.GetResourceAmount(resourceType), newMax);
                 });
             }
             catch (ArgumentException)

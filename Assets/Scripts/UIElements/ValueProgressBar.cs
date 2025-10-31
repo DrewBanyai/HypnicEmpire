@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Sleepwalking
+namespace HypnicEmpire
 {
     public class ValueProgressBar : MonoBehaviour
     {
@@ -12,12 +12,12 @@ namespace Sleepwalking
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-            GameController.GameState.SubscribeToResourceAmount(resourceType, ResourceChangeCallback);
+            GameController.CurrentGameState.SubscribeToResourceAmount(resourceType, ResourceChangeCallback);
         }
 
         void OnDestroy()
         {
-            GameController.GameState.UnsubscribeToResourceAmount(resourceType, ResourceChangeCallback);
+            GameController.CurrentGameState.UnsubscribeToResourceAmount(resourceType, ResourceChangeCallback);
         }
 
         // Update is called once per frame
