@@ -16,16 +16,15 @@ MonoBehaviour:
     LevelReached: 0
     LevelCurrent: 0
     LevelDelveCount: 0
-    GameUnlockList: 
+    GameUnlockList:
+      m_keys: 00000000
+      m_values: 01
     CurrentResourceCounts:
       m_keys: 0000000001000000
       m_values: 0300000000000000
     CurrentResourceMaximum:
       m_keys: 0000000001000000
       m_values: 0a0000000f000000
-    CurrentResourceUnlocked:
-      m_keys: 0000000001000000
-      m_values: 0100
     MasterVolume: 50
     SFXVolume: 50
     MusicVolume: 50

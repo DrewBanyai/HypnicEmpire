@@ -4,6 +4,9 @@ namespace HypnicEmpire
     {
         Food,
         Treasure,
-        Herbs
+        Herbs,
+        Money,
+        Wood,
+        People
     }
 }

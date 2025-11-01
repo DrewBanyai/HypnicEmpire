@@ -3,9 +3,10 @@ using UnityEngine;
 
 namespace HypnicEmpire
 {
-    public class ResourceListContainer : MonoBehaviour
+    public class UIResourceListMenu : MonoBehaviour
     {
         [SerializeField] public GameObject ResourceEntryPrefab;
+        [SerializeField] public Transform ResourceDisplayParent;
 
         private List<ResourceType> ResourcesTracked = new();
 
@@ -14,9 +15,9 @@ namespace HypnicEmpire
             if (ResourcesTracked.Contains(resourceType)) return;
             ResourcesTracked.Add(resourceType);
 
-            if (ResourceEntryPrefab != null && this.gameObject.transform != null)
+            if (ResourceEntryPrefab != null && ResourceDisplayParent != null)
             {
-                var entryObject = Instantiate(ResourceEntryPrefab, this.gameObject.transform);
+                var entryObject = Instantiate(ResourceEntryPrefab, ResourceDisplayParent);
                 var entryComponent = entryObject.GetComponent<UIResourceEntry>();
                 if (entryComponent != null)
                     entryComponent.SetContent(resourceType);
@@ -26,7 +27,7 @@ namespace HypnicEmpire
         public void ClearAllResourceEntries()
         {
             ResourcesTracked = new();
-            foreach (Transform child in this.gameObject.transform)
+            foreach (Transform child in ResourceDisplayParent)
                 Destroy(child.gameObject);
         }
     }

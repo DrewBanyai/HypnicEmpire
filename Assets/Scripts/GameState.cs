@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace HypnicEmpire
 {
@@ -17,11 +18,13 @@ namespace HypnicEmpire
         public int LevelDelveCount = 0;
 
         //  The list of game unlocks that have occurred
-        public List<GameUnlock> GameUnlockList = new();
+        public SerializableDictionary<GameUnlock, bool> GameUnlockList = new();
+        public bool IsUnlocked(GameUnlock unlock) { return GameUnlockList.ContainsKey(unlock) && GameUnlockList[unlock] == true; }
 
         public SerializableDictionary<ResourceType, int> CurrentResourceCounts = new();
         public SerializableDictionary<ResourceType, int> CurrentResourceMaximum = new();
-        public SerializableDictionary<ResourceType, bool> CurrentResourceUnlocked = new();
+        
+        //  Subscriptions to changes in Resource Amount or Maximum
         private List<Action<int, int>> GenericResourceAmountSubscriptions = new();
         private List<Action<int, int>> GenericResourceMaximumSubscriptions = new();
         private SerializableDictionary<ResourceType, List<Action<int, int>>> ResourceAmountSubscriptions = new();
@@ -43,9 +46,21 @@ namespace HypnicEmpire
         public void Initialize(GameStateScriptableObject gameState)
         {
             if (gameState == null) return;
-            
+
+            ClearAllResourceValues();
             ClearAllSubscriptions();
             CopyGameState(gameState.GameState);
+        }
+
+        public void ClearAllResourceValues()
+        {
+            CurrentResourceCounts = new SerializableDictionary<ResourceType, int>();
+            CurrentResourceMaximum = new SerializableDictionary<ResourceType, int>();
+            foreach (var rt in Enum.GetValues(typeof(ResourceType)).Cast<ResourceType>())
+            {
+                CurrentResourceCounts[rt] = 0;
+                CurrentResourceMaximum[rt] = 999;
+            }
         }
 
         private void ClearAllSubscriptions()
@@ -58,6 +73,16 @@ namespace HypnicEmpire
             ResourceMaximumSubscriptionsToAdd = new SerializableDictionary<ResourceType, List<Action<int, int>>>();
             ResourceAmountSubscriptionsToRemove = new SerializableDictionary<ResourceType, List<Action<int, int>>>();
             ResourceMaximumSubscriptionsToRemove = new SerializableDictionary<ResourceType, List<Action<int, int>>>();
+            
+            foreach (var rt in Enum.GetValues(typeof(ResourceType)).Cast<ResourceType>())
+            {
+                ResourceAmountSubscriptions[rt] = new List<Action<int, int>>();
+                ResourceMaximumSubscriptions[rt] = new List<Action<int, int>>();
+                ResourceAmountSubscriptionsToAdd[rt] = new List<Action<int, int>>();
+                ResourceMaximumSubscriptionsToAdd[rt] = new List<Action<int, int>>();
+                ResourceAmountSubscriptionsToRemove[rt] = new List<Action<int, int>>();
+                ResourceMaximumSubscriptionsToRemove[rt] = new List<Action<int, int>>();
+            }
         }
 
         public void CopyGameState(GameState other)
@@ -67,110 +92,35 @@ namespace HypnicEmpire
             LevelDelveCount = other.LevelDelveCount;
 
             GameUnlockList.Clear();
-            foreach (var item in other.GameUnlockList)
-                GameUnlockList.Add(item);
+            foreach (var item in other.GameUnlockList) GameUnlockList[item.Key] = item.Value;
 
-            CurrentResourceCounts = new SerializableDictionary<ResourceType, int>();
-            foreach (var entry in other.CurrentResourceCounts)
-                SetResourceAmount(entry.Key, entry.Value);
-
-            CurrentResourceMaximum = new SerializableDictionary<ResourceType, int>();
-            foreach (var entry in other.CurrentResourceMaximum)
-                SetResourceMaximum(entry.Key, entry.Value);
-
-            CurrentResourceUnlocked = new SerializableDictionary<ResourceType, bool>();
-            foreach (var entry in other.CurrentResourceUnlocked)
-                SetResourceUnlocked(entry.Key, entry.Value);
+            ClearAllResourceValues();
+            foreach (var entry in other.CurrentResourceCounts) CurrentResourceCounts[entry.Key] = entry.Value;
+            foreach (var entry in other.CurrentResourceMaximum) CurrentResourceMaximum[entry.Key] = entry.Value;
         }
 
-        public int GetResourceAmount(ResourceType resourceType)
-        {
-            if (!CurrentResourceCounts.ContainsKey(resourceType))
-                CurrentResourceCounts[resourceType] = 0;
+        public int GetResourceAmount(ResourceType resourceType) { return CurrentResourceCounts[resourceType]; }
+        public int GetResourceMaxAmount(ResourceType resourceType) { return CurrentResourceMaximum[resourceType]; }
 
-            return CurrentResourceCounts[resourceType];
-        }
-
-        public int GetResourceMaxAmount(ResourceType resourceType)
-        {
-            if (!CurrentResourceMaximum.ContainsKey(resourceType))
-                CurrentResourceMaximum[resourceType] = 0;
-
-            return CurrentResourceMaximum[resourceType];
-        }
-
-        public void SubscribeToGenericResourceAmountChange(Action<int, int> callback)
-        {
-            GenericResourceAmountSubscriptions.Add(callback);
-        }
-
-        public void SubscribeToGenericResourceMaximumChange(Action<int, int> callback)
-        {
-            GenericResourceMaximumSubscriptions.Add(callback);
-        }
-
-        public void SubscribeToResourceAmount(ResourceType resourceType, Action<int, int> callback)
-        {
-            if (!ResourceAmountSubscriptions.ContainsKey(resourceType))
-                ResourceAmountSubscriptions[resourceType] = new List<Action<int, int>>();
-            if (!ResourceAmountSubscriptionsToAdd.ContainsKey(resourceType))
-                ResourceAmountSubscriptionsToAdd[resourceType] = new List<Action<int, int>>();
-
-            ResourceAmountSubscriptionsToAdd[resourceType].Add(callback);
-        }
-
+        public void SubscribeToGenericResourceAmountChange(Action<int, int> callback) { GenericResourceAmountSubscriptions.Add(callback); }
+        public void SubscribeToGenericResourceMaximumChange(Action<int, int> callback) { GenericResourceMaximumSubscriptions.Add(callback); }
+        public void SubscribeToResourceAmount(ResourceType resourceType, Action<int, int> callback) { ResourceAmountSubscriptionsToAdd[resourceType].Add(callback); }
         public void UnsubscribeToResourceAmount(ResourceType resourceType, Action<int, int> callback)
         {
-            if (!ResourceAmountSubscriptions.ContainsKey(resourceType))
-                ResourceAmountSubscriptions[resourceType] = new List<Action<int, int>>();
-            if (!ResourceAmountSubscriptionsToRemove.ContainsKey(resourceType))
-                ResourceAmountSubscriptionsToRemove[resourceType] = new List<Action<int, int>>();
-
-            if (ResourceAmountSubscriptions[resourceType].Contains(callback))
-                ResourceAmountSubscriptionsToRemove[resourceType].Add(callback);
+            if (ResourceAmountSubscriptions[resourceType].Contains(callback)) ResourceAmountSubscriptionsToRemove[resourceType].Add(callback);
         }
-
-        public void SubscribeToResourceMaximum(ResourceType resourceType, Action<int, int> callback)
-        {
-            if (!ResourceMaximumSubscriptions.ContainsKey(resourceType))
-                ResourceMaximumSubscriptions[resourceType] = new List<Action<int, int>>();
-            if (!ResourceMaximumSubscriptionsToAdd.ContainsKey(resourceType))
-                ResourceMaximumSubscriptionsToAdd[resourceType] = new List<Action<int, int>>();
-
-            ResourceMaximumSubscriptionsToAdd[resourceType].Add(callback);
-        }
-
+        public void SubscribeToResourceMaximum(ResourceType resourceType, Action<int, int> callback) { ResourceMaximumSubscriptionsToAdd[resourceType].Add(callback); }
         public void UnsubscribeToResourceMaximum(ResourceType resourceType, Action<int, int> callback)
         {
-            if (!ResourceMaximumSubscriptions.ContainsKey(resourceType))
-                ResourceMaximumSubscriptions[resourceType] = new List<Action<int, int>>();
-            if (!ResourceMaximumSubscriptionsToRemove.ContainsKey(resourceType))
-                ResourceMaximumSubscriptionsToRemove[resourceType] = new List<Action<int, int>>();
-
-            if (ResourceMaximumSubscriptions[resourceType].Contains(callback))
-                ResourceMaximumSubscriptionsToRemove[resourceType].Add(callback);
+            if (ResourceMaximumSubscriptions[resourceType].Contains(callback)) ResourceMaximumSubscriptionsToRemove[resourceType].Add(callback);
         }
 
-        public void SetResourceAmount(ResourceType resourceType, int amount)
-        {
-            if (!CurrentResourceCounts.ContainsKey(resourceType))
-                CurrentResourceCounts[resourceType] = 0;
-
-            AddToResource(resourceType, amount - GetResourceAmount(resourceType));
-        }
-
+        public void SetResourceAmount(ResourceType resourceType, int amount) { AddToResource(resourceType, amount - GetResourceAmount(resourceType)); }
         public void AddToResource(ResourceType resourceType, int amount)
         {
-            SetResourceUnlocked(resourceType, true);
             ProcessSubscriptionsToAddAndRemove(resourceType);
 
-            if (!CurrentResourceCounts.ContainsKey(resourceType))
-                CurrentResourceCounts[resourceType] = 0;
-
             CurrentResourceCounts[resourceType] = Math.Min(GetResourceMaxAmount(resourceType), Math.Max(0, CurrentResourceCounts[resourceType] + amount));
-
-            if (!ResourceAmountSubscriptions.ContainsKey(resourceType))
-                ResourceAmountSubscriptions[resourceType] = new List<Action<int, int>>();
 
             foreach (var callback in ResourceAmountSubscriptions[resourceType])
                 callback(amount, CurrentResourceCounts[resourceType]);
@@ -179,21 +129,12 @@ namespace HypnicEmpire
                 callback(amount, CurrentResourceCounts[resourceType]);
         }
 
-        public void SetResourceMaximum(ResourceType resourceType, int maxAmount)
-        {
-            AddToResourceMaximum(resourceType, maxAmount - GetResourceMaxAmount(resourceType));
-        }
-
+        public void SetResourceMaximum(ResourceType resourceType, int maxAmount) { AddToResourceMaximum(resourceType, maxAmount - GetResourceMaxAmount(resourceType)); }
         private void AddToResourceMaximum(ResourceType resourceType, int maxAmount)
         {
             ProcessSubscriptionsToAddAndRemove(resourceType);
 
-            if (!CurrentResourceMaximum.ContainsKey(resourceType))
-                CurrentResourceMaximum[resourceType] = 0;
             CurrentResourceMaximum[resourceType] += maxAmount;
-
-            if (!ResourceMaximumSubscriptions.ContainsKey(resourceType))
-                ResourceMaximumSubscriptions[resourceType] = new List<Action<int, int>>();
 
             foreach (var callback in ResourceMaximumSubscriptions[resourceType])
                 callback(maxAmount, CurrentResourceMaximum[resourceType]);
@@ -247,20 +188,14 @@ namespace HypnicEmpire
         
         public void SetResourceUnlocked(ResourceType resourceType, bool unlocked)
         {
-            if (!CurrentResourceCounts.ContainsKey(resourceType))
-                CurrentResourceCounts[resourceType] = 0;
-            if (!CurrentResourceMaximum.ContainsKey(resourceType))
-                CurrentResourceMaximum[resourceType] = 999;
-
-            CurrentResourceUnlocked[resourceType] = unlocked;
+            GameUnlock? resourceUnlock = ResourceGameUnlockUtility.GetUnlockFromResourceType(resourceType);
+            if (resourceUnlock != null) SetUnlockValue(resourceUnlock.Value, unlocked);
         }
-
-        public int GetResourceCount(ResourceType resourceType)
+        
+        public void SetUnlockValue(GameUnlock unlock, bool unlocked)
         {
-            if (!CurrentResourceCounts.ContainsKey(resourceType))
-                CurrentResourceCounts[resourceType] = 0;
-                
-            return CurrentResourceCounts[resourceType];
+            GameUnlockList[unlock] = unlocked;
+            GameUnlockSystem.SetUnlockValue(unlock, unlocked);
         }
     }
 }

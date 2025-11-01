@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using BasicAppUtility;
+using System.Security.AccessControl;
 
 namespace HypnicEmpire
 {
@@ -113,7 +114,7 @@ namespace HypnicEmpire
             {
                 if (newAmount == 0)
                 {
-                    CurrentGameState.GameUnlockList.Add(GameUnlock.Unlocked_Developments);
+                    CurrentGameState.GameUnlockList[GameUnlock.Unlocked_Developments] = true;
                     MainGameUIView.AddOpenDevelopment("Initial Development", "You have run out of Food for the first time! This development has been unlocked as a result.", "No extra info.");
                     CurrentGameState.UnsubscribeToResourceAmount(ResourceType.Food, unhideDevelopmentsFunc);
                 }
@@ -135,12 +136,15 @@ namespace HypnicEmpire
             if (MainGameUIView == null) return;
 
             //  Set the Developments tab to be visible if our current game state has not unlocked the Unlocked_Developments event that triggers it being shown
-            MainGameUIView.SetDevelopmentsTabGroupHidden(!CurrentGameState.GameUnlockList.Contains(GameUnlock.Unlocked_Developments));
-            MainGameUIView.SetBuildingsTabGroupHidden(!CurrentGameState.GameUnlockList.Contains(GameUnlock.Unlocked_Buildings));
-            MainGameUIView?.SetFinishedDevelopmentsGroupHidden(!CurrentGameState.GameUnlockList.Contains(GameUnlock.Unlocked_Finished_Developments));
+            MainGameUIView.ResourceListControl.ClearAllResourceEntries();
+            foreach (var gu in Enum.GetValues(typeof(GameUnlock)).Cast<GameUnlock>())
+            {
+                bool unlocked = CurrentGameState.IsUnlocked(gu);
+                GameUnlockSystem.SetUnlockValue(gu, unlocked);
 
-            //  Unlock resources visually in the left-most Resource Entry list on the main game UI
-            foreach (var ru in CurrentGameState.CurrentResourceUnlocked) if (ru.Value == true) MainGameUIView.AddResourceEntry(ru.Key);
+                ResourceType? unlockedResource = ResourceGameUnlockUtility.GetResourceTypeFromUnlock(gu);
+                if (unlockedResource != null && unlocked) MainGameUIView.ResourceListControl.AddResourceEntry(unlockedResource.Value);
+            }
         }
 
         public void CurrentLevelUp()
@@ -169,8 +173,6 @@ namespace HypnicEmpire
 
             //  Lose and gain all resources assigned to this level of the game, unlocking resources as needed
             var changes = GetCurrentDelveResourceChanges();
-            if (changes.Any(ra => ra.ResourceType == ResourceType.Treasure)) CurrentGameState.SetResourceUnlocked(ResourceType.Treasure, true);
-            if (changes.Any(ra => ra.ResourceType == ResourceType.Herbs)) CurrentGameState.SetResourceUnlocked(ResourceType.Herbs, true);
             ChangeResources(changes);
         }
 
@@ -222,7 +224,7 @@ namespace HypnicEmpire
             foreach (var ra in amountsList)
             {
                 CurrentGameState.AddToResource(ra.ResourceType, ra.Amount);
-                MainGameUIView.AddResourceEntry(ra.ResourceType);
+                MainGameUIView.ResourceListControl?.AddResourceEntry(ra.ResourceType);
             }
         }
     }

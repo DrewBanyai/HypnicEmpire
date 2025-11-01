@@ -4168,6 +4168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d561bb9dc8f17f4cb31d73910bc64ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  UIDevelopmentEntryPrefab: {fileID: 7422695424316775615, guid: 34f2114b490efc44f9ba6cb43b7be861, type: 3}
+  OpenDevelopmentsListParent: {fileID: 658500079}
+  FinishedDevelopmentsListParent: {fileID: 835873558}
 --- !u!114 &890720963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5669,7 +5672,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIView_MainMenu
   UIJournalEntryPrefab: {fileID: 494559920541874723, guid: cd1aa3ac11dd25b4eb53f70119ea0ba5, type: 3}
-  UIDevelopmentEntryPrefab: {fileID: 7422695424316775615, guid: 34f2114b490efc44f9ba6cb43b7be861, type: 3}
   UIResourceChangeEntryPrefab: {fileID: 6394958459525166133, guid: fa76490bcf39ca644adde221c43b02e4, type: 3}
   ExitButton: {fileID: 1163193234}
   OptionsButton: {fileID: 1523791653}
@@ -5684,11 +5686,9 @@ MonoBehaviour:
   AchievementsMenu: {fileID: 348015312}
   ActionsMenu: {fileID: 1300341070}
   DevelopmentsMenu: {fileID: 890720960}
-  ResourceList: {fileID: 1691135398}
-  ResourceDisplayParent: {fileID: 1691135396}
+  ResourceListControl: {fileID: 1812892777}
   JournalDisplayParent: {fileID: 1318926351}
-  OpenDevelopmentDisplayParent: {fileID: 658500079}
-  FinishedDevelopmentDisplayParent: {fileID: 835873558}
+  DevelopmentsMenuControl: {fileID: 890720962}
   DelveResourceLossParent: {fileID: 124646253}
   DelveResourceGainParent: {fileID: 268308155}
   SaveAndExitButton: {fileID: 1591778752}
@@ -7037,7 +7037,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -8415,7 +8415,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1691135396}
-  - component: {fileID: 1691135398}
   - component: {fileID: 1691135397}
   m_Layer: 0
   m_Name: ResourceEntries
@@ -8470,19 +8469,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &1691135398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1691135395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ce5954f749a58c4a9a3a96d59c7f715, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  ResourceEntryPrefab: {fileID: 2063671820793610299, guid: 850a7ad12a04b254a9a2f43f02e97081, type: 3}
 --- !u!1 &1753682812
 GameObject:
   m_ObjectHideFlags: 0
@@ -8888,8 +8874,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1812892775}
   - component: {fileID: 1812892776}
+  - component: {fileID: 1812892777}
   m_Layer: 0
-  m_Name: ResourcesMenu
+  m_Name: ResourceListMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8943,6 +8930,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1812892777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812892774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce5954f749a58c4a9a3a96d59c7f715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HypnicEmpire.UIResourceListMenu
+  ResourceEntryPrefab: {fileID: 2063671820793610299, guid: 850a7ad12a04b254a9a2f43f02e97081, type: 3}
+  ResourceDisplayParent: {fileID: 1691135396}
 --- !u!224 &1818145797 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6674721249688377283, guid: 523cf9d41f01a704a8903495e7929fe9, type: 3}

@@ -14,7 +14,6 @@ namespace HypnicEmpire
 
         [Header("UI Element Prefabs")]
         [SerializeField] public GameObject UIJournalEntryPrefab;
-        [SerializeField] public GameObject UIDevelopmentEntryPrefab;
         [SerializeField] public GameObject UIResourceChangeEntryPrefab;
 
         [Header("Primary Menu UI Buttons")]
@@ -33,13 +32,11 @@ namespace HypnicEmpire
         [SerializeField] public GameObject AchievementsMenu;
         [SerializeField] public GameObject ActionsMenu;
         [SerializeField] public GameObject DevelopmentsMenu;
-        [SerializeField] public ResourceListContainer ResourceList;
+        [SerializeField] public UIResourceListMenu ResourceListControl;
         
         [Header("UI List Display Parents")]
-        [SerializeField] public Transform ResourceDisplayParent;
         [SerializeField] public Transform JournalDisplayParent;
-        [SerializeField] public Transform OpenDevelopmentDisplayParent;
-        [SerializeField] public Transform FinishedDevelopmentDisplayParent;
+        [SerializeField] public UIDevelopmentsMenu DevelopmentsMenuControl;
         [SerializeField] public Transform DelveResourceLossParent;
         [SerializeField] public Transform DelveResourceGainParent;
 
@@ -65,10 +62,6 @@ namespace HypnicEmpire
         [SerializeField] public GameObject[] DevelopmentsTabGroup;
         [SerializeField] public GameObject[] BuildingsTabGroup;
         [SerializeField] public GameObject[] FinishedDevelopmentsSubGroup;
-
-        public void SetDevelopmentsTabGroupHidden(bool hidden) { foreach (var obj in DevelopmentsTabGroup) obj?.SetActive(!hidden); }
-        public void SetBuildingsTabGroupHidden(bool hidden) { foreach (var obj in BuildingsTabGroup) obj?.SetActive(!hidden); }
-        public void SetFinishedDevelopmentsGroupHidden(bool hidden) { foreach (var obj in FinishedDevelopmentsSubGroup) obj?.SetActive(!hidden); }
 
         //  Collections of elements to use in menu functionality
         private List<Button> CenterMenuButtons => new() { ExitButton, OptionsButton, AchievementsButton, ActionsButton, DevelopmentsButton };
@@ -96,16 +89,14 @@ namespace HypnicEmpire
             SaveAndExitButton?.onClick.AddListener(() => { SaveAndExitButtonAction?.Invoke(); });
             SaveButton?.onClick.AddListener(() => { SaveButtonAction?.Invoke(); });
             LoadButton?.onClick.AddListener(() => { LoadButtonAction?.Invoke(); });
+
+            GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlocked_Developments, (bool shown) => { foreach (var obj in DevelopmentsTabGroup) obj?.SetActive(shown); });
+            GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlocked_Buildings, (bool shown) => { foreach (var obj in BuildingsTabGroup) obj?.SetActive(shown); });
+            GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlocked_Finished_Developments, (bool shown) => { foreach (var obj in FinishedDevelopmentsSubGroup) obj?.SetActive(shown); });
         }
 
         public void ResetUI()
         {
-            if (ResourceList != null)
-            {
-                ResourceList.ClearAllResourceEntries();
-                AddResourceEntry(ResourceType.Food);
-            }
-
             DelveTaskButton?.Reset();
 
             SetResetButtonUnpacked(false);
@@ -136,11 +127,6 @@ namespace HypnicEmpire
             if (HardResetButton != null) HardResetButton.interactable = !unpacked;
             HardResetConfirmButton?.gameObject.SetActive(unpacked);
             HardResetCancelButton?.gameObject.SetActive(unpacked);
-        }
-
-        public void AddResourceEntry(ResourceType resourceType)
-        {
-            ResourceList?.AddResourceEntry(resourceType);
         }
 
         public void ClearDelveResourceChanges()
@@ -176,21 +162,14 @@ namespace HypnicEmpire
 
         public void AddOpenDevelopment(string name, string description, string extraInfo)
         {
-            SetDevelopmentsTabGroupHidden(false);
-            if (UIDevelopmentEntryPrefab != null && DevelopmentsMenu != null && OpenDevelopmentDisplayParent != null)
-            {
-                var entryObject = Instantiate(UIDevelopmentEntryPrefab, OpenDevelopmentDisplayParent);
-                var entryComponent = entryObject.GetComponent<UIDevelopmentEntry>();
-                entryComponent?.SetContent(name, description, extraInfo);
-            }
+            GameUnlockSystem.SetUnlockValue(GameUnlock.Unlocked_Developments, true);
+            DevelopmentsMenuControl?.AddOpenDevelopment(name, description, extraInfo);
         }
 
         public void ResetDevelopmentMenu()
         {
-            SetDevelopmentsTabGroupHidden(true);
-            if (OpenDevelopmentDisplayParent != null)
-                foreach (Transform child in OpenDevelopmentDisplayParent)
-                    Destroy(child.gameObject);
+            GameUnlockSystem.SetUnlockValue(GameUnlock.Unlocked_Developments, false);
+            DevelopmentsMenuControl?.ClearDevelopmentMenu();
         }
     }
 }
