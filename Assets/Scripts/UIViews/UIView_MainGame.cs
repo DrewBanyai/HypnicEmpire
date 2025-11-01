@@ -63,6 +63,12 @@ namespace HypnicEmpire
 
         [Header("Secondary Game Related UI Elements")]
         [SerializeField] public GameObject[] DevelopmentsTabGroup;
+        [SerializeField] public GameObject[] BuildingsTabGroup;
+        [SerializeField] public GameObject[] FinishedDevelopmentsSubGroup;
+
+        public void SetDevelopmentsTabGroupHidden(bool hidden) { foreach (var obj in DevelopmentsTabGroup) obj?.SetActive(!hidden); }
+        public void SetBuildingsTabGroupHidden(bool hidden) { foreach (var obj in BuildingsTabGroup) obj?.SetActive(!hidden); }
+        public void SetFinishedDevelopmentsGroupHidden(bool hidden) { foreach (var obj in FinishedDevelopmentsSubGroup) obj?.SetActive(!hidden); }
 
         //  Collections of elements to use in menu functionality
         private List<Button> CenterMenuButtons => new() { ExitButton, OptionsButton, AchievementsButton, ActionsButton, DevelopmentsButton };
@@ -123,12 +129,6 @@ namespace HypnicEmpire
 
             foreach (var menu in Menus)
                 menu?.SetActive(menu == menuToShow);
-        }
-
-        public void SetDevelopmentsTabGroupHidden(bool hidden)
-        {
-            foreach (var obj in DevelopmentsTabGroup)
-                obj?.SetActive(!hidden);
         }
 
         public void SetResetButtonUnpacked(bool unpacked)

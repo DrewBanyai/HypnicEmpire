@@ -113,24 +113,31 @@ namespace HypnicEmpire
             {
                 if (newAmount == 0)
                 {
-                    CurrentGameState.GameUnlockList.Add(GameUnlock.Ran_Out_Of_Food);
+                    CurrentGameState.GameUnlockList.Add(GameUnlock.Unlocked_Developments);
                     MainGameUIView.AddOpenDevelopment("Initial Development", "You have run out of Food for the first time! This development has been unlocked as a result.", "No extra info.");
                     CurrentGameState.UnsubscribeToResourceAmount(ResourceType.Food, unhideDevelopmentsFunc);
                 }
             };
             CurrentGameState.SubscribeToResourceAmount(ResourceType.Food, unhideDevelopmentsFunc);
 
+            MainGameUIView.ResetDevelopmentMenu();
+            CheckDevelopments();
             CheckGameUnlocks();
+        }
+
+        public void CheckDevelopments()
+        {
+            
         }
 
         public void CheckGameUnlocks()
         {
             if (MainGameUIView == null) return;
 
-            //  Unhide the Developments Tab and then re-hide it if our current game state has not unlocked the Ran_Out_Of_Food event that triggers it being shown
-            MainGameUIView.SetDevelopmentsTabGroupHidden(false);
-            if (!CurrentGameState.GameUnlockList.Contains(GameUnlock.Ran_Out_Of_Food))
-                MainGameUIView.ResetDevelopmentMenu();
+            //  Set the Developments tab to be visible if our current game state has not unlocked the Unlocked_Developments event that triggers it being shown
+            MainGameUIView.SetDevelopmentsTabGroupHidden(!CurrentGameState.GameUnlockList.Contains(GameUnlock.Unlocked_Developments));
+            MainGameUIView.SetBuildingsTabGroupHidden(!CurrentGameState.GameUnlockList.Contains(GameUnlock.Unlocked_Buildings));
+            MainGameUIView?.SetFinishedDevelopmentsGroupHidden(!CurrentGameState.GameUnlockList.Contains(GameUnlock.Unlocked_Finished_Developments));
 
             //  Unlock resources visually in the left-most Resource Entry list on the main game UI
             foreach (var ru in CurrentGameState.CurrentResourceUnlocked) if (ru.Value == true) MainGameUIView.AddResourceEntry(ru.Key);

@@ -2,6 +2,8 @@ namespace HypnicEmpire
 {
     public enum GameUnlock
     {
-        Ran_Out_Of_Food
+        Unlocked_Developments,
+        Unlocked_Buildings,
+        Unlocked_Finished_Developments
     }
 }
