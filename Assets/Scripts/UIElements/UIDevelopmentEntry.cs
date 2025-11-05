@@ -1,34 +1,64 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections.Generic;
 
-public class UIDevelopmentEntry : MonoBehaviour
+namespace HypnicEmpire
 {
-    [SerializeField] public TextMeshProUGUI NameText;
-    [SerializeField] public TextMeshProUGUI DescriptionText;
-    [SerializeField] public TextMeshProUGUI ExtraInfoText;
-
-    public void SetContent(string name, string description, string extraInfo)
+    [RequireComponent(typeof(Button))]
+    public class UIDevelopmentEntry : MonoBehaviour
     {
-        SetNameText(name);
-        SetDescriptionText(description);
-        SetExtraInfoText(extraInfo);
-    }
+        [SerializeField] public GameObject ResourceCostUIPrefab;
+        [SerializeField] public TextMeshProUGUI TitleText;
+        [SerializeField] public TextMeshProUGUI DescriptionText;
+        [SerializeField] public TextMeshProUGUI ExtraInfoText;
+        [SerializeField] public Transform ResourceCostEntryParent;
+        [SerializeField] public Button PurchaseButton;
 
-    public void SetNameText(string name)
-    {
-        if (NameText != null)
-            NameText.text = name;
-    }
+        private List<ResourceAmount> Cost = new();
+        private GameUnlock Unlock;
 
-    public void SetDescriptionText(string description)
-    {
-        if (DescriptionText != null)
-            DescriptionText.text = description;
-    }
+        public void SetContent(string title, string description, string extraInfo, List<ResourceAmount> cost, GameUnlock unlock)
+        {
+            SetTitleText(title);
+            SetDescriptionText(description);
+            SetExtraInfoText(extraInfo);
 
-    public void SetExtraInfoText(string extraInfo)
-    {
-        if (ExtraInfoText != null)
-            ExtraInfoText.text = extraInfo;
+            if (ResourceCostEntryParent != null)
+            {
+                foreach (Transform child in ResourceCostEntryParent)
+                    Destroy(child.gameObject);
+                foreach (var costAmount in cost)
+                {
+                    var entryObject = Instantiate(ResourceCostUIPrefab, ResourceCostEntryParent);
+                    var entryComponent = entryObject.GetComponent<UIResourceChangeEntry>();
+                    entryComponent.ResourceNameText?.SetText(costAmount.ResourceType.ToString());
+                    entryComponent.SetContent(costAmount.ResourceType, costAmount.Amount);
+                }
+            }
+
+            SetCost(cost);
+            Unlock = unlock;
+
+            PurchaseButton?.onClick.RemoveAllListeners();
+            PurchaseButton?.onClick.AddListener(() =>
+            {
+                if (Cost.CheckCanChangeAll())
+                {
+                    GameController.CurrentGameState.AddToResources(Cost);
+                    GameUnlockSystem.SetUnlockValue(Unlock, true);
+                }
+            });
+        }
+
+        public void SetTitleText(string title) { TitleText?.SetText(title); }
+        public void SetDescriptionText(string description) { DescriptionText?.SetText(description); }
+        public void SetExtraInfoText(string extraInfo) { ExtraInfoText?.SetText(extraInfo); }
+
+        public void SetCost(List<ResourceAmount> cost)
+        {
+            Cost.Clear();
+            foreach (var ra in cost) Cost.Add(new ResourceAmount(ra.ResourceType, ra.Amount));
+        }
     }
 }

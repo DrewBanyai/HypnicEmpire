@@ -1,31 +1,34 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
-[RequireComponent(typeof(Image))]
-public class UIRadioButton : MonoBehaviour
+namespace HypnicEmpire
 {
-    [SerializeField] public bool Selected;
-    [SerializeField] public Sprite SelectedIcon;
-    [SerializeField] public Sprite UnselectedIcon;
-
-    private Image _image;
-
-    public void Start()
+    [RequireComponent(typeof(Button))]
+    [RequireComponent(typeof(Image))]
+    public class UIRadioButton : MonoBehaviour
     {
-        _image = GetComponent<Image>();
-        SetSelected(Selected);
-    }
+        [SerializeField] public bool Selected;
+        [SerializeField] public Sprite SelectedIcon;
+        [SerializeField] public Sprite UnselectedIcon;
 
-    public bool GetSelected()
-    {
-        return Selected;
-    }
+        private Image _image;
 
-    public void SetSelected(bool isSelected)
-    {
-        Selected = isSelected;
+        public void Start()
+        {
+            _image = GetComponent<Image>();
+            SetSelected(Selected);
+        }
 
-        _image.sprite = Selected ? SelectedIcon : UnselectedIcon;
+        public bool GetSelected()
+        {
+            return Selected;
+        }
+
+        public void SetSelected(bool isSelected)
+        {
+            Selected = isSelected;
+
+            _image.sprite = Selected ? SelectedIcon : UnselectedIcon;
+        }
     }
 }

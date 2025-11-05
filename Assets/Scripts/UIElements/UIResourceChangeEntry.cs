@@ -28,22 +28,15 @@ namespace HypnicEmpire
             {
                 ChangeResourceAmount = new ResourceAmount(resourceType, changeAmount);
 
-                if (ResourceIconImage != null)
-                    ResourceIconImage.sprite = Resources.Load<Sprite>($"ResourceIcons/{resourceType.ToString()}");
+                ResourceIconImage?.SetSprite(Resources.Load<Sprite>($"ResourceIcons/{resourceType.ToString()}"));
 
-                if (ResourceNameText != null)
-                {
-                    ResourceNameText.text = Localization.DisplayText_ResourceChangeDisplayName(resourceType);
-                    ResourceNameText.overrideColorTags = true;
-                    ResourceNameText.color = (changeAmount < 0) ? ResourceLossColor : ResourceGainColor;
-                }
+                ResourceNameText?.SetText(Localization.DisplayText_ResourceChangeDisplayName(resourceType));
+                ResourceNameText?.SetOverrideColorTags(true);
+                ResourceNameText?.SetColor((changeAmount < 0) ? ResourceLossColor : ResourceGainColor);
 
-                if (ResourceChangeText != null)
-                {
-                    ResourceChangeText.text = Localization.DisplayText_ResourceChangeDisplayAmount(changeAmount);
-                    ResourceChangeText.overrideColorTags = true;
-                    ResourceChangeText.color = (changeAmount < 0) ? ResourceLossColor : ResourceGainColor;
-                }
+                ResourceChangeText?.SetText(Localization.DisplayText_ResourceChangeDisplayAmount(changeAmount));
+                ResourceChangeText?.SetOverrideColorTags(true);
+                ResourceChangeText?.SetColor((changeAmount < 0) ? ResourceLossColor : ResourceGainColor);
             }
             catch (ArgumentException)
             {

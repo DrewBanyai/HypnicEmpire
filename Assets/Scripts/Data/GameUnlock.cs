@@ -1,5 +1,3 @@
-using System.Security.AccessControl;
-
 namespace HypnicEmpire
 {
     public enum GameUnlock
@@ -13,6 +11,14 @@ namespace HypnicEmpire
 
         Unlocked_Developments,
         Unlocked_Buildings,
-        Unlocked_Finished_Developments
+        Unlocked_Finished_Developments,
+
+        Unlocked_Action_Forage,
+        Unlocked_Action_Hunting,
+        Unlocked_Action_Market,
+        Unlocked_Action_Trade_Herbs,
+        Unlocked_Action_Sell_Food,
+        Unlocked_Action_Chop_Wood,
+        Unlocked_Action_Cut_Stone
     }
 }

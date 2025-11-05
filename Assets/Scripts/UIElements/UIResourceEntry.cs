@@ -30,14 +30,12 @@ namespace HypnicEmpire
         
         private void SetResourceNameText(ResourceType resourceType)
         {
-            if (ResourceNameText != null)
-                ResourceNameText.text = Localization.DisplayText_ResourceDisplayName(resourceType);
+            ResourceNameText?.SetText(Localization.DisplayText_ResourceDisplayName(resourceType));
         }
         
         private void SetResourceAmountText(ResourceType resourceType)
         {
-            if (ResourceAmountText != null)
-                ResourceAmountText.text = Localization.DisplayText_ResourceCountDivide(GameController.CurrentGameState.GetResourceAmount(resourceType), GameController.CurrentGameState.GetResourceMaxAmount(resourceType));
+            ResourceAmountText?.SetText(Localization.DisplayText_ResourceCountDivide(GameController.CurrentGameState.GetResourceAmount(resourceType), GameController.CurrentGameState.GetResourceMaxAmount(resourceType)));
         }
     }
 }

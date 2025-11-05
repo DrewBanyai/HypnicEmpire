@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: InitialGameState
   m_EditorClassIdentifier: Assembly-CSharp::Sleepwalking.GameStateScriptableObject
   GameState:
-    LevelReached: 0
-    LevelCurrent: 0
-    LevelDelveCount: 0
+    LevelReached:
+      Value: 0
+    LevelCurrent:
+      Value: 0
+    LevelDelveCount:
+      Value: 0
     GameUnlockList:
       m_keys: 00000000
       m_values: 01
@@ -23,8 +26,8 @@ MonoBehaviour:
       m_keys: 0000000001000000
       m_values: 0300000000000000
     CurrentResourceMaximum:
-      m_keys: 0000000001000000
-      m_values: 0a0000000f000000
+      m_keys: 000000000100000002000000030000000400000005000000
+      m_values: 0a0000000f0000002d000000640000006400000000000000
     MasterVolume: 50
     SFXVolume: 50
     MusicVolume: 50

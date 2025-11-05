@@ -17,9 +17,9 @@ namespace HypnicEmpire
             if (currentLevel < 0 || maxLevel < 0 || currentLevel > maxLevel) return;
             if (levelData == null) return;
 
-            if (LevelImage != null) LevelImage.sprite = levelData.Sprite;
-            if (LevelNameText != null) LevelNameText.text = levelData.Name;
-            if (LevelDescriptionText != null) LevelDescriptionText.text = levelData.Description;
+            LevelImage?.SetSprite(levelData.Sprite);
+            LevelNameText?.SetText(levelData.Name);
+            LevelDescriptionText?.SetText(levelData.Description);
 
             Action upLevelCallbackAdvanced = () =>
             {
@@ -38,9 +38,8 @@ namespace HypnicEmpire
 
         public void RefreshButtons()
         {
-            if (LevelIndexControl == null) return;
-            if (LevelIndexControl.IncreaseButton != null) LevelIndexControl.IncreaseButton.interactable = GameController.CurrentGameState.LevelCurrent < GameController.CurrentGameState.LevelReached;
-            if (LevelIndexControl.DecreaseButton != null) LevelIndexControl.DecreaseButton.interactable = GameController.CurrentGameState.LevelCurrent > 0;
+            LevelIndexControl?.IncreaseButton?.SetInteractable(GameController.CurrentGameState.LevelCurrent.Value < GameController.CurrentGameState.LevelReached.Value);
+            LevelIndexControl?.DecreaseButton?.SetInteractable(GameController.CurrentGameState.LevelCurrent.Value > 0);
         }
     }
 }

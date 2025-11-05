@@ -3,86 +3,92 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
-[RequireComponent(typeof(Image))]
-public class UITaskProcessButton : MonoBehaviour
+namespace HypnicEmpire
 {
-    [SerializeField] public Button Button;
-    [SerializeField] public Image ProgressForeground;
-    [SerializeField] public TextMeshProUGUI ButtonText;
-    [SerializeField] public bool Activated = false;
-
-    private float ButtonWidth;
-
-    private float ProgressSpeed = 20f;
-    private float ProgressCurrent = 0f;
-    private float ProgressMaximum = 100f;
-    private int ProgressPercent = 0;
-
-    private Action ProgressFinishAction;
-
-    public void Start()
+    [RequireComponent(typeof(Button))]
+    [RequireComponent(typeof(Image))]
+    public class UITaskProcessButton : MonoBehaviour
     {
-        ButtonWidth = ((RectTransform)Button.transform).rect.width;
+        [SerializeField] public PlayerActionType PlayerAction;
+        [SerializeField] public Button Button;
+        [SerializeField] public Image ProgressForeground;
+        [SerializeField] public TextMeshProUGUI ButtonText;
 
-        if (Button != null)
-            Button.onClick.AddListener(() => { Activated = !Activated; });
-    }
+        private float ButtonWidth;
 
-    public void Update()
-    {
-        if (!Activated) return;
-        if (!Button.interactable) return;
+        private float ProgressSpeed = 20f;
+        private float ProgressCurrent = 0f;
+        private float ProgressMaximum = 100f;
+        private int ProgressPercent = 0;
 
-        ProgressCurrent = Mathf.Clamp(ProgressCurrent + ProgressSpeed * Time.deltaTime, 0, ProgressMaximum);
-        int percent = (int)(ProgressCurrent / ProgressMaximum * 100f);
-        if (percent != ProgressPercent)
+        private Action ProgressFinishAction;
+
+        public void Start()
         {
-            ProgressPercent = percent;
-            UpdateProgressVisual();
+            ButtonWidth = ((RectTransform)Button.transform).rect.width;
 
-            if (ProgressPercent >= 100)
+            Button?.onClick.AddListener(() => {
+                if (GameController.CurrentGameState.CurrentPlayerAction == PlayerAction)
+                    GameController.CurrentGameState.CurrentPlayerAction = PlayerActionType.Inactive;
+                else
+                    GameController.CurrentGameState.CurrentPlayerAction = PlayerAction;
+            });
+        }
+
+        public void Update()
+        {
+            if (GameController.CurrentGameState.CurrentPlayerAction != PlayerAction) return;
+            if (!Button.interactable) return;
+
+            ProgressCurrent = Mathf.Clamp(ProgressCurrent + ProgressSpeed * Time.deltaTime, 0, ProgressMaximum);
+            int percent = (int)(ProgressCurrent / ProgressMaximum * 100f);
+            if (percent != ProgressPercent)
             {
-                ProgressFinishAction?.Invoke();
-                ProgressPercent = 0;
-                ProgressCurrent = 0f;
+                ProgressPercent = percent;
+                UpdateProgressVisual();
+
+                if (ProgressPercent >= 100)
+                {
+                    ProgressFinishAction?.Invoke();
+                    ProgressPercent = 0;
+                    ProgressCurrent = 0f;
+                }
             }
         }
-    }
 
-    public void SetContents(string buttonText, float speed = 20f, float maximum = 100f, Action progressFinishAction = null)
-    {
-        SetButtonText(buttonText);
-        ProgressFinishAction = progressFinishAction;
-        ProgressSpeed = speed;
-        ProgressMaximum = maximum;
-    }
+        public void SetContents(PlayerActionType actionType, float speed = 20f, float maximum = 100f, Action progressFinishAction = null)
+        {
+            PlayerAction = actionType;
+            SetButtonText(Localization.DisplayText_ActionName(actionType));
+            ProgressFinishAction = progressFinishAction;
+            ProgressSpeed = speed;
+            ProgressMaximum = maximum;
+        }
 
-    private void SetButtonText(string buttonText)
-    {
-        if (ButtonText != null)
-            ButtonText.text = buttonText;
-    }
+        private void SetButtonText(string buttonText) { ButtonText?.SetText(buttonText); }
 
-    private void UpdateProgressVisual()
-    {
-        float newWidth = ProgressCurrent / ProgressMaximum * ButtonWidth;
-        ProgressForeground.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, newWidth);
-    }
+        private void UpdateProgressVisual()
+        {
+            float newWidth = ProgressCurrent / ProgressMaximum * ButtonWidth;
+            ProgressForeground.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, newWidth);
+        }
 
-    public void SetEnabled(bool enabled)
-    {
-        Button.interactable = enabled;
+        public void SetEnabled(bool enabled)
+        {
+            Button?.SetInteractable(enabled);
 
-        if (!enabled)
-            ProgressForeground.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 0);
-    }
+            if (!enabled)
+                ProgressForeground.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 0);
+        }
 
-    public void Reset()
-    {
-        ProgressCurrent = 0f;
-        ProgressPercent = 0;
-        Activated = false;
-        UpdateProgressVisual();
+        public void Reset()
+        {
+            ProgressCurrent = 0f;
+            ProgressPercent = 0;
+            if (GameController.CurrentGameState.CurrentPlayerAction == PlayerAction)
+                GameController.CurrentGameState.CurrentPlayerAction = PlayerActionType.Inactive;
+                
+            UpdateProgressVisual();
+        }
     }
 }

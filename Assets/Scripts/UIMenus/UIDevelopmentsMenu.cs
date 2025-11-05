@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections.Generic;
 
 namespace HypnicEmpire
 {
@@ -7,6 +9,7 @@ namespace HypnicEmpire
         [SerializeField] public GameObject UIDevelopmentEntryPrefab;
         [SerializeField] public Transform OpenDevelopmentsListParent;
         [SerializeField] public Transform FinishedDevelopmentsListParent;
+        [SerializeField] public GameObject FinishedDevelopmentsSection;
 
         public void ClearDevelopmentMenu()
         {
@@ -19,13 +22,19 @@ namespace HypnicEmpire
                     Destroy(child.gameObject);
         }
 
-        public void AddOpenDevelopment(string name, string description, string extraInfo)
+        public void AddOpenDevelopment(string name, string description, string extraInfo, List<ResourceAmount> cost, GameUnlock unlock)
         {
             if (UIDevelopmentEntryPrefab != null && OpenDevelopmentsListParent != null)
             {
                 var entryObject = Instantiate(UIDevelopmentEntryPrefab, OpenDevelopmentsListParent);
                 var entryComponent = entryObject.GetComponent<UIDevelopmentEntry>();
-                entryComponent?.SetContent(name, description, extraInfo);
+                entryComponent?.SetContent(name, description, extraInfo, cost, unlock);
+                GameUnlockSystem.AddGameUnlockAction(unlock, (bool unlocked) => {
+                    if (!unlocked) return;
+                    FinishedDevelopmentsSection?.gameObject.SetActive(true);
+                    entryObject.transform.SetParent(FinishedDevelopmentsListParent, false);
+                    entryObject.GetComponent<Button>()?.SetInteractable(false);
+                });
             }
         }
     }

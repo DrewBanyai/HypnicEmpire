@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
 using System;
+using System.Linq;
 
 namespace HypnicEmpire
 {
@@ -57,6 +58,7 @@ namespace HypnicEmpire
         [Header("Primary Game Related UI Elements")]
         [SerializeField] public UITaskProcessButton DelveTaskButton;
         [SerializeField] public UIMissionDataDisplay MissionDataDisplay;
+        [SerializeField] public UILevelExplorationBar LevelExplorationBar;
 
         [Header("Secondary Game Related UI Elements")]
         [SerializeField] public GameObject[] DevelopmentsTabGroup;
@@ -71,10 +73,12 @@ namespace HypnicEmpire
         public Action SaveAndExitButtonAction;
         public Action SaveButtonAction;
         public Action LoadButtonAction;
+        public Action HardResetButtonAction;
+        public Action ToggleFullscreenButtonAction;
 
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        public void Initialize()
         {
             ExitButton?.onClick.AddListener(() => { ShowCenterMenu(ExitButton, ExitMenu); });
             OptionsButton?.onClick.AddListener(() => { ShowCenterMenu(OptionsButton, OptionsMenu); });
@@ -89,15 +93,38 @@ namespace HypnicEmpire
             SaveAndExitButton?.onClick.AddListener(() => { SaveAndExitButtonAction?.Invoke(); });
             SaveButton?.onClick.AddListener(() => { SaveButtonAction?.Invoke(); });
             LoadButton?.onClick.AddListener(() => { LoadButtonAction?.Invoke(); });
+            HardResetConfirmButton?.onClick.AddListener(() => { HardResetButtonAction?.Invoke(); });
+            FullscreenControlEntry?.AddListener(() => { ToggleFullscreenButtonAction?.Invoke(); });
 
+            HardResetButton?.onClick.AddListener(() => { SetResetButtonUnpacked(true); });
+            HardResetCancelButton?.onClick.AddListener(() => { SetResetButtonUnpacked(false); });
+
+            //  Define UI responses to game unlock events
             GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlocked_Developments, (bool shown) => { foreach (var obj in DevelopmentsTabGroup) obj?.SetActive(shown); });
             GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlocked_Buildings, (bool shown) => { foreach (var obj in BuildingsTabGroup) obj?.SetActive(shown); });
             GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlocked_Finished_Developments, (bool shown) => { foreach (var obj in FinishedDevelopmentsSubGroup) obj?.SetActive(shown); });
+            GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlocked_Action_Forage, (bool shown) => { ActionsMenu.GetComponent<UIActionMenuController>()?.SetActionEntry(PlayerActionType.Forage, shown); });
+
+            foreach (var gu in Enum.GetValues(typeof(GameUnlock)).Cast<GameUnlock>())
+            {
+                ResourceType? unlockedResource = ResourceGameUnlockUtility.GetResourceTypeFromUnlock(gu);
+                if (unlockedResource != null)
+                    GameUnlockSystem.AddGameUnlockAction(gu, (bool shown) => { if (shown) ResourceListControl?.AddResourceEntry(unlockedResource.Value); }); 
+            }
+
+            //  Define UI responses to resource changes
+            GameController.CurrentGameState.SubscribeToGenericResourceAmountChange((ResourceType rType, int amount, int maxAmount) => {
+                if (amount > 0)
+                    ResourceListControl?.AddResourceEntry(rType);
+            });
         }
 
         public void ResetUI()
         {
             DelveTaskButton?.Reset();
+
+            ResetDevelopmentMenu();
+            ResourceListControl?.ClearAllResourceEntries();
 
             SetResetButtonUnpacked(false);
             ShowCenterMenu(ActionsButton, ActionsMenu);
@@ -105,7 +132,7 @@ namespace HypnicEmpire
 
         public void SetDelveResourceChange(List<ResourceAmount> amountList)
         {
-            DelveTaskButton?.SetEnabled(amountList.CheckCanChange());
+            DelveTaskButton?.SetEnabled(amountList.CheckCanChangeAll());
 
             ClearDelveResourceChanges();
             foreach (var ra in amountList)
@@ -115,8 +142,7 @@ namespace HypnicEmpire
         void ShowCenterMenu(Button button, GameObject menuToShow)
         {
             foreach (var btn in CenterMenuButtons)
-                if (btn != null)
-                    btn.interactable = btn != button;
+                btn?.SetInteractable(btn != button);
 
             foreach (var menu in Menus)
                 menu?.SetActive(menu == menuToShow);
@@ -124,7 +150,7 @@ namespace HypnicEmpire
 
         public void SetResetButtonUnpacked(bool unpacked)
         {
-            if (HardResetButton != null) HardResetButton.interactable = !unpacked;
+            HardResetButton?.SetInteractable(!unpacked);
             HardResetConfirmButton?.gameObject.SetActive(unpacked);
             HardResetCancelButton?.gameObject.SetActive(unpacked);
         }
@@ -160,15 +186,13 @@ namespace HypnicEmpire
             }
         }
 
-        public void AddOpenDevelopment(string name, string description, string extraInfo)
+        public void AddOpenDevelopment(string name, string description, string extraInfo, List<ResourceAmount> cost, GameUnlock unlock)
         {
-            GameUnlockSystem.SetUnlockValue(GameUnlock.Unlocked_Developments, true);
-            DevelopmentsMenuControl?.AddOpenDevelopment(name, description, extraInfo);
+            DevelopmentsMenuControl?.AddOpenDevelopment(name, description, extraInfo, cost, unlock);
         }
 
         public void ResetDevelopmentMenu()
         {
-            GameUnlockSystem.SetUnlockValue(GameUnlock.Unlocked_Developments, false);
             DevelopmentsMenuControl?.ClearDevelopmentMenu();
         }
     }

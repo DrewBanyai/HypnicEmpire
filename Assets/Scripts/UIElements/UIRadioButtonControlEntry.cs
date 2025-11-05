@@ -2,32 +2,29 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIRadioButtonControlEntry : MonoBehaviour
+namespace HypnicEmpire
 {
-    [SerializeField] public UIRadioButton RadioButton;
-    [SerializeField] public TextMeshProUGUI OptionNameText;
-
-    void Start()
+    public class UIRadioButtonControlEntry : MonoBehaviour
     {
-        if (RadioButton != null)
+        [SerializeField] public UIRadioButton RadioButton;
+        [SerializeField] public TextMeshProUGUI OptionNameText;
+
+        void Start()
         {
-            RadioButton.GetComponent<Button>().onClick.AddListener(() => {
+            RadioButton?.GetComponent<Button>().onClick.AddListener(() =>
+            {
                 RadioButton.SetSelected(!RadioButton.GetSelected());
             });
         }
-    }
 
-    public void AddListener(UnityEngine.Events.UnityAction action)
-    {
-        if (RadioButton != null)
+        public void AddListener(UnityEngine.Events.UnityAction action)
         {
-            RadioButton.GetComponent<Button>().onClick.AddListener(action);
+            RadioButton?.GetComponent<Button>().onClick.AddListener(action);
         }
-    }
 
-    public void SetDisplayText(string optionName)
-    {
-        if (OptionNameText != null)
-            OptionNameText.text = optionName;
+        public void SetDisplayText(string optionName)
+        {
+            OptionNameText?.SetText(optionName);
+        }
     }
 }

@@ -5,9 +5,5 @@ public class UIJournalEntry : MonoBehaviour
 {
     [SerializeField] public TextMeshProUGUI JournalText;
 
-    public void SetJournalEntryText(string text)
-    {
-        if (JournalText != null)
-            JournalText.text = text;
-    }
+    public void SetJournalEntryText(string text) { JournalText?.SetText(text); }
 }

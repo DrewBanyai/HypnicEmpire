@@ -40,7 +40,15 @@ namespace HypnicEmpire
             amountList.Find(ra => ra.ResourceType == add.ResourceType).Amount += add.Amount;
         }
 
-        public static bool CheckCanChange(this List<ResourceAmount> amountList)
+        public static bool CheckCanChangeAny(this List<ResourceAmount> amountList)
+        {
+            foreach (ResourceAmount ra in amountList)
+                if (ra.CheckCanChange()) return true;
+
+            return false;
+        }
+
+        public static bool CheckCanChangeAll(this List<ResourceAmount> amountList)
         {
             foreach (ResourceAmount ra in amountList)
                 if (!ra.CheckCanChange()) return false;
@@ -52,6 +60,18 @@ namespace HypnicEmpire
         {
             foreach (ResourceAmount ra in amountList)
                 GameController.CurrentGameState.AddToResource(ra.ResourceType, ra.Amount);
+        }
+
+        public static bool IsIdentical(this List<ResourceAmount> amountList, List<ResourceAmount> otherList)
+        {
+            if (amountList.Count != otherList.Count) return false;
+            foreach (var entry in amountList)
+            {
+                var foundEntry = otherList.Find(e => e.ResourceType == entry.ResourceType);
+                if (foundEntry == null || foundEntry.Amount != entry.Amount) return false;
+            }
+
+            return true;
         }
     }
 }
