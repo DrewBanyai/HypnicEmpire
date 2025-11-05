@@ -11,5 +11,6 @@ namespace HypnicEmpire
         public string Name;
         public string Description;
         public SerializableDictionary<ResourceType, int> ResourceChanges = new();
+        public int DelveCount = 99;
     }
 }
