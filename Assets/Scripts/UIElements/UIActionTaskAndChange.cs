@@ -28,7 +28,7 @@ namespace HypnicEmpire
             List<ResourceAmount> lossChange = playerActionData.ResourceChange.Where(rc => rc.Amount < 0).ToList();
             ProcessButton?.SetEnabled(gainChange.CheckCanChangeAny() && lossChange.CheckCanChangeAll());
 
-            GameController.CurrentGameState.SubscribeToGenericResourceAmountChange((ResourceType rType, int amount, int maxAmount) =>
+            GameController.GameSubscriptions.SubscribeToGenericResourceAmountChange((ResourceType rType, int amount, int maxAmount) =>
             {
                 List<ResourceAmount> gainChange = playerActionData.ResourceChange.Where(rc => rc.Amount > 0).ToList();
                 List<ResourceAmount> lossChange = playerActionData.ResourceChange.Where(rc => rc.Amount < 0).ToList();

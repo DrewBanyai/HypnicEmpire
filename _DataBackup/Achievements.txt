@@ -1,0 +1,39 @@
+Trigger: {Unlocked_Empty_Belly} (reach zero food)
+Achievement: Empty Belly
+Text: Run out of food for the first time
+
+Trigger: Unlocked_Market_Money_Gain_Up_2
+Achievement: Top-level Talks
+Text: Visited the barony
+
+Trigger: Unlocked_Delve_50_Times
+Achievement: Complete Beginner
+Text: Delve 50 times
+
+Trigger: Unlocked_Lucky_Dime (money above zero)
+Achievement: Lucky Dime
+Text: Gain money for the first time
+
+Trigger: Unlocked_Lucky_Dime (wood above zero)
+Achievement: Some Hard Log
+Text: Produce your first unit of wood
+
+Trigger: {Unlocked_Got_The_Bling_Bling} (max out money)
+Achievement: Got The Bling Bling
+Text: Max out money at least once
+
+Trigger: {Unlocked_Small_Hoard} (max out trasure)
+Achievement: Small Hoard
+Text: Max out treasure at least once
+
+Trigger: {Unlocked_Not_Hungry} (max out food)
+Achievement: Not Hungry
+Text: Max out food at least once
+
+Trigger: Unlocked_Say_No_To_Drugs (max out herbs)
+Achievement: Say No To Drugs
+Text: Max out herbs at least once
+
+Trigger: Unlocked_Backlogged (max out wood)
+Achievement: Backlogged
+Text: Max out wood at least once

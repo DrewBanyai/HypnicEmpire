@@ -48,18 +48,38 @@ namespace HypnicEmpire
             }
         }
 
-        public bool CheckCanChange()
+        public bool CheckCanChange(bool overrideNoBG = false, bool greenEvenNegative = false)
         {
-            if (Background != null) Background.SetActive(true);
+            Background?.SetActive(true);
             if (ChangeResourceAmount.Amount == 0) return true;
 
             int currentResourceAmount = GameController.CurrentGameState.GetResourceAmount(ChangeResourceAmount.ResourceType);
-            if (ChangeResourceAmount.Amount < 0 && currentResourceAmount > Math.Abs(ChangeResourceAmount.Amount)) return true;
-
             int maxResourceAmount = GameController.CurrentGameState.GetResourceMaxAmount(ChangeResourceAmount.ResourceType);
-            if (maxResourceAmount - currentResourceAmount <= ChangeResourceAmount.Amount) return true;
 
-            if (Background != null) Background.SetActive(false);
+            if (ChangeResourceAmount.Amount < 0)
+            {
+                if (currentResourceAmount >= Math.Abs(ChangeResourceAmount.Amount))
+                {
+                    ResourceNameText?.SetColor(greenEvenNegative ? ResourceGainColor : ResourceLossColor);
+                    ResourceChangeText?.SetColor(greenEvenNegative ? ResourceGainColor : ResourceLossColor);
+                    Background?.SetActive(false);
+                    return true;
+                }
+            }
+            else
+            {
+                if (maxResourceAmount - currentResourceAmount <= ChangeResourceAmount.Amount)
+                {
+                    ResourceNameText?.SetColor(ResourceGainColor);
+                    ResourceChangeText?.SetColor(ResourceGainColor);
+                    Background?.SetActive(false);
+                    return true;
+                }
+            }
+
+            ResourceNameText?.SetColor(ResourceLossColor);
+            ResourceChangeText?.SetColor(ResourceLossColor);
+            Background?.SetActive(overrideNoBG ? false : true);
             return false;
         }
     }

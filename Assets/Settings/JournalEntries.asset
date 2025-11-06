@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 620b892554a1e8c468df3caba3603882, type: 3}
+  m_Name: JournalEntries
+  m_EditorClassIdentifier: Assembly-CSharp::HypnicEmpire.JournalEntryScriptableObject
+  JournalEntries:
+    m_keys: 06000000080000000a0000000b0000000c0000000d000000
+    m_values:
+    - You eventually arrive after a long hike through the desolate landscape of the
+      kingdoms east, where the Sevenjag mountain range looms on the horizon. Your
+      rations are almost fully depleted.\nAfter looking around for an hour, you still
+      come up empty, already silently cursing the old fool who sold you the treasure
+      map.\nBut then you finally stumble upon it, almost dropping down its gaping
+      entrance.\n\nYou found a hole in the ground.
+    - You found a varied assortment of foods in the surrounding underbrush. While
+      looking for a snack you also gathered a tiny amount of medicinal herbs.\nThey
+      could be useful in the future.
+    - Slowly you are getting the hang of it. The area around the hole is full of
+      berry bushes and tiny wild carrots. Enough for a hearty soup at least.
+    - The nearby villagers eye you suspiciously. The people here can barely survive
+      on what the acidic soil produces.\nThey take your riches, but would much rather
+      buy some of your food.\nNot what you wanted, but at least a start.
+    - After a while, your new wild gardens stand in full bloom. Foraging is also
+      now way easier, thanks to all the paths you made through previous runs.
+    - 'You indeed sampled a lot of herbs. After that, you also sampled quite a lot
+      together from the pantry. All in all, it was a very smoke afternoon. '

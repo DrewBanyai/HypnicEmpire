@@ -29,13 +29,15 @@ namespace HypnicEmpire
                 var entryObject = Instantiate(UIDevelopmentEntryPrefab, OpenDevelopmentsListParent);
                 var entryComponent = entryObject.GetComponent<UIDevelopmentEntry>();
                 entryComponent?.SetContent(name, description, extraInfo, cost, unlock);
-                GameUnlockSystem.AddGameUnlockAction(unlock, (bool unlocked) => {
-                    if (!unlocked) return;
-                    FinishedDevelopmentsSection?.gameObject.SetActive(true);
-                    entryObject.transform.SetParent(FinishedDevelopmentsListParent, false);
-                    entryObject.GetComponent<Button>()?.SetInteractable(false);
-                });
+                GameUnlockSystem.AddGameUnlockAction(unlock, (bool unlocked) => { if (unlocked) TransferDevelopmentToFinished(entryObject); });
             }
+        }
+        
+        private void TransferDevelopmentToFinished(GameObject entryObject)
+        {
+            FinishedDevelopmentsSection?.gameObject.SetActive(true);
+            entryObject.transform.SetParent(FinishedDevelopmentsListParent, false);
+            entryObject.GetComponent<UIDevelopmentEntry>()?.ShowStatusColor(true);
         }
     }
 }

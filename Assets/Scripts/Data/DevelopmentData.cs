@@ -11,7 +11,7 @@ namespace HypnicEmpire
         public string Title;
         public string Description;
         public string EffectText;
-        public List<ResourceAmount> Cost;
         public GameUnlock Unlock;
+        public List<ResourceAmount> Cost;
     }
 }

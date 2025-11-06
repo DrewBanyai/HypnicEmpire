@@ -14,6 +14,7 @@ namespace HypnicEmpire
         //  Image
         public static void SetFillAmount(this Image image, float fillAmount) { image.fillAmount = fillAmount; }
         public static void SetSprite(this Image image, Sprite sprite) { image.sprite = sprite; }
+        public static void SetColor(this Image image, Color color) { image.color = color; }
 
         //  Button
         public static void SetInteractable(this Button button, bool interactable) { button.interactable = interactable; }

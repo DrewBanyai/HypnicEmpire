@@ -1,0 +1,50 @@
+Trigger: GAME_START
+Text: You eventually arrive after a long hike through the desolate landscape of the kingdoms east, where the Sevenjag mountain range looms on the horizon. Your rations are almost fully depleted.\nAfter looking around for an hour, you still come up empty, already silently cursing the old fool who sold you the treasure map.\nBut then you finally stumble upon it, almost dropping down its gaping entrance.\n\nYou found a hole in the ground.
+
+Trigger: {Unlocked_Action_Forage}
+Text: You found a varied assortment of foods in the surrounding underbrush. While looking for a snack you also gathered a tiny amount of medicinal herbs.\nThey could be useful in the future.
+
+Trigger: {Unlocked_Foraging_Speed_Up}
+Text: Slowly you are getting the hang of it. The area around the hole is full of berry bushes and tiny wild carrots. Enough for a hearty soup at least.
+
+Trigger: {Unlocked_Action_Sell_Food}
+Text: The nearby villagers eye you suspiciously. The people here can barely survive on what the acidic soil produces.\nThey take your riches, but would much rather buy some of your food.\nNot what you wanted, but at least a start.
+
+Trigger: {Unlocked_Foraging_Gain_Up_2_5}
+Text: After a while, your new wild gardens stand in full bloom. Foraging is also now way easier, thanks to all the paths you made through previous runs.
+
+Trigger: {Unlocked_Action_Trade_Herbs}
+Text: You indeed sampled a lot of herbs. After that, you also sampled quite a lot together from the pantry. All in all, it was a very smoke afternoon.
+
+Trigger: {Unlocked_Action_Market}
+Text: You gathered the representatives of several nearby villages in the local tavern.\nWith the help of diagrams made from pretzel crumbs and beer mats, you showed them how they could easily resell the treasures and make a decent profit themselves.\nBy the way, you also got wildly wasted in the process.
+
+Trigger: {Unlocked_Foraging_Herb_Gain_Up_1_6}
+Text: Turns out, that herbs also grow back, if you don't just rip them out of the ground with all of their roots. Everyday you learn something new...
+
+Trigger: {Unlocked_Foraging_Food_Gain_Up_2}
+Text: Turns out, those cramps you occasionally got, were not as normal as you thought. Huh.
+
+Trigger: {Unlocked_Delving_Speed_Up}
+Text: You had a nice little dinner with the lovely lady after buying everything from her. And what a delicious cake she can bake!\nHopefully you still fit into the armor now...?
+
+Trigger: {Unlocked_Market_Money_Gain_Up_2}
+Text: The talk with the baron was indeed very productive.\n\nWhile mostly making small talk about the increased animal attacks on the outskirts of the western jungle of Itari, they also agreed to directly buy those treasures from you for an increased profit on your side.
+
+Trigger: {Unlocked_Commercial_Action_Speed_Up}
+Text: Every so often now a merchant visits your small place. They scrunch up their noses and wash their hands constantly, but still buy your stuff no matter what.
+
+Trigger: {Unlocked_Buildings}
+Text: You're buttering up the Baron. After a little chat, he sells you the land for a fraction of the price. On the side, he continues to tell you about the animal attacks in the tropical west.\nThey still seem to be on the increase.
+
+Trigger: {Unlocked_Chop_Wood_Gain_Up_2}
+Text: Every time you chop down a tree you feel a weird sort of tingle in your spine. Kind of a soft sadness that emenates from the scrawny logs. But still, you need the wood...
+
+Trigger: {Unlock_Action_Hunting}
+Text: The first bite of fresh hunted meat almost brings tears to your eyes. It's been ages since you last ate anything other than berries and carrots.
+
+Trigger: {Unlocked_Double_Max_Storage_Space}
+Text: Build stuff to stuff your stuff in. Genius stuff.
+
+Trigger: {Unlocked_Half_Food_Cost_Of_Delving}
+Text: When you first wake up in your own new house, you feel better than you have in a long time.\nEven your improvised bed feels better than the one on your old farm. Freedom tastes sweeter than any financial security.

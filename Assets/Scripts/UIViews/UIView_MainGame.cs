@@ -14,7 +14,6 @@ namespace HypnicEmpire
         private const string ItchIoURL = "";
 
         [Header("UI Element Prefabs")]
-        [SerializeField] public GameObject UIJournalEntryPrefab;
         [SerializeField] public GameObject UIResourceChangeEntryPrefab;
 
         [Header("Primary Menu UI Buttons")]
@@ -36,7 +35,7 @@ namespace HypnicEmpire
         [SerializeField] public UIResourceListMenu ResourceListControl;
         
         [Header("UI List Display Parents")]
-        [SerializeField] public Transform JournalDisplayParent;
+        [SerializeField] public UIJournalMenu JournalMenuControl;
         [SerializeField] public UIDevelopmentsMenu DevelopmentsMenuControl;
         [SerializeField] public Transform DelveResourceLossParent;
         [SerializeField] public Transform DelveResourceGainParent;
@@ -100,10 +99,13 @@ namespace HypnicEmpire
             HardResetCancelButton?.onClick.AddListener(() => { SetResetButtonUnpacked(false); });
 
             //  Define UI responses to game unlock events
-            GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlocked_Developments, (bool shown) => { foreach (var obj in DevelopmentsTabGroup) obj?.SetActive(shown); });
-            GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlocked_Buildings, (bool shown) => { foreach (var obj in BuildingsTabGroup) obj?.SetActive(shown); });
-            GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlocked_Finished_Developments, (bool shown) => { foreach (var obj in FinishedDevelopmentsSubGroup) obj?.SetActive(shown); });
-            GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlocked_Action_Forage, (bool shown) => { ActionsMenu.GetComponent<UIActionMenuController>()?.SetActionEntry(PlayerActionType.Forage, shown); });
+            GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlocked_Empty_Belly, (bool shown) => { foreach (var obj in DevelopmentsTabGroup) obj?.SetActive(shown); });
+            GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlocked_Action_Forage, (bool shown) => {
+                foreach (var obj in FinishedDevelopmentsSubGroup) obj?.SetActive(shown);
+                ActionsMenu.GetComponent<UIActionMenuController>()?.SetActionEntry(PlayerActionType.Forage, shown);
+                //  TODO: The ActionsMenu can have the action entries already in but invisible on startup, and can show them when the corresponding unlock occurs ^^
+            });
+            //GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlocked_Buildings, (bool shown) => { foreach (var obj in BuildingsTabGroup) obj?.SetActive(shown); });
 
             foreach (var gu in Enum.GetValues(typeof(GameUnlock)).Cast<GameUnlock>())
             {
@@ -113,9 +115,8 @@ namespace HypnicEmpire
             }
 
             //  Define UI responses to resource changes
-            GameController.CurrentGameState.SubscribeToGenericResourceAmountChange((ResourceType rType, int amount, int maxAmount) => {
-                if (amount > 0)
-                    ResourceListControl?.AddResourceEntry(rType);
+            GameController.GameSubscriptions.SubscribeToGenericResourceAmountChange((ResourceType rType, int amount, int maxAmount) => {
+                if (amount > 0) ResourceListControl?.AddResourceEntry(rType);
             });
         }
 
@@ -174,16 +175,6 @@ namespace HypnicEmpire
                 entry.GetComponent<UIResourceChangeEntry>().SetContent(resourceType, resourceChange);
             }
             
-        }
-
-        public void AddJournalEntry(string text)
-        {
-            if (UIJournalEntryPrefab != null && JournalDisplayParent != null)
-            {
-                var entryObject = Instantiate(UIJournalEntryPrefab, JournalDisplayParent);
-                var entryComponent = entryObject.GetComponent<UIJournalEntry>();
-                entryComponent?.SetJournalEntryText(text);
-            }
         }
 
         public void AddOpenDevelopment(string name, string description, string extraInfo, List<ResourceAmount> cost, GameUnlock unlock)

@@ -15,14 +15,16 @@ namespace HypnicEmpire
         [SerializeField] public GameLevelsScriptableObject GameLevelsData;
         [SerializeField] public DevelopmentsScriptableObject DevelopmentsData;
         [SerializeField] public PlayerActionScriptableObject PlayerActionDataMap;
+        [SerializeField] public JournalEntryScriptableObject JournalEntryData;
 
         public static GameState CurrentGameState = new();
+        public static GameSubscriptionSystem GameSubscriptions = new();
         public UIView_MainGame MainGameUIView;
 
         public void Start()
         {
             //  TODO: Remove this when properly testing at a normal speed
-            Time.timeScale = 3f;
+            Time.timeScale = 10f;
 
             CurrentGameState.Initialize(InitialGameState);
             MainGameUIView.Initialize();
@@ -114,7 +116,7 @@ namespace HypnicEmpire
             MainGameUIView.ResetUI();
 
             MainGameUIView.SetDelveResourceChange(GetCurrentDelveResourceChanges());
-            CurrentGameState.SubscribeToGenericResourceAmountChange((ResourceType rType, int amount, int maxAmount) => {
+            GameSubscriptions.SubscribeToGenericResourceAmountChange((ResourceType rType, int amount, int maxAmount) => {
                 MainGameUIView.DelveTaskButton.SetEnabled(GetCurrentDelveResourceChanges().CheckCanChangeAll());
             });
 
@@ -123,14 +125,19 @@ namespace HypnicEmpire
             unhideDevelopmentsFunc = (oldAmount, newAmount) =>
             {
                 if (newAmount != 0) return;
-                CurrentGameState.GameUnlockList[GameUnlock.Unlocked_Developments] = true;
-                GameUnlockSystem.SetUnlockValue(GameUnlock.Unlocked_Developments, true);
-                CurrentGameState.UnsubscribeToResourceAmount(ResourceType.Food, unhideDevelopmentsFunc);
+                CurrentGameState.GameUnlockList[GameUnlock.Unlocked_Empty_Belly] = true;
+                GameUnlockSystem.SetUnlockValue(GameUnlock.Unlocked_Empty_Belly, true);
+                GameSubscriptions.UnsubscribeToResourceAmount(ResourceType.Food, unhideDevelopmentsFunc);
             };
-            CurrentGameState.SubscribeToResourceAmount(ResourceType.Food, unhideDevelopmentsFunc);
+            GameSubscriptions.SubscribeToResourceAmount(ResourceType.Food, unhideDevelopmentsFunc);
 
             CheckDevelopments();
             CheckGameUnlocks();
+            SubscribeToJournalEntries();
+
+            //  If we haven't loaded a game state with the very first unlock, unlock it now
+            if (!CurrentGameState.GameUnlockList.Contains(GameUnlock.Unlocked_Game_Start))
+                CurrentGameState.SetUnlockValue(GameUnlock.Unlocked_Game_Start, true);
         }
 
         public void CheckDevelopments()
@@ -142,6 +149,18 @@ namespace HypnicEmpire
         {
             foreach (var gu in Enum.GetValues(typeof(GameUnlock)).Cast<GameUnlock>())
                 GameUnlockSystem.SetUnlockValue(gu, CurrentGameState.IsUnlocked(gu));
+        }
+
+        public void SubscribeToJournalEntries()
+        {
+            if (JournalEntryData == null) return;
+            
+            foreach (var je in JournalEntryData.JournalEntries)
+                GameUnlockSystem.AddGameUnlockAction(je.Key, (bool unlocked) => {
+                    if (!unlocked) return;
+                    if (!CurrentGameState.GameUnlockList.Contains(je.Key))
+                        MainGameUIView?.JournalMenuControl?.AddJournalEntry(je.Value);
+                });
         }
 
         public void CurrentLevelUp()
@@ -165,9 +184,6 @@ namespace HypnicEmpire
 
         public void CompleteDelve()
         {
-            // TODO: Remove this journal entry. This is just to help debug
-            MainGameUIView?.AddJournalEntry("You have completed a Delve task!");
-
             //  Lose and gain all resources assigned to this level of the game, unlocking resources as needed
             var changes = GetCurrentDelveResourceChanges();
             CurrentGameState.AddToResources(changes);

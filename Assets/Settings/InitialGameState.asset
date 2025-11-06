@@ -19,6 +19,14 @@ MonoBehaviour:
       Value: 0
     LevelDelveCount:
       Value: 0
+    CurrentPlayerAction: 0
+    JournalEntries:
+    - You eventually arrive after a long hike through the desolate landscape of the
+      kingdoms east, where the Sevenjag mountain range looms on the horizon. Your
+      rations are almost fully depleted.\nAfter looking around for an hour, you still
+      come up empty, already silently cursing the old fool who sold you the treasure
+      map.\nBut then you finally stumble upon it, almost dropping down its gaping
+      entrance.\n\nYou found a hole in the ground.
     GameUnlockList:
       m_keys: 00000000
       m_values: 01

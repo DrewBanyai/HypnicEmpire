@@ -9,16 +9,14 @@ namespace HypnicEmpire
         Unlocked_Resource_Wood,
         Unlocked_Resource_People,
 
-        Unlocked_Developments,
-        Unlocked_Buildings,
-        Unlocked_Finished_Developments,
-
-        Unlocked_Action_Forage,
-        Unlocked_Action_Hunting,
-        Unlocked_Action_Market,
-        Unlocked_Action_Trade_Herbs,
-        Unlocked_Action_Sell_Food,
-        Unlocked_Action_Chop_Wood,
-        Unlocked_Action_Cut_Stone
+        Unlocked_Game_Start,            //  Unlocked automatically at game start
+        Unlocked_Empty_Belly,           //  Food at 0
+        Unlocked_Action_Forage,         //  Development unlock
+        Unlocked_Small_Hoard,           //  Treasure at maximum
+        Unlocked_Foraging_Speed_Up,     //  Development unlock
+        Unlocked_Action_Sell_Food,      //  Development unlock
+        Unlocked_Foraging_Gain_Up_2_5,  //  Development unlock
+        Unlocked_Action_Market,         //  Development unlock
+        Unlocked_Action_Trade_Herbs     //  Development unlock
     }
 }

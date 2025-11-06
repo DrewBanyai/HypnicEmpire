@@ -1,0 +1,127 @@
+Trigger: {Unlocked_Empty_Belly}
+- Look around for food
+- Soon your starting food supply has run out.\nMaybe there are berries, fruits or wild veggies around to satiate your hunger.
+- Unlocks the foraging action
+{Unlocked_Action_Forage}
+Cost: []
+Note: Foraging reward is Food +0.2, Herbs +0.1, speed is ~3 seconds
+
+Trigger: {Unlocked_Action_Forage}
+- Get some more practice
+- Turns out, getting food by foraging is way harder than by farming. You miss your lush and full wheat fields already.
+- Increases foraging speed
+{Unlocked_Foraging_Speed_Up} (
+Cost: [Food -1]
+Note: speed becomes ~1.5 seconds
+
+Trigger: {Unlocked_Action_Forage}
+- Visit a nearby village
+- Those treasures of gold and silver will do you no good if you just pile them up and leave them to rust. Giving a couple of them away to some of those poor villagers could earn you some favors.
+- Unlocks selling food
+{Unlocked_Action_Sell_Food}
+Cost: [Treasure -4]
+
+Trigger: {Unlocked_Foraging_Speed_Up}
+- Replant seeds
+- By replanting some of your gathered plants, you might increase the yields of future trips. Definitely worth the hassle in the long run.
+- Increases foraging gain by *2.5
+{Unlocked_Foraging_Gain_Up_2_5}
+Cost: [Food -3]
+
+Trigger: {Unlocked_Action_Sell_Food}
+- Convince your neighbors
+- Just selling food won't get you far.\nTo get the whole business going, you need a way to turn treasure into cash.\nTake a few more bags of it to the villages. Really talk to them and explain that they would benefit from all this too.
+- Unlocks selling treasure
+{Unlocked_Action_Market}
+Cost: [Treasure -6, Food -3]
+
+Trigger: {Unlocked_Action_Sell_Food}
+- Sample the herbs
+- Your neighbors invited you to sample some of your herbs.\nYou are not sure, what they mean by that exactly, but it can't hurt to try some, right?
+- Unlocks trading herbs for food
+{Unlocked_Action_Trade_Herbs}
+Cost: [Herbs -6]
+
+Trigger: {Unlocked_Action_Market}
+- Get some foraging tips from the locals
+- They have been living here for quite a while and should certainly know a thing or two about some of the local plantlife.
+- Increases foraging food gain by *2
+{Unlocked_Foraging_Food_Gain_Up_2}
+Cost: [Herbs -5, Money -20]
+
+Trigger: {Unlocked_Action_Market}
+- Buy some adventuring gear
+- One of your neighbors must have once been a passable adventurer. Too bad he got crushed by a troll on his last trip. His wife would love to sell you his stuff, though.
+- Increase delving speed
+{Unlocked_Delving_Speed_Up}
+Cost: [Money -30]
+
+Trigger: {Unlocked_Action_Market}
+- Find some herb hotspots
+- Take a trip with your fellow smokers to find good spots for herbs. If you listen closely, you may also get some tips on how to gather them efficiently.
+- Increase foraging herb gain by *1.6
+{Unlocked_Foraging_Herb_Gain_Up_1_6}
+Cost: [Food -15]
+
+Trigger: {Unlocked_Delving_Speed_Up}
+- Visit the barony
+- You won't get very far, only talking to the dreary village elders. The next higher instance would be the local baron of the east kingdom who oversees the whole glum region.
+- Increases treasure money gain by *2
+{Unlocked_Market_Money_Gain_Up_2}
+Cost: [Food -10, Money -30]
+
+Trigger: {Unlocked_Market_Money_Gain_Up_2}
+- Attract traveling merchants
+- Driving back and forth to the Baron's estate again and again is somewhat tedious. If you invest a few treasures, you could certainly attract more travelling merchants to the region and increase your trading throughput.
+- Increase the speed of all commercial actions
+{Unlocked_Commercial_Action_Speed_Up}
+Cost: [Treasure -8]
+
+Trigger: {Unlocked_Market_Money_Gain_Up_2}
+- Buy a plot of land
+- Travel once more to the baron to actually buy the property you are currently living on. Right now, what you are doing is kind of in a legally gray area. Better be safe than sorry.
+- Unlocks further building developments
+{Unlocked_Buildings}
+Cost: [Money -70]
+
+Trigger: {Unlocked_Market_Money_Gain_Up_2}
+- Buy an axe
+- In your area there are many trees, although they are very dry and scrawny. But to build you need wood and for that you have to cut them down. All you lack is the axe.
+- Unlocks the woodchipping action
+{Unlocked_Action_Chop_Wood}
+Cost: [Money -50]
+
+Trigger: {Unlocked_Buildings}
+- Building a shack
+- You have way too much stuff. Maybe you should build a place to stuff all that stuff in?
+- Doubles maximum storage space
+{Unlocked_Double_Max_Storage_Space}
+Cost: [Wood -6, Money -50]
+
+Trigger: {Unlocked_Buildings}
+- Build a deer stand
+- Deep in the nearby scrawny woods you found a perfect place to set up for hunting. You saw lots of deer here, they just run every time they see you.\nMaybe if you got up high enough, they would not notice you anymore?
+- Unlocks the hunting action
+{Unlock_Action_Hunting}
+Cost: [Wood -5, Food -8]
+
+Trigger: {Unlocked_Buildings}
+- Build a house for yourself
+- Until now, you have always slept in your small patchy tent, but by now you are really fed up with it. And once you have a proper bed and some breakfast on a real table, you'll be even more motivated to go into the hole in the morning.
+- Halves food cost of delving
+{Unlocked_Half_Food_Cost_Of_Delving}
+Cost: [Wood -10, Money -80]
+
+Trigger: {Unlocked_Action_Chop_Wood}
+- Setup a chopping block
+- Just cutting the wood where it falls is not ideal. By setting up a specific area for further hacking it to pieces you can be much quicker, as weirdly as that sounds.
+- Increased woodchopping wood gain by *2
+{Unlocked_Chop_Wood_Gain_Up_2}
+Cost: ???
+
+Trigger: {Unlocked_Half_Food_Cost_Of_Delving}
+- People have come to work for you
+- You can out of your hole that one time and found half a dozen people standing around on your small plot of land. They come to you with a plea:\nThe land is to barren to sustain them, so they instead want to help you out with your endeavor. Of course you would need to pay them with a small salary and some food.\nA good idea to be honest. You just need to buy some more land and build some houses for them to stay in and you could have a sizable workforce in no time.
+- Buys some starting land\n*Unlocks buying land\n*Unlocks building: Hut\nYou can assign multiple people at once by pressing shift
+{Unlocked_Buying_Land}
+Cost: [Money -150]
