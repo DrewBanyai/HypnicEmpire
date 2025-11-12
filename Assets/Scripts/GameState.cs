@@ -76,8 +76,8 @@ namespace HypnicEmpire
             foreach (var item in resourceChange) PlayerActionTypeResourceChange[playerActionType].Add(item);
         }
 
-        public int GetResourceAmount(ResourceType resourceType) { return CurrentResourceCounts[resourceType]; }
-        public int GetResourceMaxAmount(ResourceType resourceType) { return CurrentResourceMaximum[resourceType]; }
+        public int GetResourceAmount(ResourceType resourceType) { return CurrentResourceCounts.ContainsKey(resourceType) ? CurrentResourceCounts[resourceType] : 0; }
+        public int GetResourceMaxAmount(ResourceType resourceType) { return CurrentResourceMaximum.ContainsKey(resourceType) ? CurrentResourceMaximum[resourceType] : 0; }
         public void SetResourceAmount(ResourceType resourceType, int amount) { AddToResource(resourceType, amount - GetResourceAmount(resourceType)); }
 
         public void AddToResources(List<ResourceAmount> resourceChange)
