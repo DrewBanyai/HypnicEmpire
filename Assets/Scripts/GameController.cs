@@ -23,9 +23,6 @@ namespace HypnicEmpire
 
         public void Start()
         {
-            //  TODO: Remove this when properly testing at a normal speed
-            Time.timeScale = 25f;
-
             CurrentGameState.Initialize(InitialGameState);
             MainGameUIView.Initialize();
             SetupMainGameUI();
