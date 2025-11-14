@@ -17,6 +17,8 @@ namespace HypnicEmpire
         Unlocked_Action_Sell_Food,      //  Development unlock
         Unlocked_Foraging_Gain_Up_2_5,  //  Development unlock
         Unlocked_Action_Market,         //  Development unlock
-        Unlocked_Action_Trade_Herbs     //  Development unlock
+        Unlocked_Action_Trade_Herbs,    //  Development unlock
+        Unlocked_Buildings,             //  Development unlock
+        Unlocked_Action_Brew_Potion,    //  Development unlock
     }
 }

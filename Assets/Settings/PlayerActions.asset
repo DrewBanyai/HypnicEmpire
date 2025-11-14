@@ -56,3 +56,6 @@ MonoBehaviour:
     ResourceChange:
     - ResourceType: 4
       Amount: 1
+  UnlockToActionMap:
+    m_keys: 080000000b0000000d0000000e000000
+    m_values: 02000000040000000600000005000000

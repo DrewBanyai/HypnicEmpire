@@ -14,7 +14,7 @@ namespace HypnicEmpire
         [SerializeField] public GameStateScriptableObject InitialGameState;
         [SerializeField] public GameLevelsScriptableObject GameLevelsData;
         [SerializeField] public DevelopmentsScriptableObject DevelopmentsData;
-        [SerializeField] public PlayerActionScriptableObject PlayerActionDataMap;
+        [SerializeField] public PlayerActionScriptableObject PlayerActionsData;
         [SerializeField] public JournalEntryScriptableObject JournalEntryData;
 
         public static GameState CurrentGameState = new();
@@ -24,7 +24,7 @@ namespace HypnicEmpire
         public void Start()
         {
             //  TODO: Remove this when properly testing at a normal speed
-            Time.timeScale = 10f;
+            Time.timeScale = 25f;
 
             CurrentGameState.Initialize(InitialGameState);
             MainGameUIView.Initialize();
@@ -102,8 +102,9 @@ namespace HypnicEmpire
                 }
             }
 
-            foreach (var entry in PlayerActionDataMap.PlayerActions)
-                CurrentGameState.SetPlayerActionResourceChange(entry.ActionType, entry.ResourceChange);
+            if (PlayerActionsData != null)
+                foreach (var entry in PlayerActionsData.PlayerActions)
+                    CurrentGameState.SetPlayerActionResourceChange(entry.ActionType, entry.ResourceChange);
 
             SaveUtility.SaveCallback = () => { SaveGame(); };
 
@@ -116,9 +117,12 @@ namespace HypnicEmpire
             MainGameUIView.ResetUI();
 
             MainGameUIView.SetDelveResourceChange(GetCurrentDelveResourceChanges());
-            GameSubscriptions.SubscribeToGenericResourceAmountChange((ResourceType rType, int amount, int maxAmount) => {
+            GameSubscriptions.SubscribeToGenericResourceAmountChange((ResourceType rType, int amount, int maxAmount) =>
+            {
                 MainGameUIView.DelveTaskButton.SetEnabled(GetCurrentDelveResourceChanges().CheckCanChangeAll());
             });
+
+            MainGameUIView.ActionsMenu.GetComponent<UIActionMenuController>()?.InitializeMenu();
 
             //  Custom game events 01: Unlock Developments when Food resource reaches zero for the first time
             Action<int, int> unhideDevelopmentsFunc = null;

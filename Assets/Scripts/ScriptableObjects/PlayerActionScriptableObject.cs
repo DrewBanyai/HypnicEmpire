@@ -10,6 +10,8 @@ namespace HypnicEmpire
     [Serializable]
     public class PlayerActionScriptableObject : ScriptableObject
     {
-        public List<PlayerActionData> PlayerActions;
+        public List<PlayerActionData> PlayerActions = new();
+
+        public SerializableDictionary<GameUnlock, PlayerActionType> UnlockToActionMap = new();
     }
 }

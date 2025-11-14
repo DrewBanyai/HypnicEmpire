@@ -13,8 +13,9 @@ namespace HypnicEmpire
 
         private List<ResourceAmount> ResourceChange = new();
 
-        public void SetContent(PlayerActionType actionType, PlayerActionData playerActionData, bool show)
+        public void SetContent(PlayerActionType actionType, PlayerActionData playerActionData)
         {
+
             if (ResourceChangeUIPrefab == null) return;
             if (ResourceChangeEntriesLossParent == null) return;
             if (ResourceChangeEntriesGainParent == null) return;

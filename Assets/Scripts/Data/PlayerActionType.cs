@@ -9,7 +9,9 @@ namespace HypnicEmpire
         Sell_Food,
         Trade_Herbs,
         Market,
-        Chop_Wood
+        Chop_Wood,
+        Buy_Potion,
+        Cut_Stone
     }
 
     public enum PlayerActionSectionType
