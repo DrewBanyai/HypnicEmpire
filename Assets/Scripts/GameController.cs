@@ -18,6 +18,7 @@ namespace HypnicEmpire
         [SerializeField] public JournalEntryScriptableObject JournalEntryData;
 
         public static GameState CurrentGameState = new();
+        public static TaskSystem TaskSystem = new();
         public static GameSubscriptionSystem GameSubscriptions = new();
         public UIView_MainGame MainGameUIView;
 
