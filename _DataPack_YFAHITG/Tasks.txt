@@ -1,0 +1,343 @@
+Delve:
+    - Initial Speed: 30 / 100 (3.33s to finish)
+    - Initial Resource: (-1 Food, +1 Treasure)
+    - Level Task Completion Values:
+        - Level 001 - 007 (100, -1 Food, +1 Treasure)
+        - Level 008 - 014 (100, -2 Food, +1 Treasure +0.1 Wood) *
+        - Level 015 - 020 (100, -3 Food, +1 Treasure) *
+        - Level 021 - 026 (100, -4 Food, +1 Treasure, +0.1 Stone) * **
+        - Level 027 - 034 (100, -4 Food, -0.5 Potions, +1 Treasure, +0.3 Herbs) * **
+        - Level 035 - 041 (100, -8 Food, -0.5 Potions, +1 Treasure, +0.5 Fabric) * **
+        - Level 042 - 048 (100, -24 Food, -2 Potions, +4 Treasure) * **
+        - Level 049 - 055 (100, -27.5 Food, -2 Potions, -2 Weaponry +4 Treasure +4 Wood) * **
+        - Level 056 - 059 (100, -32.5 Food, +4 Treasure) * **
+        - Level 060 - 066 (100, -35 Food, -4 Potions, -2 Weaponry, +4 Treasure) * **
+        - Level 067 - 074 (100, -45 Food, -4 Potions, -3 Weaponry, +4 Treasure, +0.4 Iron) * **
+        - Level 075 - 081 (100, -47.5 Food, -4 Potions, -3 Weaponry, +4 Treasure) * **
+        - Level 082 - 087 (100, -47.5 Food, -4 Potions, -4 Weaponry, +4 Treasure, +4 Herbs) * **
+        - Level 090 - 098 (100, -47.5 Food, -4 Potions, -4 Weaponry, +4 Treasure) * **
+        - Level 099 - 104 (100, -47.5 Food, +4 Treasure) * **
+        - Level 105 - 113 (100, -47.5 Food, -4 Potions, -4 Weaponry, +4 Treasure) * **
+        - Level 114 - 123 (100, -47.5 Food, -8 Potions, -8 Weaponry, +3 Treasure, +6 Money) * **
+        - Level 124 - 132 (100, -47.5 Food, -8 Potions, -8 Weaponry, +3 Treasure, +9 Tar) * **
+        - Level 133 - 144 (100, -47.5 Food, -8 Potions, -8 Weaponry, +3 Treasure) * **
+        - Level 145 - 145 (100, -47.5 Food, -8 Potions, -8 Weaponry, +3 Treasure) * **
+        - Level 146 - 150 (100, -47.5 Food, -8 Potions, -8 Weaponry, +3 Treasure) * **
+        - Level 151 - 151 (100, -79 Food, +0 Treasure) * **
+    - Upgrades:
+        Unlock_Delving_Speed_Up_2: Task Speed x 2 ~ 60 / 100 (1.66s to finish)
+        Unlock_Half_Food_Cost_Of_Delving: Food Cost * 0.5 [*]
+        Unlock_Stone_Wall_Supply_Stashes: Food Cost * 0.8 [**]
+        Unlock_Delving_Speed_Up_1_5: Task Speed x 1.5 90 / 100 (1.11s to finish)
+        Delving Outpost: Delve Speed Gain x [count] x 1.03
+        Tavern: Global Action Speed Gain x [count] x 1.02
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Designate_A_Graveyard: Increase Delving Speed by 50%
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+        Unlock_Mausoleum_For_The_Dead: Decrease delving speed by 50%, Increase delving efficiency by 100%
+
+==========
+COMMERCIAL
+==========
+
+Sell Food:
+    - Initial Speed: 60 / 100 (1.66s to finish)
+    - Initial Resource: (-1 Food, +1 Money)
+    - Upgrades:
+        Unlock_Commercial_Action_Speed_Up_2: Commercial Task Speed x 2 ~ 130 / 100 (0.83s to finish)
+        Unlock_Bulk_Trade_Route: Sell food effectiveness *4 (-4 Food, +12 Money, same speed)
+        Unlock_Finished_Enact_New_Law: Money Gain * 1.05 * [count]
+        Tavern: Global Action Speed Gain x [count] x 1.02
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Build_River_Port: Reduces speed of all Economic Actions by 0.5, Increases Money Gain of Economic Actions by *1.2
+        Unlock_Allow_Thievery: All money gain x 1.25
+        Thieves Den: All money gain x [count] x 1.05
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+
+Market:
+    - Initial Speed: 60 / 100 (1.66s to finish)
+    - Initial Resource: (-1 Treasure, +5 Money)
+    - Upgrades:
+        Unlock_Visit_The_Barony: Money gain x 2 (Treasure -1, +Money +10)
+        Unlock_Commercial_Action_Speed_Up_2: Commercial Task Speed x 2 ~ 130 / 100 (0.83s to finish)
+        Unlock_Finished_Enact_New_Law: Money Gain * 1.05 * [count]
+        Tavern: Global Action Speed Gain x [count] x 1.02
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Build_River_Port: Reduces speed of all Economic Actions by 0.5, Increases Money Gain of Economic Actions by *1.2
+        Unlock_Allow_Thievery: All money gain x 1.25
+        Thieves Den: All money gain x [count] x 1.05
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+
+Buy Potion:
+    - Initial Speed: 60 / 100 (1.66s to finish)
+    - Initial Resource: (Money -5, Potions +1)
+    - Upgrades:
+        Unlock_Commercial_Action_Speed_Up_2: Commercial Task Speed x 2 ~ 130 / 100 (0.83s to finish)
+        Tavern: Global Action Speed Gain x [count] x 1.02
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Crafter_Guild: All weaponry, potion, and fabric gain x 1.25
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Build_River_Port: Reduces speed of all Economic Actions by 0.5, Increases Money Gain of Economic Actions by *1.2
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+
+Sell Fabric
+    - Initial Speed: 60 / 100 (1.66s to finish)
+    - Initial Resource: (Fabric -2 Money +8) ???
+    - Upgrades:
+        Unlock_Commercial_Action_Speed_Up_2: Commercial Task Speed x 2 ~ 130 / 100 (0.83s to finish)
+        Unlock_Finished_Enact_New_Law: Money Gain * 1.05 * [count]
+        Tavern: Global Action Speed Gain x [count] x 1.02
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Build_River_Port: Reduces speed of all Economic Actions by 0.5, Increases Money Gain of Economic Actions by *1.2
+        Unlock_Allow_Thievery: All money gain x 1.25
+        Thieves Den: All money gain x [count] x 1.05
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+
+Buy Weaponry
+    - Initial Speed: 60 / 100 (1.66s to finish)
+    - Initial Resource: (Money -???, Weaponry +???)
+    - Upgrades:
+        Unlock_Commercial_Action_Speed_Up_2: Commercial Task Speed x 2 ~ 130 / 100 (0.83s to finish)
+        Tavern: Global Action Speed Gain x [count] x 1.02
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Crafter_Guild: All weaponry, potion, and fabric gain x 1.25
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Build_River_Port: Reduces speed of all Economic Actions by 0.5, Increases Money Gain of Economic Actions by *1.2
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+
+Polish
+    - Initial Speed: 40 / 100 (2.50s to finish)
+    - Initial Resource: (Food -1, Treasure +1)
+    - Upgrades:
+        Unlock_Commercial_Action_Speed_Up_2: Commercial Task Speed x 2 ~ 80 / 100 (1.25s to finish)
+        Tavern: Global Action Speed Gain x [count] x 1.02
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Build_River_Port: Reduces speed of all Economic Actions by 0.5, Increases Money Gain of Economic Actions by *1.2
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+
+==========
+AGRICULTURAL
+==========
+
+Forage
+    - Initial Speed: 30 / 100 (3.33s to finish)
+    - Initial Resource: (+0.2 Food, +0.1 Herbs)
+    - Upgrades:
+        Unlock_Foraging_Speed_Up: Task Speed x 2 ~ 60 / 100 (1.66s to finish)
+        Unlock_Foraging_Gain_Up_2_5: Resource gain x 2.5 (+0.5 Food, +0.25 Herbs)
+        Unlock_Foraging_Food_Gain_Up_2: Food gain x 2 (+1 Food, +0.25 Herbs)
+        Unlock_Foraging_Herb_Gain_Up_1_6: Herb gain x 1.6 (+1 Food, +0.4 Herbs)
+        Unlock_No_More_Foraging: REMOVES TASK
+        Tavern: Global Action Speed Gain x [count] x 1.02
+        Unlock_Finished_Construct_Palisade: Increase all food gain x 1.20
+        Temple: Food Gain x [count] x 1.03
+        Unlock_Increase_Herb_Gain_1_5: Increase herb gain by *1.5
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+        Unlock_Finished_Faith_Insertion: Increase all agricultural gain by 5% (x [count] x 1.05)
+
+Trade herbs:
+    - Initial Speed: 60 / 100 (1.66s to finish)
+    - Initial Resource: (-1 Herbs, +1 Food)
+    - Upgrades:
+        Unlock_Commercial_Action_Speed_Up_2: Task Speed x 2 ~ 130 / 100 (0.83s to finish)
+        Tavern: Global Action Speed Gain x [count] x 1.02
+        Unlock_Finished_Construct_Palisade: Increase all food gain x 1.20
+        Temple: Food Gain x [count] x 1.03
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+
+Chop Wood:
+    - Initial Speed: 66 / 100 (1.50s to finish)
+    - Initial Resource: (+0.5 Wood)
+    - Upgrades:
+        Unlock_Chop_Wood_Gain_Up_2: Wood gain x 2 (Wood +1)
+        Unlock_Increase_Industrial_Gain_0_2: Industrial Gain x 1.2
+        Tavern: Global Action Speed Gain x [count] x 1.02
+        Unlock_Cut_Down_The_Forest: Chop Wood gain x 0.85
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+
+Hunting:
+    - Initial Speed: 66 / 100 (1.50s to finish)
+    - Worker Speed: 30 / 100 (3.33s to finish)
+    - Initial Resource (+1.5 Food)
+    - Upgrades:
+        Unlock_Hunting_Food_Gain_2: Food gain x 2 (Food +3)
+        Unlock_No_More_Foraging: Food gain x 1.25 (Food +3.75)
+        Tavern: Global Action Speed Gain x [count] x 1.02
+        Unlock_Cut_Down_The_Forest: Hunting gain x 0.85
+        Unlock_Finished_Construct_Palisade: Increase all food gain x 1.20
+        Temple: Food Gain x [count] x 1.03
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+        Unlock_Silent_Hunter_Tribute: Hunting food gain reduced by 50%, action now also gains potions
+
+Fishing:
+    - Initial Speed: 66 / 100 (1.50s to finish)
+    - Worker Speed: 30 / 100 (3.33s to finish)
+    - Initial Resource (+1.5 Food)
+    - Upgrades:
+        Tavern: Global Action Speed Gain x [count] x 1.02
+        Unlock_Finished_Construct_Palisade: Increase all food gain x 1.20
+        Temple: Food Gain x [count] x 1.03
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Finished_Divert_The_River: Decreases fishing gain by 50%
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+        Unlock_Stuff_Floats_Down_River: Fishing action also gains luxuries (1/5 of Food value)
+
+Farming:
+    - Initial Speed: 66 / 100 (1.50s to finish)
+    - Worker Speed: 30 / 100 (3.33s to finish)
+    - Initial Resource (+3 Food)
+    - Upgrades:
+        Tavern: Global Action Speed Gain x [count] x 1.02
+        Unlock_Finished_Construct_Palisade: Increase all food gain x 1.20
+        Temple: Food Gain x [count] x 1.03
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Mills_For_Farms: Increase farming food gain by 100%
+        Unlock_Built_An_Aqueduct: Increase farming food gain by 50%
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+        Mill: Farming Food Gain x [count] x 1.05
+        Unlock_Invigorated_Farmers: Farming gain increased by 25%
+
+Cut Stone:
+    - Initial Speed: 36 / 100 (2.77s to finish)
+    - Initial Resource: (Wood -2, Stone +0.5)
+    - Upgrades:
+        Unlock_Double_Stonecutting_Gain: Stone gain x 2 (Wood -2, Stone +1)
+        Unlock_Half_Wood_Cost_Of_Stonecutting: Wood cost * 0.5 (Wood -1, Stone +1)
+        Unlock_Increase_Industrial_Gain_0_2: Industrial Gain x 1.2
+        Tavern: Global Action Speed Gain x [count] x 1.02
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Half_Cost_Of_Stonecutting: Cost of stonecutting / 2 (Wood -0.5)
+        Unlock_Establish_Metalworker_Guild: All stone and iron gain x 1.25
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+
+Cultivate:
+    - Initial Speed: 40 / 100 (2.50s to finish)
+    - Initial Resource: (Food -1, Herbs +1)
+    - Upgrades:
+        Unlock_Cultivate_Efficiency_Gain_200: Task Efficieny up 200% (Food -3, Herbs +3, same speed)
+        Tavern: Global Action Speed Gain x [count] x 1.02
+        Unlock_Increase_Herb_Gain_1_5: Increase herb gain by *1.5
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Built_An_Aqueduct: Increase cultivating herb gain by 50%
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+
+
+
+==========
+INDUSTRIAL
+==========
+
+Brew Potion:
+    - Initial Speed: 40 / 100 (2.50s to finish)
+    - Initial Resource: (Wood -1, Herbs -2, Potions +0.5)
+    - Upgrades:
+        Unlock_Brew_Potion_Gain_2: Potion gain x 2 (Wood -1, Herbs -2, Potions +1)
+        Unlock_Increase_Industrial_Gain_0_2: Industrial Gain x 1.2
+        Busy Workshop / Factory: Industrial Gain x [count] x 1.03
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Crafter_Guild: All weaponry, potion, and fabric gain x 1.25
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+        Unlock_Brews_Of_The_High_Council: Increase potion gain from brewing by 50%
+        Unlock_Burn_Tar_Generate_Steam: Increase all industrial gain by 20%
+
+Weaving:
+    - Initial Speed: 16 / 100 (6.00s to finish)
+    - Initial Resource: (Herbs -4, Fabric +1) ???
+    - Upgrades:
+        Unlock_Increase_Industrial_Gain_0_2: Industrial Gain x 1.2
+        Busy Workshop / Factory: Industrial Gain x [count] x 1.03
+        Unlock_Increase_Fabric_Gain_100: Fabric gain x 2.0
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Crafter_Guild: All weaponry, potion, and fabric gain x 1.25
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+        Unlock_Burn_Tar_Generate_Steam: Increase all industrial gain by 20%
+
+Mining:
+    - Initial Speed: 16 / 100 (6.00s to finish)
+    - Initial Resource: (Wood -4, Stone -4, Iron +1) ???
+    - Upgrades:
+        Unlock_Increase_Industrial_Gain_0_2: Industrial Gain x 1.2
+        Busy Workshop / Factory: Industrial Gain x [count] x 1.03
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Metalworker_Guild: All stone and iron gain x 1.25
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+        Unlock_Burn_Tar_Generate_Steam: Increase all industrial gain by 20%
+
+Forging:
+    - Initial Speed: 16 / 100 (6.00s to finish)
+    - Initial Resource: (Iron -2, Weaponry +0.38)
+    - Upgrades:
+        Unlock_Increase_Industrial_Gain_0_2: Industrial Gain x 1.2
+        Busy Workshop / Factory: Industrial Gain x [count] x 1.03
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Crafter_Guild: All weaponry, potion, and fabric gain x 1.25
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Forging_Weaponry_Gain_100: Increase forging weaponry gain by 100%
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+        Unlock_Enchanted_Forges: Increase weaponry gain from forging by 50%
+        Unlock_Burn_Tar_Generate_Steam: Increase all industrial gain by 20%
+
+Refine:
+    - Initial Speed: ???
+    - Initial Resource: (Money -80, Fabric -8, Luxuries +7.4)
+    - Upgrades:
+        Unlock_Increase_Industrial_Gain_0_2: Industrial Gain x 1.2
+        Busy Workshop / Factory: Industrial Gain x [count] x 1.03
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+        Unlock_Burn_Tar_Generate_Steam: Increase all industrial gain by 20%
+
+Manufacture:
+    - Initial Speed: 33 / 100 (3.00s to finish)
+    - Initial Resource: ()
+    - Upgrades:
+        Unlock_Increase_Industrial_Gain_0_2: Industrial Gain x 1.2
+        Busy Workshop / Factory: Industrial Gain x [count] x 1.03
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+        Unlock_Burn_Tar_Generate_Steam: Increase all industrial gain by 20%
+
+Purify:
+    - Initial Speed: ???
+    - Initial Resource: (Treasure -1, Luxuries -2, Gears -2, Artifacts +2.25)
+    - Upgrades:
+        Unlock_Increase_Industrial_Gain_0_2: Industrial Gain x 1.2
+        Busy Workshop / Factory: Industrial Gain x [count] x 1.03
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+        Unlock_University_For_Wizards: Increase artifact gain by 100%
+        Unlock_Burn_Tar_Generate_Steam: Increase all industrial gain by 20%
+
+Pump:
+    - Initial Speed: 33 / 100 (3.00s to finish)
+    - Initial Resource: ()
+    - Upgrades:
+        Unlock_Increase_Industrial_Gain_0_2: Industrial Gain x 1.2
+        Busy Workshop / Factory: Industrial Gain x [count] x 1.03
+        Unlocks_Auto_Project_Cost_Removal: Reduces all action speeds by *0.25 (multiply time by 4), Increase all action efficiency by *4
+        Unlock_Establish_Council_Of_Guilds: Global Action Speed Gain x 1.10
+        Unlock_Grand_Speech: Reduces all action speeds by *0.5, Increases all action efficiency by *2
+        Unlock_Burn_Tar_Generate_Steam: Increase all industrial gain by 20%

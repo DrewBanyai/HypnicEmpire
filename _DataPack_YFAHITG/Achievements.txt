@@ -1,0 +1,488 @@
+18 achievements: +120% action speed
+19 achievements: +121% action speed (Clicking Amateur)
+21 achievements: +123% action speed (Rock Connoisseur)
+22 achievements: +124% action speed (Hobbyist)
+27 achievements: +130% action speed (Hobbyist)
+30 achievements: +133% action speed (Beginner Builder)
+31 achievements: +134% action speed (Grand Celebration)
+36 achievements: +140% action speed (Boxes Of Bottles)
+37 achievements: +141% action speed (Cliff Enthusiast)
+39 achievements: +142% action speed (Property Mogul)
+40 achievements: +143% action speed (Butcher Of Greenery)
+41 achievements: +146% action speed (Skilled Delver)
+42 achievements: +147% action speed (A Grand Idea)
+43 achievements: +148% action speed (Fishing Fanatics)
+44 achievements: +149% action speed (Clicking Expert)
+45 achievements: +150% action speed (A Tiny Hamlet)
+46 achievements: +151% action speed (Multiple Great Ideas)
+47 achievements: +152% action speed (Pretty Solid Fund)
+48 achievements: +153% action speed (Mountain Master)
+49 achievements: +155% action speed (Crates Of Flasks)
+50 achievements: +156% action speed (Pacificistic)
+54 achievements: +160% action speed (A Small Village)
+56 achievements: +162% action speed ()
+59 achievements: +165% action speed (Minor Treasury)
+61 achievements: +168% action speed (Professional Delver)
+63 achievements: +170% action speed (Capitalist)
+65 achievements: +173% action speed (Clicking Master)
+67 achievements: +175% action speed (Always Turning)
+68 achievements: +176% action speed (VIP Visitors)
+69 achievements: +177% action speed
+75 achievements: +184% action speed (Baron)
+77 achievements: +186% action speed (Very Dirty)
+83 achievements: +193% action speed (A Thriving Bastion)
+
+
+
+Trigger: {Unlock_Empty_Belly} (reach zero food)
+Achievement: Empty Belly
+Hint: ???
+Text: Run out of food for the first time
+
+Trigger: Unlock_Visit_The_Barony
+Achievement: Top-level Talks
+Hint: Progress the story
+Text: Visited the barony
+
+Trigger: Unlock_Buying_Land
+Achievement: Friendly Folks
+Hint: Progress the story
+Text: People arrived
+
+Trigger: Unlock_Village_Founded
+Achievement: Grand Celebration
+Hint: Progress the story
+Text: Announced a feast and established a village
+
+Trigger: Unlock_Action_Fishing
+Achievement: Fishing Fanatics
+Hint: Progress the story
+Text: Southern settlers arrived
+
+Trigger: Unlock_Refugees_From_The_North
+Achievement: Escaped & Hopeful
+Hint: Progress the story
+Text: The first refugees arrived
+
+Trigger: Unlock_Unrest
+Achievement: Riots & Ruckus
+Hint: Progress the story
+Text: Fighting unrest
+
+Trigger: Unlock_Proclaim_A_City
+Achievement: Passive Money Gain
+Hint: Progress the story
+Text: Announced a city and created taxes
+
+Trigger: Unlock_Action_Purify
+Achievement: VIP Visitors
+Hint: Progress the story
+Text: Wizards arrive
+
+Trigger: Unlock_The_King_Is_Dead
+Achievement: No More Monarchy
+Hint: Progress the story
+Text: The king is dead
+
+Trigger: Unlock_Marry_The_Heir
+Achievement: A Bit Of Monarchy
+Hint: Progress the story
+Text: Get married
+
+Trigger: Unlock_Warfare
+Achievement: Close Danger
+Hint: Progress the story
+Text: A threat emerges
+
+Trigger: Unlock_Defeat_The_Beast
+Achievement: The end
+Hint: Finish the story
+Text: The beast is vanquished
+
+=====
+
+Trigger: Unlock_Delve_Fifty
+Achievement: Complete Beginner
+Hint: Delve Deeper
+Text: Delve 50 times
+
+Trigger: Unlock_Delve_Two_Hundred
+Achievement: Amateur
+Hint: Delve Deeper
+Text: Delve 200 times
+
+Trigger: Unlock_Delve_Five_Hundred
+Achievement: Hobbyist
+Hint: Delve Deeper
+Text: Delve 500 times
+
+Trigger: Unlock_Delve_Two_Thousand
+Achievement: Apprentice
+Hint: Delve Deeper
+Text: Delve 2,000 times
+
+Trigger: Unlock_Delve_Five_Thousand
+Achievement: Skilled Delver
+Hint: Delve Deeper
+Text: Delve 5,000 times
+
+Trigger: Unlock_Delve_Twenty_Thousand
+Achievement: Spelunker
+Hint: Delve Deeper
+Text: Delve 20,000 times
+
+Trigger: Unlock_Delve_Fifty_Thousand
+Achievement: Professional Delver
+Hint: Delve Deeper
+Text: Delve 50,000 times
+
+Trigger: Unlock_Delve_Two_Hundred_Thousand
+Achievement: Cave Dweller
+Hint: Delve Deeper
+Text: Delve 200,000 times
+
+Trigger: Unlock_Delve_To_The_Bottom
+Achievement: Underground Expert
+Hint: Delve to the End
+Text: Reach the bottom
+
+=====
+
+Trigger: Unlock_One_Villager
+Achievement: A Neighbor
+Hint: Stop being alone
+Text: Get 1 population
+
+Trigger: Unlock_Thirty_Villagers
+Achievement: A Neighborhood
+Hint: Grow the populace
+Text: Get 30 population
+
+Trigger: Unlock_Eighty_Villagers
+Achievement: A Tiny Hamlet
+Hint: Grow the populace
+Text: Get 80 population
+
+Trigger: Unlock_One_Hundred_Fifty_Villagers
+Achievement: A Small Village
+Hint: Grow the populace
+Text: Get 150 population
+
+Trigger: Unlock_Three_Hundred_Villagers
+Achievement: A Bustling Town
+Hint: Grow the populace
+Text: Get 300 population
+
+Trigger: Unlock_Five_Hundred_Villagers
+Achievement: A Thriving Bastion
+Hint: Grow the populace
+Text: Get 500 population
+
+=====
+
+Trigger: Unlock_One_Money
+Achievement: Lucky Dime
+Hint: Get cash
+Text: Gain money for the first time
+
+Trigger: Unlock_One_Thousand_Money
+Achievement: Meager Allowance
+Hint: Get more cash
+Text: Gain a total of 1,000 money
+
+Trigger: Unlock_Ten_Thousand_Money
+Achievement: A Small Fortune
+Hint: Get more cash
+Text: Gain a total of 10,000 money
+
+Trigger: Unlock_One_Hundred_Thousand_Money
+Achievement: Pretty Solid Fund
+Hint: Get more cash
+Text: Gain a total of 100,000 money
+
+Trigger: Unlock_One_Million_Money
+Achievement: Minor Treasury
+Hint: Get more cash
+Text: Gain a total of 1,000,000 money
+
+Trigger: Unlock_Ten_Million_Money
+Achievement: Huge Treasury
+Hint: Get more cash
+Text: Gain a total of 10,000,000 money
+
+=====
+
+Trigger: Unlock_One_Potion
+Achievement: Drink Up
+Hint: Need some liquid
+Text: Produce your first potion
+
+Trigger: Unlock_One_Hundred_Potions
+Achievement: Some Cold Brew
+Hint: Produce more drinks
+Text: Produce a total of 100 potions
+
+Trigger: Unlock_One_Thousand_Potions
+Achievement: Boxes Of Bottles
+Hint: Produce more drinks
+Text: Produce a total of 1,000 potions
+
+Trigger: Unlock_Ten_Thousand_Potions
+Achievement: Crates Of Flasks
+Hint: Produce more drinks
+Text: Produce a total of 10,000 potions
+
+Trigger: Unlock_One_Hundred_Thousand_Potions
+Achievement: Sea Of Liquid
+Hint: Produce more drinks
+Text: Produce a total of 100,000 potions
+
+Trigger: Unlock_One_Wood
+Achievement: Some Hard Log
+Hint: Cut a tree down
+Text: Produce your first unit of wood
+
+Trigger: Unlock_One_Hundred_Wood
+Achievement: Hater of Trees
+Hint: Gather more wood
+Text: Produce a total of 100 wood
+
+Trigger: Unlock_One_Thousand_Wood
+Achievement: Enemy Of Foliage
+Hint: Gather more wood
+Text: Produce a total of 1,000 wood
+
+Trigger: Unlock_Ten_Thousand_Wood
+Achievement: Butcher Of Greenery
+Hint: Gather more wood
+Text: Produce a total of 10,000 wood
+
+Trigger: Unlock_One_Hundred_Thousand_Wood
+Achievement: Ravager Of Leaves
+Hint: Gather more wood
+Text: Produce a total of 100,000 wood
+
+Trigger: Unlock_One_Stone
+Achievement: Stoney Path
+Hint: Get some rock
+Text: Cut your first stone
+
+Trigger: Unlock_One_Hundred_Stone
+Achievement: Rock Connoisseur
+Hint: Gather more rock
+Text: Produce a total of 100 stone
+
+Trigger: Unlock_One_Thousand_Stone
+Achievement: Cliff Enthusiast
+Hint: Gather more rock
+Text: Produce a total of 1,000 stone
+
+Trigger: Unlock_Ten_Thousand_Stone
+Achievement: Mountain Master
+Hint: Gather more rock
+Text: Produce a total of 10,000 stone
+
+Trigger: Unlock_One_Hundred_Thousand_Stone
+Achievement: Saint Of Bedrock
+Hint: Gather more rock
+Text: Produce a total of 100,000 stone
+
+Trigger: Unlock_Max_Out_Money
+Achievement: Got The Bling Bling
+Hint: More money than brain
+Text: Max out money at least once
+
+Trigger: Unlock_Max_Out_Treasure
+Achievement: Small Hoard
+Hint: Be a dragon
+Text: Max out treasure at least once
+
+Trigger: Unlock_Max_Out_Food
+Achievement: Not Hungry
+Hint: Stop eating
+Text: Max out food at least once
+
+Trigger: Unlock_Max_Out_Potions
+Achievement: Not Thirsty
+Hint: Stop drinking
+Text: Max out potions at least once
+
+Trigger: Unlock_Max_Out_Weaponry
+Achievement: Pacifistic
+Hint: Don't fight
+Text: Max out weaponry at least once
+
+Trigger: Unlock_Max_Out_Herbs
+Achievement: Say No To Drugs
+Hint: Stop... smoking?
+Text: Max out herbs at least once
+
+Trigger: Unlock_Max_Out_Wood
+Achievement: Backlogged
+Hint: Having too much wood
+Text: Max out wood at least once
+
+Trigger: Unlock_Max_Out_Stone
+Achievement: Hard As A Rock
+Hint: Having too much stone
+Text: Max out stone at least once
+
+Trigger: Unlock_Max_Out_Iron
+Achievement: Metalhead
+Hint: Smelter is broken
+Text: Max out iron at least once
+
+Trigger: Unlock_Max_Out_Tar
+Achievement: Very Dirty
+Hint: Too much gunk
+Text: Max out tar at least once
+
+Trigger: Unlock_Max_Out_Fabric
+Achievement: Anti-Nudist
+Hint: Don't be naked
+Text: Max out fabric at least once
+
+Trigger: Unlock_Max_Out_Luxuries
+Achievement: Capitalist
+Hint: Fuck the poor
+Text: Max out luxuries at least once
+
+Trigger: Unlock_Max_Out_Gears
+Achievement: Always Turning
+Hint: Be mechanical
+Text: Max out gears at least once
+
+Trigger: Unlock_Max_Out_Artifacts
+Achievement: Sorceror's Favorite
+Hint: Be a wizard
+Text: Max out artifacts at least once
+
+Trigger: Unlock_Twenty_Land
+Achievement: Homeowner
+Hint: Acquire more land
+Text: Own 20 land
+
+Trigger: Unlock_Sixty_Land
+Achievement: Landlord
+Hint: Acquire more land
+Text: Own 60 land
+
+Trigger: Unlock_Two_Hundred_Land
+Achievement: Estate Proprietor
+Hint: Acquire more land
+Text: Own 200 land
+
+Trigger: Unlock_Five_Hundred_Land
+Achievement: Property Mogul
+Hint: Acquire more land
+Text: Own 500 land
+
+Trigger: Unlock_Ten_Buildings
+Achievement: Crafting Rookie
+Hint: Build buildings
+Text: Own 10 buildings in total
+
+Trigger: Unlock_Fifty_Buildings
+Achievement: Beginner Builder
+Hint: Build buildings
+Text: Own 50 buildings in total
+
+Trigger: Unlock_One_Hundred_Buildings
+Achievement: Adept Crafter
+Hint: Build buildings
+Text: Own 100 buildings in total
+
+Trigger: Unlock_Two_Hundred_Buildings
+Achievement: Expert Craftsman
+Hint: Build buildings
+Text: Own 200 buildings in total
+
+Trigger: Unlock_Four_Hundred_Buildings
+Achievement: Ultimate Architect
+Hint: Build buildings
+Text: Own 400 buildings in total
+
+Trigger: Unlock_Finished_One_Project
+Achievement: A Grand Idea
+Hint: Finish projects
+Text: Finish your first project
+
+Trigger: Unlock_Finished_Five_Projects
+Achievement: Multiple Great Ideas
+Hint: Finish projects
+Text: Finish 5 projects
+
+Trigger: Unlock_Finished_Fifteen_Projects
+Achievement: Community Service
+Hint: Finish projects
+Text: Finish 15 projects
+
+Trigger: Unlock_Finished_Thirty_Five_Projects
+Achievement: Good Mangement
+Hint: Finish projects
+Text: Finish 35 projects
+
+Trigger: Unlock_Army_Strength_One
+Achievement: Baron
+Hint: Fight back
+Text: Get a single soldier
+
+Trigger: Unlock_Army_Strength_Fifty
+Achievement: Lord
+Hint: Strengthen the army
+Text: Increase army strength to 50
+
+Trigger: Unlock_Army_Strength_Two_Hundred_Fifty
+Achievement: Count
+Hint: Strengthen the army
+Text: Increase army strength to 250
+
+Trigger: Unlock_Army_Strength_Five_Hundred
+Achievement: Duke
+Hint: Strengthen the army
+Text: Increase army strength to 500
+
+Trigger: Unlock_Army_Strength_Two_Thousand
+Achievement: King
+Hint: Strengthen the army
+Text: Increase army strength to 2000
+
+Trigger: Unlock_Army_Strength_Five_Thousand
+Achievement: Emperor
+Hint: Strengthen the army
+Text: Increase army strength to 5000
+
+Trigger: Unlock_Unrest_Above_Eighty
+Achievement: Everything Is Chaos
+Hint: Everything is bad
+Text: Reach an unrest of 80% or more
+
+Trigger: Unlock_Unrest_Under_Twenty
+Achievement: Order is Everything
+Hint: Everything is good
+Text: Reach an unrest of 20% or less
+
+Trigger: Unlock_Supporter
+Achievement: Supporter
+Hint: Show some support
+Text: Clicked on a social media tab
+
+Trigger: Unlock_Manual_Save
+Achievement: Safety First
+Hint: Can't be safe enough
+Text: Manually save
+
+Trigger: Unlock_Five_Hundred_Clicks
+Achievement: Clicking Amateur
+Hint: Click.
+Text: Click a total of 500 times
+
+Trigger: Unlock_Two_Thousand_Clicks
+Achievement: Clicking Expert
+Hint: Click. Click.
+Text: Click a total of 2,000 times
+
+Trigger: Unlock_Five_Thousand_Clicks
+Achievement: Clicking Master
+Hint: Click. Click. Click.
+Text: Click a total of 5,000 times

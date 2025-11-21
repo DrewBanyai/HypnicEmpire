@@ -1,0 +1,827 @@
+Note:
+    Unlock_Buy_Land_Parcel_25: Provides 25 land immediately
+
+Land:
+- Starting count: 5
+- Cost: [Money -50, Land +2]
+- Upgrades:
+    - Unlock_Cheaper_Bulk_Land_Buys [Money -400, Land +20]
+- Unlocks:
+    { 20: "Unlock_Twenty_Land" },
+    { 60: "Unlock_Sixty_Land" },
+    { 200: "Unlock_Two_Hundred_Land" },
+    { 500: "Unlock_Five_Hundred_Land" }
+
+Buildings:
+- Unlocks:
+    { 10: "Unlock_Ten_Buildings" },
+    { 50: "Unlock_Fifty_Buildings" },
+    { 100: "Unlock_One_Hundred_Buildings" },
+    { 200: "Unlock_Two_Hundred_Buildings" },
+    { 400: "Unlock_Four_Hundred_Buildings" }
+
+
+Simple Hut:
+- Text: People who work sadly also need a place to sleep
+- Starting count: 0
+- Cost:
+    - 0 [Land -1, Wood -3]
+    - 1 [Land -1, Wood -4]
+    - 2 [Land -1, Wood -4]
+    - 3 [Land -1, Wood -5]
+    - 4 [Land -1, Wood -5]
+    - 5 [Land -1, Wood -6]
+    - 6 [Land -1, Wood -7]
+    - 7 [Land -1, Wood -8]
+    - 8 [Land -1, Wood -8]
+    - 9 [Land -1, Wood -10]
+    - 10 [Land -1, Wood -11]
+    - 11 [Land -1, Wood -12]
+    - 12 [Land -1, Wood -14]
+    - 13 [Land -1, Wood -15]
+    - 14 [Land -1, Wood -17]
+    - 15 [Land -1, Wood -19]
+    - 16 [Land -1, Wood -22]
+    - 17 [Land -1, Wood -24]
+    - 18 [Land -1, Wood -27]
+    - 19 [Land -1, Wood -31]
+    - 20 [Land -1, Wood -35]
+    - 21 [Land -1, Wood -40]
+    - 22 [Land -1, Wood -45]
+    - 23 [Land -1, Wood -50]
+    - 24 [Land -1, Wood -57]
+    - 25 [Land -1, Wood -64]
+    - 26 [Land -1, Wood -72]
+    - 27 [Land -1, Wood -82]
+    - 28 [Land -1, Wood -92]
+    - 29 [Land -1, Wood -104]
+    - 30 [Land -1, Wood -118]
+    - 31 [Land -1, Wood -133]
+    - 32 [Land -1, Wood -150]
+    - 33 [Land -1, Wood -170]
+    - 34 [Land -1, Wood -192]
+    - 35 [Land -1, Wood -217]
+    - 36 [Land -1, Wood -245]
+    - 37 [Land -1, Wood -277]
+- Additions:
+    - +1 population
+- Notes:
+    - After 37 Small Huts, it requires 277 wood, an impossible amount to get without further developments, so you must upgrade to Cabins after 37.
+
+Cabin:
+- Text: A comfortable living space. At least better than before.
+- Starting count: [Simple Hut count / 2]
+- Cost:
+    - 0 - 9 ???
+    - 10 [Land -2, Wood -30, Stone -19]
+    - 11 [Land -2, Wood -32, Stone -22]
+    - 12 [Land -2, Wood -39, Stone -25]
+    - 13 [Land -2, Wood -44, Stone -28]
+    - 14 [Land -2, Wood -51, Stone -32]
+    - 15 [Land -2, Wood -58, Stone -36]
+    - 16 [Land -2, Wood -66, Stone -41]
+    - 17 [Land -2, Wood -75, Stone -47]
+    - 18 [Land -2, Wood -85, Stone -53]
+    - 19 [Land -2, Wood -97, Stone -61]
+    - 20 [Land -2, Wood -110, Stone -69]
+    - 21 [Land -2, Wood -126, Stone -79]
+    - 22 [Land -2, Wood -143, Stone -90]
+    - 23 [Land -2, Wood -163, Stone -102]
+    - 24 [Land -2, Wood -186, Stone -117]
+    - 25 [Land -2, Wood -212, Stone -133]
+    - 26 [Land -2, Wood -242, Stone -151]
+    - 27 [Land -2, Wood -276, Stone -172]
+    - 28 [Land -2, Wood -314, Stone -197]
+    - 29 [Land -2, Wood -358, Stone -224]
+    - 30 [Land -2, Wood -408, Stone -255]
+    - 31 [Land -2, Wood -465, Stone -291]
+    - 32 [Land -2, Wood -530, Stone -332]
+    - 33 [Land -2, Wood -604, Stone -378]
+    - 34 [Land -2, Wood -689, Stone -431]
+    - 35 [Land -2, Wood -785, Stone -491]
+    - 36 [Land -2, Wood -895, Stone -560]
+- Additions:
+    - +2 population
+- Notes:
+    - After 36 Cabins, it requires 895 wood, an impossible amount to get without further developments, so you must upgrade to House after 36.
+
+House:
+- Text: One house connected to another house still equals just one house.
+- Starting count: 0
+- Cost:
+    - 0 - 13 (derive from existing data)
+    - 14 [Land -4, Wood -142, Stone -107, Fabric -71]
+    - 15 [Land -4, Wood -163, Stone -123, Fabric -82]
+    - 16 [Land -4, Wood -188, Stone -141, Fabric -94]
+    - 17 [Land -4, Wood -216, Stone -162, Fabric -108]
+    - 18 [Land -4, Wood -248, Stone -186, Fabric -124]
+    - 19 [Land -4, Wood -285, Stone -214, Fabric -143]
+    - 20 [Land -4, Wood -328, Stone -246, Fabric -164]
+    - 21 [Land -4, Wood -377, Stone -283, Fabric -189]
+    - 22 [Land -4, Wood -433, Stone -325, Fabric -217]
+    - 23 [Land -4, Wood -498, Stone -374, Fabric -249]
+    - 24 [Land -4, Wood -573, Stone -430, Fabric -287]
+    - 25 [Land -4, Wood -659, Stone -494, Fabric -330]
+    - 26 [Land -4, Wood -758, Stone -568, Fabric -379]
+    - 27 [Land -4, Wood -871, Stone -654, Fabric -436]
+    - 28 [Land -4, Wood -1002, Stone -751, Fabric -501]
+    - 29 [Land -4, Wood -1152, Stone -864, Fabric -576]
+    - 30 [Land -4, Wood -1325, Stone -994, Fabric -663]
+    - 31 [Land -4, Wood -1523, Stone -1143, Fabric -762]
+    - 32 [Land -4, Wood -1752, Stone -1314, Fabric -876]
+    - 33 [Land -4, Wood -2014, Stone -1511, Fabric -1007]
+    - 34 [Land -4, Wood -2317, Stone -1738, Fabric -1159]
+    - 35 [Land -4, Wood -2664, Stone -1998, Fabric -1332]
+    - 36 [Land -4, Wood -3064, Stone -2298, Fabric -1532]
+    - 37 [Land -4, Wood -3523, Stone -2642, Fabric -1762]
+    - 38 [Land -4, Wood -4051, Stone -3039, Fabric -2026]
+    - 39 [Land -4, Wood -4659, Stone -3494, Fabric -2330]
+    - 40 [Land -4, Wood -5358, Stone -4018, Fabric -2679]
+    - 41 [Land -4, Wood -6161, Stone -4621, Fabric -3081]
+    - 42 [Land -4, Wood -7085, Stone -5314, Fabric -3543]
+    - 43 [Land -4, Wood -8148, Stone -6111, Fabric -4074]
+    - 44 [Land -4, Wood -9370, Stone -7028, Fabric -4685]
+    - 45 [Land -4, Wood -10776, Stone -8082, Fabric -5388]
+    - 46 [Land -4, Wood -12392, Stone -9294, Fabric -6196]
+    - 47 [Land -4, Wood -14251, Stone -10688, Fabric -7126]
+    - 48 [Land -4, Wood -16389, Stone -12292, Fabric -8195]
+- Additions:
+    - +4 population
+    - +100 money storage
+
+Ghetto:
+- Starting count: 0
+- Text: Cramped and ugly but full of hopeful people.
+- Cost:
+    - 0: [Land -10, Stone -30, Fabric -25]
+    - 1: [Land -10, Stone -41, Fabric -34]
+    - 2: [Land -10, Stone -55, Fabric -46]
+    - 3: [Land -10, Stone -74, Fabric -62]
+    - 4: [Land -10, Stone -100, Fabric -84]
+    - 5: [Land -10, Stone -135, Fabric -113]
+    - 6: [Land -10, Stone -182, Fabric -152]
+    - 7: [Land -10, Stone -246, Fabric -205]
+    - 8: [Land -10, Stone -331, Fabric -276]
+    - 9: [Land -10, Stone -447, Fabric -373]
+    - 10: [Land -10, Stone -604, Fabric -503]
+    - 11: [Land -10, Stone -815, Fabric -679]
+    - 12: [Land -10, Stone -1100, Fabric -917]
+    - 13: [Land -10, Stone -1485, Fabric -1237]
+    - 14: [Land -10, Stone -2004, Fabric -1670]
+    - 15: [Land -10, Stone -2705, Fabric -2254]
+    - 16: [Land -10, Stone -3652, Fabric -3043]
+    - 17: [Land -10, Stone -4930, Fabric -4108]
+    - 18: [Land -10, Stone -6655, Fabric -5546]
+    - 19: [Land -10, Stone -8984, Fabric -7487]
+    - 20: [Land -10, Stone -12129, Fabric -10107]
+    - 21: [Land -10, Stone -16374, Fabric -13645]
+- Additions:
+    - +3 population
+    - +1% Unrest
+
+Guardhouse:
+- Text: Their most important job is just being there
+- Starting count: 0
+- Cost:
+    - 0: [Land -4, Stone -20, Weaponry -3]
+    - 1: [Land -4, Stone -27, Weaponry -5]
+    - 2: [Land -4, Stone -37, Weaponry -6]
+    - 3: [Land -4, Stone -50, Weaponry -8]
+    - 4: [Land -4, Stone -67, Weaponry -10]
+    - 5: [Land -4, Stone -90, Weaponry -14]
+    - 6: [Land -4, Stone -122, Weaponry -19]
+    - 7: [Land -4, Stone -164, Weaponry -25]
+    - 8: [Land -4, Stone -221, Weaponry -34]
+    - 9: [Land -4, Stone -298, Weaponry -45]
+    - 10: [Land -4, Stone -403, Weaponry -61]
+    - 11: [Land -4, Stone -543, Weaponry -82]
+    - 12: [Land -4, Stone -733, Weaponry -110]
+    - 13: [Land -4, Stone -990, Weaponry -149]
+    - 14: [Land -4, Stone -1336, Weaponry -201]
+    - 15: [Land -4, Stone -1804, Weaponry -271]
+    - 16: [Land -4, Stone -2435, Weaponry -366]
+    - 17: [Land -4, Stone -3287, Weaponry -493]
+    - 18: [Land -4, Stone -4440, Weaponry -560]
+    - 19: [Land -4, Stone -5992, Weaponry -750]
+    - 20: [Land -4, Stone -8088, Weaponry -1020]
+    - 21: [Land -4, Stone -10916, Weaponry -1370] *
+    - 22: [Land -4, Stone -14736, Weaponry -1850] *
+    - 23: [Land -4, Stone -19896, Weaponry -2490] *
+    - 24: [Land -4, Stone -26856, Weaponry -3360] *
+    - 25: [Land -4, Stone -36256, Weaponry -4540] *
+    - 26: [Land -4, Stone -48948, Weaponry -6120] *
+    - 27: [Land -4, Stone -66076, Weaponry -8260] *
+    - 28: [Land -4, Stone -89204, Weaponry -11160] *
+
+    - 29: [Land -4, Stone -120424, Weaponry -15060] *
+    - 30: [Land -4, Stone -162572, Weaponry -20330] *
+- Additions:
+    - -1% Unrest
+- Upgrades:
+    - Unlock_Reduce_Guardhouse_Cost_200: Reduce Guardhouse Cost by 200% (actually reduces Stone cost to 1/4, Weaponry cost to 1/10 ???)
+
+Apartment Complex:
+- Starting Count (max of House or Ghetto count)
+- Text: Now you can have neighbors above your neighbors.
+- Cost:
+    - 0 - 36: [???]
+    - 37: [Land -10, Stone -2818, Iron -2818, Fabric -2818]
+    - 38: [Land -10, Stone -3241, Iron -3241, Fabric -3241]
+    - 39: [Land -10, Stone -3727, Iron -3727, Fabric -3727]
+    - 40: [Land -10, Stone -4266, Iron -4266, Fabric -4266]
+    - 41: [Land -10, Stone -4929, Iron -4929, Fabric -4929]
+    - 42: [Land -10, Stone -5668, Iron -5668, Fabric -5668]
+    - 43: [Land -10, Stone -6519, Iron -6519, Fabric -6519]
+    - 44: [Land -10, Stone -7496, Iron -7496, Fabric -7496]
+    - 45: [Land -10, Stone -8621, Iron -8621, Fabric -8621]
+    - 46: [Land -10, Stone -9914, Iron -9914, Fabric -9914]
+    - 46: [Land -10, Stone -11401, Iron -11401, Fabric -11401]
+    - 47: [Land -10, Stone -???, Iron -???, Fabric -???]
+    - 48: [Land -10, Stone -13111, Iron -13111, Fabric -13111]
+    - 49: [Land -10, Stone -15077, Iron -15077, Fabric -15077]
+    - 50: [Land -10, Stone -17339, Iron -17339, Fabric -17339]
+    - 51: [Land -10, Stone -19940, Iron -19940, Fabric -19940]
+    - 52: [Land -10, Stone -22931, Iron -22931, Fabric -22931]
+    - 52: [Land -10, Stone -26370, Iron -26370, Fabric -26370]
+    - 53: [Land -10, Stone -30326, Iron -30326, Fabric -30326]
+    - 54: [Land -10, Stone -34874, Iron -34874, Fabric -34874]
+    - 55: [Land -10, Stone -40106, Iron -40106, Fabric -40106]
+- Additions:
+    - +6 population
+    - +100 money storage
+
+
+Delving Outpost:
+- Text: A singular outpost on top of the hole. Makes everything easier.
+- Starting count: 0
+- Cost:
+    - 0 [Land -2, Money -30, Wood -10, Food -10]
+    - 1 [Land -2, Money -41, Wood -14, Food -14]
+    - 2 [Land -2, Money -55, Wood -19, Food -19]
+    - 3 [Land -2, Money -74, Wood -25, Food -25]
+    - 4 [Land -2, Money -100, Wood -34, Food -34]
+    - 5 [Land -2, Money -135, Wood -45, Food -45]
+    - 6 [Land -2, Money -182, Wood -61, Food -61]
+    - 7 [Land -2, Money -246, Wood -82, Food -82]
+    - 8 [Land -2, Money -331, Wood -111, Food -111]
+    - 9 [Land -2, Money -447, Wood -149, Food -149]
+    - 10 [Land -2, Money -604, Wood -202, Food -202]
+    - 11 [Land -2, Money -815, Wood -272, Food -272]
+    - 12 [Land -2, Money -1100, Wood -367, Food -367]
+    - 13 [Land -2, Money -1485, Wood -495, Food -495]
+    - 14 [Land -2, Money -2004, Wood -668, Food -668]
+    - 15 [Land -2, Money -2705, Wood -902, Food -902]
+    - 16 [Land -2, Money -3652, Wood -1218, Food -1218]
+    - 17 [Land -2, Money -4930, Wood -1644, Food -1644]
+    - 18 [Land -2, Money -6655, Wood -2219, Food -2219]
+    - 19 [Land -2, Money -8984, Wood -2995, Food -2995]
+    - 20 [Land -2, Money -12129, Wood -2995, Food -4043]
+    - 21 [Land -2, Money -16374, Wood -5458, Food -5458]
+    - 22 [Land -2, Money -22104, Wood -7368, Food -7368]
+    - 23 [Land -2, Money -29840, Wood -9947, Food -9947]
+    - 24 [Land -2, Money -40284, Wood -13428, Food -13428]
+    - 25 [Land -2, Money -54384, Wood -18128, Food -18128]
+- Additions:
+    - +1 max Delving jobs
+    - +3% delve task speed
+- Notes:
+    - At what point does the Delving Outpost go from 2 to 4 land?
+
+
+Dungeon Entrance:
+- Text: Now multiple well lit ways lead into the deep.
+- Starting count: (1/4 Delving Outpost count)
+- Cost:
+    - 0 - 3 [???]
+    - 4 [Land -10, Stone -167, Iron -167, Gears -167]
+    - 5 [Land -10, Stone -225, Iron -225, Gears -225]
+    - 6 [Land -10, Stone -303, Iron -303, Gears -303]
+    - 7 [Land -10, Stone -409, Iron -409, Gears -409]
+    - 8 [Land -10, Stone -552, Iron -552, Gears -552]
+    - 9 [Land -10, Stone -745, Iron -745, Gears -745]
+    - 10 [Land -10, Stone -1006, Iron -1006, Gears -1006]
+    - 11 [Land -10, Stone -1358, Iron -1358, Gears -1358]
+    - 12 [Land -10, Stone -1833, Iron -1833, Gears -1833]
+    - 13 [Land -10, Stone -2474, Iron -2474, Gears -2474]
+    - 14 [Land -10, Stone -3340, Iron -3340, Gears -3340]
+    - 15 [Land -10, Stone -4508, Iron -4508, Gears -4508]
+    - 16 [Land -10, Stone -6086, Iron -6086, Gears -6086]
+    - 17 [Land -10, Stone -8216, Iron -8216, Gears -8216]
+    - 18 [Land -10, Stone -11092, Iron -11092, Gears -11092]
+    - 19 [Land -10, Stone -14974, Iron -14974, Gears -14974]
+    - 20 [Land -10, Stone -20214, Iron -20214, Gears -20214]
+    - 21 [Land -10, Stone -27289, Iron -27289, Gears -27289]
+    - 22 [Land -10, Stone -36840, Iron -36840, Gears -36840]
+- Additions:
+    - +4 max delving jobs
+    - +3% delve speed
+    - +40 max Weaponry storage
+
+Thieves Den:
+- Text: They are good for the economy.
+ - Starting count: 0
+- Cost:
+    - 0 [Land -4, Money -200, Weaponry -3]
+    - 1 [Land -4, Money -340, Weaponry -6]
+    - 2 [Land -4, Money -578, Weaponry -9]
+    - 3 [Land -4, Money -983, Weaponry -15]
+    - 4 [Land -4, Money -1671, Weaponry -26]
+    - 5 [Land -4, Money -2840, Weaponry -43]
+    - 6 [Land -4, Money -4828, Weaponry -73]
+    - 7 [Land -4, Money -8207, Weaponry -124]
+    - 8 [Land -4, Money -13952, Weaponry -210]
+    - 9 [Land -4, Money -23718, Weaponry -356]
+    - 9 [Land -4, Money -40320, Weaponry -605]
+    - 10 [Land -4, Money -68544, Weaponry -1029]
+
+    - 11 [Land -4, Money -???, Weaponry -???] ??? Skipped again?
+    - 12 [Land -4, Money -116525, Weaponry -1748]
+- Additions:
+    - +5% Money Gain
+    - +1% Unrest
+
+Shop:
+- Text: Sells and buys anything you want and need.
+- Starting count: 0
+- Cost:
+    - 0 [Land -2, Money -90, Wood -15]
+    - 1 [Land -2, Money -122, Wood -21]
+    - 2 [Land -2, Money -165, Wood -28]
+    - 3 [Land -2, Money -222, Wood -37]
+    - 4 [Land -2, Money -299, Wood -50]
+    - 5 [Land -2, Money -404, Wood -68]
+    - 6 [Land -2, Money -545, Wood -91]
+    - 7 [Land -2, Money -736, Wood -123]
+    - 8 [Land -2, Money -993, Wood -166]
+    - 9 [Land -2, Money -1341, Wood -224]
+    - 10 [Land -2, Money -1810, Wood -302]
+    - 11 [Land -2, Money -2443, Wood -408]
+    - 12 [Land -2, Money -3298, Wood -550]
+    - 13 [Land -2, Money -4453, Wood -743] *
+    - 14 [Land -2, Money -6012, Wood -1002] *
+    - 15 [Land -2, Money -8116, Wood -1354] *
+    - 16 [Land -2, Money -10956, Wood -1826] *
+    - 17 [Land -2, Money -14790, Wood -2466] *
+    - 18 [Land -2, Money -19966, Wood -3328] *
+    - 19 [Land -2, Money -26952, Wood -4492] *
+    - 20 [Land -2, Money -36386, Wood -6066] *
+    - 21 [Land -2, Money -49120, Wood -8188] *
+    - 22 [Land -2, Money -66312, Wood -11052] *
+    - 23 [Land -2, Money -89520, Wood -14920] *
+    - 24 [Land -2, Money -120852, Wood -20142] *
+    - 25 [Land -2, Money -163150, Wood -27192] *
+    - 26 [Land -2, Money -220254, Wood -36710] *
+- Additions:
+    - +1 max Commercial jobs
+    - +110 max money storage
+    - +10 max Potion storage (once upgraded)
+Upgrades:
+    Unlock_Establish_Formal_Attire_Guild: Halves cost of Shop and Tavern [*]
+
+Tavern:
+- Text: Its greatest export are drunken tales... and beer.
+- Starting count: 0
+- Cost
+    - 0 [Land -2, Wood -20, Fabric -10]
+    - 1 [Land -2, Wood -27, Fabric -14]
+    - 2 [Land -2, Wood -37, Fabric -19]
+    - 3 [Land -2, Wood -50, Fabric -25]
+    - 4 [Land -2, Wood -67, Fabric -34]
+    - 5 [Land -2, Wood -90, Fabric -45]
+    - 6 [Land -2, Wood -122, Fabric -61]
+    - 7 [Land -2, Wood -164, Fabric -82]
+    - 8 [Land -2, Wood -221, Fabric -111]
+    - 9 [Land -2, Wood -298, Fabric -149]
+    - 10 [Land -2, Wood -403, Fabric -202]
+    - 11 [Land -2, Wood -543, Fabric -272]
+    - 12 [Land -2, Wood -733, Fabric -367]
+    - 13 [Land -2, Wood -990, Fabric -495] *
+    - 14 [Land -2, Wood -1336, Fabric -668] *
+    - 15 [Land -2, Wood -1804, Fabric -902] *
+    - 16 [Land -2, Wood -2436, Fabric -1218] *
+    - 17 [Land -2, Wood -3288, Fabric -1644] *
+    - 18 [Land -2, Wood -4438, Fabric -2220] *
+    - 19 [Land -2, Wood -5990, Fabric -2996] *
+    - 20 [Land -2, Wood -8086, Fabric -4044] *
+    - 21 [Land -2, Wood -10916, Fabric -5458] *
+    - 22 [Land -2, Wood -14736, Fabric -7368] *
+    - 23 [Land -2, Wood -19894, Fabric -9948] *
+    - 24 [Land -2, Wood -26856, Fabric -13428] *
+    - 25 [Land -2, Wood -36256, Fabric -18128] *
+    - 26 [Land -2, Wood -48946, Fabric -24474] *
+    - 27 [Land -2, Wood -66076, Fabric -33038] *
+    - 28 [Land -2, Wood -89204, Fabric -44602] *
+Additions:
+    - +2% global action speed
+    - +50 max money storage
+Upgrades:
+    Unlock_Establish_Formal_Attire_Guild: Halves cost of Shop and Tavern [*]
+
+Temple / Cathedral:
+- Text: They call them Reliquaries\nBut it's all nonsense.
+- Text (Cathedral): Grand decadent halls full of gold, silver and glass.
+- Starting count: 0
+Cost:
+    - 0 [Land -4, Stone -25, Treasure -2]
+    - 1 [Land -4, Stone -34, Treasure -3]
+    - 2 [Land -4, Stone -46, Treasure -4]
+    - 3 [Land -4, Stone -62, Treasure -5]
+    - 4 [Land -4, Stone -84, Treasure -7]
+    - 5 [Land -4, Stone -113, Treasure -9]
+    - 6 [Land -4, Stone -152, Treasure -13]
+    - 7 [Land -4, Stone -205, Treasure -17]
+    - 8 [Land -4, Stone -276, Treasure -23]
+    - 9 [Land -4, Stone -373, Treasure -30]
+    - 10 [Land -4, Stone -503, Treasure -41]
+    - 11 [Land -4, Stone -679, Treasure -55]
+    - 12 [Land -4, Stone -917, Treasure -74]
+    - 13 [Land -4, Stone -1237, Treasure -99, Luxuries -495] *
+    - 14 [Land -4, Stone -1670, Treasure -134, Luxuries -668] *
+    - 15 [Land -4, Stone -2254, Treasure -181, Luxuries -902] *
+    - 16 [Land -4, Stone -3043, Treasure -244, Luxuries -1218] *
+    - 17 [Land -4, Stone -4108, Treasure -329, Luxuries -1644] *
+    - 18 [Land -4, Stone -5546, Treasure -444, Luxuries -2219] *
+    - 19 [Land -4, Stone -7487, Treasure -599, Luxuries -2995] *
+    - 20 [Land -4, Stone -10107, Treasure -809, Luxuries -4043] *
+    - 21 [Land -4, Stone -13645, Treasure -1092, Luxuries -5458] *
+    - 22 [Land -4, Stone -18420, Treasure -1474, Luxuries -7368] *
+    - 23 [Land -4, Stone -24867, Treasure -1990, Luxuries -9947] *
+    - 24 [Land -4, Stone -33570, Treasure -2686, Luxuries -13428] *
+    - 25 [Land -4, Stone -45320, Treasure -3626, Luxuries -18128] *
+- Additions:
+    - +3% food gain
+    - +5 max treasure storage
+    - +10 max artifact storage (once upgraded)
+- Upgrades
+    Unlock_Temple_Artifact_Storage: Adds artifact storage to temple (10)
+    Unlock_Temple_To_Cathedral (upgrade to +5% food gain, +10 max treasure storage, +10 max artifact storage, adds Luxuries [5x Treasure] and Land [-10 total] to cost) *
+
+Wooden Granary:
+- Text: A local hotspot for hunters and gatherers and the like.
+- Starting count: 0
+- Cost:
+    - 0 [Land -1, Wood -6, Food -8]
+    - 1 [Land -1, Wood -9, Food -11]
+    - 2 [Land -1, Wood -11, Food -15]
+    - 3 [Land -1, Wood -15, Food -20]
+    - 4 [Land -1, Wood -20, Food -27]
+    - 5 [Land -1, Wood -27, Food -36]
+    - 6 [Land -1, Wood -37, Food -49]
+    - 7 [Land -1, Wood -50, Food -66]
+    - 8 [Land -1, Wood -67, Food -89]
+    - 9 [Land -1, Wood -90, Food -120]
+    - 10 [Land -1, Wood -121, Food -161]
+    - 11 [Land -1, Wood -163, Food -218]
+    - 12 [Land -1, Wood -220, Food -294]
+    - 13 [Land -1, Wood -297, Food -386]
+    - 14 [Land -1, Wood -401, Food -535]
+    - 15 [Land -1, Wood -541, Food -722]
+    - 16 [Land -1, Wood -731, Food -974] *
+    - 17 [Land -1, Wood -986, Food -1316] *
+    - 18 [Land -1, Wood -1332, Food -1776] *
+    - 19 [Land -1, Wood -1798, Food -2396] *
+    - 20 [Land -1, Wood -2426, Food -3236] *
+    - 21 [Land -1, Wood -3276, Food -4368] *
+    - 22 [Land -1, Wood -4422, Food -5896] *
+    - 23 [Land -1, Wood -4968, Food -7958] *
+- Additions:
+    - +1 max Agricultural jobs
+    - +5 max Food
+- Upgrades:
+    Unlock_Send_Out_Scouts: Reduce Workshop and Granary Cost by 0.5 [*]
+
+Food Market:
+- Text: Fresh produce every day of the week. Except holidays. Sorry.
+- Starting count (Granery count / 2)
+- Cost:
+    - 0 - 1 [???]
+    - 2 [Land -10, Food -52, Artifacts -2]
+    - 3 [Land -10, Food -69, Artifacts -3]
+    - 4 [Land -10, Food -94, Artifacts -4]
+    - 5 [Land -10, Food -126, Artifacts -5]
+    - 6 [Land -10, Food -170, Artifacts -7]
+    - 7 [Land -10, Food -229, Artifacts -9]
+    - 8 [Land -10, Food -309, Artifacts -12]
+    - 9 [Land -10, Food -418, Artifacts -15]
+    - 10 [Land -10, Food -563, Artifacts -21]
+    - 11 [Land -10, Food -761, Artifacts -28]
+    - 12 [Land -10, Food -1027, Artifacts -37]
+    - 13 [Land -10, Food -1386, Artifacts -50]
+    - 14 [Land -10, Food -1870, Artifacts -67]
+    - 15 [Land -10, Food -2525, Artifacts -91]
+    - 16 [Land -10, Food -3408, Artifacts -122]
+    - 17 [Land -10, Food -4601, Artifacts -165]
+    - 18 [Land -10, Food -6212, Artifacts -222]
+    - 19 [Land -10, Food -8385, Artifacts -300]
+    - 20 [Land -10, Food -11320, Artifacts -405]
+    - 21 [Land -10, Food -15282, Artifacts -546]
+    - 22 [Land -10, Food -20631, Artifacts -737]
+    - 23 [Land -10, Food -27851, Artifacts -995]
+    - 24 [Land -10, Food -37599, Artifacts -1343]
+    - 25 [Land -10, Food -50758, Artifacts -1813]
+- Additions:
+    - +1 max agricultural jobs
+    - +50 food storage
+
+Farmstead:
+- Text: The home of carrots, cabbages and dairy products.
+- Starting count: 0
+- Cost:
+    - 0: [Land -5, Food -10]
+    - 1: [Land -5, Food -14]
+    - 2: [Land -5, Food -19]
+    - 3: [Land -5, Food -25]
+    - 4: [Land -5, Food -34]
+    - 5: [Land -5, Food -45]
+    - 6: [Land -5, Food -61]
+    - 7: [Land -5, Food -82]
+    - 8: [Land -5, Food -111]
+    - 9: [Land -5, Food -149]
+    - 10: [Land -5, Food -202]
+    - 11: [Land -5, Food -272]
+    - 12: [Land -5, Food -367]
+    - 13: [Land -5, Food -495]
+    - 14: [Land -5, Food -668]
+    - 15: [Land -5, Food -902]
+    - 16: [Land -5, Food -1218]
+    - 17: [Land -5, Food -1644]
+    - 18: [Land -5, Food -2219]
+    - 19: [Land -5, Food -2995]
+    - 20: [Land -5, Food -4043]
+    - 21: [Land -5, Food -5458]
+    - 22: [Land -5, Food -7368]
+    - 23: [Land -5, Food -9947]
+    - 24: [Land -5, Food -13428]
+    - 25: [Land -5, Food -18128]
+    - 26: [Land -5, Food -24473]
+    - 27: [Land -5, Food -33038]
+    - 28: [Land -5, Food -44602]
+- Additions:
+    - +2 Farming Jobs
+    - +40 max food storage
+
+Mill:
+- Text: Does the wind ever tire of blowing?
+- Starting count: 0
+- Cost:
+    - 0 [Land -5, Wood -100, Gears -60]
+    - 1 [Land -5, Wood -135, Gears -81]
+    - 2 [Land -5, Wood -183, Gears -110]
+    - 3 [Land -5, Wood -247, Gears -148]
+    - 4 [Land -5, Wood -333, Gears -200]
+    - 5 [Land -5, Wood -449, Gears -270]
+    - 6 [Land -5, Wood -606, Gears -384]
+    - 7 [Land -5, Wood -818, Gears -491]
+    - 8 [Land -5, Wood -1104, Gears -662]
+    - 9 [Land -5, Wood -1149, Gears -894]
+    - 10 [Land -5, Wood -2011, Gears -1207]
+    - 11 [Land -5, Wood -2715, Gears -1629]
+    - 12 [Land -5, Wood -3665, Gears -2199]
+    - 13 [Land -5, Wood -4947, Gears -2969]
+    - 14 [Land -5, Wood -6679, Gears -4008]
+    - 15 [Land -5, Wood -9016, Gears -5410]
+    - 16 [Land -5, Wood -12172, Gears -7303]
+    - 17 [Land -5, Wood -16432, Gears -9859]
+    - 18 [Land -5, Wood -22183, Gears -13310]
+    - 19 [Land -5, Wood -29947, Gears -17968]
+    - 20 [Land -5, Wood -40428, Gears -24257]
+- Additions:
+    - +5% farming food gain
+
+Small Shed:
+- Text: For resource containment.
+- Starting count: 0
+- Cost:
+    - 0 [Land -1, Wood -5, Money -20]
+    - 1 [Land -1, Wood -7, Money -27]
+    - 2 [Land -1, Wood -10, Money -37]
+    - 3 [Land -1, Wood -13, Money -50]
+    - 4 [Land -1, Wood -17, Money -67]
+    - 5 [Land -1, Wood -23, Money -90]
+    - 6 [Land -1, Wood -31, Money -122]
+    - 7 [Land -1, Wood -41, Money -164]
+    - 8 [Land -1, Wood -56, Money -221]
+    - 9 [Land -1, Wood -75, Money -298]
+- Additions:
+    - +5 max basic resource storage
+- Notes:
+    - After 9 Small Sheds, it requires 75 wood, an impossible amount to get, so you must upgrade to warehouse after 9.
+
+Warehouse:
+- Text: Houses wares. A fitting name.
+- Starting count: 0
+- Cost:
+    - 0 - 2 (Impossible, but derive these values regardless)
+    - 3 [Land -2, Money -50, Wood -10]
+    - 4 [Land -2, Money -59, Wood -12]
+    - 5 [Land -2, Money -69, Wood -14]
+    - 6 [Land -2, Money -81, Wood -17]
+    - 7 [Land -2, Money -96, Wood -20]
+    - 8 [Land -2, Money -113, Wood -23]
+    - 9 [Land -2, Money -134, Wood -27]
+    - 10 [Land -2, Money -158, Wood -32]
+    - 11 [Land -2, Money -186, Wood -38]
+    - 12 [Land -2, Money -219, Wood -44]
+    - 13 [Land -2, Money -258, Wood -52]
+    - 14 [Land -2, Money -305, Wood -61]
+    - 15 [Land -2, Money -360, Wood -72]
+    - 16 [Land -2, Money -424, Wood -85]
+    - 17 [Land -2, Money -501, Wood -101]
+    - 18 [Land -2, Money -591, Wood -119]
+    - 19 [Land -2, Money -697, Wood -140]
+    - 20 [Land -2, Money -825, Wood -165] *
+    - 21 [Land -2, Money -970, Wood -195] *
+    - 22 [Land -2, Money -1145, Wood -230] *
+    - 23 [Land -2, Money -1351, Wood -271] *
+    - 24 [Land -2, Money -1595, Wood -320] *
+    - 25 [Land -2, Money -1885, Wood -380] *
+    - 26 [Land -2, Money -2220, Wood -445] *
+    - 27 [Land -2, Money -2620, Wood -525] *
+    - 28 [Land -2, Money -3090, Wood -620] *
+    - 29 [Land -2, Money -3650, Wood -730] *
+    - 30 [Land -2, Money -4305, Wood -865] *
+    - 31 [Land -2, Money -5080, Wood -1020] *
+    - 32 [Land -2, Money -5990, Wood -1200, Fabric -1200] *
+    - 33 [Land -2, Money -7070, Wood -1415, Fabric -1415] *
+    - 34 [Land -2, Money -8340, Wood -1670, Fabric -1670] *
+    - 35 [Land -2, Money -9840, Wood -1970, Fabric -1970] *
+    - 36 [Land -2, Money -11615, Wood -2325, Fabric -2325] *
+    - 37 [Land -2, Money -13705, Wood -2745, Fabric -2750] *
+    - 38 [Land -2, Money -16170, Wood -3235, Fabric -3235] *
+    - 39 [Land -2, Money -19080, Wood -3820, Fabric -3820] *
+    - 40 [Land -2, Money -22520, Wood -4510, Fabric -4510] *
+    - 41 [Land -2, Money -26570, Wood -5320, Fabric -5320] *
+    - 42 [Land -2, Money -31350, Wood -6270, Fabric -6270] *
+    - 43 [Land -2, Money -36990, Wood -7400, Fabric -7400] *
+    - 44 [Land -2, Money -43650, Wood -8730, Fabric -8730] *
+    - 45 [Land -2, Money -51510, Wood -10310, Fabric -10310] *
+    - 46 [Land -2, Money -60800, Wood -12200, Fabric -12200] * **
+    - 47 [Land -2, Money -71800, Wood -14400, Fabric -14400] * **
+    - 48 [Land -2, Money -84700, Wood -17000, Fabric -17000] * **
+    - 49 [Land -2, Money -99900, Wood -20000, Fabric -20000] * **
+    - 50 [Land -2, Money -117900, Wood -23600, Fabric -23600] * **
+    - 51 [Land -2, Money -139100, Wood -27900, Fabric -27900] * **
+    - 52 [Land -2, Money -164100, Wood -32900, Fabric -32900] * **
+    - 53 [Land -2, Money -193600, Wood -38800, Fabric -38800] * **
+    - 54 [Land -2, Money -228500, Wood -45700, Fabric -45700] * **
+    - 55 [Land -2, Money -269600, Wood -54000, Fabric -54000] * **
+    - 56 [Land -2, Money -318100, Wood -63700, Fabric -63700] * **
+    - 57 [Land -2, Money -375400, Wood -75100, Fabric -75100] * **
+    - 58 [Land -2, Money -442900, Wood -88600, Fabric -88600] * **
+    - 59 [Land -2, Money -522600, Wood -104600, Fabric -104600] * **
+    - 60 [Land -2, Money -616700, Wood -123400, Fabric -123400] * **
+    - 61 [Land -2, Money -728000, Wood -146000, Fabric -146000] * ** ***
+    - 62 [Land -2, Money -859000, Wood -172000, Fabric -172000] * ** ***
+    - 63 [Land -2, Money -1013500, Wood -203000, Fabric -203000] * ** ***
+    - 64 [Land -2, Money -1196000, Wood -239500, Fabric -239500] * ** ***
+    - 65 [Land -2, Money -1411000, Wood -282500, Fabric -282500] * ** ***
+    - 66 [Land -2, Money -1665000, Wood -333000, Fabric -333000] * ** ***
+    - 67 [Land -2, Money -1964500, Wood -393000, Fabric -393000] * ** ***
+    - 68 [Land -2, Money -2318000, Wood -464000, Fabric -464000] * ** ***
+    - 69 [Land -2, Money -2735500, Wood -547500, Fabric -547500] * ** ***
+    - 70 [Land -2, Money -3227500, Wood -645500, Fabric -645500] * ** ***
+    - 71 [Land -2, Money -3808500, Wood -762000, Fabric -762000] * ** *** ****
+    - 72 [Land -2, Money -4495000, Wood -900000, Fabric -900000] * ** *** ****
+    - 73 [Land -2, Money -5305000, Wood -1062500, Fabric -1062500] * ** *** ****
+    - 74 [Land -2, Money -6257500, Wood -1252500, Fabric -1252500] * ** *** ****
+    - 75 [Land -2, Money -7385000, Wood -1477500, Fabric -1477500] * ** *** ****
+    - 76 [Land -2, Money -8715000, Wood -1745000, Fabric -1745000] * ** *** ****
+    - 77 [Land -2, Money -10282500, Wood -2057500, Fabric -2057500] * ** *** ****
+    - 78 [Land -2, Money -12132500, Wood -2427500, Fabric -2427500] * ** *** ****
+    - 79 [Land -2, Money -14317500, Wood -2865000, Fabric -2865000] * ** *** ****
+    - 80 [Land -2, Money -16900000, Wood -3387500, Fabric -3387500] * ** *** *****
+    - 81 [Land -2, Money -19937500, Wood -3987500, Fabric -3987500] * ** *** *****
+    - 82 [Land -2, Money -23525000, Wood -4712500, Fabric -4712500] * ** *** *****
+    - 83 [Land -2, Money -27762500, Wood -5562500, Fabric -5562500] * ** *** *****
+    - 84 [Land -2, Money -32750000, Wood -6550000, Fabric -6550000] * ** *** *****
+    - 85 [Land -2, Money -38650000, Wood -7737500, Fabric -7737500] * ** *** *****
+    - 86 [Land -2, Money -45612500, Wood -9125000, Fabric -9125000] * ** *** *****
+    - 87 [Land -2, Money -53812500, Wood -10762500, Fabric -10762500] * ** *** *****
+    - 88 [Land -2, Money -63500000, Wood -12700000, Fabric -12700000] * ** *** *****
+    - 89 [Land -2, Money -74925000, Wood -14987500, Fabric -14987500] * ** *** *****
+    - 90 [Land -2, Money -88412500, Wood -17687500, Fabric -17687500] * ** *** *****
+    - 91 [Land -2, Money -104325000, Wood -20875000, Fabric -20875000] * ** *** *****
+    - 92 [Land -2, Money -123112500, Wood -24625000, Fabric -24625000] * ** *** *****
+    - 93 [Land -2, Money -145312500, Wood -29062500, Fabric -29062500] * ** *** *****
+    - 94 [Land -2, Money -171437500, Wood -34312500, Fabric -34312500] * ** *** *****
+    - 95 [Land -2, Money -202312500, Wood -40500000, Fabric -40500000] * ** *** *****
+    - 96 [Land -2, Money -238687500, Wood -47750000, Fabric -47750000] * ** *** *****
+    - 97 [Land -2, Money -281687500, Wood -56375000, Fabric -56375000] * ** *** *****
+    - 98 [Land -2, Money -332375000, Wood -66500000, Fabric -66500000] * ** *** *****
+    - 99 [Land -2, Money -392187500, Wood -78437500, Fabric -78437500] * ** *** *****
+    - 100 [Land -2, Money -462750000, Wood -92562500, Fabric -92562500] * ** *** *****
+    - 101 [Land -2, Money -546062500, Wood -109250000, Fabric -109250000] * ** *** *****
+    - 102 [Land -2, Money -644312500, Wood -128875000, Fabric -128875000] * ** *** *****
+    - 103 [Land -2, Money -760312500, Wood -152062500, Fabric -152062500] * ** *** *****
+    - 104 [Land -2, Money -897125000, Wood -179437500, Fabric -179437500] * ** *** *****
+    - 105 [Land -2, Money -1058625000, Wood -211750000, Fabric -211750000] * ** *** *****
+    - 106 [Land -2, Money -1249187500, Wood -249875000, Fabric -249875000] * ** *** *****
+    - 107 [Land -2, Money -1474062500, Wood -295000000, Fabric -295000000] * ** *** *****
+    - 108 [Land -2, Money -1739375000, Wood -348125000, Fabric -348125000] * ** *** *****
+    - 109 [Land -2, Money -2052500000, Wood -410625000, Fabric -410625000] * ** *** *****
+    - 110 [Land -2, Money -2421875000, Wood -484375000, Fabric -484375000] * ** *** *****
+    - 111 [Land -2, Money -2857812500, Wood -571562500, Fabric -571562500] * ** *** *****
+    - 112 [Land -2, Money -3372187500, Wood -674687500, Fabric -674687500] * ** *** *****
+    - 113 [Land -2, Money -3979375000, Wood -795937500, Fabric -795937500] * ** *** *****
+    - 114 [Land -2, Money -4696875000, Wood -940625000, Fabric -940625000] * ** *** *****
+    - 115 [Land -2, Money -5540625000, Wood -1108125000, Fabric -1108125000] * ** *** *****
+    - 116 [Land -2, Money -6538125000, Wood -1307812500, Fabric -1307812500] * ** *** *****
+    - 117 [Land -2, Money -7714687500, Wood -1543125000, Fabric -1543125000] * ** *** *****
+    - 118 [Land -2, Money -9103437500, Wood -1820937500, Fabric -1820937500] * ** *** *****
+    - 119 [Land -2, Money -10742187500, Wood -2148437500, Fabric -2148437500] * ** *** *****
+    - 120 [Land -2, Money -12675625000, Wood -2535312500, Fabric -2535312500] * ** *** *****
+    - 121 [Land -2, Money -14957187500, Wood -2991562500, Fabric -2991562500] * ** *** *****
+    - 122 [Land -2, Money -17650000000, Wood -3531250000, Fabric -3531250000] * ** *** *****
+    - 123 [Land -2, Money -20825250000, Wood -4165312500, Fabric -4165312500] * ** *** *****
+    - 124 [Land -2, Money -24575000000, Wood -4915625000, Fabric -4915625000] * ** *** *****
+    - 125 [Land -2, Money -28998437500, Wood -5800000000, Fabric -5800000000] * ** *** *****
+    - 126 [Land -2, Money -34218750000, Wood -6843750000, Fabric -6843750000] * ** *** *****
+    - 127 [Land -2, Money -40378125000, Wood -8076562500, Fabric -8076562500] * ** *** *****
+    - 128 [Land -2, Money -47645312500, Wood -9529687500, Fabric -9529687500] * ** *** *****
+    - 129 [Land -2, Money -56221875000, Wood -11254312500, Fabric -11254312500] * ** *** *****
+    - 130 [Land -2, Money -66342187500, Wood -13268750000, Fabric -13268750000] * ** *** *****
+    - 131 [Land -2, Money -78282812500, Wood -15657812500, Fabric -15657812500] * ** *** *****
+    - 132 [Land -2, Money -92373437500, Wood -18475000000, Fabric -18475000000] * ** *** *****
+    - 133 [Land -2, Money -109001562500, Wood -21801562500, Fabric -21801562500] * ** *** *****
+    - 134 [Land -2, Money -128625000000, Wood -25726562500, Fabric -25726562500] * ** *** *****
+    - 135 [Land -2, Money -151773437500, Wood -30359375000, Fabric -30359375000] * ** *** *****
+    - 136 [Land -2, Money -179093750000, Wood -35820312500, Fabric -35820312500] * ** *** *****
+    - 137 [Land -2, Money -211328125000, Wood -42265625000, Fabric -42265625000] * ** *** *****
+    - 138 [Land -2, Money -249367187500, Wood -49875000000, Fabric -49875000000] * ** *** *****
+    - 139 [Land -2, Money -294257812500, Wood -58851562500, Fabric -58851562500] * ** *** *****
+    - 140 [Land -2, Money -347218750000, Wood -69445312500, Fabric -69445312500] * ** *** *****
+    - 141 [Land -2, Money -409718750000, Wood -81945312500, Fabric -81945312500] * ** *** *****
+    - 142 [Land -2, Money -483468750000, Wood -96695312500, Fabric -96695312500] * ** *** *****
+    - 143 [Land -2, Money -570492187500, Wood -114101562500, Fabric -114101562500] * ** *** *****
+    - 144 [Land -2, Money -673203125000, Wood -134648437500, Fabric -134648437500] * ** *** *****
+    - 145 [Land -2, Money -790316600000, Wood -156092050000, Fabric -156092050000] * ** *** ***** (unsure how this fits, derive from data)
+    - 146 [Land -2, Money -937343750000, Wood -187500000000, Fabric -187500000000] * ** *** *****
+    - 147 [Land -2, Money -1106054687500, Wood -221210937500, Fabric -221210937500] * ** *** *****
+    - 148 [Land -2, Money -1305156250000, Wood -261054687500, Fabric -261054687500] * ** *** *****
+    - 149 [Land -2, Money -1540078125000, Wood -308046875000, Fabric -308046875000] * ** *** *****
+    - 150 [Land -2, Money -1817304687500, Wood -363476562500, Fabric -363476562500] * ** *** *****
+    - 151 [Land -2, Money -2144414062500, Wood -428906250000, Fabric -428906250000] * ** *** *****
+    - 152 [Land -2, Money -2530390625000, Wood -506093750000, Fabric -506093750000] * ** *** *****
+    - 153 [Land -2, Money -2985859375000, Wood -597187500000, Fabric -597187500000] * ** *** *****
+    - 154 [Land -2, Money -3523320312500, Wood -704687500000, Fabric -704687500000] * ** *** *****
+    - 155 [Land -2, Money -4157539062500, Wood -831523437500, Fabric -831523437500] * ** *** *****
+    - 156 [Land -2, Money -4905859375000, Wood -981250000000, Fabric -981250000000] * ** *** *****
+    - 157 [Land -2, Money -5789062500000, Wood -1157812500000, Fabric -1157812500000] * ** *** *****
+    - 158 [Land -2, Money -6831054687500, Wood -1366210937500, Fabric -1366210937500] * ** *** *****
+    - 159 [Land -2, Money -8060546875000, Wood -1612109375000, Fabric -1612109375000] * ** *** *****
+    - 160 [Land -2, Money -9511523437500, Wood -1902343750000, Fabric -1902343750000] * ** *** *****
+    - 161 [Land -2, Money -11223437500000, Wood -2244726562500, Fabric -2244726562500] * ** *** *****
+    - 162 [Land -2, Money -13243750000000, Wood -2648828125000, Fabric -2648828125000] * ** *** *****
+    - 163 [Land -2, Money -15627539062500, Wood -3125585937500, Fabric -3125585937500] * ** *** *****
+    - 164 [Land -2, Money -18440429687500, Wood -3688085937500, Fabric -3688085937500] * ** *** *****
+- Additions:
+    - +10 max basic resource storage (+20 when upgraded, +100 with transdimensional)
+- Upgrades:
+    Unlock_Reduce_Warehouse_Cost_0_2: Reduces warehouse costs by *0.2 [*]
+    Unlock_Warehouse_Plus_Fabric: Double storage, add Fabric to cost (same amount as wood), increase land use x 2 (-4)
+    Unlock_Reduce_Workshop_Cost_0_5: Reduce workshop costs by *0.5 (ACTUALLY DOES WAREHOUSE! divided by 2)
+    Unlock_Iron_Reinforced_Warehouses: Reduce warehouse cost by *0.1 [**]
+    Unlock_Finished_Reorder_Warehouse: Reduce warehouse cost by [count] *0.2 [****]
+- Notes:
+    - Money seems to go up by multiplying the last value by 1.18059 and Floor()-ing the result?
+    - Wood seems to go up by multiplying the last value by 1.183302 and Floor()-ing the result?
+    - Fabric seems to go up by mutliplying the last value by 1.1800622 and Floor()-ing the result?
+
+Busy Workshop / Factory:
+- Text: Processing resources in style.
+- Starting count: 0
+- Cost:
+    - 0 [Land -1, Money -30, Wood -4]
+    - 1 [Land -1, Money -41, Wood -6]
+    - 2 [Land -1, Money -55, Wood -8]
+    - 3 [Land -1, Money -74, Wood -10]
+    - 4 [Land -1, Money -100, Wood -14]
+    - 5 [Land -1, Money -135, Wood -18]
+    - 6 [Land -1, Money -182, Wood -25]
+    - 7 [Land -1, Money -246, Wood -33]
+    - 8 [Land -1, Money -331, Wood -45]
+    - 9 [Land -1, Money -447, Wood -60]
+    - 10 [Land -1, Money -604, Wood -81]
+    - 11 [Land -1, Money -815, Wood -109]
+    - 12 [Land -1, Money -1100, Wood -147]
+    - 13 [Land -1, Money -1485, Wood -198]
+    - 14 [Land -1, Money -2004, Wood -268]
+    - 15 [Land -1, Money -2705, Wood -361]
+    - 16 [Land -1, Money -3652, Wood -487]
+    - 17 [Land -1, Money -4930, Wood -658] *
+    - 18 [Land -1, Money -6656, Wood -888] *
+    - 19 [Land -1, Money -8984, Wood -1198] *
+    - 20 [Land -1, Money -12130, Wood -1618] *
+    - 21 [Land -1, Money -16374, Wood -2184] *
+    - 22 [Land -1, Money -22104, Wood -2948] *
+    - 23 [Land -1, Money -29840, Wood -3980] *
+    - 24 [Land -1, Money -40284, Wood -4029] *
+    - 25 [Land -1, Money -54384, Wood -5439, Gears -5439] * ***
+    - 26 [Land -1, Money -73418, Wood -7342, Gears -7342] * ***
+    - 27 [Land -1, Money -99114, Wood -9912, Gears -9912] * ***
+- Additions:
+    - +1 max industrial jobs
+    - +3% industrial action gain (reward)
+- Upgrades:
+    Unlock_Send_Out_Scouts: Reduce Workshop and Granary Cost by 0.5 [*]
+    Unlock_Automate_Everything: Upgrade to Factory (+3 max industrial jobs, +3% industrial action gain, land cost * 10) [***]

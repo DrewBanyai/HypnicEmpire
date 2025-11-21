@@ -1,0 +1,172 @@
+Notes:
+    - When one building is upgraded to another and halves it's count, the resource maximums do not change. Therefore, a remainder is tacked on silently on the backend.
+
+Food:
+    - Initial value: 3
+    - Initial maximum: 10
+    - Upgrades:
+        Unlock_Double_Max_Storage_Space: maximum x 2 (20)
+        Unlock_Buying_Land: maximum x 1.5 (30)
+        Shed: maximum + 5 x [count]
+        Wooden Granary: maximum + 5 x [count]
+        Farmstead: maximum + 40 x [count]
+        Warehouse: maximum + 10 (or 20 on upgrade) x [count]
+        Food Market: maximum + 50 x [count]
+        Unlock_It_Has_Pocketsss: Increase all storage by 20,000
+    - Unlocks:
+        { "Maximum": Unlock_Max_Out_Food }
+
+Herbs:
+    - Initial value: 0
+    - Initial maximum: 10
+    - Upgrades:
+        Unlock_Double_Max_Storage_Space: maximum x 2 (20)
+        Shed: maximum + 5 x [count]
+        Warehouse: maximum + 10 (or 20 on upgrade) x [count]
+        Unlock_It_Has_Pocketsss: Increase all storage by 20,000
+    - Unlocks:
+        { "Maximum": Unlock_Max_Out_Herbs }
+
+Treasure:
+    - Initial value: 0
+    - Initial maximum: 10
+    - Upgrades:
+        Unlock_Double_Max_Storage_Space: maximum x 2 (20)
+        Temple: maximum + 5 x [count]
+        Unlock_It_Has_Pocketsss: Increase all storage by 20,000
+    - Unlocks:
+        { "Maximum": Unlock_Max_Out_Treasure }
+
+Money:
+    - Initial value: 0
+    - Initial maximum: 100
+    - Upgrades:
+        Unlock_Double_Max_Storage_Space: maximum x 2 (200)
+        Shop: maximum + 110 x [count]
+        House: maximum + 100 x [count]
+        Tavern: maximum + 50 x [count]
+        Unlock_Construct_A_Treasury: Increases money storage by 20,000
+        Unlock_Build_A_Castle: Increases money storage by 40,000
+        Unlock_It_Has_Pocketsss: Increase all storage by 20,000
+    - Unlocks:
+        { 1: "Unlock_One_Money" }
+        { 1000: "Unlock_One_Thousand_Money" }
+        { 10000: "Unlock_Ten_Thousand_Money" }
+        { 100000: "Unlock_One_Hundred_Thousand_Money" }
+        { 1000000: "Unlock_One_Million_Money" }
+        { 10000000: "Unlock_Ten_Million_Money" }
+        { "Maximum": Unlock_Max_Out_Money }
+
+Wood:
+    - Initial value: 0
+    - Initial maximum: 10
+    - Upgrades:
+        Unlock_Double_Max_Storage_Space: maximum x 2 (20)
+        Shed: maximum + 5 x [count]
+        Warehouse: maximum + 10 (or 20 on upgrade) x [count]
+        Unlock_It_Has_Pocketsss: Increase all storage by 20,000
+    - Unlocks:
+        { 1: "Unlock_One_Wood" }
+        { 100: "Unlock_One_Hundred_Wood" }
+        { 1000: "Unlock_One_Thousand_Wood" }
+        { 10000: "Unlock_Ten_Thousand_Wood" }
+        { 100000: "Unlock_One_Hundred_Thousand_Wood" }
+        { "Maximum": Unlock_Max_Out_Wood }
+
+People:
+    - Initial value: 0
+    - Initial maximum: 0
+
+Stone:
+    - Initial value: 0
+    - Initial maximum: 10 ???
+    - Upgrades:
+        Warehouse: maximum + 10 (or 20 on upgrade) x [count]
+        Unlock_It_Has_Pocketsss: Increase all storage by 20,000
+    - Unlocks:
+        { 1: "Unlock_One_Stone" }
+        { 100: "Unlock_One_Hundred_Stone" }
+        { 1000: "Unlock_One_Thousand_Stone" }
+        { 10000: "Unlock_Ten_Thousand_Stone" }
+        { 100000: "Unlock_One_Hundred_Thousand_Stone" }
+        { "Maximum": Unlock_Max_Out_Stone }
+
+Potions:
+    - Initial value: 0
+    - Initial maximum: 10 ???
+    - Upgrades:
+        Shop: maximum + 10 x [count]
+        Unlock_It_Has_Pocketsss: Increase all storage by 20,000
+    - Unlocks:
+        { 1: "Unlock_One_Potion" }
+        { 100: "Unlock_One_Hundred_Potions" }
+        { 1000: "Unlock_One_Thousand_Potions" }
+        { 10000: "Unlock_Ten_Thousand_Potions" }
+        { 100000: "Unlock_One_Hundred_Thousand_Potions" }
+        { "Maximum": Unlock_Max_Out_Potions }
+
+Fabric:
+    - Initial value: 0
+    - Initial maximum: 10 ???
+    - Upgrades:
+        Warehouse: maximum + 10 (or 20 on upgrade) x [count]
+        Unlock_It_Has_Pocketsss: Increase all storage by 20,000
+    - Unlocks:
+        { "Maximum": Unlock_Max_Out_Fabrics }
+
+Iron:
+    - Initial value: 0
+    - Initial maximum: 10 ???
+    - Upgrades:
+        Warehouse: maximum + 10 (or 20 on upgrade) x [count]
+        Unlock_It_Has_Pocketsss: Increase all storage by 20,000
+    - Unlocks:
+        { "Maximum": Unlock_Max_Out_Iron }
+
+Weaponry:
+    - Initial value: 2
+    - Initial Maximum: 130 ???
+    - Upgrades:
+        Delving Outpost: maximum + 10 x [count]
+        Dungeon Entrance: maximum + 40 x [count]
+        Unlock_It_Has_Pocketsss: Increase all storage by 20,000
+    - Unlocks:
+        { "Maximum": Unlock_Max_Out_Weaponry }
+
+Gears:
+    - Initial value: 0
+    - Initial maximum: 10 ???
+    - Upgrades:
+        Unlock_It_Has_Pocketsss: Increase all storage by 20,000
+    - Unlocks:
+        { "Maximum": Unlock_Max_Out_Gears }
+
+Luxuries:
+    - Initial value: 0
+    - Initial maximum: 10 ???
+    - Upgrades:
+        Warehouse: maximum + 10 (or 20 on upgrade) x [count]
+        Unlock_It_Has_Pocketsss: Increase all storage by 20,000
+    - Unlocks:
+        { "Maximum": Unlock_Max_Out_Luxuries }
+
+Artifacts:
+    - Initial value: 0
+    - Initial maximum: 10 ???
+    - Upgrades:
+        Cathedral: maximum + 10 x [count]
+        Unlock_It_Has_Pocketsss: Increase all storage by 20,000
+    - Unlocks:
+        { "Maximum": Unlock_Max_Out_Artifacts }
+
+Tar:
+    - Initial value: 0
+    - Initial maximum: 10 ???
+    - Upgrades:
+        Unlock_It_Has_Pocketsss: Increase all storage by 20,000
+    - Unlocks:
+        { "Maximum": Unlock_Max_Out_Tar }
+
+
+"Basic Resources": Treasure, Food, Herbs, Wood, Stone
+"Other Resources": Money, People

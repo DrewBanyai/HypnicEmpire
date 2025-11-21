@@ -1,0 +1,789 @@
+{
+    "LevelGroupings": [
+        { "Min": 1, "Max": 7, "Name": "Animal Burrow", "Image": "GameLevel_001.png" },
+        { "Min": 8, "Max": 14, "Name": "Petrified Forest", "Image": "GameLevel_008.png" },
+        { "Min": 15, "Max": 20, "Name": "Abandoned Mineshaft", "Image": "GameLevel_015.png" },
+        { "Min": 21, "Max": 26, "Name": "Crystal Caverns", "Image": "GameLevel_021.png" },
+        { "Min": 27, "Max": 34, "Name": "Subsurface Bog", "Image": "GameLevel_027.png" },
+        { "Min": 35, "Max": 41, "Name": "Giant Spider Nest", "Image": "GameLevel_035.png" },
+        { "Min": 42, "Max": 48, "Name": "Spiral Staircase", "Image": "GameLevel_042.png" },
+        { "Min": 49, "Max": 55, "Name": "Frostbound Catacombs", "Image": "GameLevel_049.png" },
+        { "Min": 56, "Max": 59, "Name": "Delving Camp Alpha", "Image": "GameLevel_056.png" },
+        { "Min": 60, "Max": 66, "Name": "Salted Wastes", "Image": "GameLevel_060.png" },
+        { "Min": 67, "Max": 74, "Name": "Ironclad Fortress", "Image": "GameLevel_067.png" },
+        { "Min": 75, "Max": 81, "Name": "Bone Hell", "Image": "GameLevel_075.png" },
+        { "Min": 82, "Max": 89, "Name": "Reborn Aquifer", "Image": "GameLevel_082.png" },
+        { "Min": 90, "Max": 98, "Name": "City of the Lost Kings", "Image": "GameLevel_090.png" },
+        { "Min": 99, "Max": 104, "Name": "Delving Camp Beta", "Image": "GameLevel_099.png" },
+        { "Min": 105, "Max": 113, "Name": "Fleshridden Cave", "Image": "GameLevel_105.png" },
+        { "Min": 114, "Max": 123, "Name": "Wyrm's Vault", "Image": "GameLevel_114.png" },
+        { "Min": 124, "Max": 132, "Name": "Oily Grottos", "Image": "GameLevel_124.png" },
+        { "Min": 133, "Max": 144, "Name": "Laboratory of the Lich", "Image": "GameLevel_133.png" },
+        { "Min": 145, "Max": 145, "Name": "The Last Chamber", "Image": "GameLevel_145.png" },
+        { "Min": 146, "Max": 150, "Name": "Reliquary of The Elders", "Image": "GameLevel_146.png" },
+        { "Min": 151, "Max": 151, "Name": "End Of The Hole", "Image": "GameLevel_151.png" }
+    ],
+    
+    "LevelData": [
+        {
+            "Level": 1,
+            "Description": "You stand at the edge of the hole. Below you is a gaping abyss of darkness and intrigue.\nIt smells of old fur and damp earth. You hope it is abandoned.",
+            "DelveCount": 5
+        },
+        {
+            "Level": 2,
+            "Description": "As you descend into the earth below, the air changes subtly. After a while you find some recent animal carcasses strewn around.\nThe smell is horridly rancid and it permeates your surroundings.",
+            "DelveCount": 5
+        },
+        {
+            "Level": 3,
+            "Description": "You fight lots of rats and vermin. They contaminate these tunnels like a disease. The stench of rot is omnipresent. Between the various new and old bones you find small trinkets.\nGolden rings, bracelets, a necklace here and there.",
+            "DelveCount": 7
+        },
+        {
+            "Level": 4,
+            "Description": "The bones you find even deeper in the burrow are clearly humanoid.\nWhatever lived here before the rats came, hunted many a victim from the surrounding homesteads. And after it left, the vermin took its home for themselves.",
+            "DelveCount": 8
+        },
+        {
+            "Level": 5,
+            "Description": "The Burrow extends deeper and deeper into the earth. The return trips are ever longer. It seems like, whatever monstrous being lived here in the past did not come from the surface world but rather from deep down below the earth, making its way upwards",
+            "DelveCount": 8
+        },
+        {
+            "Level": 6,
+            "Description": "You finally arrive at the heart of its nest. A giant chamber filled with old straw and clothes, resembling a makeshift bed.\nAll around you are piles and piles of bones. The treasure here in plentiful though and it will take a while to carry it all back.",
+            "DelveCount": 12
+        },
+        {
+            "Level": 7,
+            "Description": "Even deeper still you can go. You wander the paths of old, where the ancient beast burrowed upwards. Soon after, the mud receeds and you find stone and rock in its place. Maybe you will someday see the place where this being came from.",
+            "DelveCount": 5
+        },
+        {
+            "Level": 8,
+            "Description": "The light of your lantern reflects pale gray stone. In front of you, primeval monuments of ancient wilderness stretch up into the cavernous air.\nDead, hardened and preserved for all eternity. A giant underground forest. How peculiar.",
+            "DelveCount": 8
+        },
+        {
+            "Level": 9,
+            "Description": "Here and there you can pick up individual branches from the ground. They are as heavy as rock and just as scrawny, but can still be used as building material. A shame to just leave them lying around, these pieces of former titans.",
+            "DelveCount": 12
+        },
+        {
+            "Level": 10,
+            "Description": "You come across a clearing. Brittle stone breaks under your soles. The ceiling is several meters high. However, even here everything is petrified.\nEven the young shoots that probably sprouted eternities ago at the side of their elders are devoid of life.",
+            "DelveCount": 16
+        },
+        {
+            "Level": 11,
+            "Description": "Another turn through the forgotten forest. Then you stumble upon something you didn't expect to find here. Between the trunks of stony trees you discover a single, but definitely very fossilized shoe that must have once been made of leather.",
+            "DelveCount": 20
+        },
+        {
+            "Level": 12,
+            "Description": "Soon you discover more and more remnants of habitation. A shattered hoe, turned to rock. A cart with broken stone wheels. A statue of a horse. Then a statue of a human. Then another. And still more. Fleeing from something eons ago.",
+            "DelveCount": 22
+        },
+        {
+            "Level": 13,
+            "Description": "Finally, you stand in the middle of a small buried village. The once wooden huts turned to dark rock. In the middle lies a monster that has turned to stone by its own gaze. At its side, the brave young girl who tricked it with a mirror.\nAll without life. Only gravel remains.",
+            "DelveCount": 22
+        },
+        {
+            "Level": 14,
+            "Description": "You bury their remains as best you can. You smash the monster to dust. The sight of it shall never harm anyone again.\nThe air is filled with the finest of powders. You sneeze. Once. Twice. Then silence falls upon you once again.",
+            "DelveCount": 20
+        },
+        {
+            "Level": 15,
+            "Description": "The next path into the depths you find at the edge of the petrified village. Before its misfortune, the people had dug a mine. The cold, wood-supported walls feel pleasant on your skin. No ore is left. The earth lies bare and empty before you.",
+            "DelveCount": 20
+        },
+        {
+            "Level": 16,
+            "Description": "Here and there you find some metal or a gemstone that you can sell. However, it doesn't take long before you come across the first skeletons. Some of them have weapons stuck in them. Others died merely from sharp sticks.\nBut all of them are long dead.",
+            "DelveCount": 20
+        },
+        {
+            "Level": 17,
+            "Description": "The deeper you go, the more carnage you find. Battles that raged in the distant past, where several different parties fought in crowded corridors. Some of them have worn long red robes, which now hang only in tetters on their bones.\nThey vaguely resemble religious attire.",
+            "DelveCount": 25
+        },
+        {
+            "Level": 18,
+            "Description": "In front of you stands a small alter, roughly built ages ago from now rotten wood and loose bone. Ancient script is scribbed frantically across its surface. A skeleton rests on it, one hand still clasped around the dagger handle with which they took their own life.",
+            "DelveCount": 35
+        },
+        {
+            "Level": 19,
+            "Description": "A primitive chapel was set up in one of the larger mine corridors. A dozen pews full of sitting skeletons in front of an idol smeared with dried red paint. They seem to have died peacefully at least. Or at least were unknowingly poisoned.",
+            "DelveCount": 40
+        },
+        {
+            "Level": 20,
+            "Description": "You reach one of the last paths, at one of the deepest places of the mine. On one of the supports hangs a birdcage with half-crumbled bird bones in it. Nearby lies a pickaxe and a single wide gaping crack in the rock.\nBehind it, an empty air pocket.",
+            "DelveCount": 40
+        },
+        {
+            "Level": 21,
+            "Description": "After leaving the mine behind you, lantern raised high, you now see the soft glow of light ahead of you in the darkness.\nAfter a few moments, the passage widens into a grandiose cave, filled with blue glowing crystals. They are stunningly beautiful.",
+            "DelveCount": 40
+        },
+        {
+            "Level": 22,
+            "Description": "After a while you notice that flowers grow at the feet or at least near the crystals. Their inconspicuous azure appearance somehow has a calming, almost soporific effect. You yawn once, heartily.",
+            "DelveCount": 70
+        },
+        {
+            "Level": 23,
+            "Description": "Your pace slows down and your eyelids get heavier. You now have to fight hard for every step.\nApparently the efforts of the last weeks were a bit too much. A little nap would be just the right thing now. It couldn't hurt, now could it?",
+            "DelveCount": 80
+        },
+        {
+            "Level": 24,
+            "Description": "Finally, you simply can't take it anymore. With a dull sound, your body topples forward onto the hard stone floor. Your eyelids finally begin to close. But shortly after that, your tired gaze catches one of the azure flowers on the wayside. And the ashen skill lying next to it.",
+            "DelveCount": 50
+        },
+        {
+            "Level": 25,
+            "Description": "Ignoring any scratches, you dash through the luminous caverns. How could you be so foolish, you think. Where else would the little flowers down here get their nutrients from. You protect your face with your coat from the now seemingly menacing light.",
+            "DelveCount": 50
+        },
+        {
+            "Level": 26,
+            "Description": "Exhausted and out of breath, you turn the last corner and almost run into a gray rock wall. Finally, you are surrounded by darkness again. You pull out your lantern. Down here, you have to be cautious even in such graceful looking places. A lesson you will not forget so quickly.",
+            "DelveCount": 60
+        },
+        {
+            "Level": 27,
+            "Description": "The air beecomes damp, as you step deeper. After turning around the next corner your eyes widen. Before you stretches a huge wilderness of moss and rotten swamp. Every step you take squelches with wetness. How can this all thrive here in the darkness?",
+            "DelveCount": 80,
+            "Unlock": [ "Unlock_Reach_Subsurface_Bog" ]
+        },
+        {
+            "Level": 28,
+            "Description": "The mosquitoes here are gigantic and even though you're busy doing little else but swatting away, they don't seem to let up. Luckily you have the potions with you, otherwise your throat would have swollen shut well before you got this far.",
+            "DelveCount": 100
+        },
+        {
+            "Level": 29,
+            "Description": "You bend down to the brackish water at your feet and tentatively stick a finger in. When you pull it out, it is stiff with filth and muck. Even after you wipe it on your clothes, the murky brown color and pungent sweet smell remain.",
+            "DelveCount": 130
+        },
+        {
+            "Level": 30,
+            "Description": "Every now and then you will find some gold and silver in the brackish sludge. Sometimes even a small pearl that slowly drifts along. It appears that this entire swamp is fed by a single stream. And the further you go upriver, the worse the stench gets.",
+            "DelveCount": 240
+        },
+        {
+            "Level": 31,
+            "Description": "After wading through the brackish water for quite a while, you finally stand in front of a large cliff. From high above, the miasma billows down, bringing tears to your eyes. Together with the river water, a pearl suddenly falls down. You catch it.\nIt is encrusted with old blood.",
+            "DelveCount": 300
+        },
+        {
+            "Level": 32,
+            "Description": "You eventually pull yourself over the cliff edge after a difficult climb. The smell of decay is now overpowering and omnipresent. But ahead you finally see the well of the swamp river. And above all, the source of the sludge. A gigantic rotting whale, half submerged in the mire.",
+            "DelveCount": 150
+        },
+        {
+            "Level": 33,
+            "Description": "You study the dead animal more closely. It can't have been lying here long, otherwise the muck would have decomposed it more severely. Suddenly you feel a wet drop on the back of your neck. Then a whole torrent of water, followed by a loud bang and an even louder burst.",
+            "DelveCount": 100
+        },
+        {
+            "Level": 34,
+            "Description": "In front of you lies another whale, dropped from far above. But no matter how hard you strain your eyes, the ceiling lies in darkness. The animal is likewise dead, you determine. It must have already died before falling. You're still pondering this enigma, while you've long since wandered deeper into the dungeon.",
+            "DelveCount": 100
+        },
+        {
+            "Level": 35,
+            "Description": "The first spider crosses your path just minutes after you step into the cold damp tunnels. The next one comes a moment later. Then another one and even more soon. Small skittering creatures with too many legs stumble all around you. Walls and ceiling filled with bodies. Inspecting you carefully.",
+            "DelveCount": 600
+        },
+        {
+            "Level": 36,
+            "Description": "You do your best not to step into piles upon piles of spiders. It is getting really hard to walk around now, these is almost no free space left for your feet. Occasionally a soft crunching sound can be heard under your soles.",
+            "DelveCount": 600
+        },
+        {
+            "Level": 37,
+            "Description": "After a few additional accidents under your feet a peculiar spiderweb appears next to you. Its thin strands spell the words: 'Please stop stepping on us'. A single spider sits next to it, waving one of its legs. For the next few minutes you do your best to avoid killing any more of them.",
+            "DelveCount": 700
+        },
+        {
+            "Level": 38,
+            "Description": "You notice an increasing number of spiderwebs along your way. Some are addressed to you in polite small talk, but most ask you kind of deeply personal questions about your inner moral compass. You would feel rude to ignore them, so you answer them as best as you can.",
+            "DelveCount": 700
+        },
+        {
+            "Level": 39,
+            "Description": "After a while, the questions start to head in a slightly more disturbing direction: 'If you scream and only spiders are around, does it make a sound?'.\n'How can you know that you are real? And not filled with spiders? and 'Is there a god? And if yes, why is it spiders?'.",
+            "DelveCount": 600
+        },
+        {
+            "Level": 40,
+            "Description": "Over time they quality of their web writing degrades as they get more frantic and skittish. Their grammar quality diminishes too. More and more words are now just variants of the word spider.\n'WHAT spider IF ALL spider WERE SPIDER?' You try to quicken your pace.",
+            "DelveCount": 500
+        },
+        {
+            "Level": 41,
+            "Description": "Behind you, a wave of nothing but spiders crashes against the rocky wall. You are running frantically towards the exit, as tens of thousand of small bodies try to drown you in their mass. In a final effort you throw yourself into the wide open cave before you. They don't follow and instead skitter back into their tunnels.",
+            "DelveCount": 500
+        },
+        {
+            "Level": 42,
+            "Description": "In front of you, a giant hole in an even bigger cave. Ancient torch holders are protruding from the walls. On the northern one, in faded white paint, a big number zero.\nThe hole itself is lined with stairs in a spiral formation. The darkness lets you glimpse only a few meters into its depths.",
+            "DelveCount": 500
+        },
+        {
+            "Level": 43,
+            "Description": "You slowly and carefully descend the stairs. A couple of meters down, your light illuminates a small ledge, exactly one rotation below the first number above you. A half-rotten door lies to your right as well as a painted number one. Inside you find the remnants of what must have once been a prison cell.",
+            "DelveCount": 600
+        },
+        {
+            "Level": 44,
+            "Description": "Another flight down grants access to another ledge, another door and another number. Two. The prison cell here is as empty as the one above it. Only a single, half crumbled demur bone indicates that it has once been in use.",
+            "DelveCount": 600
+        },
+        {
+            "Level": 45,
+            "Description": "The next twenty levels are no different. Still no end in sight, it only goes deeper. Darkness e ngulfs everything above and below you. The only thing you can see are the rough stone stairs. The only thing you hear are your own footsteps. And seldom the slight patter of feet far below in the darkness.",
+            "DelveCount": 600
+        },
+        {
+            "Level": 46,
+            "Description": "As you reach floor one hundred you sit down for a moment, leaning onto the wall with the three digit number, resting your aching legs. You only close your eyes for a second or so before you quickly snap them open again. In the darkness of the stairs above, a part of deep red glowing eyes reflects your torchlight.",
+            "DelveCount": 170
+        },
+        {
+            "Level": 47,
+            "Description": "...Two hundred and seventy-six. Two hundren seventy-seven. Two hundred seventy-eight... ...Six hundred twenty-two. Six hundred twenty-three. Six hundred twenty-four... ...One thousand two hundred ninety nine. One thousand three hundred. One thousand three hundred and one...",
+            "DelveCount": 300
+        },
+        {
+            "Level": 48,
+            "Description": "You run as fast as you can, your chest stings and your legs ache, the stairs just whizzing past you. Until you finally stand atop the staircase at its end. Wait a minuute, atop? Didn't you go down? The number on the wall here reads minus zero. Seems different enough at least to venture on further now.",
+            "DelveCount": 125
+        },
+        {
+            "Level": 49,
+            "Description": "While the air is getting increasingly colder, you suddenly hear a crunching noise before you, slowly coming closer. You hide at a moment's notice, before an ironclad humanoid comes into your view. It is frozen all over, clad in thick rusty armor and wields an old rusty sword. There is no light in its eyes.",
+            "DelveCount": 75,
+            "Unlock": [ "Unlock_Reach_Frostbound_Catacombs" ]
+        },
+        {
+            "Level": 50,
+            "Description": "After dealing with the undead creature, a frozen landscape opens before you. Icicles hanging from the ceiling, their pointy tips dangerously low. All glitters in light blues and turquoise. You can see your breath leaving your body, the ground crunching as your feet stop on brittle sheets of frost.",
+            "DelveCount": 125
+        },
+        {
+            "Level": 51,
+            "Description": "Ornaments of the dead are everywhere. Coffins and Sarcophagi, Alcoves full of funerary goods. Tons of gravestones, half protruding from the frosted ground. Then you stumble upon something truly rare. A giant longboat, laden with a half burned funeral pyre. However, the matching body is not in sight.",
+            "DelveCount": 125
+        },
+        {
+            "Level": 52,
+            "Description": "A tiny frozen shore. Ending in a sudden rock wall. Full of icy crystal sand. In the vicinity, a settlement of frozen over wooden homes and houses. Their logs would have probably withered eons ago, if not for the cold.  The inhabitants are long gone though it seems. Probably roaming around somewhere.",
+            "DelveCount": 150
+        },
+        {
+            "Level": 53,
+            "Description": "One of the huts bears legends and folklore of these people. Most tell of grand and great battles against mythical beasts. One in particular tells of the fight of a brazy warrior against death itself. The outcome is vague. Seems the pictures here are unfinished.",
+            "DelveCount": 175
+        },
+        {
+            "Level": 54,
+            "Description": "Further down the tunnels you find the remains of warriors. Dead and unmoving this time. Perished long ago, their bodies littered with deep cuts and lacerations. The fight went on it seems, deeper in the caverns.",
+            "DelveCount": 150
+        },
+        {
+            "Level": 55,
+            "Description": "At the end of the tunnel, next to a stone door set in the wall, lie two figures. One is similar to all the other warriors you have seen roaming around, the other has not an ounce of flesh left on his body. Its skeletal frame is covered by a long black robe and next to his body lies a rusted old scythe. It emenates coldness.",
+            "DelveCount": 100
+        },
+        {
+            "Level": 56,
+            "Description": "Passing the stone door you arrive in slightly warmer scenery and familiar brown stone. That is until you stumble upon an encampment in a nearby small cave, protected by a few broken down traps. It seems old, but not quite as ancient as the rest you saw here recently.",
+            "DelveCount": 62
+        },
+        {
+            "Level": 57,
+            "Description": "Lots of broken utensils and delving gear awaits you inside. But also some brittle, fully scribbled over documents. In it, it is reported that they found an entrance in the nearby swamp and from there they went further down. They refer to location names you've never heard before.",
+            "DelveCount": 75
+        },
+        {
+            "Level": 58,
+            "Description": "The next few pages are more familiar to you. They detail the layers with the spiders, the staircase and also the frozen over catacombs you were in previously. The writer is as perplexed as you, but speculates long and hard about the origin and meaning of this place. Utterly useless.",
+            "DelveCount": 62
+        },
+        {
+            "Level": 59,
+            "Description": "A glitter on the side catches your attention. Apparently there is another room here, accessible only through a tiny crack. It is filled to the top with treasures. Whoever had rested here must have been busy. They probably won't mind you helping yourself to their loot anymore, will they?",
+            "DelveCount": 75
+        },
+        {
+            "Level": 60,
+            "Description": "You step forward, onto an outcropping. A huge and wide cavern opens up in front of you, too big to see the other end. The whole floor is covered by a fine white sand and everywhere glowing coral trees grow in the semi-darkness. You slowly descend while watching the captivating light.",
+            "DelveCount": 75
+        },
+        {
+            "Level": 61,
+            "Description": "What you thought was sand turns out, on closer inspection, to be fine salt ground into tiny grains. It sticks to the soles of your feet with every step you take. The sight alone makes you thirsty. You eye the corals around you with suspicion, but they only gleam peacefully.",
+            "DelveCount": 100
+        },
+        {
+            "Level": 62,
+            "Description": "You feel the salty dust of this area stick to your tongue and the roof to your mouth, while traversing the soft ground. You shake your water canteen. It is almost empty. The last few drops prickle on your tongue. The coral glow in ever brighter neon colors.",
+            "DelveCount": 100
+        },
+        {
+            "Level": 63,
+            "Description": "They have to get moisture somewhere, right? Your path on the search for water leads you into a denser growth of colorful coral. You try your best not to touch any, until your arm finally contacts a tiny sliver of one. At the spot where you connected your skin is shriveled and dry.",
+            "DelveCount": 125
+        },
+        {
+            "Level": 64,
+            "Description": "Deeper in the coral forest, where the salt piles high you stumble upon dozens and dozens of dried up mollusk husks. Their shells crumble with the slightest touch, no moisture remains. You feel a bit faint. Everything seems dry. The bright shine of light all around you playing tricks on your mind.",
+            "DelveCount": 125
+        },
+        {
+            "Level": 65,
+            "Description": "In the far distance you spot an enormous coral, bigger than most trees. Its arms branch out and stretch up to the ceiling. At its sight alone, you feel your eyes dry up. At its feet, gigantic whale bones stretch up into the air. You lower your gaze, but everywhere you look, you find only more coral.",
+            "DelveCount": 125
+        },
+        {
+            "Level": 66,
+            "Description": "Finally you spot a hole in the coral forest. Here, apparently, the branches were split by an axe with accurate blows and thus a small tunnel was created. At its end is a rock wall with an embedded wooden door. It is rotten, dry and encrusted with salt. You quickly scurry through.",
+            "DelveCount": 75
+        },
+        {
+            "Level": 67,
+            "Description": "Past the door, the tunnel is clearly man-made, its bricks carved with fine hands. At its end, it opens once again into a gigantic cavern, the ceiling so high it vanishes into the dark. Before you lies a sight to behold. A fortress, almost completely filling out this huge cavity, sparkling in your torchlight.",
+            "DelveCount": 125,
+            "Unlock": [ "Unlock_Reach_Ironclad_Fortress" ]
+        },
+        {
+            "Level": 68,
+            "Description": "As you approach the gates of the stronghold you can see the details of its construction. It is made entirely of a deep blueish iron. Not a single brick or log can be seen in its massive walls and towers. Everything glitters of hard metal. And not a single speck of rust can be seen anywhere.",
+            "DelveCount": 150
+        },
+        {
+            "Level": 69,
+            "Description": "The insides are as empty as the caves you wandered in so far. Only the faintest remnants of habitation can be spotted. Some chairs scattered about. A crusty kitchenette. A child's room with toys thrown around. No wood in sight. Only tough cold iron. It feels barren.",
+            "DelveCount": 175
+        },
+        {
+            "Level": 70,
+            "Description": "Only after you have thoroughly examined an entire room do you finally discover something human. A single bare finger bone between clusters of dust. The bone is already brittle from age and crumbles as soon as you try to examine it in greater detail.",
+            "DelveCount": 250
+        },
+        {
+            "Level": 71,
+            "Description": "The whole fortress seems to have been built around a single point. All rooms lead vaguelly in this direction. Towards the end of its lifetime, there also seems to have been a massive procession, with all the inhabitants migrating towards the center. You will find only a few remains of those who did not make it.",
+            "DelveCount": 240
+        },
+        {
+            "Level": 72,
+            "Description": "An unadorned room, the ceiling supported by countless columns. In the middle a large hole, at the other end an alter. A ritual to banish a great reoccurring evil, but needing an even bigger sacrifice. You are not sure if it worked. Whoever performed it will probably not be able to tell you about it.",
+            "DelveCount": 175
+        },
+        {
+            "Level": 73,
+            "Description": "The hole in the middle is deep. You throw down a torch. After a few moments, it hits pale bones. Hundreds, no, thousands of skulls grin at you from below. All neatly stacked on top of each other.",
+            "DelveCount": 150
+        },
+        {
+            "Level": 74,
+            "Description": "You fasten a rope to the altar and lower yourself down. Soon you stand atop of the skulls. Iron walls surround you on all sides. After looking around for a while, you find a small indentation between the bones. Another hole in the floor, its walls made of skulls. You only hesitate for a moment.",
+            "DelveCount": 125
+        },
+        {
+            "Level": 75,
+            "Description": "You descend the small skull tunnel. The skulls become fewer, but other bones take their place. Hip bones, shin bones, finger bones. The walls around you expand in all directions. You lower yourself into a cave. Bones still dominate the walls, ceiling and floor. Everything is glistening white.",
+            "DelveCount": 280
+        },
+        {
+            "Level": 76,
+            "Description": "Tunnels extend in all directions like an anthill. Not a single shred of earth or rock can be seen. Only thousands and thousands of bones. All human, it seems. Directly below your feet lies a key made out of a single rib. You take it without a second thought.",
+            "DelveCount": 260
+        },
+        {
+            "Level": 77,
+            "Description": "You stumble from room to room. It is always the same sight. Here and there more skulls grin at you in the walls. Suddenly a figure in the penumbra! You are already drawing your weapon, when you realize that it is also just a collection of bones. Assembled into something that vaguely resembles a human being.",
+            "DelveCount": 320
+        },
+        {
+            "Level": 78,
+            "Description": "More statues to your left and right as you walk on. Random things, slapped together out of the only material here. That one over there vaguely resembles a rat. The one to your right you can make out is a wheelbarrow. In front of you, a small bone flower rises from the ground, the petals formed from toe bones.",
+            "DelveCount": 350
+        },
+        {
+            "Level": 79,
+            "Description": "In one of the larger caves you even discover a house. The walls were loosely put together, the shingles are made of broken skull plates. The front yard fenced by forearm bones. A door made of ribs invites you inside. Behind you, you hear the crack of footsteps on bones.",
+            "DelveCount": 350
+        },
+        {
+            "Level": 80,
+            "Description": "Quickly you scurry inside. You carefully lift up the blinds made from thumbs and peer into the darkness outside. Something large plods by. You can barely make it out in the half-light, but it seems to have too many arms and legs. All of them are glistening white. It picks up a few bones from the ground, then darts away.",
+            "DelveCount": 320
+        },
+        {
+            "Level": 81,
+            "Description": "In the cellar of the bone house you find another door. It too is made of bone, but hopefully whatever is behind it is not. You try the key you picked up earlier. It slides in with a crunch and turns with a clack. The door opens to reveal a barren stone tunnel. You let out a relieved sigh.",
+            "DelveCount": 270
+        },
+        {
+            "Level": 82,
+            "Description": "It seems your journey has come to an abrupt end. Before you the tunnel ends in a wall. Below it you spot a light blue pond. You crouch down to inspect the surface. It is pretty clear and seems to be very deep. Far down below there might be a bend or something that goes back up again. Only one way to find out.",
+            "DelveCount": 300
+        },
+        {
+            "Level": 83,
+            "Description": "After hesitating for enough time, you finally take the plunge in the ice cold cavern water. Or so you thought. It is actually quite a nice temperature. And even more you are surprised that even after three minutes you do not feel the slightest need for air while diving further down.",
+            "DelveCount": 350
+        },
+        {
+            "Level": 84,
+            "Description": "The water actually seems to flood a whole different cave system. Tunnels, bends and curves open before you. You also spot plants and algae widdling their slimy green leaves in the ripples your movements make. Then something quickly darts past. Glittering scales reflect miniscule light fragments.",
+            "DelveCount": 370
+        },
+        {
+            "Level": 85,
+            "Description": "More fish flock around you, as you swim further into the flooded system. Some of them you have never seen before, in colors that seem so different down here. They eat from translucent growth, sprouting tentacles and fins alike. They do not fear you at all.",
+            "DelveCount": 400
+        },
+        {
+            "Level": 86,
+            "Description": "The fish often swim together and the plants grow in close clusters. Their movements are all similar, almost synchronous. Each copies their neighbors and each other. Their mouths opening and closing in rhythmic parallel.",
+            "DelveCount": 370
+        },
+        {
+            "Level": 87,
+            "Description": "They dance before you. Their heads hitting the rocky ceiling, that encloses the whole acquifer. Their futile attempt to leave their destined home. In the deep drumming of the water you can almost hear their cries. The plants reaching upwards, but never getting close to what they crave.",
+            "DelveCount": 350
+        },
+        {
+            "Level": 88,
+            "Description": "Leaving the wildlife alone you swim even further down. At the deepest abyssal point you spot a cracked open rock. Almost like it got hit by a huge hammer, splitting it in the center. Pinkish residue is still sprinkled onto the porous stone. You get visions of burning fire, the broad horizon and a setting sun from high above.",
+            "DelveCount": 300
+        },
+        {
+            "Level": 89,
+            "Description": "You awake at the shore, darkness all around you and cold cave water lapping at your feet. You groggily stand up, visions of the heavens still burned into your retinas. Behind you, the fishes continue to dance in the water. You turn your lamp back on and stumble forward.",
+            "DelveCount": 250
+        },
+        {
+            "Level": 90,
+            "Description": "A ruined cathedral, once standing proudly, now lies half sunken in muddy water. The inside is in disarray, though this seemingly came from civilized hands and not age alone. The altar was broken with strong hammer blows and dark red stains cover its whole surface.",
+            "DelveCount": 350
+        },
+        {
+            "Level": 91,
+            "Description": "More buildings deeper into the caverns, full of dirt, rubble and brackish water. The outskirts of a settlement. You can't fathom how deep you are beneath the surface right now. Still, as you stumble through ancient streets you feel watched from out of the ruined houses.",
+            "DelveCount": 400
+        },
+        {
+            "Level": 92,
+            "Description": "Ancient walls, which once must have been high enough to reach the sky. You climb through its many breaches. Before you something quickly darts away. It must have heard you coming. You could only get the slightest glimpse of pale white flesh, lanky arms and pointy ears.",
+            "DelveCount": 450
+        },
+        {
+            "Level": 93,
+            "Description": "You step closer to what the creature took interest in. You spot the dried remnants of a rat. It is no more than a husk now. Completely empty of liquid, its eyes glazed over and gray. Around its neck you can spot two little puncture marks, almost too small to notice.",
+            "DelveCount": 450
+        },
+        {
+            "Level": 94,
+            "Description": "In the middle of this huge settlements, multiple castles dot the landscape, all in equal distance to one another. They are arranged in a huge star formation, one at each point. They are all arranged towards a single well in the center of the town. It echoes deep, as you throw a pebble in.",
+            "DelveCount": 500
+        },
+        {
+            "Level": 95,
+            "Description": "You check out the rightmost castle. As you wander through long empty halls, you sometimes hear soft footsteps behind you. There once were lots of grand ballrooms and expensive furnishings, but now even of the thick curtains only piles of dust remain.",
+            "DelveCount": 500
+        },
+        {
+            "Level": 96,
+            "Description": "Huge libraries must have once been a sight to behold, but most books have been ruined by their age or extensive water damage. The couple you can still decipher speak of the sun in the sky growing bigger and the plants becoming ever stronger.",
+            "DelveCount": 600
+        },
+        {
+            "Level": 97,
+            "Description": "Ever higher you climb the central tower of this castle, till you arrive at the top room. Lots of star-shaped drawings all over the walls and floor. A skeleton lies on a central scribble, the sacrificial dagger still between the rips and the tiara sat upon its skull.",
+            "DelveCount": 225
+        },
+        {
+            "Level": 98,
+            "Description": "A sudden hiss from below the staircase. You spot yellow eyes and sharp fangs and quickly dart out another door. Even though you should be high up, a bridge spans between the tower and a gap in the rock wall. One last glimpse of the town below, then you slip away towards cold rock.",
+            "DelveCount": 350
+        },
+        {
+            "Level": 99,
+            "Description": "Cleverly concealed behind a few loose rocks piled high you find a lone tent, sitting on a small outcrop, overlooking a dark cavern. You found the second camp. The cloth of the tent is ripped and shredded and it's owner had tried to repair it with whatever they could find at the time.",
+            "DelveCount": 210
+        },
+        {
+            "Level": 100,
+            "Description": "Inside you find all manner of equipment, rusted and loosely strewn about, along with a tiny ragged journal, scribbled full of almost unreadable script. It seems after the last few places, only one of the explorers was left. The fate of the others is left untold.",
+            "DelveCount": 260
+        },
+        {
+            "Level": 101,
+            "Description": "The lone explorer is not ready to give up though. They are also unsure if they even can.\nThey tried once, way back, but the tunnels just spew them out where they started. It seems like the deep can hardly let go, once it has its grasp on something. A secret needs to be unveiled. A purpose well clear.",
+            "DelveCount": 210
+        },
+        {
+            "Level": 102,
+            "Description": "Lots of speculation is thrown around in scribbled notes. Half-baked theories about all those different cultures and how they arrived in the same long winded tunnels. They are sure about a great calamity though, arriving at always the same time. An end to all things and a new beginning to others.",
+            "DelveCount": 210
+        },
+        {
+            "Level": 103,
+            "Description": "In the bag you also find a map. An attached note says, that they found it in one of the previous ruins. You don't recognize any of the coasts, nor any of the mountain ranges. The names on it have become too pale to be read. A once useful tool of a bygone era, now only fit for fire-starter.",
+            "DelveCount": 210
+        },
+        {
+            "Level": 104,
+            "Description": "You loot the last of the unbroken equipment and than go on your way. Soon into the next tunnel you stumble upon a skeleton, laying face down on the rocks. It is missing the lower half of its torso, as well as the bottom of its jaw.",
+            "DelveCount": 175
+        },
+        {
+            "Level": 105,
+            "Description": "You step forward into a reddish hellscape of pulsating matter. Everything glows in a bright red crimson. From near and far away you can hear the sound of constant chewing, but with no discernible source. You instantly feel like prey. Everything seems to wait in anticipation for you to step closer.",
+            "DelveCount": 740
+        },
+        {
+            "Level": 106,
+            "Description": "Reddish-brown pustules glow all around and slowly undulate with squelching sounds. You procure a knife and stab one. Immediately a thick crimson fluid splashes all over the wall. The flesh around it seems to drink it up quickly. Moments later, everything is dry again and the pustule you stabbed seems dead.",
+            "DelveCount": 740
+        },
+        {
+            "Level": 107,
+            "Description": "There are things here that move. Small things that skitter around on long thing, rubber-like limbs, no bigger than a rabbit. Two of them emerge onto your path. They look like someone put them into a meatgrinder of coarse. You can feel the bile rising in your throar. Wherever they step they leave stains.",
+            "DelveCount": 850
+        },
+        {
+            "Level": 108,
+            "Description": "The two critters romp around each other, innocently playing around on the uneven ground of this place. Then one suddenly jumps onto the other, furiously biting, scratching and consuming. It only takes moments, before the other one is gone. Even the faint puddle of blood is quickly slurped up.",
+            "DelveCount": 870
+        },
+        {
+            "Level": 109,
+            "Description": "You stumble upon more of the animals, though you can call them that only in the most metaphoric of senses.\nThey have an ancient aura around them. They feel more like prototypes than anything else.\nCrude resemblance of evolution, made through rigorous application of flesh.",
+            "DelveCount": 500
+        },
+        {
+            "Level": 110,
+            "Description": "Your blood runs cold as two feet step in front of you. It walks upright, its head held high, body grotesquely uneven, though unmistakably a humanoid. No mind can be discerned behind its deep gray eyes. It holds its nose up high, sniffing about, occasionally grinding its razor sharp teeth.",
+            "DelveCount": 500
+        },
+        {
+            "Level": 111,
+            "Description": "It takes a step forward, then suddenly falls down onto all fours and crawls towards you. No harm comes to you though, as it darts past you and quickly grasps one of the small critters behind you.\nYour vomic hits the floor after it starts consuming.",
+            "DelveCount": 500
+        },
+        {
+            "Level": 112,
+            "Description": "There are no brethren of yours down here, nor any brethren of your ancestors. This is not your land, not even your nature. This is something beyond that. And it too became confined to these halls and caves, just like everything else you encountered so far. Flesh sticks to your heel as you walk.",
+            "DelveCount": 375
+        },
+        {
+            "Level": 113,
+            "Description": "There is no order here, except the one of the meat. All is eaten and all will be eaten. Carnage is love and Destruction is rebirth. You mindlessly take a step forward, as the floor gives way. A fleshy tube, luckily toothless, swallows you slowly and methodically. There is no escape. You get sucked downwards.",
+            "DelveCount": 375
+        },
+        {
+            "Level": 114,
+            "Description": "You slide and slide until you suddenly feel air touch your feet. Next your whole body falls a couple of meters, as the rest of you slides out of the fleshy tube. You land rather roughly in a large pile of stones. Shiny gold stones. Pressed and round gold stones.",
+            "DelveCount": 375
+        },
+        {
+            "Level": 115,
+            "Description": "Coins. Tons of Coins. They fill the rough stone tunnel you are currently in. They slowly seem to pile up and down the tunnel you can see even more of them, along with some other trinkets and baubles all glittering in bright yellowish hue, sparkling in the light of your lantern.",
+            "DelveCount": 450
+        },
+        {
+            "Level": 116,
+            "Description": "Most of the bigger golden trinkets are inscribed with runes. Weirdly, you can read them, although it seems to be a very archaic form of your language. Most of the inscribed text are prayers and invocation to a grand superbeing, tasked with the protection and salvation of it's flock.",
+            "DelveCount": 500
+        },
+        {
+            "Level": 117,
+            "Description": "Even more golden junk fills the tunnel further down. It gets harder and harder to traverse it. They appear less and less detailed, the prayers become more and more urgent and insistent. As if an imminent danger was looming right around the corner.",
+            "DelveCount": 560
+        },
+        {
+            "Level": 118,
+            "Description": "Suddenly the tunnel widens and you step out into a huge cavernous hole with multiple similar tunnels going off to all sides. An absolutely gigantic pile of gold is pilled in the middle, spilling generously towards all sides and even into the corridors.",
+            "DelveCount": 700
+        },
+        {
+            "Level": 119,
+            "Description": "More and more inscriptions now accuse the grand being of trying to dismiss the whole situation as not being as dire as it is. Although only a few now appear to be made directly from lower metals such as silver or bronze, on quite a few others you can easily wipe away the golden color, revealing grey matte underneath.",
+            "DelveCount": 750
+        },
+        {
+            "Level": 120,
+            "Description": "After walking towards the middle for a while you can finally spot it between all the glimmering yellow. Huge piles of bleached bones, sitting on the absolute top, stretched out, as if the creature they belonged to was just sleeping. Each and every single one is warped by fungus and creeping plantmatter.",
+            "DelveCount": 750
+        },
+        {
+            "Level": 121,
+            "Description": "As you slowly climb up you can hear faint groans, reverberating from the bones and through the gold coins. Getting a bit closer still you can also perceive the sucking noice of the growths, driving deep into the marrow, replenishing themselves on succulent white matter.",
+            "DelveCount": 620
+        },
+        {
+            "Level": 122,
+            "Description": "Its skull is engraved with a message. It reads of a curse the people sent upon their once great protector, for giving up without a fight in the face of an age-old danger. For this transgression it should be forever pained by the thing it could not best and have to stay in the earthly vessel it inhabited in its lifetime.",
+            "DelveCount": 560
+        },
+        {
+            "Level": 123,
+            "Description": "There seems to be a part written for your eyes too. A plea to go deeper. To uncover what the people under this great dead beast did, back when times began. Inside the skull is another hole, driven through the gold. A great golden ladder sunken into the earth. You descend once more, as you always do.",
+            "DelveCount": 380
+        },
+        {
+            "Level": 124,
+            "Description": "You drop the last few feet from the ladder, as it ends abruptly in the air. Instead of the hard landing you suspected, the ground gives way to something sticky and hot quickly coating your feet. With rising fear you notice that you slowly get pulled downwards by the deep dark black goo.",
+            "DelveCount": 315,
+            "Unlock": [ "Unlock_Reach_Oily_Grottos" ]
+        },
+        {
+            "Level": 125,
+            "Description": "It takes you stressful minutes of careful pulling and twisting to get out of the goo-filled hole. Finally it releases you with a belching sound. As you take in your surroundings you notice additional puddles all around in these caverns. Each and every one as dark and sulfur-smelling as yours.",
+            "DelveCount": 315
+        },
+        {
+            "Level": 126,
+            "Description": "You inch closer to one of them with your lantern held high, as a single spark escapes from its latch, softly floats down and lands on one of the ebony puddles. It immediately lights up, igniting the black substance and the gases around it with a small explosion and a distinct sulfur smell.",
+            "DelveCount": 340
+        },
+        {
+            "Level": 127,
+            "Description": "Careful to not get anything flammable near your soaked through clothes",
+            "DelveCount": 375
+        },
+        {
+            "Level": 128,
+            "Description": "Some way along the shore you stumble upon a rickety old rowboat, its bottom completely caked with black mud. You shove it outwards onto the oily sea, where it sinks about halfway in, before resting silently in the black and brackish waters.",
+            "DelveCount": 400
+        },
+        {
+            "Level": 129,
+            "Description": "As you row outwards towards the open dark waters, only the soft sounds of you oars gliding trough the thick sludge can be heard. Whenever you pull them out, the black goo drips off slowly in big shiny drops. Sometimes you have the impression that something is moving deep below you in the blackest depths.",
+            "DelveCount": 440
+        },
+        {
+            "Level": 130,
+            "Description": "Suddenly a huge dark shadow becomes visible from below. It dwarfs your rowboat many times over, its gargantuan size becoming ever clearer, as it seems to ascend from unbelievable deepness. You try to row faster, but its sheer size outreaches all your efforts easily.",
+            "DelveCount": 410
+        },
+        {
+            "Level": 131,
+            "Description": "You can almost see its hide, as it ascends more quickly, but as it is almost upon you and your measly boat, suddenly another thing comes from even deeper, quicker than you could see, pulling the first beast back down into the oily depths. You could not fathom the size of the second. Too big to even think about.",
+            "DelveCount": 310
+        },
+        {
+            "Level": 132,
+            "Description": "A couple hours of frantic rowing later, you see a light in the distant that soon turns out to be the dock of an island in the middle of this ocean of ebony sludge. But before you can land though, you feel a deep humming beneath you. A sound that makes the entire jet-black liquid tremble. Perhaps a greeting? Or a warning?",
+            "DelveCount": 310
+        },
+        {
+            "Level": 133,
+            "Description": "As you step out of the boat onto the dock more lamps turn on around you, as if they were waiting only for your presence to lifht you way. Beside some old rotten crates, long empty, only an unremarkable dirt path leads inwards to the center of the island.",
+            "DelveCount": 340
+        },
+        {
+            "Level": 134,
+            "Description": "At the end of the roat you find a small metal hatch, inserted into the rocky ground. An engraved inscription on it reads: 'BEWARE! DoO NOT OPEN IF CALAMITY IS STILL ONGOING! SEEK OTHER SHELTER IMMEDIATELY! WE ARE SORRY.' It opens with a loud creak.",
+            "DelveCount": 350
+        },
+        {
+            "Level": 135,
+            "Description": "Below you find rooms upon rooms. A huge system complex, build into the hard rock. Most of it is dedicated to ancient machinery, long unusable through rust and dripping oily water. A small portion of the complex seems to be designed for habitation though, but you see no sign of those having been used at all.",
+            "DelveCount": 360
+        },
+        {
+            "Level": 136,
+            "Description": "Tucked into one of the last corners, a door opens by itself, revealing an extensive laboratory full of all kinds of glass vials, broken metal and ancient notes strewn about. Most crumble immediately upon your touch, but a single book with brown leather pages promises to reveal some answers.",
+            "DelveCount": 360
+        },
+        {
+            "Level": 137,
+            "Description": "Entry 1: We found records and evidence at an archaeological site far north. Carved into rock walls those notes speak of some sort of calamity that befell these people and wiped them out beyond recovery. Along the few preserved carvings, are multiple damaged drawings of some sort of vines and grass.",
+            "DelveCount": 380
+        },
+        {
+            "Level": 138,
+            "Description": "Entry 12: Following the latest discovery of increasingly aggressive plant and animal-life in the east the board has concluded, that the ancient carvings were indeed factual. We seem to have enough time to devise a solution, though conventional weaponry seems to not have the desired effect as of now.",
+            "DelveCount": 450
+        },
+        {
+            "Level": 139,
+            "Description": "Entry 29: There is no one else coming. We build this bunker to house hundreds, but I seem the be the only one who made it. I can not let their sacrifice go to waste. I need to find a way to prolong my life if not indefinitely to at least long enough to find a way to end this cycle of destruction.",
+            "DelveCount": 450
+        },
+        {
+            "Level": 140,
+            "Description": "Entry 348: The tremors from above indicate another tectonic shift. Seems like this level got shoved even further down than before. How might life now look like so far in the future? Would we still recognize one another as fellow people? Or would they take one look at my bones and run?",
+            "DelveCount": 380
+        },
+        {
+            "Level": 141,
+            "Description": "Entry 730: After synthesizing another tar crystal, the results of the experiments finally look promising. The sample of the colossal head from up above withered and died in less then thirteen days. Better than anything before. I only fear of the collateral damage of this weapon. Will it all be worth it in the end?",
+            "DelveCount": 360
+        },
+        {
+            "Level": 142,
+            "Description": "Entry 1425: I finally figured out the problem that plagued me for the last four-hundred years. The anti-life from the crystals is just not potent enough without powering up first for a long time. My bones ache. I forgot what dreams are.  Though the hunger never went away completely.",
+            "DelveCount": 360
+        },
+        {
+            "Level": 143,
+            "Description": "Entry 2001: I constructed the chamber below this laboratory. The construction is alright, but nothing to boast about. I had to make do with what I could. I hope it will hold for the next thousands of years. Let it be enough to charge the weapon please. Let everything not be in vain. Please.",
+            "DelveCount": 350
+        },
+        {
+            "Level": 144,
+            "Description": "Entry 2115: To whomever finds this. I desperately hope you could already break the cycle, though I fear it is too powerful for you. If not then you will find a weapon below you. You may use it. But be warned, the consequences will be unforeseen. I am sorry for imposing this burden on you. I was once like you.",
+            "DelveCount": 340
+        },
+        {
+            "Level": 145,
+            "Description": "A simple stone door opens before you. Violet ethereal light engulfs a small pedestal. On it an alien machine, not bigger than your arm. Around it multiple pylons, long past their prime, all their energy spent on the weapon in their midst. You instinctively fear it. It is anti-life.",
+            "DelveCount": 700,
+            "Unlock": "Unlock_Reach_The_Last_Chamber"
+        },
+        {
+            "Level": 146,
+            "Description": "There is another door on the side, cheaply build from the most basic of materials. But behind it are halls upon halls of trinkets, gold and gems, just halfheartedly tossed in there without a care in the world. Riches beyond your comprehension.",
+            "DelveCount": 440
+        },
+        {
+            "Level": 147,
+            "Description": "The materials are certainly valuable, but the techniques with which they were made are at most amateurish. Almost like the fingers who made them were not fully developed for these kind of tasks. The cratsmen certainly have aptitude, but sadly lack the necessary bodily functions.",
+            "DelveCount": 440
+        },
+        {
+            "Level": 148,
+            "Description": "A crude image of a person, but it is not quite there yet. You look at it intensely, try to find the thing that bothers you, until you realize it. The painting is indeed finished, but body proportions to not look right yet. As if one took the shape of a person and malformed it ever so slightly.",
+            "DelveCount": 440
+        },
+        {
+            "Level": 149,
+            "Description": "There is an end, it seems. You pick up the last few items off the ground, simple trinkets of pottery and wood, seemingly made with the crudest of tools and only rudimentary knowledge of one's own hands. They almost crumble to dust by your mere touch.",
+            "DelveCount": 440
+        },
+        {
+            "Level": 150,
+            "Description": "In the last corner of the last room someone carved an inscription into the stone floor. It reads: 'We were the first ones. We hope you are not the last to come. Be strong and be brave. Do not fight the change. Welcome the next generation with open arms. They are our children too.'",
+            "DelveCount": 430
+        },
+        {
+            "Level": 151,
+            "Description": "It is finally empty. There is nothing else here. Everything istaken and stripped and robbed. No more tunnels, nor pathways or cracks in the rock. The treasure flows no more. You devoured it all.",
+            "DelveCount": 1
+        }
+    ]
+}
