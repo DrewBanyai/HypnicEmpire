@@ -127,8 +127,8 @@ namespace HypnicEmpire
             unhideDevelopmentsFunc = (oldAmount, newAmount) =>
             {
                 if (newAmount != 0) return;
-                CurrentGameState.GameUnlockList[GameUnlock.Unlocked_Empty_Belly] = true;
-                GameUnlockSystem.SetUnlockValue(GameUnlock.Unlocked_Empty_Belly, true);
+                CurrentGameState.GameUnlockList[GameUnlock.Unlock_Empty_Belly] = true;
+                GameUnlockSystem.SetUnlockValue(GameUnlock.Unlock_Empty_Belly, true);
                 GameSubscriptions.UnsubscribeToResourceAmount(ResourceType.Food, unhideDevelopmentsFunc);
             };
             GameSubscriptions.SubscribeToResourceAmount(ResourceType.Food, unhideDevelopmentsFunc);
@@ -138,8 +138,8 @@ namespace HypnicEmpire
             SubscribeToJournalEntries();
 
             //  If we haven't loaded a game state with the very first unlock, unlock it now
-            if (!CurrentGameState.GameUnlockList.Contains(GameUnlock.Unlocked_Game_Start))
-                CurrentGameState.SetUnlockValue(GameUnlock.Unlocked_Game_Start, true);
+            if (!CurrentGameState.GameUnlockList.Contains(GameUnlock.Unlock_Game_Start))
+                CurrentGameState.SetUnlockValue(GameUnlock.Unlock_Game_Start, true);
         }
 
         public void CheckDevelopments()
