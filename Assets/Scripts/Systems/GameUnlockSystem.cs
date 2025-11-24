@@ -24,6 +24,8 @@ namespace HypnicEmpire
                     action?.Invoke(unlocked);
         }
 
+        public static bool IsUnlockIDValid(string unlockID) { return UnlockIDs.Contains(unlockID); }
+
         public static void LoadAllUnlockIDs(string jsonFilePath)
         {
             if (File.Exists(jsonFilePath))
@@ -35,7 +37,10 @@ namespace HypnicEmpire
 
                     UnlockIDs.Clear();
                     foreach (string unlockID in unlockIDs)
-                        UnlockIDs.Add(unlockID);
+                        if (!IsUnlockIDValid(unlockID))
+                            UnlockIDs.Add(unlockID);
+                        else
+                            Debug.LogWarning($"Attempting to add already existing UnlockID value {unlockID}");
 
                     Debug.Log($"Successfully loaded {unlockIDs.Count} UnlockIDs from {jsonFilePath}");
                 }
