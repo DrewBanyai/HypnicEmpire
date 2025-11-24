@@ -17,6 +17,8 @@ namespace HypnicEmpire
         public int Max;
         public string Name;
         public string Image;
+        public int Difficulty;
+        public List<ResourceAmountData> ResourceChange;
         public Sprite ImageSprite;
     }
 

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Sleepwalking.GameStateScriptableObject
   GameState:
     LevelReached:
-      Value: 0
+      Value: 1
     LevelCurrent:
-      Value: 0
+      Value: 1
     LevelDelveCount:
       Value: 0
     CurrentPlayerAction: 0

@@ -12,14 +12,18 @@ namespace HypnicEmpire
         [SerializeField] public TextMeshProUGUI LevelDescriptionText;
         [SerializeField] public UINumberOptionControlEntry LevelIndexControl;
 
-        public void SetContent(int currentLevel, int maxLevel, GameLevelData levelData, Action upLevelCallback, Action downLevelCallback)
+        public void SetContent(int currentLevel, int maxLevel, int level, Action upLevelCallback, Action downLevelCallback)
         {
             if (currentLevel < 0 || maxLevel < 0 || currentLevel > maxLevel) return;
-            if (levelData == null) return;
 
-            LevelImage?.SetSprite(levelData.Sprite);
-            LevelNameText?.SetText(levelData.Name);
-            LevelDescriptionText?.SetText(levelData.Description);
+            //  TODO: Decouple this (UI shouldn't know about Game Data)
+            var levelGrouping = LevelDataSystem.GetGroupingByLevel(level);
+            var levelData = LevelDataSystem.GetLevelData(level);
+            if (levelGrouping == null || levelData == null) return;
+
+            LevelImage?.SetSprite(levelGrouping?.ImageSprite);
+            LevelNameText?.SetText(levelGrouping?.Name);
+            LevelDescriptionText?.SetText(levelData?.Description);
 
             Action upLevelCallbackAdvanced = () =>
             {

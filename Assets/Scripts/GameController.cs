@@ -12,7 +12,6 @@ namespace HypnicEmpire
     {
         private static string SaveFilePath => Application.persistentDataPath + "/saveGame.dat";
         [SerializeField] public GameStateScriptableObject InitialGameState;
-        [SerializeField] public GameLevelsScriptableObject GameLevelsData;
         [SerializeField] public DevelopmentsScriptableObject DevelopmentsData;
         [SerializeField] public PlayerActionScriptableObject PlayerActionsData;
         [SerializeField] public JournalEntryScriptableObject JournalEntryData;
@@ -71,23 +70,23 @@ namespace HypnicEmpire
             MainGameUIView.MusicVolumeControlEntry?.SetContent("Music", CurrentGameState.MusicVolume.ToString(), () => ChangeMusicVolume(5), () => ChangeMusicVolume(-5));
             MainGameUIView.ActionSoundExcessControlEntry?.AddListener(CurrentGameState.ToggleActionSoundExcess);
 
-            MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent.Value, CurrentGameState.LevelReached.Value, GameLevelsData.GetLevel(CurrentGameState.LevelCurrent.Value), CurrentLevelUp, CurrentLevelDown);
+            MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent.Value, CurrentGameState.LevelReached.Value, CurrentGameState.LevelCurrent.Value, CurrentLevelUp, CurrentLevelDown);
             MainGameUIView.DelveTaskButton?.SetContents(PlayerActionType.Delve, 20f, 64f, CompleteDelve);
 
-            MainGameUIView.LevelExplorationBar?.SetProgress((float)CurrentGameState.LevelDelveCount.Value / (float)GameLevelsData.GetLevel(CurrentGameState.LevelCurrent.Value).DelveCount);
+            MainGameUIView.LevelExplorationBar?.SetProgress((float)CurrentGameState.LevelDelveCount.Value / (float)LevelDataSystem.GetLevelData(CurrentGameState.LevelCurrent.Value).DelveCount);
             CurrentGameState.LevelDelveCount.Subscribe((newValue) =>
             {
-                MainGameUIView.LevelExplorationBar?.SetProgress((float)CurrentGameState.LevelDelveCount.Value / (float)GameLevelsData.GetLevel(CurrentGameState.LevelCurrent.Value).DelveCount);
+                MainGameUIView.LevelExplorationBar?.SetProgress((float)CurrentGameState.LevelDelveCount.Value / (float)LevelDataSystem.GetLevelData(CurrentGameState.LevelCurrent.Value).DelveCount);
             });
 
             CurrentGameState.LevelCurrent.Subscribe((newValue) =>
             {
-                MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent.Value, CurrentGameState.LevelReached.Value, GameLevelsData.GetLevel(CurrentGameState.LevelCurrent.Value), CurrentLevelUp, CurrentLevelDown);
+                MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent.Value, CurrentGameState.LevelReached.Value, CurrentGameState.LevelCurrent.Value, CurrentLevelUp, CurrentLevelDown);
             });
 
             CurrentGameState.LevelReached.Subscribe((newValue) =>
             {
-                MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent.Value, CurrentGameState.LevelReached.Value, GameLevelsData.GetLevel(CurrentGameState.LevelCurrent.Value), CurrentLevelUp, CurrentLevelDown);
+                MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent.Value, CurrentGameState.LevelReached.Value, CurrentGameState.LevelCurrent.Value, CurrentLevelUp, CurrentLevelDown);
             });
 
             if (DevelopmentsData != null)
@@ -171,13 +170,13 @@ namespace HypnicEmpire
         public void CurrentLevelUp()
         {
             SetCurrentLevel(CurrentGameState.LevelCurrent.Value + 1);
-            MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent.Value, CurrentGameState.LevelReached.Value, GameLevelsData.GetLevel(CurrentGameState.LevelCurrent.Value), CurrentLevelUp, CurrentLevelDown);
+            MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent.Value, CurrentGameState.LevelReached.Value, CurrentGameState.LevelCurrent.Value, CurrentLevelUp, CurrentLevelDown);
         }
 
         public void CurrentLevelDown()
         {
             SetCurrentLevel(CurrentGameState.LevelCurrent.Value - 1);
-            MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent.Value, CurrentGameState.LevelReached.Value, GameLevelsData.GetLevel(CurrentGameState.LevelCurrent.Value), CurrentLevelUp, CurrentLevelDown);
+            MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent.Value, CurrentGameState.LevelReached.Value, CurrentGameState.LevelCurrent.Value, CurrentLevelUp, CurrentLevelDown);
         }
 
         public void SetCurrentLevel(int level)
@@ -193,13 +192,13 @@ namespace HypnicEmpire
             var changes = GetCurrentDelveResourceChanges();
             CurrentGameState.AddToResources(changes);
 
-            if (CurrentGameState.LevelCurrent.Value + 1 >= GameLevelsData.GameLevels.Count)
+            if (CurrentGameState.LevelCurrent.Value + 1 >= LevelDataSystem.GetLevelCount())
             {
                 MainGameUIView?.DelveTaskButton.SetEnabled(false);
             }
             else
             {
-                if (CurrentGameState.LevelDelveCount.Value + 1 >= GameLevelsData.GetLevel(CurrentGameState.LevelCurrent.Value)?.DelveCount)
+                if (CurrentGameState.LevelDelveCount.Value + 1 >= LevelDataSystem.GetLevelData(CurrentGameState.LevelCurrent.Value)?.DelveCount)
                 {
                     CurrentGameState.LevelReached.SetValue(CurrentGameState.LevelReached.Value + 1);
                     CurrentGameState.LevelDelveCount.SetValue(0);
@@ -250,11 +249,12 @@ namespace HypnicEmpire
 
         public List<ResourceAmount> GetCurrentDelveResourceChanges()
         {
-            if (GameLevelsData == null) return new List<ResourceAmount>();
-            if (CurrentGameState.LevelCurrent.Value >= GameLevelsData.GameLevels.Count || CurrentGameState.LevelCurrent.Value < 0) return new List<ResourceAmount>();
+            if (CurrentGameState.LevelCurrent.Value >= LevelDataSystem.GetLevelCount() || CurrentGameState.LevelCurrent.Value < 0) return new List<ResourceAmount>();
 
             List<ResourceAmount> amountsList = new();
-            foreach (var ra in GameLevelsData.GameLevels[CurrentGameState.LevelCurrent.Value].ResourceChanges) amountsList.AddResourceAmount(new ResourceAmount(ra.Key, ra.Value));
+            foreach (var rc in LevelDataSystem.GetGroupingByLevel(CurrentGameState.LevelCurrent.Value).ResourceChange)
+                amountsList.AddResourceAmount(new ResourceAmount(rc.ResourceType, rc.Amount));
+
             return amountsList;
         }
     }

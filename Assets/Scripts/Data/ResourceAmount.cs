@@ -7,6 +7,12 @@ namespace HypnicEmpire
     [Serializable]
     public class ResourceAmount
     {
+        public ResourceAmount(string rType, int amount)
+        {
+            ResourceType = (ResourceType)Enum.Parse(typeof(ResourceType), rType);
+            Amount = amount;
+        }
+
         public ResourceAmount(ResourceType rType, int amount)
         {
             ResourceType = rType;

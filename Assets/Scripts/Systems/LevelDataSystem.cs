@@ -10,6 +10,22 @@ namespace HypnicEmpire
         private static List<LevelGrouping> LoadedLevelGroupings = new();
         private static Dictionary<int, LevelDataEntry> LevelDataMap = new();
 
+        public static LevelGrouping GetGroupingByLevel(int level)
+        {
+            foreach (var levelGrouping in LoadedLevelGroupings)
+                if (level >= levelGrouping.Min && level <= levelGrouping.Max)
+                    return levelGrouping;
+
+            return null;
+        }
+
+        public static LevelDataEntry GetLevelData(int level)
+        {
+            return LevelDataMap.ContainsKey(level) ? LevelDataMap[level] : null;
+        }
+
+        public static int GetLevelCount() { return LevelDataMap.Count; }
+
         private static bool IsLeveLGroupingValidToAdd(LevelGrouping levelGrouping)
         {
             if (levelGrouping.Min < 0) return false;
@@ -24,19 +40,10 @@ namespace HypnicEmpire
             
             return true;
         }
-
-        private static bool IsLevelWithinGroupingData(int level)
-        {
-            foreach (var levelGrouping in LoadedLevelGroupings)
-                if (level >= levelGrouping.Min && level <= levelGrouping.Max)
-                    return true;
-
-            return false;
-        }
         
         private static bool IsLevelDataEntryValidToAdd(LevelDataEntry levelDataEntry)
         {
-            if (!IsLevelWithinGroupingData(levelDataEntry.Level)) return false;
+            if (GetGroupingByLevel(levelDataEntry.Level) == null) return false;
             if (levelDataEntry.DelveCount <= 0) return false;
 
             if (LevelDataMap.ContainsKey(levelDataEntry.Level)) return false;
@@ -53,7 +60,7 @@ namespace HypnicEmpire
                     string jsonContent = File.ReadAllText(jsonFilePath);
                     var levelDataStruct = JsonSerialization.Deserialize<LevelData>(jsonContent);
 
-
+                    //  Load the Level Groupings
                     LoadedLevelGroupings.Clear();
                     foreach (var levelGrouping in levelDataStruct.LevelGroupings)
                     {
@@ -65,9 +72,12 @@ namespace HypnicEmpire
                         else
                             Debug.LogWarning($"Attempting to add invalid LevelGrouping data: {levelGrouping.Name}");
                     }
+
+                    //  TODO: Check the ResourceChange to ensure all resource type values are valid entries in the ResourceTypes string list
                             
                     Debug.Log($"Successfully loaded {LoadedLevelGroupings.Count} LevelGrouping data entries from {jsonFilePath}");
 
+                    //  Load the Level Data
                     LevelDataMap.Clear();
                     foreach (var levelDataEntry in levelDataStruct.LevelDataEntries)
                         if (IsLevelDataEntryValidToAdd(levelDataEntry))
