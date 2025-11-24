@@ -24,6 +24,7 @@ namespace HypnicEmpire
 
         public void Start()
         {
+            GameUnlockSystem.LoadAllUnlockIDs(Application.dataPath + "/../DataPacks/YFAHITG/UnlockIDs.json");
             CurrentGameState.Initialize(InitialGameState);
             MainGameUIView.Initialize();
             SetupMainGameUI();
