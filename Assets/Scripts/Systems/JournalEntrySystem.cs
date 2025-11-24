@@ -17,7 +17,7 @@ namespace HypnicEmpire
                 try
                 {
                     string jsonContent = File.ReadAllText(jsonFilePath);
-                    List<JournalEntryData> journalEntryDataList = JsonSerialization.Deserialize<List<JournalEntryData>>(jsonContent);
+                    var journalEntryDataList = JsonSerialization.Deserialize<List<JournalEntryData>>(jsonContent);
 
                     JournalEntryDataMap.Clear();
                     foreach (JournalEntryData entryData in journalEntryDataList)

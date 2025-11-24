@@ -23,8 +23,7 @@
         { "Min": 146, "Max": 150, "Name": "Reliquary of The Elders", "Image": "GameLevel_146.png" },
         { "Min": 151, "Max": 151, "Name": "End Of The Hole", "Image": "GameLevel_151.png" }
     ],
-    
-    "LevelData": [
+    "LevelDataEntries": [
         {
             "Level": 1,
             "Description": "You stand at the edge of the hole. Below you is a gaping abyss of darkness and intrigue.\nIt smells of old fur and damp earth. You hope it is abandoned.",
@@ -159,7 +158,7 @@
             "Level": 27,
             "Description": "The air beecomes damp, as you step deeper. After turning around the next corner your eyes widen. Before you stretches a huge wilderness of moss and rotten swamp. Every step you take squelches with wetness. How can this all thrive here in the darkness?",
             "DelveCount": 80,
-            "Unlock": [ "Unlock_Reach_Subsurface_Bog" ]
+            "Unlock": "Unlock_Reach_Subsurface_Bog"
         },
         {
             "Level": 28,
@@ -270,7 +269,7 @@
             "Level": 49,
             "Description": "While the air is getting increasingly colder, you suddenly hear a crunching noise before you, slowly coming closer. You hide at a moment's notice, before an ironclad humanoid comes into your view. It is frozen all over, clad in thick rusty armor and wields an old rusty sword. There is no light in its eyes.",
             "DelveCount": 75,
-            "Unlock": [ "Unlock_Reach_Frostbound_Catacombs" ]
+            "Unlock": "Unlock_Reach_Frostbound_Catacombs"
         },
         {
             "Level": 50,
@@ -361,7 +360,7 @@
             "Level": 67,
             "Description": "Past the door, the tunnel is clearly man-made, its bricks carved with fine hands. At its end, it opens once again into a gigantic cavern, the ceiling so high it vanishes into the dark. Before you lies a sight to behold. A fortress, almost completely filling out this huge cavity, sparkling in your torchlight.",
             "DelveCount": 125,
-            "Unlock": [ "Unlock_Reach_Ironclad_Fortress" ]
+            "Unlock": "Unlock_Reach_Ironclad_Fortress"
         },
         {
             "Level": 68,
@@ -647,7 +646,7 @@
             "Level": 124,
             "Description": "You drop the last few feet from the ladder, as it ends abruptly in the air. Instead of the hard landing you suspected, the ground gives way to something sticky and hot quickly coating your feet. With rising fear you notice that you slowly get pulled downwards by the deep dark black goo.",
             "DelveCount": 315,
-            "Unlock": [ "Unlock_Reach_Oily_Grottos" ]
+            "Unlock": "Unlock_Reach_Oily_Grottos"
         },
         {
             "Level": 125,

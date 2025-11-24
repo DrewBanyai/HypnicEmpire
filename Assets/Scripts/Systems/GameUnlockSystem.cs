@@ -33,7 +33,7 @@ namespace HypnicEmpire
                 try
                 {
                     string jsonContent = File.ReadAllText(jsonFilePath);
-                    List<string> unlockIDs = JsonSerialization.Deserialize<List<string>>(jsonContent);
+                    var unlockIDs = JsonSerialization.Deserialize<List<string>>(jsonContent);
 
                     UnlockIDs.Clear();
                     foreach (string unlockID in unlockIDs)
