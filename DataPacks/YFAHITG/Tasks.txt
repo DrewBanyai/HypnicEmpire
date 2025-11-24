@@ -111,7 +111,7 @@ Buy Weaponry
 
 Polish
     - Initial Speed: 40 / 100 (2.50s to finish)
-    - Initial Resource: (Food -1, Treasure +1)
+    - Initial Resource: (Money -50, Treasure +1)
     - Upgrades:
         Unlock_Commercial_Action_Speed_Up_2: Commercial Task Speed x 2 ~ 80 / 100 (1.25s to finish)
         Tavern: Global Action Speed Gain x [count] x 1.02

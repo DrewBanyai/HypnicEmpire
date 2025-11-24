@@ -1,0 +1,727 @@
+[
+    {
+        "Trigger": [ "Unlock_Game_Start" ],
+        "Text": [ "You eventually arrive after a long hike through the desolate landscape of the kingdoms east, where the Sevenjag mountain range looms on the horizon. Your rations are almost fully depleted.\nAfter looking around for an hour, you still come up empty, already silently cursing the old fool who sold you the treasure map.\nBut then you finally stumble upon it, almost dropping down its gaping entrance.\n\nYou found a hole in the ground." ]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Forage" ],
+        "Text": [ "You found a varied assortment of foods in the surrounding underbrush. While looking for a snack you also gathered a tiny amount of medicinal herbs.\nThey could be useful in the future." ]
+    },
+    {
+        "Trigger": [ "Unlock_Foraging_Speed_Up" ],
+        "Text": [ "Slowly you are getting the hang of it. The area around the hole is full of berry bushes and tiny wild carrots. Enough for a hearty soup at least." ]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Sell_Food" ],
+        "Text": [ "The nearby villagers eye you suspiciously. The people here can barely survive on what the acidic soil produces.\nThey take your riches, but would much rather buy some of your food.\nNot what you wanted, but at least a start." ]
+    },
+    {
+        "Trigger": [ "Unlock_Foraging_Gain_Up_2_5" ],
+        "Text": [ "After a while, your new wild gardens stand in full bloom. Foraging is also now way easier, thanks to all the paths you made through previous runs." ]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Trade_Herbs" ],
+        "Text": [ "You indeed sampled a lot of herbs. After that, you also sampled quite a lot together from the pantry. All in all, it was a very smoky afternoon." ]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Market" ],
+        "Text": [ "You gathered the representatives of several nearby villages in the local tavern.\nWith the help of diagrams made from pretzel crumbs and beer mats, you showed them how they could easily resell the treasures and make a decent profit themselves.\nBy the way, you also got wildly wasted in the process." ]
+    },
+    {
+        "Trigger": [ "Unlock_Foraging_Herb_Gain_Up_1_6" ],
+        "Text": [ "Turns out, that herbs also grow back, if you don't just rip them out of the ground with all of their roots. Everyday you learn something new..." ]
+    },
+    {
+        "Trigger": [ "Unlock_Foraging_Food_Gain_Up_2" ],
+        "Text": [ "Turns out, those cramps you occasionally got, were not as normal as you thought. Huh." ]
+    },
+    {
+        "Trigger": [ "Unlock_Delving_Speed_Up_2" ],
+        "Text": [ "You had a nice little dinner with the lovely lady after buying everything from her. And what a delicious cake she can bake!\nHopefully you still fit into the armor now...?" ]
+    },
+    {
+        "Trigger": [ "Unlock_Visit_The_Barony" ],
+        "Text": [ "The talk with the baron was indeed very productive.\n\nWhile mostly making small talk about the increased animal attacks on the outskirts of the western jungle of Itari, they also agreed to directly buy those treasures from you for an increased profit on your side." ]
+    },
+    {
+        "Trigger": [ "Unlock_Commercial_Action_Speed_Up_2" ],
+        "Text": [ "Every so often now a merchant visits your small place. They scrunch up their noses and wash their hands constantly, but still buy your stuff no matter what." ]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Chop_Wood" ],
+        "Text": [ "How much wood could a woodchuck chuck if a woodchuck could chuck wood?\n...\nFuck if I know." ]
+    },
+    {
+        "Trigger": [ "Unlock_Buildings" ],
+        "Text": [ "You're buttering up the Baron. After a little chat, he sells you the land for a fraction of the price. On the side, he continues to tell you about the animal attacks in the tropical west.\nThey still seem to be on the increase." ]
+    },
+    {
+        "Trigger": [ "Unlock_Chop_Wood_Gain_Up_2" ],
+        "Text": [ "Every time you chop down a tree you feel a weird sort of tingle in your spine. Kind of a soft sadness that emenates from the scrawny logs. But still, you need the wood..." ]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Hunting" ],
+        "Text": [ "The first bite of fresh hunted meat almost brings tears to your eyes. It's been ages since you last ate anything other than berries and carrots." ]
+    },
+    {
+        "Trigger": [ "Unlock_Double_Max_Storage_Space" ],
+        "Text": [ "Build stuff to stuff your stuff in. Genius stuff." ]
+    },
+    {
+        "Trigger": [ "Unlock_Half_Food_Cost_Of_Delving" ],
+        "Text": [ "When you first wake up in your own new house, you feel better than you have in a long time.\nEven your improvised bed feels better than the one on your old farm. Freedom tastes sweeter than any financial security." ]
+    },
+    {
+        "Trigger": [ "Unlock_Buying_Land" ],
+        "Text": [ "The baron gladly sells you the land you need and some more, if you want to expand in the future.\nNow you only need to actually build houses to get people to stay." ]
+    },
+    {
+        "Trigger": [ "Unlock_Building_Shed" ],
+        "Text": [ "They handed you blueprints for a simple shed.\nKind of underwhelming, but at least the pitch was pretty good." ]
+    },
+    {
+        "Trigger": [ "Unlock_Building_Wooden_Granary" ],
+        "Text": [ "You dwell over the map over the small nearby forest, marked with various colored spots. Building all those tiny graneries will take quite some time, but it is necessary to keep everyone fed." ]
+    },
+    {
+        "Trigger": [ "Unlock_Building_Delving_Outpost" ],
+        "Text": [ "It might be best to build an outpost on top of the hole for the chosen ones to stay in. It is probably best to separate them from the rest of the group. Those who go into the depths usually have a very peculiar character." ]
+    },
+    {
+        "Trigger": [ "Unlock_Building_Busy_Workshop" ],
+        "Text": [ "Turns out they also have a doible for buttered scones and women's clothing, but who are you to judge.\nThey agreed to work for you, but only if you put some stocked bars in their workshops." ]
+    },
+    {
+        "Trigger": [ "Unlock_Money_Storage_Up_300" ],
+        "Text": [ "While you could build most of it yourself, you still had to buy the actual metal lock and you decided to get one of the expensive ones. Best to safeguard that money so as not to tempt some people into perilous ideas from the onset." ]
+    },
+    {
+        "Trigger": [ "Unlock_Money_Storage_Up_Another_300" ],
+        "Text": [ "Again, you buy one of the best locks on the market. Maybe in the far future you could establish your own metal working, but that is still far away.\nBut still, one can dream." ]
+    },
+    {
+        "Trigger": [ "Unlock_Building_Shop" ],
+        "Text": [ "Your remote assortment of houses slowly turns into a real village. Now you even have some merchants, sitting in small shops selling stuff at way too high prices.\nReally authentic!" ]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Cut_Stone" ],
+        "Text": [ "It was a great success! The geologist tells you that while the ground is not really fertile and pretty bad for farming, it is indeed very rich in great stone veins. It will take some time for her to find the best spots, but in the meantime you can already start mining a bit." ]
+    },
+    {
+        "Trigger": [ "Unlock_Buy_Land_Parcel_25" ],
+        "Text": [ "Lots of money changed hands until you finally hold the deeds to a dozen or so parcels all around your estate." ]
+    },
+    {
+        "Trigger": [ "Unlock_Bulk_Trade_Route" ],
+        "Text": [ "Most of these refugees travel to the kingdom's capital of Therasi in hope of a better life. Still no words from the elves living deep in the Itari jungle. The king's advisors are getting increasingly restless, you learn." ]
+    },
+    {
+        "Trigger": [ "Unlock_Shops_Increase_Max_Money_Up_110" ],
+        "Text": [ "You've picked up a few tricks from them. Instead of selling them safes, you rent them out instead. In exchange, you get some space in each one where you can store your extra change." ]
+    },
+    {
+        "Trigger": [ "Unlock_Double_Stonecutting_Gain" ],
+        "Text": [ "Deep in the hills north to the hole, towards the foot of the Sevenjag mountains, she finds it. Excitedly she brings you along to show you what she found. Barren land, some losse pebbles and gray dust. She sees your skeptic gaze but assures you, this is really ideal." ]
+    },
+    {
+        "Trigger": [ "Unlock_Hunting_Food_Gain_2" ],
+        "Text": [ "Each and every one of them gets new equipment paid out of your pocket.\nThey seem happy at least. Their faces do only show indifference of course, but their fingers twitch happily while attaching their new bow string." ]
+    },
+    {
+        "Trigger": [ "Unlock_Stone_Wall_Supply_Stashes" ],
+        "Text": [ "By taking more food than you need on your way down and distributing the rest among the small chipped coves, you can collect more treasure on the way back without having to make extra room for food." ]
+    },
+    {
+        "Trigger": [ "Unlock_Half_Wood_Cost_Of_Stonecutting" ],
+        "Text": [ "Finally all is ready to quarry stone on a grand scale with minimal expense." ]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Buy_Potion" ],
+        "Text": [ "A friendly merchant offers to sell you potions and balms in the future. At a fair price, of course. Probably more fair for him than for you." ]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Brew_Potion" ],
+        "Text": [ "The books are accurate. The potions work. They just smell really bad and you are too untrained to make more than a couple in each batch." ]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Cultivate" ],
+        "Text": [ "Lets just say, after the first plants were ready to harvest, you all have a very nice and relaxed evening." ]
+    },
+    {
+        "Trigger": [ "Unlock_Brew_Potion_Gain_2" ],
+        "Text": [ "It turns out that what you and your friends were using wasn't really a chemical machine at all, but just some beer bottles that someone sold you as such.\nLuckily, the alchemists brought their own equipment." ]
+    },
+    {
+        "Trigger": [ "Unlock_No_More_Foraging" ],
+        "Text": [ "You wake the next morning and can't recall the last night. Your mind is fogged by a reddish potion haze. You probably danced a lot.\nBadly." ]
+    },
+    {
+        "Trigger": [ "Unlock_Shed_Upgrade_To_Warehouse" ],
+        "Text": [ "It is nice though. Lots more places to put stuff in. Good thing you have a lot of stuff that needs to be put away." ]
+    },
+    {
+        "Trigger": [ "Unlock_Delving_Speed_Up_1_5" ],
+        "Text": [ "Here and there someone still gets stuck or crashes, but otherwise the whole system is very safe.\nExcept for the wood splinters, unfortunately." ]
+    },
+    {
+        "Trigger": [ "Unlock_Stone_Foundations" ],
+        "Text": [ "Due to the sturdy stone foundations, you could even add a second floor. Definitely an idea for the future." ]
+    },
+    {
+        "Trigger": [ "Unlock_Village_Founded" ],
+        "Text": [ "Everyone is enthralled by the flickering firelight and your rousing speeches.\nIn the midst of the highest celebrations, a messenger from Therasi suddenly bursts into your midst. He has news from the West:\nThe trees and bushes have come to life. The jungle of Itari in its entirety has become hostile now." ]
+    },
+    {
+        "Trigger": [ "Unlock_Elected_As_Mayor" ],
+        "Text": [ "The election thing is pretty near. Especially if you are the one who gets elected in the end. Time to fulfill your duty as representative of this new community." ]
+    },
+    {
+        "Trigger": [ "Unlock_Project_Arcane_Streetlamps" ],
+        "Text": [ "The first lamp finally stands, filling the main street with flickering blueish light. Everyone stands silent and in awe. All know, that the first step towards becoming a real place of importance has been done." ]
+    },
+    {
+        "Trigger": [ "Unlock_Reduce_Warehouse_Cost_0_2" ],
+        "Text": [ "Why have two support beams, when one is surely enough? The roof is shaking now? Probably the wind, just don't think about it." ]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Weaving" ],
+        "Text": [ "...till out came a whole horde of crazed clothiers, the shock! They greeted and pounced and then, grandly announced, that from this day on forward they would work towards, a great big empire of cloth. " ]
+    },
+    {
+        "Trigger": [ "Unlock_Project_Enact_New_Law" ],
+        "Text": [ "The others rejected your idea loud and clear. They said something about their being no budget for it. Pah. Then it'll just be a simple administration building...\nWith a small pool..." ]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Sell_Fabric" ],
+        "Text": [ "More and more the district grows, each new house a trade stall shows. Until finally the place and all, turned into one huge market stall." ]
+    },
+    {
+        "Trigger": [ "Unlock_Cultivate_Efficiency_Gain_200" ],
+        "Text": [ "So they dug and dug and dug and dug, ever ever deeper. Until they struck and struck and struck. A really nice acquifer." ]
+    },
+    {
+        "Trigger": [ "Unlock_Project_Dig_Sewer_System" ],
+        "Text": [ "The hard soil is not really suited for digging huge tunnels under the earth, but with enough sweat we can manage to get a decent chunk of it done every day. The workers also get lots of help from the surrounding folks. Seems like everyone is getting fed up with the stench." ]
+    },
+    {
+        "Trigger": [ "Unlock_Building_Tavern" ],
+        "Text": [ "And heavy drinking you did. Quite a lot if you can believe the wild stories of the other attendees. You obviously don't remember it anymore, but you definitely have the headache to support those claims. But hey, even a mayor sometimes gets to relax, right?" ]
+    },
+    {
+        "Trigger": [ "Unlock_Warehouse_Plus_Fabric" ],
+        "Text": [ "You make another few stuffing jokes around your workers after you finished hanging the first sacks up. They groan and moan at each and every one." ]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Fishing" ],
+        "Text": [ "Marvin the Fisherman tells you tons of talkes from his homeland that night. After the southern settlers arrived, they immediately began setting up camp and trotting up to the river to inspect the water and its inhabitants. They deem it good enough and so you eat fish tonight, while listening to stories from the ocean." ]
+    },
+    {
+        "Trigger": [ "Unlock_Shop_Potion_Storage" ],
+        "Text": [ "They also put fish into their potions. Like, without mashing it up. Just tiny little fishies swimming in the crimson liquid. 'As a quick snack for the way', they say." ]
+    },
+    {
+        "Trigger": [ "Unlock_Increase_Industrial_Gain_0_2" ],
+        "Text": [ "How strange. Surely production should plummet when none of the children are working in the quarry or forest anymore, but instead it has actually increased. Turns out, they were also responsible for most of the accidents. Without them, the adults could actually focus on their work instead." ]
+    },
+    {
+        "Trigger": [ "Unlock_Building_Temple" ],
+        "Text": [ "Giant halls where the needy and poor sit and pray. Monuments of stone, clad in blue color. The inside is stuffed full of serene tranquility. And also relics. Lots of stolen relics." ]
+    },
+    {
+        "Trigger": [ "Unlock_Build_A_Public_Library" ],
+        "Text": [ "Now the youngins are all readin all the time. Twas better when you were young, thas for sure. Was much more fun, workn all day long, you can tell em that. Now they don even wana work anymore." ]
+    },
+    {
+        "Trigger": [ "Unlock_Cut_Down_The_Forest" ],
+        "Text": [ "Trees fall one after the other. The rowdy woodworkers and silent hunters both stand to the side, shaking their heads in dismay. But this is the price of progress. The future can not be stopped in favor for a handful of foliage." ]
+    },
+    {
+        "Trigger": [ "Unlock_Finished_Arcane_Streetlamps" ],
+        "Text": [ "The streets are filled with light. Everything glimmers in blues and reds. People stop just to look at the street lights. It feels like being in the middle of a huge city." ]
+    },
+    {
+        "Trigger": [ "Unlock_Finished_Sewer_System" ],
+        "Text": [ "The streets are so clean, you could almost eat from them.\nOf course, you could have done that before too, if you really, really wanted to." ]
+    },
+    {
+        "Trigger": [ "Unlock_Finished_Enact_New_Law" ],
+        "Text": [ "A new law and a new opportunity to make people angry." ]
+    },
+    {
+        "Trigger": [ "Unlock_Increase_Fabric_Gain_100" ],
+        "Text": [ "With a few small adjustments of the spinning wheels, the whole operation runs much smoother afterwards. While no thank yous were directly exchanged, some of the fighers now wear very fancy hats while strolling through the settlement." ]
+    },
+    {
+        "Trigger": [ "Unlock_Project_Construct_Palisade" ],
+        "Text": [ "We here are far away from the dangers and yet the news stirs up fear and nervousness. A large wall would provide some relief and at least restore a basic sense of security." ]
+    },
+    {
+        "Trigger": [ "Unlock_Increase_Herb_Gain_1_5" ],
+        "Text": [ "The gardens are more beautiful than ever before. Plants of all kinds, even those only native to the forest have come back to use and bloomed in all their glort. Nature just won't give up, regardless of what we do. What a nice thought." ]
+    },
+    {
+        "Trigger": [ "Unlock_Reduce_Workshop_Cost_0_5" ],
+        "Text": [ "In the end you agreed, although reluctantly. You just wanted  them to be happy anyway. What a thankless job." ]
+    },
+    {
+        "Trigger": [ "Unlock_Cabins_To_Houses" ],
+        "Text": [ "After making sure another fire won't destroy all you ever worked for in one single streak of bad luck, you feel safe enough to upgrade the Cabins once more. The main reason you didn't do it already was fire regulations anyway." ]
+    },
+    {
+        "Trigger": [ "Unlock_Finished_Construct_Palisade" ],
+        "Text": [ "The rate of people accidentally locking themselves out has strangely increased greatly after we completely fenced off the village." ]
+    },
+    {
+        "Trigger": [ "Unlocks_Auto_Project_Cost_Removal" ],
+        "Text": [ "After you have annoyed everyone for several days with your plans and laws, they assure you that they will slow down from now on." ]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Buy_Weaponry" ],
+        "Text": [ "The merchants sell you overpriced swords and axes that hardly do their jobs. Still, it is the only option for now, if you don't like the idea of perishing in the depths." ]
+    },
+    {
+        "Trigger": [ "Unlock_Send_Out_Scouts" ],
+        "Text": [ "Turns out there is a lot to fear out there. Mainly huge mountain lions. Big like carts. Who knew that this region was so dangerous? Anyway, your scouts also located some good new spots for new buildings. Very nice!" ]
+    },
+    {
+        "Trigger": [ "Unlock_Cheaper_Bulk_Land_Buys" ],
+        "Text": [ "A bit of a waste of time to be honest. At least you got a better deal out of him. Needing an extra contract every time you bought a plot of land was turning into a bit of a hassle." ]
+    },
+    {
+        "Trigger": [ "Unlock_Half_Cost_Of_Stonecutting" ],
+        "Text": [ "After a night filled with booze and excesses you still don't quite know how to answer that question. But the geologist seemed satisfied anyway. And almost comatose from all the drinking she did...\nOh well..." ]
+    },
+    {
+        "Trigger": [ "Unlocks_Establish_Guild_Laws" ],
+        "Text": [ "That's really smart! Just put more people in charge under you who do their own thing instead of bothering you all the time. Now you have finally enough time to use all those saunas you build into everything!\nNow you just have to figure out who should get to abe a guild and who shouldn't." ]
+    },
+    {
+        "Trigger": [ "Unlock_Establish_Artists_Guild" ],
+        "Text": [ "Turns out they had even just ridden into the village that morning. The disheveled artists then immediately gave a performance in your honor. Everyone was very delighted. Hopefully no one will find out how much of the budget you had to give away for this little special." ]
+    },
+    {
+        "Trigger": [ "Unlock_Establish_Metalworker_Guild" ],
+        "Text": [ "In the end they made you an offer you could not refuse. Their offer was mainly about hitting you over and over until you build a guild hall for them. So you did. And only got punched a little bit in return." ]
+    },
+    {
+        "Trigger": [ "Unlock_Establish_Woodsman_Guild" ],
+        "Text": [ "Whenever you visit their guild now it is always empty. No figure in sight. Still you always feel weirdly watched there. You try to run past that place less and less these days. Gives you a queasy feeling in the gut." ]
+    },
+    {
+        "Trigger": [ "Unlock_Establish_Crafter_Guild" ],
+        "Text": [ "And once you gave your OK, to every ones dismay, they quickly started to build, their own private guild." ]
+    },
+    {
+        "Trigger": [ "Unlock_Establish_Formal_Attire_Guild" ],
+        "Text": [ "They already convinced you in the first half hour. You also told them that. You don't know why they still kept going for five more hours after that. Probably because they spent a really long time on all those presentations."]
+    },
+    {
+        "Trigger": [ "Unlock_Establish_Produce_Guild" ],
+        "Text": [ "You can't remember giving out as much budget as you did. Turns out, if you get drunk on expensive wine and are told to sign some random papers, you probably should think twice about it."]
+    },
+    {
+        "Trigger": [ "Unlock_Establish_Council_Of_Guilds" ],
+        "Text": [ "Jokes on them, that was your plan all along. Let them have all that work, if they so desperately want it. Now you can finally have that vacation you always dreamed of.\nAs soon as you finish with all their paperwork that is. Which might take a while..."]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Mining" ],
+        "Text": [ "It was a bit difficult to convince the people to start digging into the fortress, as the thought of destroying something so brimming with raw brutalism kind of frightened them, but after the first few tunnels were dug, the effort to extract the precious iron was quickly underway."]
+    },
+    {
+        "Trigger": [ "Unlock_Designate_A_Graveyard" ],
+        "Text": [ "You personally dug the first grave yourself. It took you until deep into the night. It did little to soothe your troubled mind."]
+    },
+    {
+        "Trigger": [ "Unlock_Project_Construct_Minecart_Rail_System" ],
+        "Text": [ "As the sun breaks, you finally were able to decipher her awful penmanship. While she murmurs about going to vomit, you send the plans over to your construction workers. Then you bring her a glass of water."]
+    },
+    {
+        "Trigger": [ "Unlock_Refugees_From_The_North" ],
+        "Text": [ "They eat plenty and are accustomed to better food than we have here. The few withered vegetables that our soil bears hardly measure up to their standards."]
+    },
+    {
+        "Trigger": [ "Unlock_Project_Divert_The_River" ],
+        "Text": [ "Their plan is a bit insane, but it could actually work. You do not really need the river going through the village anyway and with the blueprints they came up with, the settlement would get much more fertile land in the long run."]
+    },
+    {
+        "Trigger": [ "Unlock_Finished_Minecart_System" ],
+        "Text": [ "Wooosh!"]
+    },
+    {
+        "Trigger": [ "Unlock_Finished_Divert_The_River" ],
+        "Text": [ "We accidentally flooded a small hut. Lucky that its owner could not be found anywhere.\nThough we saw their hat floating down the new river for some reason."]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Forging" ],
+        "Text": [ "The old iron turned into good and strong swords with a sheen unlike any other. The idea of wielding something for violence that was once used solely for protection is a bit off-putting though."]
+    },
+    {
+        "Trigger": [ "Unlock_Build_River_Port" ],
+        "Text": [ "Boats are a tiny bit slower than the horse drawn wagons we normally use, but we can just build more of them if needed. And they don't even need any food to function. How practical."]
+    },
+    {
+        "Trigger": [ "Unlock_Iron_Reinforced_Warehouses" ],
+        "Text": [ "Hopefully we won't have to rebuild so often now. Of course, a couple houses will still occasionally collapse, but we don't have any important goods in there, so it's all fine."]
+    },
+    {
+        "Trigger": [ "Unlock_Mills_For_Farms" ],
+        "Text": [ "It is really soothing to watch the giant sails spin in the fresh cool breeze. The soft purring of the gears is also kind of meditative. You can understand why the northern refugees sometimes just sit there in silence in their fields, listening quietly."]
+    },
+    {
+        "Trigger": [ "Unlock_Built_An_Aqueduct" ],
+        "Text": [ "An aqueduct also has another very special feature which a river does not, based on its elevated design. Nobody can easily shit in it upstream. Removes a lot of potential violence from the community."]
+    },
+    {
+        "Trigger": [ "Unlock_Forging_Weaponry_Gain_100" ],
+        "Text": [ "The long decades of warfare had given them a keen eye for weapons of all kinds. The proud northerners quickly took to the new forges and assisted with their violent knowledge."]
+    },
+    {
+        "Trigger": [ "Unlock_Unrest" ],
+        "Text": [ "It is difficult to manage all those new heads you suddenly have authority over. The local population is not too happy about all those sudden new faces either.\nThings could escalate quickly if you are not careful."]
+    },
+    {
+        "Trigger": [ "Unlock_Project_Install_Jurisdiction" ],
+        "Text": [ "Everyone helped a little bit. You did not majorly change much, only set that down in writing what you all kind of believed anyway. As you finish the first documents, you feel proud of yourself for the first time. This makes it all weirdly official and real now."]
+    },
+    {
+        "Trigger": [ "Unlock_Second_Wave_Of_Refugees" ],
+        "Text": [ "You have assigned the division for refugees their own room in the town hall now. It is always filled to the brim with new families and settlers, trying to get away from the eastern dangers."]
+    },
+    {
+        "Trigger": [ "Unlock_Building_Farmstead" ],
+        "Text": [ "They're quite lovely, these little oases of wheat and barley, out on the sprawling rocks and hills. You can see the settlement from here in all its glory, sprawling out ever more and brimming with life and hope. You can hardly believe that this was just you and a little tent only a short while ago.\nSeems so far away now."]
+    },
+    {
+        "Trigger": [ "Unlock_Project_Reorder_Warehouses" ],
+        "Text": [ "Reorder everything, they say, to everyone's dismal. Then we will have more place to all the stuff and everyone will hopefully shut up."]
+    },
+    {
+        "Trigger": [ "Unlock_Finished_Install_Jurisdiction" ],
+        "Text": [ "Now we have a complicated, three hundred page document in very small font, detailing every single exception and amendment there is to consider. Now we can be much more efficient than before."]
+    },
+    {
+        "Trigger": [ "Unlock_Building_Guardhouse" ],
+        "Text": [ "Not only has it already become more peaceful in the town, but the people here are now also freshly united by a common hatred for the new law enforcers."]
+    },
+    {
+        "Trigger": [ "Unlock_Finished_Reorder_Warehouse" ],
+        "Text": [ "Once again, everything is in a slightly different place than before."]
+    },
+    {
+        "Trigger": [ "Unlock_Allow_Thievery" ],
+        "Text": [ "After brooding over the numbers a bit and calculating it through several times, you must admit, the revenue would be astoundingly high. And population polls are not majorly against it too. Seems like everyone is equally mad in this rocky hellscape of a region."]
+    },
+    {
+        "Trigger": [ "Unlock_Project_Distribute_To_Poor" ],
+        "Text": [ "The poor really like the cake you baked them. And the fine clothes also suit them very well. Everyone seems happier already."]
+    },
+    {
+        "Trigger": [ "Unlock_Finished_Distribute_To_Poor" ],
+        "Text": [ "Your pockets are a little lighter, but your heart is full."]
+    },
+    {
+        "Trigger": [ "Unlock_Last_Wave_Of_Refugees" ],
+        "Text": [ "The king is arming his men. All grand knights are on their way towards the capital and with them their armies of brave soldiers. Let us hope, that this whole problem will soon be just a bad memory."]
+    },
+    {
+        "Trigger": [ "Unlock_Force_Refugees_To_Work" ],
+        "Text": [ "You're not a bad person, right?"]
+    },
+    {
+        "Trigger": [ "Unlock_Building_Thief_Den" ],
+        "Text": [ "Finally someone listened to your suggestions about saunas. They go really well next to cabinets full of poisoned knives."]
+    },
+    {
+        "Trigger": [ "Unlock_Construct_Brewery" ],
+        "Text": [ "We had a big party to inaugurate the brewery. I don't remember it in the slightest. So everything worked out well, it seems."]
+    },
+    {
+        "Trigger": [ "Unlock_Building_Ghetto" ],
+        "Text": [ "Better than sleeping on the streets, right?"]
+    },
+    {
+        "Trigger": [ "Unlock_Proclaim_A_City" ],
+        "Text": [ "While people like all the festivities around the new city, they do quite hate this new idea of taxes."]
+    },
+    {
+        "Trigger": [ "Unlock_Design_Inner_City_Park" ],
+        "Text": [ "Now we have nature in the city. Not really nature of course, but tamed nature. The kind that needs to be pruned every Wednesday by a specific person with sharp tools to avoid looking too much like wild nature."]
+    },
+    {
+        "Trigger": [ "Unlock_Build_A_Fountain" ],
+        "Text": [ "Now the foundtain gurgles sweetly in the park. People come by every day to watch the spraying water. When told that there is a whole river out there for free, most of them just shrug their shoulders in apathy."]
+    },
+    {
+        "Trigger": [ "Unlock_Construct_A_Treasury" ],
+        "Text": [ "How ironic, that after using a lot of money to build this place, you now don't have enough anymore to put any in it.\nAt least for a while."]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Manufacture" ],
+        "Text": [ "They call it a 'gear' or a 'cog'. They are designed to grip into one another. You still don't quite get how those help anyone, but every single artisan in the city is weirdly enthusiastic about them."]
+    },
+    {
+        "Trigger": [ "Unlock_Project_Build_A_Coliseum" ],
+        "Text": [ "Many have taken to the streets to protest against the unnecessary waste of resources with signs and loud chants.\nDistracting them was therefore a complete success."]
+    },
+    {
+        "Trigger": [ "Unlock_Entertainment_District" ],
+        "Text": [ "Gambling dens on one side and shopping stores on the other. Between parks and fountains, a gigantic combat coliseum is under construction. Crowds of people let themselves be guided by music, games and good food. Lively chatter can be heard from far and wife from this new district."]
+    },
+    {
+        "Trigger": [ "Unlock_Project_Modernise" ],
+        "Text": [ "Inserting cogs into every aspect of our life. Maybe we can put some in the human body in the future. We do have som round organs somewhere, don't we?"]
+    },
+    {
+        "Trigger": [ "Unlock_Grand_Speech" ],
+        "Text": [ "You were moderately successful. People are not necessarily more relaxed, but they are now more careful about how they behave. People are more considerate of each other and many people have come to realize that we can't simply keep out of sight forever. Many have accepted the current sitation."]
+    },
+    {
+        "Trigger": [ "Unlock_Building_Mill" ],
+        "Text": [ "The squeaking of the mill wheels has a calming effect on the urban soul. Many people travel to the countryside just to listen to it while picnicking.\nMeanwhile, numerous farmers flee to the city instead to escape it."]
+    },
+    {
+        "Trigger": [ "Unlock_Another_Wave_Scared_People" ],
+        "Text": [ "The system we have in place is reaching its limit. We soon need another means to feed our population or this whole city could face starvation and worse. Riots and turmoil are on the horizon already."]
+    },
+    {
+        "Trigger": [ "Unlock_More_Clerks" ],
+        "Text": [ "The people in formal attire try to reassure you. They've already predicted something like this. Everything is working as it should. Their deadpan expressions give you the creeps."]
+    },
+    {
+        "Trigger": [ "Unlock_Finished_Build_A_Coliseum" ],
+        "Text": [ "Nothing like some bloodshed, war and destruction in a concentrated controlled manner when problems are on the uprising and unrest is all around."]
+    },
+    {
+        "Trigger": [ "Unlock_Finished_Modernise" ],
+        "Text": [ "Another new trinket, machination or method that can make your life more efficient. Work hours are still the same though."]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Purify" ],
+        "Text": [ "Two dozen men with beards and robes and a few women in similar garb have taken up residence in all kinds of towers and, where these are not available, in any rooftop apartments. It often stinks of sulphur from their windows and colorful lightning flashes from the chimneys."]
+    },
+    {
+        "Trigger": [ "Unlock_Automate_Everything" ],
+        "Text": [ "Some factories don't even require a single person anymore to run. Which is kind of unnerving to be honest. What would happen if those cog factories only made more cog factories? Would we soon be completely obsolete?"]
+    },
+    {
+        "Trigger": [ "Unlock_Temple_Artifact_Storage" ],
+        "Text": [ "They are right, they do look very pretty in the temples."]
+    },
+    {
+        "Trigger": [ "Unlock_Granary_To_Food_Market" ],
+        "Text": [ "Their experiments were not crowned with success, but in the meantime we have created several marketplaces. That's quite a good solution, even if the wizards seem a little disheartened."]
+    },
+    {
+        "Trigger": [ "Unlock_University_For_Wizards" ],
+        "Text": [ "The wizards offer exuberant thanks without realizing that you didn't build this university for them, but for everyone else in the city."]
+    },
+    {
+        "Trigger": [ "Unlock_The_King_Is_Dead" ],
+        "Text": [ "The news about the fallen capital arrives a couple of days later. The army of the beast swept easily trough it, leaving nothing behind but ruins, corpses and vine."]
+    },
+    {
+        "Trigger": [ "Unlock_Daily_Streams_Of_Refugees" ],
+        "Text": [ "Their stories are cruel and brutal. They tell of a genuine tidal wave of insects flooding the land and destroying the fields and deer with antlers full of blood on the lookout for stragglers and the weak and old.\nBut above it all is the beast, an incredibly huge creature that stomps over the ruins and buries every last remnant of civilization beneath itself."]
+    },
+    {
+        "Trigger": [ "Unlock_Announce_City_As_Safe_Haven" ],
+        "Text": [ "You send out more scouts with the aim of finding the remaining remnants of the old society. Anyone who can still be saved should at least be sought out. But no one can say whether they still have enough hope to go with your people. Deep despair is hard to quench."]
+    },
+    {
+        "Trigger": [ "Unlock_Temple_To_Cathedral" ],
+        "Text": [ "Between dim candles and incense, the inhabitants of the city kneel in silent prayer. A small light of hope shines through the colorful windows."]
+    },
+    {
+        "Trigger": [ "Unlock_Project_Transdimensional_Storage_Modules" ],
+        "Text": [ "You didn't quite understand their talk, but it certainly sounded very dangerous and extremely expensive. But your warehouses are full anyway, so..."]
+    },
+    {
+        "Trigger": [ "Unlock_Enchanted_Forges" ],
+        "Text": [ "One day, when our children ask us what we had to do to survive, we will tell them that we controlled hell and banished it into our ovens for the sake of efficiency. Which is pretty close to the truth."]
+    },
+    {
+        "Trigger": [ "Unlock_Finished_Transdimensional_Storage_Modules" ],
+        "Text": [ "We do not know in the slightest how this new technology works. But we are lucky that it does regardless."]
+    },
+    {
+        "Trigger": [ "Unlock_Marry_The_Heir" ],
+        "Text": [ "The ceremony is short and reserved. The loss of the actual royal family is too recent and no one is particularly in the moon for a pompous celebration. There is a kiss at the end. The androgynous heir gives you a look you find hard to interpret."]
+    },
+    {
+        "Trigger": [ "Unlock_Have_Some_Heirs" ],
+        "Text": [ "Another small group of people see the city for the first time. This time, however, you don't hear anyone complaining."]
+    },
+    {
+        "Trigger": [ "Unlock_Project_Streamline_Refugee_Intake" ],
+        "Text": [ "Now, extra employees have been hired so that they can panic in your absence when once again a handful of people arrive from far and near."]
+    },
+    {
+        "Trigger": [ "Unlock_Project_Faith_Insertion" ],
+        "Text": [ "It is all very scientific they assure you, as multiple people kneel between the cabbage and carrots, chanting and pleading for a good harvest."]
+    },
+    {
+        "Trigger": [ "Unlock_Combine_House_And_Ghetto_To_Apartments" ],
+        "Text": [ "Filled with plants and spaces for children and animals. Extra rooms for the community to gather together. A garden on the roof. Sustainable living in insulated and secure units."]
+    },
+    {
+        "Trigger": [ "Unlock_Brews_Of_The_High_Council" ],
+        "Text": [ "While their outcomes are rather questionable for our industry, their techniques can at least improve some of the weaknesses of mechanical brewing."]
+    },
+    {
+        "Trigger": [ "Unlock_Secrets_Of_The_Deep" ],
+        "Text": [ "Ominous humming pervades the deep below. Arcane energies flash between stalactites. A magical symbol smeared on a pillar serves as a guide to greater descents."]
+    },
+    {
+        "Trigger": [ "Unlock_Delving_Output_To_Dungeon_Entrance" ],
+        "Text": [ "Complete groups of adventurers are now regularly seen moving into the depths of the hole. They often consist of a high council wizard, a silent hunter, a cleric from the south and a northern warrior."]
+    },
+    {
+        "Trigger": [ "Unlock_Reduce_Guardhouse_Cost_200" ],
+        "Text": [ "You are reluctantly investing more money in the guard stations. It's a fine line you're walking. You don't want to risk creating a society of division in which some rule and all others are oppressed. Cohesion is the priority at the moment."]
+    },
+    {
+        "Trigger": [ "Unlock_Build_A_Castle" ],
+        "Text": [ "As a bonus, the craftsmen have even build you your own money vault into your castle. Now you don't have to go to the treasury all the time, just for some loose change."]
+    },
+    {
+        "Trigger": [ "Unlock_Warfare" ],
+        "Text": [ "Faces contorted into grim expressions. Constantly listening for any noise. Always keeping an eye on the edge of the forest. Hardly a laugh to be heard on the streets. Our new default condition."]
+    },
+    {
+        "Trigger": [ "Unlock_Dug_A_Moat" ],
+        "Text": [ "Finally, the last bolt holding the gate to the river shut is knocked away. Like a greedy animal, it rushes into the new paths and from then on hopefully protects us from anything that can't swim."]
+    },
+    {
+        "Trigger": [ "Unlock_Project_War_Economy" ],
+        "Text": [ "It will take a long time, but the people will adjust to the changes. We will all have to adjust. It is the only way to survive this you fear."]
+    },
+    {
+        "Trigger": [ "Unlock_Army_Footsoldier" ],
+        "Text": [ "Anger is a bigger coach for them than the trainers often are. However, even with such enthusiasm, the future looks bleak for all of us."]
+    },
+    {
+        "Trigger": [ "Unlock_Finished_Faith_Insertion" ],
+        "Text": [ "Even more spiritual energy is transferred to our crops and wildstock."]
+    },
+    {
+        "Trigger": [ "Unlock_Massive_Stone_Wall" ],
+        "Text": [ "The hewn stones of the wall rise high above. It is almsot three times the size of that which it replaced. The city now stands like a mountain, waiting for what may come."]
+    },
+    {
+        "Trigger": [ "Unlock_Build_A_Hospital" ],
+        "Text": [ "In addition tot he hospital, reception centers were set up throughout the city to provide immediate first aid to the injured. It is our duty save as many as possible."]
+    },
+    {
+        "Trigger": [ "Unlock_Army_Brutish_Golem" ],
+        "Text": [ "Calcified rock, pressed into humanoid form. Firm as bedrock it marches unstoppably towards the battlefield. It crushes the skulls of beasts with a stone fist and a fang barely finds a foothold on its coarse skin."]
+    },
+    {
+        "Trigger": [ "Unlock_Finished_War_Economy" ],
+        "Text": [ "All manner of people now work in various factories and workships to produce ammunition and weapons. Soldiers are getting dragted left and right, often enthusiastically."]
+    },
+    {
+        "Trigger": [ "Unlock_Mausoleum_For_The_Dead" ],
+        "Text": [ "In halls of stone and  rock do we put those that died not only deep below but also high above. Similar in more than only the tregedy that came and follows."]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Pump" ],
+        "Text": [ "With a hum and a slurp the pumps of black iron start to extract the dark sludge. The first of it will arrive hours from now, way above, probably seeing the light of day for the first time in ages."]
+    },
+    {
+        "Trigger": [ "Unlock_Finished_Streamline_Refugee_Intake" ],
+        "Text": [ "Even more people find a home in our wonderful city."]
+    },
+    {
+        "Trigger": [ "Unlock_Invigorated_Farmers" ],
+        "Text": [ "Never have we waten healthier than now. The apples are shiny and red, the cabbages thick and green and one can buy juice and smoothies at every corner."]
+    },
+    {
+        "Trigger": [ "Unlock_Guard_Towers_Atop_The_Wall" ],
+        "Text": [ "The view from high above is absolutely staggering. Sadly it is also very frightening.\nNow we can overview the whole magnitude of the destruction going on. Everything else, from north to soudn has been consumed by wild jungle. The crowns of towering trees can be seen from miles away and one cannot shake the feeling, that there are eyes throughout the forest, always watching and prodding for any weaknesses in our defenses."]
+    },
+    {
+        "Trigger": [ "Unlock_Army_Armored_Zeppelin" ],
+        "Text": [ "Birds of our own now dot the city sky. With rotors driven by gears, and a belly full of magic and a hide of cloth they serve as the air defense we never thought we needed."]
+    },
+    {
+        "Trigger": [ "Unlock_Silent_Hunter_Tribute" ],
+        "Text": [ "They have now started brewing their own beverages. Wild drinks full of tantalizing aroma and forbidden flavor. They sell well in teh city, but few can drink more than a few before the taste becoems too bitter."]
+    },
+    {
+        "Trigger": [ "Unlock_Gradiose_Bastion" ],
+        "Text": [ "More people flock to our recruitment facilities and take up arms, their gazes locked onto our symbol of strength"]
+    },
+    {
+        "Trigger": [ "Unlock_Stuff_Floats_Down_River" ],
+        "Text": [ "Nobody judges those that pick up the fished commodities. One can not be picky in times like these. You have to find joy wherever you can, before it is too late."]
+    },
+    {
+        "Trigger": [ "Unlock_Remains_Of_The_Royal_Army" ],
+        "Text": [ "With the feeling of at last having real warriors in their midst, albeit ones who have failed in the face of the enemy, motivation increases a little. Survival at least seems a possibility, albeit an unlikely one."]
+    },
+    {
+        "Trigger": [ "Unlock_Burn_Tar_Generate_Steam" ],
+        "Text": [ "The smoke rising from our city is intensifying every day. But so is the plant life moving ever closer to our settlement."]
+    },
+    {
+        "Trigger": [ "Unlock_General_Education_For_All" ],
+        "Text": [ "It's strange, but the last few days have been more peaceful than ever before. Almost as if the danger and the threat of imminent annihilation had freed us from the constraints of the old society."]
+    },
+    {
+        "Trigger": [ "Unlock_It_Has_Pocketsss" ],
+        "Text": [ "Do you know how much stuff a woman's purse can contain? Can you even imagine what power they now wield with their new pockets?"]
+    },
+    {
+        "Trigger": [ "Unlock_Army_Elven_Battlewizard" ],
+        "Text": [ "One of the elders of the elves finally speaks to you. They t ried to do their best to stop this madness on their own. But they obviously failed. So now he hopes that you can do what they couldn't"]
+    },
+    {
+        "Trigger": [ "Unlock_Army_Flaming_Howitzer" ],
+        "Text": [ "The enemy screams as it burns right before your eyes. The soldiers will have nightmares for many fortnights, but we will have survived another day."]
+    },
+    {
+        "Trigger": [ "Unlock_Secret_Of_The_Elves" ],
+        "Text": [ "Through magical prowess our instruments of war gain more and more power. We will stand a chance."]
+    },
+    {
+        "Trigger": [ "Unlock_Install_Warding_Stones" ],
+        "Text": [ "Working together, they were able to make the magic seals even stronger than before. The glowing stones now stand on our walls, their ominous glow penetrating even moonless nights."]
+    },
+    {
+        "Trigger": [ "Unlock_Army_Spellbound_Titan" ],
+        "Text": [ "It marches at the forefront of our army, serving as a reminder that we can overcome anything."]
+    },
+    {
+        "Trigger": [ "Unlock_Destroy_The_Superweapon" ],
+        "Text": [ "Alone in the deep, without any prying eyes you break it apart in one hard motion. It is a simple thing to do and the only sound is the small sigh you let out afterwards. You suddenly breath a little lighter. You did the right thing. Regardless of how it all ends."]
+    },
+    {
+        "Trigger": [ "Unlock_Use_The_Superweapon" ],
+        "Text": [ "The weapon burns and breaks reality for a moment. An ear piercing sound thumping in all heads. Then it is silent and the destruction becomes visible. Only gray ash surrounds your city now. The beast roars and runs.\nIt flees. It is scared. You scared it. you can do this. There is no way back anymore. Only forwards."]
+    },
+    {
+        "Trigger": [ "Unlock_Action_Polish" ],
+        "Text": [ "Are we doing the same thing all those other ruined places did? Fill our homes and cities with useless trinkets for someone else to find? You desperately hope you will not end up just another layer for future adventurers to rummage through."]
+    },
+    {
+        "Trigger": [ "Unlock_Failed_To_Pay_Populace" ],
+        "Text": [
+            "Peaceful protests permeate your populace.\nMost agree that no money means no more work.",
+            "Most people suddenly started striking. Turns out, you did not pay them enough.",
+            "You run out of money. People are murmuring. Production is reduced.",
+            "Someone quietly takes you aside and informs you that a few workers have not been paid. People are getting anxious."
+        ],
+        "Repeatable": "true"
+    },
+    {
+        "Trigger": [ "Unlock_Failed_To_Feed_Populace" ],
+        "Text": [
+            "Famine sweeps across the populace. They still try to work, albeit sluggishly.",
+            "Food is becoming scarce. Most folk stop working in response.\nYou should probably fix that.",
+            "Due to recent food shortages, most people are out there foraging for scraps.\nProduction thus takes a sharp decline.",
+            "The general opinion is that if you don't feed people, they stop working.\nMost of your people agree with that sadly.",
+            "Your people are hungry. They work more slowly."
+        ],
+        "Repeatable": "true"
+    }
+]
