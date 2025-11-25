@@ -78,7 +78,10 @@ namespace HypnicEmpire
             Button?.SetInteractable(enabled);
 
             if (!enabled)
+            {
+                ProgressCurrent = 0f;
                 ProgressForeground.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 0);
+            }
         }
 
         public void Reset()
