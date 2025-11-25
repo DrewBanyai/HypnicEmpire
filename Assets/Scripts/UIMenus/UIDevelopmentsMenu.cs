@@ -38,6 +38,7 @@ namespace HypnicEmpire
         {
             FinishedDevelopmentsSection?.gameObject.SetActive(true);
             entryObject.transform.SetParent(FinishedDevelopmentsListParent, false);
+            entryObject.transform.SetSiblingIndex(0);
             entryObject.GetComponent<UIDevelopmentEntry>()?.ShowStatusColor(true);
         }
     }
