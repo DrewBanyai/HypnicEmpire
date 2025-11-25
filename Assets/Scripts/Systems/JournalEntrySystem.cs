@@ -7,8 +7,8 @@ namespace HypnicEmpire
 {
     public static class JournalEntrySystem
     {
-        private static Dictionary<string, JournalEntryData> JournalEntryDataMap = new();
-        private static List<string> ShownJournalEntries = new();
+        public static Dictionary<string, JournalEntryData> JournalEntryDataMap = new();
+        public static List<string> ShownJournalEntries = new();
 
         public static void LoadAllJournalEntries(string jsonFilePath)
         {

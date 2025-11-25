@@ -13,7 +13,6 @@ namespace HypnicEmpire
         private static string SaveFilePath => Application.persistentDataPath + "/saveGame.dat";
         [SerializeField] public GameStateScriptableObject InitialGameState;
         [SerializeField] public PlayerActionScriptableObject PlayerActionsData;
-        [SerializeField] public JournalEntryScriptableObject JournalEntryData;
 
         public static GameState CurrentGameState = new();
         public static TaskSystem TaskSystem = new();
@@ -162,13 +161,11 @@ namespace HypnicEmpire
 
         public void SubscribeToJournalEntries()
         {
-            if (JournalEntryData == null) return;
-            
-            foreach (var je in JournalEntryData.JournalEntries)
-                GameUnlockSystem.AddGameUnlockAction(je.Key.ToString(), (bool unlocked) => {
+            foreach (var je in JournalEntrySystem.JournalEntryDataMap)
+                GameUnlockSystem.AddGameUnlockAction(je.Key, (bool unlocked) => {
                     if (!unlocked) return;
-                    if (!CurrentGameState.GameUnlockList.Contains(je.Key))
-                        MainGameUIView?.JournalMenuControl?.AddJournalEntry(je.Value);
+                    if (!CurrentGameState.GetUnlockValue(je.Key))
+                        MainGameUIView?.JournalMenuControl?.AddJournalEntry(je.Value.Text[UnityEngine.Random.Range(0, je.Value.Text.Count)]);
                 });
         }
 
