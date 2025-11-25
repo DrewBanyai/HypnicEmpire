@@ -28,7 +28,8 @@ MonoBehaviour:
       map.\nBut then you finally stumble upon it, almost dropping down its gaping
       entrance.\n\nYou found a hole in the ground.
     GameUnlockList:
-      m_keys: 00000000
+      m_keys:
+      - Unlock_Resource_Food
       m_values: 01
     CurrentResourceCounts:
       m_keys: 0000000001000000
@@ -36,6 +37,7 @@ MonoBehaviour:
     CurrentResourceMaximum:
       m_keys: 000000000100000002000000030000000400000005000000
       m_values: 0f0000000a0000002d000000640000006400000000000000
+    ClickCount: 0
     MasterVolume: 50
     SFXVolume: 50
     MusicVolume: 50

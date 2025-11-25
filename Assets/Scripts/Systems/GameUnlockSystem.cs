@@ -7,17 +7,17 @@ namespace HypnicEmpire
 {
     public static class GameUnlockSystem
     {
-        private static List<string> UnlockIDs = new();
-        private static Dictionary<GameUnlock, List<Action<bool>>> UnlockActionMap = new();
+        public static List<string> UnlockIDs = new();
+        private static Dictionary<string, List<Action<bool>>> UnlockActionMap = new();
 
-        public static void AddGameUnlockAction(GameUnlock unlock, Action<bool> action)
+        public static void AddGameUnlockAction(string unlock, Action<bool> action)
         {
             if (!UnlockActionMap.ContainsKey(unlock))
                 UnlockActionMap[unlock] = new();
             UnlockActionMap[unlock].Add(action);
         }
 
-        public static void SetUnlockValue(GameUnlock unlock, bool unlocked)
+        public static void SetUnlockValue(string unlock, bool unlocked)
         {
             if (UnlockActionMap.ContainsKey(unlock))
                 foreach (var action in UnlockActionMap[unlock])

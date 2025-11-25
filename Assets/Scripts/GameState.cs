@@ -21,13 +21,14 @@ namespace HypnicEmpire
         public List<string> JournalEntries = new();
 
         //  The list of game unlocks that have occurred
-        public SerializableDictionary<GameUnlock, bool> GameUnlockList = new();
-        public bool IsUnlocked(GameUnlock unlock) { return GameUnlockList.ContainsKey(unlock) && GameUnlockList[unlock] == true; }
+        public SerializableDictionary<string, bool> GameUnlockList = new();
+        public bool IsUnlocked(string unlock) { return GameUnlockList.ContainsKey(unlock) && GameUnlockList[unlock] == true; }
 
         public SerializableDictionary<ResourceType, int> CurrentResourceCounts = new();
         public SerializableDictionary<ResourceType, int> CurrentResourceMaximum = new();
 
         public Dictionary<PlayerActionType, List<ResourceAmount>> PlayerActionTypeResourceChange = new();
+        public int ClickCount = 0;
 
         public int MasterVolume = 50;
         public int SFXVolume = 50;
@@ -115,14 +116,26 @@ namespace HypnicEmpire
         
         public void SetResourceUnlocked(ResourceType resourceType, bool unlocked)
         {
-            GameUnlock? resourceUnlock = ResourceGameUnlockUtility.GetUnlockFromResourceType(resourceType);
-            if (resourceUnlock != null) SetUnlockValue(resourceUnlock.Value, unlocked);
+            string? resourceUnlock = ResourceGameUnlockUtility.GetUnlockFromResourceType(resourceType);
+            if (resourceUnlock != null) SetUnlockValue(resourceUnlock, unlocked);
         }
 
-        public void SetUnlockValue(GameUnlock unlock, bool unlocked)
+        public void SetUnlockValue(string unlock, bool unlocked)
         {
             GameUnlockSystem.SetUnlockValue(unlock, unlocked);
             GameUnlockList[unlock] = unlocked;
+        }
+
+        public bool GetUnlockValue(string unlock)
+        {
+            return GameUnlockList.ContainsKey(unlock) ? GameUnlockList[unlock] : false;
+        }
+
+        public void Click()
+        {
+            ClickCount += 1;
+            var clickValue = AlterableValueSystem.GetAlterableValue("Clicks");
+            clickValue?.SetValue(ClickCount);
         }
         
         public void ToggleActionSoundExcess()

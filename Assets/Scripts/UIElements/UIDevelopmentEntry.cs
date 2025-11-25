@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HypnicEmpire
 {
@@ -23,17 +24,18 @@ namespace HypnicEmpire
 
         private List<ResourceAmount> Cost = new();
         private List<UIResourceChangeEntry> ResourceChangeEntries = new();
-        private GameUnlock Unlock;
+        private List<string> Unlock;
 
-        public void SetContent(string title, string description, string extraInfo, List<ResourceAmount> cost, GameUnlock unlock)
+        public void SetContent(string title, string description, string extraInfo, List<ResourceAmountData> cost, List<string> unlock)
         {
             SetTitleText(title);
             SetDescriptionText(description);
             SetExtraInfoText(extraInfo);
+            
+            List<ResourceAmount> convertedCost = cost.Select(c => new ResourceAmount(c.ResourceType, c.Amount)).ToList();
+            if (ResourceCostEntryParent != null) { SetResourceChangeEntries(convertedCost); }
 
-            if (ResourceCostEntryParent != null) { SetResourceChangeEntries(cost); }
-
-            SetCost(cost);
+            SetCost(convertedCost);
             Unlock = unlock;
 
             ShowStatusColor();
@@ -45,7 +47,8 @@ namespace HypnicEmpire
                 if (Cost.CheckCanChangeAll())
                 {
                     GameController.CurrentGameState.AddToResources(Cost);
-                    GameController.CurrentGameState.SetUnlockValue(Unlock, true);
+                    foreach (var u in Unlock)
+                        GameController.CurrentGameState.SetUnlockValue(u, true);
                 }
             });
         }
@@ -78,7 +81,8 @@ namespace HypnicEmpire
 
         public void ShowStatusColor(bool overrideFinished = false)
         {
-            if (GameController.CurrentGameState.GameUnlockList.ContainsKey(Unlock) || overrideFinished)
+            bool keyContained = Unlock.Select(u => GameController.CurrentGameState.GameUnlockList.ContainsKey(u)).ToList().All(uEntry => uEntry == true);
+            if (keyContained || overrideFinished)
             {
                 PurchaseButton?.SetInteractable(false);
                 ButtonBG?.SetColor(PurchasedColor);

@@ -82,7 +82,7 @@ namespace HypnicEmpire
             ExitButton?.onClick.AddListener(() => { ShowCenterMenu(ExitButton, ExitMenu); });
             OptionsButton?.onClick.AddListener(() => { ShowCenterMenu(OptionsButton, OptionsMenu); });
             AchievementsButton?.onClick.AddListener(() => { ShowCenterMenu(AchievementsButton, AchievementsMenu); });
-            ActionsButton?.onClick.AddListener(() => { ShowCenterMenu(ActionsButton, ActionsMenu); });
+            ActionsButton?.onClick.AddListener(() => { ShowCenterMenu(ActionsButton, ActionsMenu); GameController.CurrentGameState.Click(); });
             DevelopmentsButton?.onClick.AddListener(() => { ShowCenterMenu(DevelopmentsButton, DevelopmentsMenu); });
 
             DiscordButton?.onClick.AddListener(() => { Application.OpenURL(DiscordURL); });
@@ -99,20 +99,21 @@ namespace HypnicEmpire
             HardResetCancelButton?.onClick.AddListener(() => { SetResetButtonUnpacked(false); });
 
             //  Define UI responses to game unlock events
-            GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlock_Empty_Belly, (bool shown) => { foreach (var obj in DevelopmentsTabGroup) obj?.SetActive(shown); });
-            GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlock_Action_Forage, (bool shown) => { foreach (var obj in FinishedDevelopmentsSubGroup) obj?.SetActive(shown); });
-            GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlock_Buildings, (bool shown) => { foreach (var obj in BuildingsTabGroup) obj?.SetActive(shown); });
+            GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlock_Empty_Belly.ToString(), (bool shown) => { foreach (var obj in DevelopmentsTabGroup) obj?.SetActive(shown); });
+            GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlock_Action_Forage.ToString(), (bool shown) => { foreach (var obj in FinishedDevelopmentsSubGroup) obj?.SetActive(shown); });
+            GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlock_Buildings.ToString(), (bool shown) => { foreach (var obj in BuildingsTabGroup) obj?.SetActive(shown); });
 
-            foreach (var gu in Enum.GetValues(typeof(GameUnlock)).Cast<GameUnlock>())
+            foreach (var gu in GameUnlockSystem.UnlockIDs)
             {
                 ResourceType? unlockedResource = ResourceGameUnlockUtility.GetResourceTypeFromUnlock(gu);
                 if (unlockedResource != null)
-                    GameUnlockSystem.AddGameUnlockAction(gu, (bool shown) => { if (shown) ResourceListControl?.AddResourceEntry(unlockedResource.Value); }); 
+                    GameUnlockSystem.AddGameUnlockAction(gu.ToString(), (bool shown) => { if (shown) ResourceListControl?.AddResourceEntry(unlockedResource.Value); }); 
             }
 
             //  Define UI responses to resource changes
             GameController.GameSubscriptions.SubscribeToGenericResourceAmountChange((ResourceType rType, int amount, int maxAmount) => {
-                if (amount > 0) ResourceListControl?.AddResourceEntry(rType);
+                if (amount > 0)
+                    ResourceListControl?.AddResourceEntry(rType);
             });
         }
 
@@ -173,7 +174,7 @@ namespace HypnicEmpire
             
         }
 
-        public void AddOpenDevelopment(string name, string description, string extraInfo, List<ResourceAmount> cost, GameUnlock unlock)
+        public void AddOpenDevelopment(string name, string description, string extraInfo, List<ResourceAmountData> cost, List<string> unlock)
         {
             DevelopmentsMenuControl?.AddOpenDevelopment(name, description, extraInfo, cost, unlock);
         }

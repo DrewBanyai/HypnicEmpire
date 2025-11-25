@@ -22,14 +22,15 @@ namespace HypnicEmpire
                     Destroy(child.gameObject);
         }
 
-        public void AddOpenDevelopment(string name, string description, string extraInfo, List<ResourceAmount> cost, GameUnlock unlock)
+        public void AddOpenDevelopment(string name, string description, string extraInfo, List<ResourceAmountData> cost, List<string> unlock)
         {
             if (UIDevelopmentEntryPrefab != null && OpenDevelopmentsListParent != null)
             {
                 var entryObject = Instantiate(UIDevelopmentEntryPrefab, OpenDevelopmentsListParent);
                 var entryComponent = entryObject.GetComponent<UIDevelopmentEntry>();
                 entryComponent?.SetContent(name, description, extraInfo, cost, unlock);
-                GameUnlockSystem.AddGameUnlockAction(unlock, (bool unlocked) => { if (unlocked) TransferDevelopmentToFinished(entryObject); });
+                foreach (var u in unlock)
+                    GameUnlockSystem.AddGameUnlockAction(u, (bool unlocked) => { if (unlocked) TransferDevelopmentToFinished(entryObject); });
             }
         }
         

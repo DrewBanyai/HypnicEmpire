@@ -5,13 +5,27 @@ using System;
 namespace HypnicEmpire
 {
     [Serializable]
-    public class DevelopmentData
+    public class DevelopmentDataEntry
     {
-        public GameUnlock Trigger;
+        public List<string> Trigger;
         public string Title;
         public string Description;
         public string EffectText;
-        public GameUnlock Unlock;
-        public List<ResourceAmount> Cost;
+        public List<string> Unlock;
+        public List<ResourceAmountData> Cost;
+    }
+    
+    [Serializable]
+    public class DevelopmentUnlockMultiplier
+    {
+        public string Unlock;
+        public double Multiplier;
+    }
+    
+    [Serializable]
+    public class DevelopmentData
+    {
+        public List<DevelopmentUnlockMultiplier> CostMultiplierUnlocks;
+        public List<DevelopmentDataEntry> DevelopmentEntries;
     }
 }
