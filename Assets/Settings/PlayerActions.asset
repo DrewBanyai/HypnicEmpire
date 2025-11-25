@@ -45,7 +45,7 @@ MonoBehaviour:
     - ResourceType: 1
       Amount: -1
     - ResourceType: 3
-      Amount: 1
+      Amount: 5
   - ActionType: 7
     SectionType: 3
     ResourceChange:
