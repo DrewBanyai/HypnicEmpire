@@ -1,0 +1,257 @@
+{
+    "GlobalEffects": [
+        { "Trigger": "Unlock_Establish_Artists_Guild", "Effect": "Reduces all project costs by 5% (multiply by 0.95)" }
+    ],
+    "Projects": [
+        {
+            "Trigger": "Unlock_Project_Arcane_Streetlamps",
+            "Repeatable": false,
+            "Name": "Arcane Streetlamps",
+            "EffectText": "Decrease all development costs by 20%",
+            "Unlock": "Unlock_Finished_Arcane_Streetlamps",
+            "AlteredValues": [
+                { "ValueName": "FinishedProjects", "Amount": 1 }
+            ],
+            "Text": "Mechanical and magical wonders buzzing with the small power of energetic stones. Lighting up the night as a beacon of safety for everyone around.",
+            "Levels": [
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Wood", "Amount": -10, "Progress": 0.20 }, { "ResourceType": "Treasure", "Amount": -10, "Progress": 1.00 } ] }
+            ]
+        },
+        {
+            "Trigger": "Unlock_Project_Enact_New_Law",
+            "Repeatable": true,
+            "Name": "Enact a new law",
+            "EffectText": " Increase All Economic Gain by 5%",
+            "Unlock": "Unlock_Finished_Enact_New_Law",
+            "AlteredValues": [
+                { "ValueName": "FinishedProjects", "Amount": 1 }
+            ],
+            "Text": "The few villages and communities in the area live by the law of the strongest. It is time for the people to learn about law and order.  The people in formal attire are at your service if you ever require assistance with the more linguistic part of this work.",
+            "Levels": [
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.10 }, { "ResourceType": "Food", "Amount": -10, "Progress": 0.80 }, { "ResourceType": "Potions", "Amount": -10, "Progress": 6.40 } ] },
+                { "Count": 1, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.05 }, { "ResourceType": "Food", "Amount": -10, "Progress": 0.40 }, { "ResourceType": "Potions", "Amount": -10, "Progress": 3.20 } ] },
+                { "Count": 2, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.03 }, { "ResourceType": "Food", "Amount": -10, "Progress": 0.24 }, { "ResourceType": "Potions", "Amount": -10, "Progress": 1.92 } ] },
+                { "Count": 3, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.016 }, { "ResourceType": "Food", "Amount": -10, "Progress": 0.12 }, { "ResourceType": "Potions", "Amount": -10, "Progress": 0.96 } ] },
+                { "Count": 4, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.008 }, { "ResourceType": "Food", "Amount": -10, "Progress": 0.064 }, { "ResourceType": "Potions", "Amount": -10, "Progress": 0.48 } ] },
+                { "Count": 5, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.004 }, { "ResourceType": "Food", "Amount": -10, "Progress": 0.032 }, { "ResourceType": "Potions", "Amount": -10, "Progress": 0.24 } ] },
+                { "Count": 6, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.002 }, { "ResourceType": "Food", "Amount": -10, "Progress": 0.016 }, { "ResourceType": "Potions", "Amount": -10, "Progress": 0.12 } ] },
+                { "Count": 7, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.0008 }, { "ResourceType": "Food", "Amount": -10, "Progress": 0.008 }, { "ResourceType": "Potions", "Amount": -10, "Progress": 0.06 } ] },
+                { "Count": 8, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.0004 }, { "ResourceType": "Food", "Amount": -10, "Progress": 0.004 }, { "ResourceType": "Potions", "Amount": -10, "Progress": 0.031 } ] }
+            ]
+        },
+        {
+            "Trigger": "Unlock_Project_Dig_Sewer_System",
+            "Repeatable": false,
+            "Name": "Dig a sewer system",
+            "EffectText": "Gain 16 population",
+            "Unlock": "Unlock_Finished_Sewer_System",
+            "AlteredValues": [
+                { "ValueName": "FinishedProjects", "Amount": 1 }
+            ],
+            "Text": "Rancid muck all over the streets. The trash piles knee-high. Everyone is sick of it. And also, most are in fact, sick of it, coughing and wheezing wherever they go.",
+            "Levels": [
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.04 }, { "ResourceType": "Stone", "Amount": -10, "Progress": 0.24 } ] }
+            ]
+        },
+        {
+            "Trigger": "Unlock_Project_Construct_Palisade",
+            "Repeatable": false,
+            "Name": "Construct a Palisade",
+            "EffectText": "Increase all Food Gain by 20%",
+            "Unlock": "Unlock_Finished_Construct_Palisade",
+            "AlteredValues": [
+                { "ValueName": "FinishedProjects", "Amount": 1 }
+            ],
+            "Text": "In front of you lies a large map of the entire village. It will be difficult to enclose the whole area with a wall, but the last news has people on edge. They are restless and want to protect themselves.",
+            "Levels": [
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.02 }, { "ResourceType": "Wood", "Amount": -10, "Progress": 0.08 }, { "ResourceType": "Stone", "Amount": -10, "Progress": 0.12 } ] }
+            ]
+        },
+        {
+            "Trigger": "Unlock_Project_Construct_Minecart_Rail_System",
+            "Repeatable": false,
+            "Name": "Construct a minecart rail system",
+            "EffectText": "Increase mining speed by 100% and increase delving speed by 50%",
+            "Unlock": "Unlock_Finished_Minecart_System",
+            "AlteredValues": [
+                { "ValueName": "FinishedProjects", "Amount": 1 }
+            ],
+            "Text": "Endless railroads deep underground, connecting the once far away places into a neat little network of humanity. Also pretty fun to ride on its own.",
+            "Levels": [
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.014 }, { "ResourceType": "Wood", "Amount": -10, "Progress": 0.084 }, { "ResourceType": "Iron", "Amount": -10, "Progress": 0.17 } ] }
+            ]
+        },
+        {
+            "Trigger": "Unlock_Project_Divert_The_River",
+            "Repeatable": false,
+            "Name": "Divert the river",
+            "EffectText": "Unlocks the farming action, decreases fishing gain by 50% and unlocks further Developments",
+            "Unlock": "Unlock_Finished_Divert_The_River",
+            "AlteredValues": [
+                { "ValueName": "FinishedProjects", "Amount": 1 }
+            ],
+            "Text": "As tranquil as the river is, rising far away in the Sevenjag and bubbling through the village, it is unfaveorable for our seed planting project. The soil here is far too gravelly. The grains could thrive better in the earthy loam further out on the plains.",
+            "Levels": [
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.016 }, { "ResourceType": "Fabric", "Amount": -10, "Progress": 0.094 }, { "ResourceType": "Iron", "Amount": -10, "Progress": 0.19 } ] }
+            ]
+        },
+        {
+            "Trigger": "Unlock_Project_Install_Jurisdiction",
+            "Repeatable": false,
+            "Name": "Install a jurisdiction system",
+            "EffectText": "Reduce Unrest by 15%",
+            "Unlock": "Unlock_Finished_Install_Jurisdiction",
+            "AlteredValues": [
+                { "ValueName": "FinishedProjects", "Amount": 1 }
+            ],
+            "Text": "The crises are here and we are utterly non-prepared. The People need help and we are unable to react. That needs to change immediately.",
+            "Levels": [
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.013 }, { "ResourceType": "Food", "Amount": -10, "Progress": 0.063 }, { "ResourceType": "Fabric", "Amount": -10, "Progress": 0.13 } ] }
+            ]
+        },
+        {
+            "Trigger": "Unlock_Project_Reorder_Warehouses",
+            "Repeatable": true,
+            "Name": "Reorder Warehouses",
+            "EffectText": "Reduce Warehouse Cost by *0.2",
+            "Unlock": "Unlock_Finished_Reorder_Warehouse",
+            "AlteredValues": [
+                { "ValueName": "FinishedProjects", "Amount": 1 },
+                { "ValueName": "WarehouseReorders", "Amount": 1 }
+            ],
+            "Text": "How come, whenever we restructure our warehouses, we suddenly have a little more space than before? Is it magic or something?",
+            "Levels": [
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.031 }, { "ResourceType": "Iron", "Amount": -10, "Progress": 0.25 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.50 } ] },
+                { "Count": 1, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.016 }, { "ResourceType": "Iron", "Amount": -10, "Progress": 0.13 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.25 } ] },
+                { "Count": 2, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.012 }, { "ResourceType": "Iron", "Amount": -10, "Progress": 0.090 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.15 } ] },
+                { "Count": 3, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.006 }, { "ResourceType": "Iron", "Amount": -10, "Progress": 0.049 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.098 } ] },
+                { "Count": 4, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.016 }, { "ResourceType": "Iron", "Amount": -10, "Progress": 0.025 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.0050 } ] },
+                { "Count": 5, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.008 }, { "ResourceType": "Iron", "Amount": -10, "Progress": 0.0125 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.0025 } ] },
+                { "Count": 6, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.004 }, { "ResourceType": "Iron", "Amount": -10, "Progress": 0.00625 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.00125 } ] },
+                { "Count": 7, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.002 }, { "ResourceType": "Iron", "Amount": -10, "Progress": 0.00312 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.000625 } ] },
+                { "Count": 8, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.0016 }, { "ResourceType": "Iron", "Amount": -10, "Progress": 0.0016 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.000312 } ] },
+                { "Count": 9, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.0001 }, { "ResourceType": "Iron", "Amount": -10, "Progress": 0.0008 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.00016 } ] },
+                { "Count": 10, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.00005 }, { "ResourceType": "Iron", "Amount": -10, "Progress": 0.0004 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.00008 } ] },
+                { "Count": 11, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.000025 }, { "ResourceType": "Iron", "Amount": -10, "Progress": 0.0002 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.00004 } ] },
+                { "Count": 12, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.000012 }, { "ResourceType": "Iron", "Amount": -10, "Progress": 0.0001 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.00002 } ] },
+                { "Count": 13, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.000006 }, { "ResourceType": "Iron", "Amount": -10, "Progress": 0.00005 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.00001 } ] },
+                { "Count": 14, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.000003 }, { "ResourceType": "Iron", "Amount": -10, "Progress": 0.000025 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.000005 } ] }
+            ]
+        },
+        {
+            "Trigger": "Unlock_Project_Distribute_To_Poor",
+            "Repeatable": true,
+            "Name": "Distribute to the poor",
+            "EffectText": "Reduce Unrest by 5%",
+            "Unlock": "Unlock_Finished_Distribute_To_Poor",
+            "AlteredValues": [
+                { "ValueName": "FinishedProjects", "Amount": 1 },
+                { "ValueName": "DistributedToThePoor", "Amount": 1 }
+            ],
+            "Text": "We have a moral obligation to help out those who are among the weakest in our community. For we are only as strong as they are.",
+            "Levels": [
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.125 }, { "ResourceType": "Luxuries", "Amount": -10, "Progress": 0.88 }, { "ResourceType": "Weaponry", "Amount": -10, "Progress": 1.76 } ] },
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.0625 }, { "ResourceType": "Luxuries", "Amount": -10, "Progress": 0.44 }, { "ResourceType": "Weaponry", "Amount": -10, "Progress": 0.875 } ] },
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.0312 }, { "ResourceType": "Luxuries", "Amount": -10, "Progress": 0.22 }, { "ResourceType": "Weaponry", "Amount": -10, "Progress": 0.487 } ] },
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.0157 }, { "ResourceType": "Luxuries", "Amount": -10, "Progress": 0.11 }, { "ResourceType": "Weaponry", "Amount": -10, "Progress": 0.244 } ] },
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.0075 }, { "ResourceType": "Luxuries", "Amount": -10, "Progress": 0.055 }, { "ResourceType": "Weaponry", "Amount": -10, "Progress": 0.172 } ] },
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.0037 }, { "ResourceType": "Luxuries", "Amount": -10, "Progress": 0.027 }, { "ResourceType": "Weaponry", "Amount": -10, "Progress": 0.086 } ] },
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.0030 }, { "ResourceType": "Luxuries", "Amount": -10, "Progress": 0.016 }, { "ResourceType": "Weaponry", "Amount": -10, "Progress": 0.043 } ] },
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.0010 }, { "ResourceType": "Luxuries", "Amount": -10, "Progress": 0.011 }, { "ResourceType": "Weaponry", "Amount": -10, "Progress": 0.021 } ] }
+            ]
+        },
+        {
+            "Trigger": "Unlock_Project_Build_A_Coliseum",
+            "Repeatable": false,
+            "Name": "Build a Coliseum",
+            "EffectText": "Decrease Unrest by 20%",
+            "Unlock": "Unlock_Finished_Build_A_Coliseum",
+            "AlteredValues": [
+                { "ValueName": "FinishedProjects", "Amount": 1 }
+            ],
+            "Text": "The people are getting restless and jittery. The outside world is getting more dangerous every day so we need something to distract them with. So how about something equally dangerous to watch to keep their minds occupied?",
+            "Levels": [
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Stone", "Amount": -10, "Progress": 0.015 }, { "ResourceType": "Iron", "Amount": -10, "Progress": 0.03 }, { "ResourceType": "Weaponry", "Amount": -10, "Progress": 0.06 } ] }
+            ]
+        },
+        {
+            "Trigger": "Unlock_Project_Modernise",
+            "Repeatable": true,
+            "Name": "Modernise",
+            "EffectText": "Increase all Industry Gain by 5%",
+            "Unlock": "Unlock_Finished_Modernise",
+            "AlteredValues": [
+                { "ValueName": "FinishedProjects", "Amount": 1 }
+            ],
+            "Text": "With our constantly evolving needs also comes an ever changing landscape of new technologies, inventions and innovations. Everything is moving forward all the time.",
+            "Levels": [
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.02 }, { "ResourceType": "Fabric", "Amount": -10, "Progress": 0.16 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.47 } ] },
+                { "Count": 1, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.01 }, { "ResourceType": "Fabric", "Amount": -10, "Progress": 0.08 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.24 } ] },
+                { "Count": 2, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.005 }, { "ResourceType": "Fabric", "Amount": -10, "Progress": 0.04 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.12 } ] },
+                { "Count": 3, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.0025 }, { "ResourceType": "Fabric", "Amount": -10, "Progress": 0.02 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.06 } ] },
+                { "Count": 4, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.00125 }, { "ResourceType": "Fabric", "Amount": -10, "Progress": 0.01 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.03 } ] },
+                { "Count": 5, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.000625 }, { "ResourceType": "Fabric", "Amount": -10, "Progress": 0.005 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.015 } ] },
+                { "Count": 6, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.0003125 }, { "ResourceType": "Fabric", "Amount": -10, "Progress": 0.0025 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.0075 } ] },
+                { "Count": 7, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.00015512 }, { "ResourceType": "Fabric", "Amount": -10, "Progress": 0.00125 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.00375 } ] },
+                { "Count": 8, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.000075 }, { "ResourceType": "Fabric", "Amount": -10, "Progress": 0.000625 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.0016 } ] }
+            ]
+        },
+        {
+            "Trigger": "Unlock_Project_Transdimensional_Storage_Modules",
+            "Repeatable": false,
+            "Name": "Transdimensional Storage Modules",
+            "EffectText": "Increase Warehouse Efficiency by 500%",
+            "Unlock": "Unlock_Finished_Transdimensional_Storage_Modules",
+            "AlteredValues": [
+                { "ValueName": "FinishedProjects", "Amount": 1 }
+            ],
+            "Text": "There are certainly limits to basic warehouse technology. Those are mainly about the number of things you can put into them. But with this new innovation we can just put multiple warehouses into a single warehouse. Simple.",
+            "Levels": [
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.004 }, { "ResourceType": "Gears", "Amount": -10, "Progress": 0.016 }, { "ResourceType": "Artifacts", "Amount": -10, "Progress": 0.13 } ] }
+            ]
+        },
+        {
+            "Trigger": "Unlock_Project_Streamline_Refugee_Intake",
+            "Repeatable": true,
+            "Name": "Streamine Refugee Intake",
+            "EffectText": "+15 population and +2% Unrest",
+            "Unlock": "Unlock_Finished_Streamline_Refugee_Intake",
+            "AlteredValues": [
+                { "ValueName": "FinishedProjects", "Amount": 1 },
+                { "ValueName": "Population", "Amount": 15 },
+                { "ValueName": "Unrest", "Amount": 2 }
+            ],
+            "Text": "We finally have a grasp on the refugees coming from all over the known world to our safe haven. Now its only about figuring out the safest way to take them all in without causing unnecessary panic and shortages.",
+            "Levels": [
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.004 }, { "ResourceType": "Luxuries", "Amount": -10, "Progress": 0.032 }, { "ResourceType": "Potions", "Amount": -10, "Progress": 0.062 } ] }
+            ]
+        },
+        {
+            "Trigger": "Unlock_Project_Faith_Insertion",
+            "Repeatable": true,
+            "Name": "Faith Insertion",
+            "EffectText": "Increases all agriculture gain by 5%",
+            "Unlock": "Unlock_Finished_Faith_Insertion",
+            "AlteredValues": [
+                { "ValueName": "FinishedProjects", "Amount": 1 },
+                { "ValueName": "AllAgriculturalGainPercent", "Amount": 5 }
+            ],
+            "Text": "When you talk to your houseplants, they grow better. We can use that insight to automate a system of people talking and praying on our fields and in the stables and coops. Their belief will strengthen our bonds with nature.",
+            "Levels": [
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Money", "Amount": -10, "Progress": 0.002 }, { "ResourceType": "Food", "Amount": -10, "Progress": 0.016 }, { "ResourceType": "Herbs", "Amount": -10, "Progress": 0.034 } ] }
+            ]
+        },
+        {
+            "Trigger": "Unlock_Project_War_Economy",
+            "Repeatable": false,
+            "Name": "Turn on the war economy",
+            "EffectText": "Decrease development cost by 20%",
+            "Unlock": "Unlock_Finished_War_Economy",
+            "AlteredValues": [],
+            "Text": "Time has come to stop holding back anymore. The enemy is almost at our dootstep and we are the last target of a dying world.  There is only one way forward.\nTo put every ounce of our beings into war.",
+            "Levels": [
+                { "Count": 0, "ProgressCosts": [ { "ResourceType": "Iron", "Amount": -10, "Progress": 0.005 }, { "ResourceType": "Weaponry", "Amount": -10, "Progress": 0.030 }, { "ResourceType": "Tar", "Amount": -10, "Progress": 0.045 } ] }
+            ]
+        }
+    ]
+}

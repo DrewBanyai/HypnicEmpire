@@ -118,21 +118,21 @@
         {
             "Battle": 17,
             "Name": "Scuffle of the Havocked Borough",
-            "EnemyStrength": 2869,
+            "EnemyStrength": 5855,
             "EffectGained": "Increases all advanced resources gain like gears, potions or weaponry by 10%",
             "Unlock": "Unlock_Battle_Victory_Seventeen"
         },
         {
             "Battle": 18,
             "Name": "Skirmish of the Ragged Fort",
-            "EnemyStrength": 3441,
+            "EnemyStrength": 7022,
             "EffectGained": "Increase all unit strength by 100%",
             "Unlock": "Unlock_Battle_Victory_Eighteen"
         },
         {
             "Battle": 19,
             "Name": "Battle against the Beast",
-            "EnemyStrength": 8000,
+            "EnemyStrength": 11429,
             "EffectGained": "You vanquish the foul threat to this land once and for all. No more of this. Never again. This will end the game.",
             "Unlock": "Unlock_Defeat_The_Beast"
         }

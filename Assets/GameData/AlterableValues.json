@@ -220,10 +220,24 @@
         "ValueUnlocks": [
             { "Value": 1, "Unlock": "Unlock_Army_Strength_One" },
             { "Value": 50, "Unlock": "Unlock_Army_Strength_Fifty" },
-            { "Value": 259, "Unlock": "Unlock_Army_Strength_Two_Hundred_Fifty" },
+            { "Value": 250, "Unlock": "Unlock_Army_Strength_Two_Hundred_Fifty" },
             { "Value": 500, "Unlock": "Unlock_Army_Strength_Five_Hundred" },
             { "Value": 2000, "Unlock": "Unlock_Army_Strength_Two_Thousand" },
             { "Value": 5000, "Unlock": "Unlock_Army_Strength_Five_Thousand" }
+        ],
+        "RemappingValues": []
+    },
+    {
+        "Name": "ProjectsCompleted",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 10000,
+        "UnlockTarget": ">=",
+        "ValueUnlocks": [
+            { "Value": 1, "Unlock": "Unlock_Finished_One_Project" },
+            { "Value": 5, "Unlock": "Unlock_Finished_Five_Projects" },
+            { "Value": 15, "Unlock": "Unlock_Finished_Fifteen_Projects" },
+            { "Value": 35, "Unlock": "Unlock_Finished_Thirty_Five_Projects" }
         ],
         "RemappingValues": []
     }
