@@ -1,0 +1,73 @@
+{
+    "GlobalEffects": [
+        { "Trigger": "Unlock_Remains_Of_The_Royal_Army", "Effect": "Increase army strength by 100" }
+    ],
+    "Units": [
+        {
+            "Name": "Footsoldier",
+            "Strength": 1,
+            "Cost": [ { "ResourceType": "Money", "Amount": -4000 }, { "ResourceType": "Food", "Amount": -12000 }, { "ResourceType": "Weaponry", "Amount": -400 } ],
+            "Upgrades": [
+                { "Trigger": "Unlock_Build_A_Hospital", "Effect": "Decrease all army costs by 100% (actually 50%)" },
+                { "Trigger": "Unlock_Gradiose_Bastion", "Effect": "Reduces cost of all non-magical units (50%)" },
+                { "Trigger": "Unlock_Battle_Victory_Six", "Effect": "Increases all unit strength by 100%" },
+                { "Trigger": "Unlock_Battle_Victory_Twelve", "Effect": "Increases all unit strength by 100%" }
+            ]
+        },
+        {
+            "Name": "Brutish Golem",
+            "Strength": 4,
+            "Cost": [ { "ResourceType": "Money", "Amount": -8000 }, { "ResourceType": "Stone", "Amount": -12000 }, { "ResourceType": "Weaponry", "Amount": -800 } ],
+            "Upgrades": [
+                { "Trigger": "Unlock_Build_A_Hospital", "Effect": "Decrease all army costs by 100% (actually 50%)" },
+                { "Trigger": "Unlock_Battle_Victory_Six", "Effect": "Increases all unit strength by 100%" },
+                { "Trigger": "Unlock_Secret_Of_The_Elves", "Effect": "Reduces cost of all magical units (50%)" },
+                { "Trigger": "Unlock_Battle_Victory_Twelve", "Effect": "Increases all unit strength by 100%" }
+            ]
+        },
+        {
+            "Name": "Armored Zeppelin",
+            "Strength": 10,
+            "Cost": [ { "ResourceType": "Money", "Amount": -12000 }, { "ResourceType": "Wood", "Amount": -12000 }, { "ResourceType": "Gears", "Amount": -6000 } ],
+            "Upgrades": [
+                { "Trigger": "Unlock_Build_A_Hospital", "Effect": "Decrease all army costs by 100% (actually 50%)" },
+                { "Trigger": "Unlock_Gradiose_Bastion", "Effect": "Reduces cost of all non-magical units (50%)" },
+                { "Trigger": "Unlock_Battle_Victory_Six", "Effect": "Increases all unit strength by 100%" },
+                { "Trigger": "Unlock_Battle_Victory_Twelve", "Effect": "Increases all unit strength by 100%" }
+            ]
+        },
+        {
+            "Name": "Elven Battlewizard",
+            "Strength": 25,
+            "Cost": [ { "ResourceType": "Money", "Amount": -24000 }, { "ResourceType": "Weaponry", "Amount": -4000 }, { "ResourceType": "Artifacts", "Amount": -2000 } ],
+            "Upgrades": [
+                { "Trigger": "Unlock_Build_A_Hospital", "Effect": "Decrease all army costs by 100% (actually 50%)" },
+                { "Trigger": "Unlock_Battle_Victory_Six", "Effect": "Increases all unit strength by 100%" },
+                { "Trigger": "Unlock_Secret_Of_The_Elves", "Effect": "Reduces cost of all magical units (50%)" },
+                { "Trigger": "Unlock_Battle_Victory_Twelve", "Effect": "Increases all unit strength by 100%" }
+            ]
+        },
+        {
+            "Name": "Flaming Howitzer",
+            "Strength": 80,
+            "Cost": [ { "ResourceType": "Money", "Amount": -40000 }, { "ResourceType": "Tar", "Amount": -40000 }, { "ResourceType": "Gears", "Amount": -12000 } ],
+            "Upgrades": [
+                { "Trigger": "Unlock_Build_A_Hospital", "Effect": "Decrease all army costs by 100% (actually 50%)" },
+                { "Trigger": "Unlock_Gradiose_Bastion", "Effect": "Reduces cost of all non-magical units (50%)" },
+                { "Trigger": "Unlock_Battle_Victory_Six", "Effect": "Increases all unit strength by 100%" },
+                { "Trigger": "Unlock_Battle_Victory_Twelve", "Effect": "Increases all unit strength by 100%" }
+            ]
+        },
+        {
+            "Name": "Spellbound Titan",
+            "Strength": 200,
+            "Cost": [ { "ResourceType": "Tar", "Amount": -40000 }, { "ResourceType": "Gears", "Amount": -12000 }, { "ResourceType": "Artifacts", "Amount": -4000 } ],
+            "Upgrades": [
+                { "Trigger": "Unlock_Build_A_Hospital", "Effect": "Decrease all army costs by 100% (actually 50%)" },
+                { "Trigger": "Unlock_Battle_Victory_Six", "Effect": "Increases all unit strength by 100%" },
+                { "Trigger": "Unlock_Secret_Of_The_Elves", "Effect": "Reduces cost of all magical units (50%)" },
+                { "Trigger": "Unlock_Battle_Victory_Twelve", "Effect": "Increases all unit strength by 100%" }
+            ]
+        }
+    ]
+}

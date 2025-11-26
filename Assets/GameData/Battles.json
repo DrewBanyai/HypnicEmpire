@@ -1,0 +1,140 @@
+{
+    "GlobalEffects": [
+        { "Trigger": "Unlock_Install_Warding_Stones", "Effect": "Reduce enemy army strength by 30%" }
+    ],
+    "Battles": [
+        {
+            "Battle": 1,
+            "Name": "Encounter of the Feral Townlet",
+            "EnemyStrength": 3,
+            "EffectGained": "Increases all advanced resources gain like gears, potions or weaponry by 10%",
+            "Unlock": "Unlock_Battle_Victory_One"
+        },
+        {
+            "Battle": 2,
+            "Name": "Fight of the Ransacked Ruins",
+            "EnemyStrength": 4,
+            "EffectGained": "Increases all basic resources gain like wood, food or iron by 10%",
+            "Unlock": "Unlock_Battle_Victory_Two"
+        },
+        {
+            "Battle": 3,
+            "Name": "Engagement of the Toppled Borough",
+            "EnemyStrength": 11,
+            "EffectGained": "Increases all advanced resources gain like gears, potions or weaponry by 10%",
+            "Unlock": "Unlock_Battle_Victory_Three"
+        },
+        {
+            "Battle": 4,
+            "Name": "Slaughter of the Mountain Village",
+            "EnemyStrength": 30,
+            "EffectGained": "Increases all basic resources gain like wood, food or iron by 10%",
+            "Unlock": "Unlock_Battle_Victory_Four"
+        },
+        {
+            "Battle": 5,
+            "Name": "Slaughter of the Toppled Borough",
+            "EnemyStrength": 67,
+            "EffectGained": "Increases all advanced resources gain like gears, potions or weaponry by 10%",
+            "Unlock": "Unlock_Battle_Victory_Five"
+        },
+        {
+            "Battle": 6,
+            "Name": "Skirmish of the Ancient Castle",
+            "EnemyStrength": 128,
+            "EffectGained": "Increase all unit strength by 100%",
+            "Unlock": "Unlock_Battle_Victory_Six"
+        },
+        {
+            "Battle": 7,
+            "Name": "Scuffle of the Hill City",
+            "EnemyStrength": 219,
+            "EffectGained": "Increases all advanced resources gain like gears, potions or weaponry by 10%",
+            "Unlock": "Unlock_Battle_Victory_Seven"
+        },
+        {
+            "Battle": 8,
+            "Name": "Battle of the Lone Farmstead",
+            "EnemyStrength": 346,
+            "EffectGained": "Increases all basic resources gain like wood, food or iron by 10%",
+            "Unlock": "Unlock_Battle_Victory_Eight"
+        },
+        {
+            "Battle": 9,
+            "Name": "Skirmish of the Burned Town",
+            "EnemyStrength": 515,
+            "EffectGained": "Increases all advanced resources gain like gears, potions or weaponry by 10%",
+            "Unlock": "Unlock_Battle_Victory_Nine"
+        },
+        {
+            "Battle": 10,
+            "Name": "Encounter of the Long Farmstead",
+            "EnemyStrength": 732,
+            "EffectGained": "Increases all basic resources gain like wood, food or iron by 10%",
+            "Unlock": "Unlock_Battle_Victory_Ten"
+        },
+        {
+            "Battle": 11,
+            "Name": "Combat of the Industrious City",
+            "EnemyStrength": 1003,
+            "EffectGained": "Increases all advanced resources gain like gears, potions or weaponry by 10%",
+            "Unlock": "Unlock_Battle_Victory_Eleven"
+        },
+        {
+            "Battle": 12,
+            "Name": "Skirmish of the Broken Stronghold",
+            "EnemyStrength": 1334,
+            "EffectGained": "Increase all unit strength by 100%",
+            "Unlock": "Unlock_Battle_Victory_Twelve"
+        },
+        {
+            "Battle": 13,
+            "Name": "Scuffle of the Havocked Borough",
+            "EnemyStrength": 1731,
+            "EffectGained": "Increases all advanced resources gain like gears, potions or weaponry by 10%",
+            "Unlock": "Unlock_Battle_Victory_Thirteen"
+        },
+        {
+            "Battle": 14,
+            "Name": "Skirmish ofthe Lakeside Hamlet",
+            "EnemyStrength": 2200,
+            "EffectGained": "Increases all basic resources gain like wood, food or iron by 10%",
+            "Unlock": "Unlock_Battle_Victory_Fourteen"
+        },
+        {
+            "Battle": 15,
+            "Name": "Scuffle of the the Hill City",
+            "EnemyStrength": 2747,
+            "EffectGained": "Increases all advanced resources gain like gears, potions or weaponry by 10%",
+            "Unlock": "Unlock_Battle_Victory_Fifteen"
+        },
+        {
+            "Battle": 16,
+            "Name": "Fray of the Remote Hamlet",
+            "EnemyStrength": 3378,
+            "EffectGained": "Increases all basic resources gain like wood, food or iron by 10%",
+            "Unlock": "Unlock_Battle_Victory_Sixteen"
+        },
+        {
+            "Battle": 17,
+            "Name": "Scuffle of the Havocked Borough",
+            "EnemyStrength": 2869,
+            "EffectGained": "Increases all advanced resources gain like gears, potions or weaponry by 10%",
+            "Unlock": "Unlock_Battle_Victory_Seventeen"
+        },
+        {
+            "Battle": 18,
+            "Name": "Skirmish of the Ragged Fort",
+            "EnemyStrength": 3441,
+            "EffectGained": "Increase all unit strength by 100%",
+            "Unlock": "Unlock_Battle_Victory_Eighteen"
+        },
+        {
+            "Battle": 19,
+            "Name": "Battle against the Beast",
+            "EnemyStrength": 8000,
+            "EffectGained": "You vanquish the foul threat to this land once and for all. No more of this. Never again. This will end the game.",
+            "Unlock": "Unlock_Defeat_The_Beast"
+        }
+    ]
+}

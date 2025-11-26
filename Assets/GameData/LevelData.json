@@ -782,7 +782,8 @@
         {
             "Level": 151,
             "Description": "It is finally empty. There is nothing else here. Everything istaken and stripped and robbed. No more tunnels, nor pathways or cracks in the rock. The treasure flows no more. You devoured it all.",
-            "DelveCount": 1
+            "DelveCount": 1,
+            "Unlock": "Unlock_Delve_To_The_Bottom"
         }
     ]
 }

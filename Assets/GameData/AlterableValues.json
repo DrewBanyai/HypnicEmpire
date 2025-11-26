@@ -154,6 +154,35 @@
         ]
     },
     {
+        "Name": "Land",
+        "CurrentValue": 5,
+        "MinimumValue": 5,
+        "MaximumValue": 99999999,
+        "UnlockTarget": ">=",
+        "ValueUnlocks": [
+            { "Value": 20, "Unlock": "Unlock_Twenty_Land" },
+            { "Value": 60, "Unlock": "Unlock_Sixty_Land" },
+            { "Value": 200, "Unlock": "Unlock_Two_Hundred_Land" },
+            { "Value": 500, "Unlock": "Unlock_Five_Hundred_Land" }
+        ],
+        "RemappingValues": []
+    },
+    {
+        "Name": "Buildings",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 99999999,
+        "UnlockTarget": ">=",
+        "ValueUnlocks": [
+            { "Value": 10, "Unlock": "Unlock_Ten_Buildings" },
+            { "Value": 50, "Unlock": "Unlock_Fifty_Buildings" },
+            { "Value": 100, "Unlock": "Unlock_One_Hundred_Buildings" },
+            { "Value": 200, "Unlock": "Unlock_Two_Hundred_Buildings" },
+            { "Value": 400, "Unlock": "Unlock_Four_Hundred_Buildings" }
+        ],
+        "RemappingValues": []
+    },
+    {
         "Name": "Population",
         "CurrentValue": 0,
         "MinimumValue": 0,
@@ -176,10 +205,25 @@
         "MaximumValue": 5000,
         "UnlockTarget": ">=",
         "ValueUnlocks": [
-            { "Value": 10, "Unlock": "Unlock_Five_Hundred_Clicks" },
             { "Value": 500, "Unlock": "Unlock_Five_Hundred_Clicks" },
             { "Value": 2000, "Unlock": "Unlock_Two_Thousand_Clicks" },
             { "Value": 5000, "Unlock": "Unlock_Five_Thousand_Clicks" }
+        ],
+        "RemappingValues": []
+    },
+    {
+        "Name": "ArmyStrength",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 99999999,
+        "UnlockTarget": ">=",
+        "ValueUnlocks": [
+            { "Value": 1, "Unlock": "Unlock_Army_Strength_One" },
+            { "Value": 50, "Unlock": "Unlock_Army_Strength_Fifty" },
+            { "Value": 259, "Unlock": "Unlock_Army_Strength_Two_Hundred_Fifty" },
+            { "Value": 500, "Unlock": "Unlock_Army_Strength_Five_Hundred" },
+            { "Value": 2000, "Unlock": "Unlock_Army_Strength_Two_Thousand" },
+            { "Value": 5000, "Unlock": "Unlock_Army_Strength_Five_Thousand" }
         ],
         "RemappingValues": []
     }
