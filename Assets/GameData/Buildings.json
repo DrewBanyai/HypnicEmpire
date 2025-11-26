@@ -245,7 +245,7 @@
                 { "ValueName": "Unrest", "Amount": -1 }
             ],
             "Upgrades": [
-                { "Trigger": "Unlock_Reduce_Guardhouse_Cost_200", "Effect": "Reduce Guardhouse Cost by 200% (actually reduces Stone cost to 1/4, Weaponry cost to 1/10 ???)" }
+                { "Trigger": "Unlock_Reduce_Guardhouse_Cost_200", "Effect": "Reduce Guardhouse Cost by 200% (actually reduces Stone cost to 1/4, Weaponry cost to 1/10)" }
             ]
         },
         {
@@ -356,7 +356,7 @@
                 { "ValueName": "DelveTaskSpeedPercent", "Amount": 3 }
             ],
             "Upgrades": [
-                { "Trigger": "Unlock_Action_Buy_Weaponry", "Effect": "- At what point does the Delving Outpost go from 2 to 4 land ???" }
+                { "Trigger": "Unlock_Action_Buy_Weaponry", "Effect": " Delving Outpost land usage goes from 2 to 4 land" }
             ]
         },
         {
@@ -411,9 +411,8 @@
                 { "Count": 7, "Cost": [ { "ResourceType": "Land", "Amount": -4 }, { "ResourceType": "Money", "Amount": -8207 }, { "ResourceType": "Weaponry", "Amount": -124 } ] },
                 { "Count": 8, "Cost": [ { "ResourceType": "Land", "Amount": -4 }, { "ResourceType": "Money", "Amount": -13952 }, { "ResourceType": "Weaponry", "Amount": -210 } ] },
                 { "Count": 9, "Cost": [ { "ResourceType": "Land", "Amount": -4 }, { "ResourceType": "Money", "Amount": -23718 }, { "ResourceType": "Weaponry", "Amount": -356 } ] },
-                { "Count": 9, "Cost": [ { "ResourceType": "Land", "Amount": -4 }, { "ResourceType": "Money", "Amount": -40320 }, { "ResourceType": "Weaponry", "Amount": -605 } ] },
-                { "Count": 10, "Cost": [ { "ResourceType": "Land", "Amount": -4 }, { "ResourceType": "Money", "Amount": -68544 }, { "ResourceType": "Weaponry", "Amount": -1029 } ] },
-                { "Count": 11, "Cost": [ { "ResourceType": "Land", "Amount": -4 }, { "ResourceType": "Money", "Amount": ??? }, { "ResourceType": "Weaponry", "Amount": ??? } ] },
+                { "Count": 10, "Cost": [ { "ResourceType": "Land", "Amount": -4 }, { "ResourceType": "Money", "Amount": -40320 }, { "ResourceType": "Weaponry", "Amount": -605 } ] },
+                { "Count": 11, "Cost": [ { "ResourceType": "Land", "Amount": -4 }, { "ResourceType": "Money", "Amount": -68544 }, { "ResourceType": "Weaponry", "Amount": -1029 } ] },
                 { "Count": 12, "Cost": [ { "ResourceType": "Land", "Amount": -4 }, { "ResourceType": "Money", "Amount": -116525 }, { "ResourceType": "Weaponry", "Amount": -1748 } ] },
                 { "Count": 13, "Cost": [ { "ResourceType": "Land", "Amount": -9999999 } ] }
             ],
@@ -598,7 +597,7 @@
             "Text": "Fresh produce every day of the week. Except holidays. Sorry.",
             "StartingCount": { "Amount": 0, "Note": "Granary count / 2" },
             "Costs": [
-                { "Count": 0, "Cost": [ { "ResourceType": "Land", "Amount": -9999999 } ] }
+                { "Count": 0, "Cost": [ { "ResourceType": "Land", "Amount": -9999999 } ] },
                 { "Count": 1, "Cost": [ { "ResourceType": "Land", "Amount": -9999999 } ] },
                 { "Count": 2, "Cost": [ { "ResourceType": "Land", "Amount": -10 }, { "ResourceType": "Food", "Amount": -52 }, { "ResourceType": "Artifacts", "Amount": -2 } ] },
                 { "Count": 3, "Cost": [ { "ResourceType": "Land", "Amount": -10 }, { "ResourceType": "Food", "Amount": -69 }, { "ResourceType": "Artifacts", "Amount": -3 } ] },
@@ -904,7 +903,7 @@
             "AlteredValues": [
                 { "ValueName": "BasicResourceStorage", "Amount": 10 },
                 { "ValueName": "BasicResourceStorage", "Amount": 10, "Trigger": "Unlock_Warehouse_Plus_Fabric" },
-                { "ValueName": "BasicResourceStorage", "Amount": 80, "Trigger": "Unlock_Finished_Transdimensional_Storage_Modules" },
+                { "ValueName": "BasicResourceStorage", "Amount": 80, "Trigger": "Unlock_Finished_Transdimensional_Storage_Modules" }
             ],
             "Upgrades": [
                 { "Trigger": "Unlock_Reduce_Warehouse_Cost_0_2", "Effect": "Reduces warehouse costs by *0.2" },
