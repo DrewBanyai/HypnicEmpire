@@ -8414,20 +8414,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5cc1ce3f5219245ba1ba2a6fadd3f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HypnicEmpire.UIActionMenuController
-  PlayerActionsData: {fileID: 11400000, guid: 36db25b6de13431459c29d3ccf8b7bd4, type: 2}
   ActionButtonGroupings:
-    m_keys: 0400000005000000060000000200000003000000070000000800000009000000
+    m_keys:
+    - Forage
+    - Market
+    - Sell_Food
+    - Trade_Herbs
+    - Chop_Wood
+    - Cut_Stone
+    - Buy_Potion
+    - Hunting
     m_values:
+    - {fileID: 2067637755}
+    - {fileID: 1341277870}
     - {fileID: 189224300}
     - {fileID: 852735268}
-    - {fileID: 1341277870}
-    - {fileID: 2067637755}
-    - {fileID: 95912795}
     - {fileID: 770315992}
-    - {fileID: 1903200088}
     - {fileID: 1403394091}
+    - {fileID: 1903200088}
+    - {fileID: 95912795}
   ActionSectionAreaMap:
-    m_keys: 010000000200000003000000
+    m_keys:
+    - Commercial
+    - Agricultural
+    - Industrial
     m_values:
     - {fileID: 898232230}
     - {fileID: 957181065}
@@ -8502,7 +8512,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318926350}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
   m_Name: 
@@ -13494,10 +13504,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sleepwalking.GameController
   InitialGameState: {fileID: 11400000, guid: 5f73335305200624ba9ff9a1ac070a8f, type: 2}
-  GameLevelsData: {fileID: 11400000, guid: f66132eeee7abd448be65dfb8e887053, type: 2}
-  DevelopmentsData: {fileID: 11400000, guid: c94c19898726c8c4193fd13464e9c61e, type: 2}
-  PlayerActionsData: {fileID: 11400000, guid: 36db25b6de13431459c29d3ccf8b7bd4, type: 2}
-  JournalEntryData: {fileID: 11400000, guid: d188041fb18d67d4c807331861d69171, type: 2}
   MainGameUIView: {fileID: 1166013147}
 --- !u!4 &2043877356
 Transform:

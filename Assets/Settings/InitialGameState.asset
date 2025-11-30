@@ -19,7 +19,6 @@ MonoBehaviour:
       Value: 1
     LevelDelveCount:
       Value: 0
-    CurrentPlayerAction: 0
     JournalEntries:
     - You eventually arrive after a long hike through the desolate landscape of the
       kingdoms east, where the Sevenjag mountain range looms on the horizon. Your
@@ -30,13 +29,19 @@ MonoBehaviour:
     GameUnlockList:
       m_keys:
       - Unlock_Resource_Food
-      m_values: 01
+      - Unlock_Action_Delve
+      m_values: 0101
     CurrentResourceCounts:
-      m_keys: 0000000001000000
+      m_keys:
+      - Food
+      - Treasure
       m_values: 0300000000000000
     CurrentResourceMaximum:
-      m_keys: 000000000100000002000000030000000400000005000000
-      m_values: 0f0000000a0000002d000000640000006400000000000000
+      m_keys:
+      - Food
+      - Treasure
+      - Herbs
+      m_values: 0f0000000a0000000a000000
     ClickCount: 0
     MasterVolume: 50
     SFXVolume: 50

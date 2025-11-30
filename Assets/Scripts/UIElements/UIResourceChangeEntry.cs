@@ -18,17 +18,17 @@ namespace HypnicEmpire
         [SerializeField] public TextMeshProUGUI ResourceNameText;
         [SerializeField] public TextMeshProUGUI ResourceChangeText;
 
-        private ResourceAmount ChangeResourceAmount;
+        private ResourceAmountData ChangeResourceAmount;
 
-        public ResourceAmount GetResourceAmount() { return new ResourceAmount(ChangeResourceAmount.ResourceType, ChangeResourceAmount.Amount); }
+        public ResourceAmountData GetResourceAmount() { return new ResourceAmountData(ChangeResourceAmount.ResourceType, ChangeResourceAmount.Amount); }
 
-        public void SetContent(ResourceType resourceType, int changeAmount)
+        public void SetContent(string resourceType, int changeAmount)
         {
             try
             {
-                ChangeResourceAmount = new ResourceAmount(resourceType, changeAmount);
+                ChangeResourceAmount = new ResourceAmountData(resourceType, changeAmount);
 
-                ResourceIconImage?.SetSprite(Resources.Load<Sprite>($"ResourceIcons/{resourceType.ToString()}"));
+                ResourceIconImage?.SetSprite(Resources.Load<Sprite>($"ResourceIcons/{resourceType}"));
 
                 ResourceNameText?.SetText(Localization.DisplayText_ResourceChangeDisplayName(resourceType));
                 ResourceNameText?.SetOverrideColorTags(true);

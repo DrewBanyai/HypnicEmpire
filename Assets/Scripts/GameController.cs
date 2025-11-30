@@ -12,20 +12,20 @@ namespace HypnicEmpire
     {
         private static string SaveFilePath => Application.persistentDataPath + "/saveGame.dat";
         [SerializeField] public GameStateScriptableObject InitialGameState;
-        [SerializeField] public PlayerActionScriptableObject PlayerActionsData;
 
         public static GameState CurrentGameState = new();
-        public static TaskSystem TaskSystem = new();
         public static GameSubscriptionSystem GameSubscriptions = new();
         public UIView_MainGame MainGameUIView;
 
         public void Start()
         {
+            ResourceTypeSystem.LoadAllResourceTypes(Application.dataPath + "/GameData/Resources.json");
             GameUnlockSystem.LoadAllUnlockIDs(Application.dataPath + "/GameData/UnlockIDs.json");
             JournalEntrySystem.LoadAllJournalEntries(Application.dataPath + "/GameData/JournalEntries.json");
             LevelDataSystem.LoadAllLevelData(Application.dataPath + "/GameData/LevelData.json");
             AlterableValueSystem.LoadAllAlterableValues(Application.dataPath + "/GameData/AlterableValues.json");
             DevelopmentSystem.LoadAllDevelopments(Application.dataPath + "/GameData/Developments.json");
+            TaskActionSystem.LoadAllTaskActions(Application.dataPath + "/GameData/TaskActions.json");
             CurrentGameState.Initialize(InitialGameState);
             MainGameUIView.Initialize();
             SetupMainGameUI();
@@ -34,6 +34,7 @@ namespace HypnicEmpire
         public void Update()
         {
             SaveUtility.Update();
+            TaskActionSystem.Update();
         }
 
         private void ChangeMasterVolume(int delta) {
@@ -71,7 +72,7 @@ namespace HypnicEmpire
             MainGameUIView.ActionSoundExcessControlEntry?.AddListener(CurrentGameState.ToggleActionSoundExcess);
 
             MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent.Value, CurrentGameState.LevelReached.Value, CurrentGameState.LevelCurrent.Value, CurrentLevelUp, CurrentLevelDown);
-            MainGameUIView.DelveTaskButton?.SetContents(PlayerActionType.Delve, 20f, 64f, CompleteDelve);
+            MainGameUIView.DelveTaskButton?.SetContents("Delve", 20f, 64f, CompleteDelve);
 
             MainGameUIView.LevelExplorationBar?.SetProgress((float)CurrentGameState.LevelDelveCount.Value / (float)LevelDataSystem.GetLevelData(CurrentGameState.LevelCurrent.Value).DelveCount);
             CurrentGameState.LevelDelveCount.Subscribe((newValue) =>
@@ -106,10 +107,6 @@ namespace HypnicEmpire
                 }
             }
 
-            if (PlayerActionsData != null)
-                foreach (var entry in PlayerActionsData.PlayerActions)
-                    CurrentGameState.SetPlayerActionResourceChange(entry.ActionType, entry.ResourceChange);
-
             SaveUtility.SaveCallback = () => { SaveGame(); };
 
             //  Now initialize the UI
@@ -121,7 +118,7 @@ namespace HypnicEmpire
             MainGameUIView.ResetUI();
 
             MainGameUIView.SetDelveResourceChange(GetCurrentDelveResourceChanges());
-            GameSubscriptions.SubscribeToGenericResourceAmountChange((ResourceType rType, int amount, int maxAmount) =>
+            GameSubscriptions.SubscribeToGenericResourceAmountChange((string resourceType, int amount, int maxAmount) =>
             {
                 MainGameUIView.DelveTaskButton.SetEnabled(GetCurrentDelveResourceChanges().CheckCanChangeAll());
             });
@@ -135,9 +132,9 @@ namespace HypnicEmpire
                 if (newAmount != 0) return;
                 CurrentGameState.GameUnlockList["Unlock_Empty_Belly"] = true;
                 GameUnlockSystem.SetUnlockValue("Unlock_Empty_Belly", true);
-                GameSubscriptions.UnsubscribeToResourceAmount(ResourceType.Food, unhideDevelopmentsFunc);
+                GameSubscriptions.UnsubscribeToResourceAmount("Food", unhideDevelopmentsFunc);
             };
-            GameSubscriptions.SubscribeToResourceAmount(ResourceType.Food, unhideDevelopmentsFunc);
+            GameSubscriptions.SubscribeToResourceAmount("Food", unhideDevelopmentsFunc);
 
             CheckDevelopments();
             CheckGameUnlocks();
@@ -249,13 +246,13 @@ namespace HypnicEmpire
             BasicAppUtilities.SetWindowFullscreen(CurrentGameState.Fullscreen = !CurrentGameState.Fullscreen);
         }
 
-        public List<ResourceAmount> GetCurrentDelveResourceChanges()
+        public List<ResourceAmountData> GetCurrentDelveResourceChanges()
         {
-            if (CurrentGameState.LevelCurrent.Value >= LevelDataSystem.GetLevelCount() || CurrentGameState.LevelCurrent.Value < 0) return new List<ResourceAmount>();
+            if (CurrentGameState.LevelCurrent.Value >= LevelDataSystem.GetLevelCount() || CurrentGameState.LevelCurrent.Value < 0) return new List<ResourceAmountData>();
 
-            List<ResourceAmount> amountsList = new();
+            List<ResourceAmountData> amountsList = new();
             foreach (var rc in LevelDataSystem.GetGroupingByLevel(CurrentGameState.LevelCurrent.Value).ResourceChange)
-                amountsList.AddResourceAmount(new ResourceAmount(rc.ResourceType, rc.Amount));
+                amountsList.AddResourceAmount(new ResourceAmountData(rc.ResourceType, rc.Amount));
 
             return amountsList;
         }

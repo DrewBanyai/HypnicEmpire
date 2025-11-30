@@ -1,0 +1,182 @@
+{
+    "UnlockToActionMap": [
+        { "Unlock": "Unlock_Action_Delve", "Action": "Delve" },
+        { "Unlock": "Unlock_Action_Sell_Food", "Action": "Sell_Food" },
+        { "Unlock": "Unlock_Action_Market", "Action": "Market" },
+        { "Unlock": "Unlock_Action_Buy_Potion", "Action": "Buy_Potion" },
+        { "Unlock": "Unlock_Action_Sell_Fabric", "Action": "Sell_Fabric" },
+        { "Unlock": "Unlock_Action_Buy_Weaponry", "Action": "Buy_Weaponry" },
+        { "Unlock": "Unlock_Action_Polish", "Action": "Polish" },
+        { "Unlock": "Unlock_Action_Forage", "Action": "Forage" },
+        { "Unlock": "Unlock_Action_Trade_Herbs", "Action": "Trade_Herbs" },
+        { "Unlock": "Unlock_Action_Chop_Wood", "Action": "Chop_Wood" },
+        { "Unlock": "Unlock_Action_Hunting", "Action": "Hunting" },
+        { "Unlock": "Unlock_Action_Fishing", "Action": "Fishing" },
+        { "Unlock": "Unlock_Action_Farming", "Action": "Farming" },
+        { "Unlock": "Unlock_Action_Cut_Stone", "Action": "Cut_Stone" },
+        { "Unlock": "Unlock_Action_Cultivate", "Action": "Cultivate" },
+        { "Unlock": "Unlock_Action_Brew_Potion", "Action": "Brew_Potion" },
+        { "Unlock": "Unlock_Action_Weaving", "Action": "Weaving" },
+        { "Unlock": "Unlock_Action_Mining", "Action": "Mining" },
+        { "Unlock": "Unlock_Action_Refine", "Action": "Refine" },
+        { "Unlock": "Unlock_Action_Manufacture", "Action": "Manufacture" },
+        { "Unlock": "Unlock_Action_Purify", "Action": "Purify" },
+        { "Unlock": "Unlock_Action_Pump", "Action": "Pump" }
+    ],
+    "ActionData": [
+        {
+            "Name": "Delve",
+            "DisplayName": "Delve",
+            "ActionSection": "Unaffiliated",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Food", "Amount": -1 }, { "ResourceType": "Treasure", "Amount": 1 } ]
+        },
+        {
+            "Name": "Sell_Food",
+            "DisplayName": "Sell Food",
+            "ActionSection": "Commercial",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Food", "Amount": -1 }, { "ResourceType": "Money", "Amount": 1 } ]
+        },
+        {
+            "Name": "Market",
+            "DisplayName": "Market",
+            "ActionSection": "Commercial",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Treasure", "Amount": -1 }, { "ResourceType": "Money", "Amount": 5 } ]
+        },
+        {
+            "Name": "Buy_Potion",
+            "DisplayName": "Buy Potion",
+            "ActionSection": "Commercial",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Money", "Amount": -5 }, { "ResourceType": "Potions", "Amount": 1 } ]
+        },
+        {
+            "Name": "Sell_Fabric",
+            "DisplayName": "Sell Fabric",
+            "ActionSection": "Commercial",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Fabric", "Amount": -2 }, { "ResourceType": "Money", "Amount": 8 } ]
+        },
+        {
+            "Name": "Buy_Weaponry",
+            "DisplayName": "Buy Weaponry",
+            "ActionSection": "Commercial",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Money", "Amount": -10 }, { "ResourceType": "Weaponry", "Amount": 2 } ]
+        },
+        {
+            "Name": "Polish",
+            "DisplayName": "Polish",
+            "ActionSection": "Industrial",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Money", "Amount": -50 }, { "ResourceType": "Treasure", "Amount": 1 } ]
+        },
+        {
+            "Name": "Forage",
+            "DisplayName": "Forage",
+            "ActionSection": "Agricultural",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Food", "Amount": 2 }, { "ResourceType": "Herbs", "Amount": 1 } ]
+        },
+        {
+            "Name": "Trade_Herbs",
+            "DisplayName": "Trade Herbs",
+            "ActionSection": "Commercial",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Herbs", "Amount": -1 }, { "ResourceType": "Food", "Amount": 1 } ]
+        },
+        {
+            "Name": "Chop_Wood",
+            "DisplayName": "Chop Wood",
+            "ActionSection": "Industrial",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Wood", "Amount": 5 } ]
+        },
+        {
+            "Name": "Hunting",
+            "DisplayName": "Hunting",
+            "ActionSection": "Agricultural",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Food", "Amount": 15 } ]
+        },
+        {
+            "Name": "Fishing",
+            "DisplayName": "Fishing",
+            "ActionSection": "Agricultural",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Food", "Amount": 15 } ]
+        },
+        {
+            "Name": "Farming",
+            "DisplayName": "Farming",
+            "ActionSection": "Agricultural",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Food", "Amount": 3 } ]
+        },
+        {
+            "Name": "Cut_Stone",
+            "DisplayName": "Cut Stone",
+            "ActionSection": "Industrial",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Wood", "Amount": -2 }, { "ResourceType": "Stone", "Amount": 5 } ]
+        },
+        {
+            "Name": "Cultivate",
+            "DisplayName": "Cultivate",
+            "ActionSection": "Agricultural",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Food", "Amount": -1 }, { "ResourceType": "Herbs", "Amount": 1 } ]
+        },
+        {
+            "Name": "Brew_Potion",
+            "DisplayName": "Brew Potion",
+            "ActionSection": "Industrial",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Wood", "Amount": -1 }, { "ResourceType": "Herbs", "Amount": -2 }, { "ResourceType": "Potions", "Amount": 1 } ]
+        },
+        {
+            "Name": "Weaving",
+            "DisplayName": "Weaving",
+            "ActionSection": "Industrial",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Herbs", "Amount": -4 }, { "ResourceType": "Fabric", "Amount": 1 } ]
+        },
+        {
+            "Name": "Mining",
+            "DisplayName": "Mining",
+            "ActionSection": "Industrial",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Wood", "Amount": -4 }, { "ResourceType": "Stone", "Amount": -4 }, { "ResourceType": "Iron", "Amount": 1 } ]
+        },
+        {
+            "Name": "Refine",
+            "DisplayName": "Refine",
+            "ActionSection": "Industrial",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Iron", "Amount": -1 }, { "ResourceType": "Weaponry", "Amount": 1 } ]
+        },
+        {
+            "Name": "Manufacture",
+            "DisplayName": "Manufacture",
+            "ActionSection": "Industrial",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Iron", "Amount": -1 }, { "ResourceType": "Gears", "Amount": 1 } ]
+        },
+        {
+            "Name": "Purify",
+            "DisplayName": "Purify",
+            "ActionSection": "Industrial",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Treasure", "Amount": -1 }, { "ResourceType": "Luxuries", "Amount": -2 }, { "ResourceType": "Gears", "Amount": -2 }, { "ResourceType": "Artifacts", "Amount": 2 } ]
+        },
+        {
+            "Name": "Pump",
+            "DisplayName": "Pump",
+            "ActionSection": "Industrial",
+            "PlayerSpeed": 300.0,
+            "ResourceChange": [ { "ResourceType": "Tar", "Amount": 1 } ]
+        }
+    ]
+}

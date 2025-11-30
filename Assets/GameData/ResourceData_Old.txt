@@ -1,3 +1,5 @@
+
+
 Notes:
     - When one building is upgraded to another and halves it's count, the resource maximums do not change. Therefore, a remainder is tacked on silently on the backend.
 

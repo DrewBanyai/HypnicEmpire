@@ -12,7 +12,7 @@ namespace HypnicEmpire
         [SerializeField] public TextMeshProUGUI ResourceNameText;
         [SerializeField] public TextMeshProUGUI ResourceAmountText;
 
-        public void SetContent(ResourceType resourceType)
+        public void SetContent(string resourceType)
         {
             SetResourceIconImage(resourceType);
             SetResourceNameText(resourceType);
@@ -22,18 +22,18 @@ namespace HypnicEmpire
             GameController.GameSubscriptions.SubscribeToResourceMaximum(resourceType, (maxChange, newMax) => { SetResourceAmountText(resourceType); });
         }
 
-        private void SetResourceIconImage(ResourceType resourceType)
+        private void SetResourceIconImage(string resourceType)
         {
             if (ResourceIconImage != null)
-                ResourceIconImage.sprite = Resources.Load<Sprite>($"ResourceIcons/{resourceType.ToString()}");
+                ResourceIconImage.sprite = Resources.Load<Sprite>($"ResourceIcons/{resourceType}");
         }
         
-        private void SetResourceNameText(ResourceType resourceType)
+        private void SetResourceNameText(string resourceType)
         {
             ResourceNameText?.SetText(Localization.DisplayText_ResourceDisplayName(resourceType));
         }
         
-        private void SetResourceAmountText(ResourceType resourceType)
+        private void SetResourceAmountText(string resourceType)
         {
             ResourceAmountText?.SetText(Localization.DisplayText_ResourceCountDivide(GameController.CurrentGameState.GetResourceAmount(resourceType), GameController.CurrentGameState.GetResourceMaxAmount(resourceType)));
         }

@@ -22,7 +22,7 @@ namespace HypnicEmpire
         [SerializeField] public Button PurchaseButton;
         [SerializeField] public Image ButtonBG;
 
-        private List<ResourceAmount> Cost = new();
+        private List<ResourceAmountData> Cost = new();
         private List<UIResourceChangeEntry> ResourceChangeEntries = new();
         private List<string> Unlock;
 
@@ -32,14 +32,13 @@ namespace HypnicEmpire
             SetDescriptionText(description);
             SetExtraInfoText(extraInfo);
             
-            List<ResourceAmount> convertedCost = cost.Select(c => new ResourceAmount(c.ResourceType, c.Amount)).ToList();
-            if (ResourceCostEntryParent != null) { SetResourceChangeEntries(convertedCost); }
+            if (ResourceCostEntryParent != null) { SetResourceChangeEntries(cost); }
 
-            SetCost(convertedCost);
+            SetCost(cost);
             Unlock = unlock;
 
             ShowStatusColor();
-            GameController.GameSubscriptions.SubscribeToGenericResourceAmountChange((ResourceType rType, int amount, int maximum) => { ShowStatusColor(); });
+            GameController.GameSubscriptions.SubscribeToGenericResourceAmountChange((string resourceType, int amount, int maximum) => { ShowStatusColor(); });
 
             PurchaseButton?.onClick.RemoveAllListeners();
             PurchaseButton?.onClick.AddListener(() =>
@@ -53,7 +52,7 @@ namespace HypnicEmpire
             });
         }
 
-        public void SetResourceChangeEntries(List<ResourceAmount> cost)
+        public void SetResourceChangeEntries(List<ResourceAmountData> cost)
         {
             foreach (Transform child in ResourceCostEntryParent)
                 Destroy(child.gameObject);
@@ -63,7 +62,7 @@ namespace HypnicEmpire
             {
                 var entryObject = Instantiate(ResourceCostUIPrefab, ResourceCostEntryParent);
                 var entryComponent = entryObject.GetComponent<UIResourceChangeEntry>();
-                entryComponent.ResourceNameText?.SetText(costAmount.ResourceType.ToString());
+                entryComponent.ResourceNameText?.SetText(costAmount.ResourceType);
                 entryComponent.SetContent(costAmount.ResourceType, costAmount.Amount);
                 ResourceChangeEntries.Add(entryComponent);
             }
@@ -73,10 +72,10 @@ namespace HypnicEmpire
         public void SetDescriptionText(string description) { DescriptionText?.SetText(description); }
         public void SetExtraInfoText(string extraInfo) { ExtraInfoText?.SetText(extraInfo); }
 
-        public void SetCost(List<ResourceAmount> cost)
+        public void SetCost(List<ResourceAmountData> cost)
         {
             Cost.Clear();
-            foreach (var ra in cost) Cost.Add(new ResourceAmount(ra.ResourceType, ra.Amount));
+            foreach (var ra in cost) Cost.Add(new ResourceAmountData(ra.ResourceType, ra.Amount));
         }
 
         public void ShowStatusColor(bool overrideFinished = false)

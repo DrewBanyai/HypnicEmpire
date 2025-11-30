@@ -7,9 +7,8 @@ namespace HypnicEmpire
 {
     public class UIActionMenuController : MonoBehaviour
     {
-        [SerializeField] public PlayerActionScriptableObject PlayerActionsData;
-        [SerializeField] public SerializableDictionary<PlayerActionType, UIActionTaskAndChange> ActionButtonGroupings = new();
-        [SerializeField] public SerializableDictionary<PlayerActionSectionType, Transform> ActionSectionAreaMap = new();
+        [SerializeField] public SerializableDictionary<string, UIActionTaskAndChange> ActionButtonGroupings = new();
+        [SerializeField] public SerializableDictionary<string, Transform> ActionSectionAreaMap = new();
 
         public void InitializeMenu()
         {
@@ -18,20 +17,20 @@ namespace HypnicEmpire
             foreach (var actionButtonGroup in ActionButtonGroupings) { actionButtonGroup.Value.gameObject.SetActive(false); }
 
             //  Set all content on the action button groups, unhide them when valid, and subscribe to changes
-            foreach (var actionType in Enum.GetValues(typeof(PlayerActionType)).Cast<PlayerActionType>())
+            foreach (var actionType in TaskActionSystem.ActionsList)
                 SetActionButtonGroupingData(actionType);
         }
         
-        public void SetActionButtonGroupingData(PlayerActionType actionType)
+        public void SetActionButtonGroupingData(string actionType)
         {
-            if (!PlayerActionsData || !PlayerActionsData.UnlockToActionMap.Values.Contains(actionType)) return;
+            if (!TaskActionSystem.UnlockToActionMap.Values.Contains(actionType)) return;
             if (!ActionButtonGroupings.ContainsKey(actionType)) return;
 
             UIActionTaskAndChange actionButtonGroup = ActionButtonGroupings[actionType];
-            string unlock = PlayerActionsData.UnlockToActionMap.FirstOrDefault(x => x.Value == actionType).Key.ToString();
+            string unlock = TaskActionSystem.UnlockToActionMap.FirstOrDefault(x => x.Value == actionType).Key.ToString();
             bool unlockStatus = GameController.CurrentGameState.GameUnlockList.ContainsKey(unlock) ? GameController.CurrentGameState.GameUnlockList[unlock]  : false;
-            PlayerActionData playerActionData = PlayerActionsData?.PlayerActions?.Find(pa => pa.ActionType == actionType);
-            actionButtonGroup.SetContent(actionType, playerActionData);
+            TaskActionState actionState = TaskActionSystem.TaskActionMap[actionType];
+            actionButtonGroup.SetContent(actionType, actionState);
 
             SetActionActive(actionType, unlockStatus);
             GameUnlockSystem.AddGameUnlockAction(unlock, (bool unlocked) => {
@@ -39,15 +38,15 @@ namespace HypnicEmpire
             });
         }
         
-        public void SetActionActive(PlayerActionType actionType, bool active)
+        public void SetActionActive(string actionType, bool active)
         {
-            Debug.Log($"SetActionActive({actionType.ToString()}, {active})");
+            Debug.Log($"SetActionActive({actionType}, {active})");
             var actionButtonGroup = ActionButtonGroupings.ContainsKey(actionType) ? ActionButtonGroupings[actionType] : null;
             actionButtonGroup?.gameObject.SetActive(active);
 
-            PlayerActionData playerActionData = PlayerActionsData?.PlayerActions?.Find(pa => pa.ActionType == actionType);
-            if (active && ActionSectionAreaMap.ContainsKey(playerActionData.SectionType))
-                ActionSectionAreaMap[playerActionData.SectionType].gameObject.SetActive(true);
+            TaskActionState actionState = TaskActionSystem.TaskActionMap[actionType];
+            if (active && ActionSectionAreaMap.ContainsKey(actionState.ActionSection))
+                ActionSectionAreaMap[actionState.ActionSection].gameObject.SetActive(true);
         }
     }
 }

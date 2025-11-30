@@ -1,0 +1,208 @@
+{
+    "UnlockToResourceTypes": [
+        { "Unlock": "Unlock_Resource_Food", "ResourceType": "Food" },
+        { "Unlock": "Unlock_Resource_Herbs", "ResourceType": "Herbs" },
+        { "Unlock": "Unlock_Resource_Treasure", "ResourceType": "Treasure" },
+        { "Unlock": "Unlock_Resource_Money", "ResourceType": "Money" },
+        { "Unlock": "Unlock_Resource_Wood", "ResourceType": "Wood" },
+        { "Unlock": "Unlock_Resource_Stone", "ResourceType": "Stone" },
+        { "Unlock": "Unlock_Resource_People", "ResourceType": "People" },
+        { "Unlock": "Unlock_Resource_Potions", "ResourceType": "Potions" },
+        { "Unlock": "Unlock_Resource_Fabric", "ResourceType": "Fabric" },
+        { "Unlock": "Unlock_Resource_Iron", "ResourceType": "Iron" },
+        { "Unlock": "Unlock_Resource_Weaponry", "ResourceType": "Weaponry" },
+        { "Unlock": "Unlock_Resource_Gears", "ResourceType": "Gears" },
+        { "Unlock": "Unlock_Resource_Luxuries", "ResourceType": "Luxuries" },
+        { "Unlock": "Unlock_Resource_Artifacts", "ResourceType": "Artifacts" },
+        { "Unlock": "Unlock_Resource_Tar", "ResourceType": "Tar" }
+    ],
+    "ResourceGroups": [
+        "Population",
+        "Commerce",
+        "Primary",
+        "Basic",
+        "Advanced"
+    ],
+    "ResourceTypes": [
+        {
+            "Name": "Food",
+            "InitialValue": 3,
+            "InitialMaximum": 15,
+            "ResourceGroup": "Primary",
+            "Upgrades": [
+
+            ],
+            "Unlocks": [
+
+            ]
+        },
+        {
+            "Name": "Herbs",
+            "InitialValue": 3,
+            "InitialMaximum": 15,
+            "ResourceGroup": "Basic",
+            "Upgrades": [
+
+            ],
+            "Unlocks": [
+                
+            ]
+        },
+        {
+            "Name": "Treasure",
+            "InitialValue": 3,
+            "InitialMaximum": 15,
+            "ResourceGroup": "Commerce",
+            "Upgrades": [
+
+            ],
+            "Unlocks": [
+                
+            ]
+        },
+        {
+            "Name": "Money",
+            "InitialValue": 3,
+            "InitialMaximum": 15,
+            "ResourceGroup": "Commerce",
+            "Upgrades": [
+
+            ],
+            "Unlocks": [
+                
+            ]
+        },
+        {
+            "Name": "Wood",
+            "InitialValue": 3,
+            "InitialMaximum": 15,
+            "ResourceGroup": "Basic",
+            "Upgrades": [
+
+            ],
+            "Unlocks": [
+                
+            ]
+        },
+        {
+            "Name": "Stone",
+            "InitialValue": 3,
+            "InitialMaximum": 15,
+            "ResourceGroup": "Basic",
+            "Upgrades": [
+
+            ],
+            "Unlocks": [
+                
+            ]
+        },
+        {
+            "Name": "People",
+            "InitialValue": 3,
+            "InitialMaximum": 15,
+            "ResourceGroup": "Population",
+            "Upgrades": [
+
+            ],
+            "Unlocks": [
+                
+            ]
+        },
+        {
+            "Name": "Potions",
+            "InitialValue": 3,
+            "InitialMaximum": 15,
+            "ResourceGroup": "Primary",
+            "Upgrades": [
+
+            ],
+            "Unlocks": [
+                
+            ]
+        },
+        {
+            "Name": "Fabric",
+            "InitialValue": 3,
+            "InitialMaximum": 15,
+            "ResourceGroup": "Advanced",
+            "Upgrades": [
+
+            ],
+            "Unlocks": [
+                
+            ]
+        },
+        {
+            "Name": "Iron",
+            "InitialValue": 3,
+            "InitialMaximum": 15,
+            "ResourceGroup": "Basic",
+            "Upgrades": [
+
+            ],
+            "Unlocks": [
+                
+            ]
+        },
+        {
+            "Name": "Weaponry",
+            "InitialValue": 3,
+            "InitialMaximum": 15,
+            "ResourceGroup": "Primary",
+            "Upgrades": [
+
+            ],
+            "Unlocks": [
+                
+            ]
+        },
+        {
+            "Name": "Gears",
+            "InitialValue": 3,
+            "InitialMaximum": 15,
+            "ResourceGroup": "Advanced",
+            "Upgrades": [
+
+            ],
+            "Unlocks": [
+                
+            ]
+        },
+        {
+            "Name": "Luxuries",
+            "InitialValue": 3,
+            "InitialMaximum": 15,
+            "ResourceGroup": "Advanced",
+            "Upgrades": [
+
+            ],
+            "Unlocks": [
+                
+            ]
+        },
+        {
+            "Name": "Artifacts",
+            "InitialValue": 3,
+            "InitialMaximum": 15,
+            "ResourceGroup": "Advanced",
+            "Upgrades": [
+
+            ],
+            "Unlocks": [
+                
+            ]
+        },
+        {
+            "Name": "Tar",
+            "InitialValue": 3,
+            "InitialMaximum": 15,
+            "ResourceGroup": "Advanced",
+            "Upgrades": [
+
+            ],
+            "Unlocks": [
+                
+            ]
+        }
+    ]
+}

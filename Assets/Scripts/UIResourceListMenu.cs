@@ -8,9 +8,9 @@ namespace HypnicEmpire
         [SerializeField] public GameObject ResourceEntryPrefab;
         [SerializeField] public Transform ResourceDisplayParent;
 
-        private List<ResourceType> ResourcesTracked = new();
+        private List<string> ResourcesTracked = new();
 
-        public void AddResourceEntry(ResourceType resourceType)
+        public void AddResourceEntry(string resourceType)
         {
             if (ResourcesTracked.Contains(resourceType)) return;
             ResourcesTracked.Add(resourceType);

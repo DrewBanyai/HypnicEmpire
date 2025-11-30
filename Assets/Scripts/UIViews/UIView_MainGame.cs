@@ -105,15 +105,15 @@ namespace HypnicEmpire
 
             foreach (var gu in GameUnlockSystem.UnlockIDs)
             {
-                ResourceType? unlockedResource = ResourceGameUnlockUtility.GetResourceTypeFromUnlock(gu);
+                string unlockedResource = ResourceTypeSystem.GetResourceTypeFromUnlock(gu);
                 if (unlockedResource != null)
-                    GameUnlockSystem.AddGameUnlockAction(gu.ToString(), (bool shown) => { if (shown) ResourceListControl?.AddResourceEntry(unlockedResource.Value); }); 
+                    GameUnlockSystem.AddGameUnlockAction(gu.ToString(), (bool shown) => { if (shown) ResourceListControl?.AddResourceEntry(unlockedResource); }); 
             }
 
             //  Define UI responses to resource changes
-            GameController.GameSubscriptions.SubscribeToGenericResourceAmountChange((ResourceType rType, int amount, int maxAmount) => {
+            GameController.GameSubscriptions.SubscribeToGenericResourceAmountChange((string resourceType, int amount, int maxAmount) => {
                 if (amount > 0)
-                    ResourceListControl?.AddResourceEntry(rType);
+                    ResourceListControl?.AddResourceEntry(resourceType);
             });
         }
 
@@ -128,7 +128,7 @@ namespace HypnicEmpire
             ShowCenterMenu(ActionsButton, ActionsMenu);
         }
 
-        public void SetDelveResourceChange(List<ResourceAmount> amountList)
+        public void SetDelveResourceChange(List<ResourceAmountData> amountList)
         {
             DelveTaskButton?.SetEnabled(amountList.CheckCanChangeAll());
 
@@ -164,7 +164,7 @@ namespace HypnicEmpire
                     Destroy(child.gameObject);
         }
 
-        public void AddDelveResourceChange(ResourceType resourceType, int resourceChange)
+        public void AddDelveResourceChange(string resourceType, int resourceChange)
         {
             if (DelveResourceLossParent != null && DelveResourceGainParent != null && UIResourceChangeEntryPrefab != null)
             {
