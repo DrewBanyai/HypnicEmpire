@@ -3,6 +3,13 @@ using System.Collections.Generic;
 
 namespace HypnicEmpire
 {
+    public class ResourceUnlockTrigger
+    {
+        public int Value;
+        public string Operator;
+        public string Unlock;
+    }
+
     public class UnlockToResourceTypeData
     {
         public string Unlock;
@@ -16,7 +23,9 @@ namespace HypnicEmpire
         public int InitialMaximum;
         public string ResourceGroup;
         public List<string> Upgrades; // Note: An upgrade will eventually be a class?
-        public List<string> Unlocks; // Note: An unlock will eventually be a class?
+        public List<ResourceUnlockTrigger> Unlocks;
+
+        public int GetMaximum() { return InitialMaximum; } //  TODO: Eventually use an override function to grab the CURRENT maximum based on upgrades
     }
 
     public class ResourceData

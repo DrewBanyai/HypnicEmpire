@@ -4,50 +4,9 @@
         "CurrentValue": 50,
         "MinimumValue": 0,
         "MaximumValue": 100,
-        "UnlockTarget": "==",
         "ValueUnlocks": [
-            { "Value": 0, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 1, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 2, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 3, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 4, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 5, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 6, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 7, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 8, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 9, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 10, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 11, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 12, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 13, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 14, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 15, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 16, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 17, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 18, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 19, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 20, "Unlock": "Unlock_Unrest_Under_Twenty" },
-            { "Value": 80, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 81, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 82, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 83, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 84, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 85, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 86, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 87, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 88, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 89, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 90, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 91, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 92, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 93, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 94, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 95, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 96, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 97, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 98, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 99, "Unlock": "Unlock_Unrest_Above_Eighty" },
-            { "Value": 100, "Unlock": "Unlock_Unrest_Above_Eighty" }
+            { "Value": 20, "Operator": "<=", "Unlock": "Unlock_Unrest_Under_Twenty" },
+            { "Value": 80, "Operator": ">=", "Unlock": "Unlock_Unrest_Above_Eighty" }
         ],
         "RemappingValues": [
             { "Value": 0, "Remap": 300, "Note": "(The people are content)" },
@@ -158,12 +117,11 @@
         "CurrentValue": 5,
         "MinimumValue": 5,
         "MaximumValue": 99999999,
-        "UnlockTarget": ">=",
         "ValueUnlocks": [
-            { "Value": 20, "Unlock": "Unlock_Twenty_Land" },
-            { "Value": 60, "Unlock": "Unlock_Sixty_Land" },
-            { "Value": 200, "Unlock": "Unlock_Two_Hundred_Land" },
-            { "Value": 500, "Unlock": "Unlock_Five_Hundred_Land" }
+            { "Value": 20, "Operator": ">=", "Unlock": "Unlock_Twenty_Land" },
+            { "Value": 60, "Operator": ">=", "Unlock": "Unlock_Sixty_Land" },
+            { "Value": 200, "Operator": ">=", "Unlock": "Unlock_Two_Hundred_Land" },
+            { "Value": 500, "Operator": ">=", "Unlock": "Unlock_Five_Hundred_Land" }
         ],
         "RemappingValues": []
     },
@@ -172,13 +130,12 @@
         "CurrentValue": 0,
         "MinimumValue": 0,
         "MaximumValue": 99999999,
-        "UnlockTarget": ">=",
         "ValueUnlocks": [
-            { "Value": 10, "Unlock": "Unlock_Ten_Buildings" },
-            { "Value": 50, "Unlock": "Unlock_Fifty_Buildings" },
-            { "Value": 100, "Unlock": "Unlock_One_Hundred_Buildings" },
-            { "Value": 200, "Unlock": "Unlock_Two_Hundred_Buildings" },
-            { "Value": 400, "Unlock": "Unlock_Four_Hundred_Buildings" }
+            { "Value": 10, "Operator": ">=", "Unlock": "Unlock_Ten_Buildings" },
+            { "Value": 50, "Operator": ">=", "Unlock": "Unlock_Fifty_Buildings" },
+            { "Value": 100, "Operator": ">=", "Unlock": "Unlock_One_Hundred_Buildings" },
+            { "Value": 200, "Operator": ">=", "Unlock": "Unlock_Two_Hundred_Buildings" },
+            { "Value": 400, "Operator": ">=", "Unlock": "Unlock_Four_Hundred_Buildings" }
         ],
         "RemappingValues": []
     },
@@ -187,14 +144,13 @@
         "CurrentValue": 0,
         "MinimumValue": 0,
         "MaximumValue": 0,
-        "UnlockTarget": ">=",
         "ValueUnlocks": [
-            { "Value": 1, "Unlock": "Unlock_One_Villager" },
-            { "Value": 30, "Unlock": "Unlock_Thirty_Villagers" },
-            { "Value": 80, "Unlock": "Unlock_Eighty_Villagers" },
-            { "Value": 150, "Unlock": "Unlock_One_Hundred_Fifty_Villagers" },
-            { "Value": 300, "Unlock": "Unlock_Three_Hundred_Villagers" },
-            { "Value": 500, "Unlock": "Unlock_Five_Hundred_Villagers" }
+            { "Value": 1, "Operator": ">=", "Unlock": "Unlock_One_Villager" },
+            { "Value": 30, "Operator": ">=", "Unlock": "Unlock_Thirty_Villagers" },
+            { "Value": 80, "Operator": ">=", "Unlock": "Unlock_Eighty_Villagers" },
+            { "Value": 150, "Operator": ">=", "Unlock": "Unlock_One_Hundred_Fifty_Villagers" },
+            { "Value": 300, "Operator": ">=", "Unlock": "Unlock_Three_Hundred_Villagers" },
+            { "Value": 500, "Operator": ">=", "Unlock": "Unlock_Five_Hundred_Villagers" }
         ],
         "RemappingValues": []
     },
@@ -203,11 +159,10 @@
         "CurrentValue": 0,
         "MinimumValue": 0,
         "MaximumValue": 5000,
-        "UnlockTarget": ">=",
         "ValueUnlocks": [
-            { "Value": 500, "Unlock": "Unlock_Five_Hundred_Clicks" },
-            { "Value": 2000, "Unlock": "Unlock_Two_Thousand_Clicks" },
-            { "Value": 5000, "Unlock": "Unlock_Five_Thousand_Clicks" }
+            { "Value": 500, "Operator": ">=", "Unlock": "Unlock_Five_Hundred_Clicks" },
+            { "Value": 2000, "Operator": ">=", "Unlock": "Unlock_Two_Thousand_Clicks" },
+            { "Value": 5000, "Operator": ">=", "Unlock": "Unlock_Five_Thousand_Clicks" }
         ],
         "RemappingValues": []
     },
@@ -216,14 +171,13 @@
         "CurrentValue": 0,
         "MinimumValue": 0,
         "MaximumValue": 99999999,
-        "UnlockTarget": ">=",
         "ValueUnlocks": [
-            { "Value": 1, "Unlock": "Unlock_Army_Strength_One" },
-            { "Value": 50, "Unlock": "Unlock_Army_Strength_Fifty" },
-            { "Value": 250, "Unlock": "Unlock_Army_Strength_Two_Hundred_Fifty" },
-            { "Value": 500, "Unlock": "Unlock_Army_Strength_Five_Hundred" },
-            { "Value": 2000, "Unlock": "Unlock_Army_Strength_Two_Thousand" },
-            { "Value": 5000, "Unlock": "Unlock_Army_Strength_Five_Thousand" }
+            { "Value": 1, "Operator": ">=", "Unlock": "Unlock_Army_Strength_One" },
+            { "Value": 50, "Operator": ">=", "Unlock": "Unlock_Army_Strength_Fifty" },
+            { "Value": 250, "Operator": ">=", "Unlock": "Unlock_Army_Strength_Two_Hundred_Fifty" },
+            { "Value": 500, "Operator": ">=", "Unlock": "Unlock_Army_Strength_Five_Hundred" },
+            { "Value": 2000, "Operator": ">=", "Unlock": "Unlock_Army_Strength_Two_Thousand" },
+            { "Value": 5000, "Operator": ">=", "Unlock": "Unlock_Army_Strength_Five_Thousand" }
         ],
         "RemappingValues": []
     },
@@ -232,12 +186,68 @@
         "CurrentValue": 0,
         "MinimumValue": 0,
         "MaximumValue": 10000,
-        "UnlockTarget": ">=",
         "ValueUnlocks": [
-            { "Value": 1, "Unlock": "Unlock_Finished_One_Project" },
-            { "Value": 5, "Unlock": "Unlock_Finished_Five_Projects" },
-            { "Value": 15, "Unlock": "Unlock_Finished_Fifteen_Projects" },
-            { "Value": 35, "Unlock": "Unlock_Finished_Thirty_Five_Projects" }
+            { "Value": 1, "Operator": ">=", "Unlock": "Unlock_Finished_One_Project" },
+            { "Value": 5, "Operator": ">=", "Unlock": "Unlock_Finished_Five_Projects" },
+            { "Value": 15, "Operator": ">=", "Unlock": "Unlock_Finished_Fifteen_Projects" },
+            { "Value": 35, "Operator": ">=", "Unlock": "Unlock_Finished_Thirty_Five_Projects" }
+        ],
+        "RemappingValues": []
+    },
+    {
+        "Name": "ResourceGained_Money",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 10000000,
+        "ValueUnlocks": [
+                { "Value": 1, "Operator": ">=", "Unlock": "Unlock_One_Money" },
+                { "Value": 1000, "Operator": ">=", "Unlock": "Unlock_One_Thousand_Money" },
+                { "Value": 10000, "Operator": ">=", "Unlock": "Unlock_Ten_Thousand_Money" },
+                { "Value": 100000, "Operator": ">=", "Unlock": "Unlock_One_Hundred_Thousand_Money" },
+                { "Value": 1000000, "Operator": ">=", "Unlock": "Unlock_One_Million_Money" },
+                { "Value": 10000000, "Operator": ">=", "Unlock": "Unlock_Ten_Million_Money" }
+        ],
+        "RemappingValues": []
+    },
+    {
+        "Name": "ResourceGained_Wood",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 100000,
+        "ValueUnlocks": [
+                { "Value": 1, "Operator": ">=", "Unlock": "Unlock_One_Wood" },
+                { "Value": 100, "Operator": ">=", "Unlock": "Unlock_One_Hundred_Wood" },
+                { "Value": 1000, "Operator": ">=", "Unlock": "Unlock_One_Thousand_Wood" },
+                { "Value": 10000, "Operator": ">=", "Unlock": "Unlock_Ten_Thousand_Wood" },
+                { "Value": 100000, "Operator": ">=", "Unlock": "Unlock_One_Hundred_Thousand_Wood" }
+        ],
+        "RemappingValues": []
+    },
+    {
+        "Name": "ResourceGained_Stone",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 100000,
+        "ValueUnlocks": [
+                { "Value": 1, "Operator": ">=", "Unlock": "Unlock_One_Stone" },
+                { "Value": 100, "Operator": ">=", "Unlock": "Unlock_One_Hundred_Stone" },
+                { "Value": 1000, "Operator": ">=", "Unlock": "Unlock_One_Thousand_Stone" },
+                { "Value": 10000, "Operator": ">=", "Unlock": "Unlock_Ten_Thousand_Stone" },
+                { "Value": 100000, "Operator": ">=", "Unlock": "Unlock_One_Hundred_Thousand_Stone" }
+        ],
+        "RemappingValues": []
+    },
+    {
+        "Name": "ResourceGained_Potions",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 100000,
+        "ValueUnlocks": [
+                { "Value": 1, "Operator": ">=", "Unlock": "Unlock_One_Potions" },
+                { "Value": 100, "Operator": ">=", "Unlock": "Unlock_One_Hundred_Potions" },
+                { "Value": 1000, "Operator": ">=", "Unlock": "Unlock_One_Thousand_Potions" },
+                { "Value": 10000, "Operator": ">=", "Unlock": "Unlock_Ten_Thousand_Potions" },
+                { "Value": 100000, "Operator": ">=", "Unlock": "Unlock_One_Hundred_Thousand_Potions" }
         ],
         "RemappingValues": []
     }

@@ -39,6 +39,9 @@ namespace HypnicEmpire
                         ResourceTypes.Add(rt.Name);
                     }
 
+                    GameSubscriptionSystem.CreateResourceTypeSubscriptionMaps();
+                    SubscribeToResourceUnlocks();
+
                     Debug.Log($"Successfully loaded {ResourceData.ResourceGroups.Count} Resource Groups and {ResourceData.ResourceTypes.Count} Resource Types from {jsonFilePath}");
                 }
                 catch (Exception e)
@@ -49,6 +52,40 @@ namespace HypnicEmpire
             else
             {
                 Debug.LogWarning($"Resources.json not found at {jsonFilePath}");
+            }
+        }
+
+        private static void SubscribeToResourceUnlocks()
+        {
+            foreach (string resourceType in ResourceTypes)
+            {
+                GameSubscriptionSystem.SubscribeToResourceAmount(resourceType, (int addAmount, int currentAmount) => {
+                    var resourceTypeData = ResourceData.ResourceTypes.Find(rt => rt.Name == resourceType);
+                    if (resourceTypeData == null) return;
+
+                    foreach (var ul in resourceTypeData.Unlocks)
+                    {
+                        switch (ul.Operator)
+                        {
+                            case "==":
+                                if (currentAmount == ul.Value)
+                                    GameUnlockSystem.SetUnlockValue(ul.Unlock, true);
+                                break;
+                            case "<=":
+                                if (currentAmount <= ul.Value)
+                                    GameUnlockSystem.SetUnlockValue(ul.Unlock, true);
+                                break;
+                            case ">=":
+                                if (currentAmount >= ul.Value)
+                                    GameUnlockSystem.SetUnlockValue(ul.Unlock, true);
+                                break;
+                            case "MAX":
+                                if (currentAmount >= resourceTypeData.GetMaximum())
+                                    GameUnlockSystem.SetUnlockValue(ul.Unlock, true);
+                                break;
+                        }
+                    }
+                });
             }
         }
     }

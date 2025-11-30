@@ -14,11 +14,11 @@ namespace HypnicEmpire
         [SerializeField] public GameStateScriptableObject InitialGameState;
 
         public static GameState CurrentGameState = new();
-        public static GameSubscriptionSystem GameSubscriptions = new();
         public UIView_MainGame MainGameUIView;
 
         public void Start()
         {
+            GameSubscriptionSystem.ClearAllSubscriptions();
             ResourceTypeSystem.LoadAllResourceTypes(Application.dataPath + "/GameData/Resources.json");
             GameUnlockSystem.LoadAllUnlockIDs(Application.dataPath + "/GameData/UnlockIDs.json");
             JournalEntrySystem.LoadAllJournalEntries(Application.dataPath + "/GameData/JournalEntries.json");
@@ -118,23 +118,12 @@ namespace HypnicEmpire
             MainGameUIView.ResetUI();
 
             MainGameUIView.SetDelveResourceChange(GetCurrentDelveResourceChanges());
-            GameSubscriptions.SubscribeToGenericResourceAmountChange((string resourceType, int amount, int maxAmount) =>
+            GameSubscriptionSystem.SubscribeToGenericResourceAmountChange((string resourceType, int amount, int maxAmount) =>
             {
                 MainGameUIView.DelveTaskButton.SetEnabled(GetCurrentDelveResourceChanges().CheckCanChangeAll());
             });
 
             MainGameUIView.ActionsMenu.GetComponent<UIActionMenuController>()?.InitializeMenu();
-
-            //  Custom game events 01: Unlock Developments when Food resource reaches zero for the first time
-            Action<int, int> unhideDevelopmentsFunc = null;
-            unhideDevelopmentsFunc = (oldAmount, newAmount) =>
-            {
-                if (newAmount != 0) return;
-                CurrentGameState.GameUnlockList["Unlock_Empty_Belly"] = true;
-                GameUnlockSystem.SetUnlockValue("Unlock_Empty_Belly", true);
-                GameSubscriptions.UnsubscribeToResourceAmount("Food", unhideDevelopmentsFunc);
-            };
-            GameSubscriptions.SubscribeToResourceAmount("Food", unhideDevelopmentsFunc);
 
             CheckDevelopments();
             CheckGameUnlocks();

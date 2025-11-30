@@ -4,21 +4,21 @@ using System.Linq;
 
 namespace HypnicEmpire
 {
-    public class GameSubscriptionSystem
+    public static class GameSubscriptionSystem
     {
         //  Subscriptions to changes in Resource Amount or Maximum
-        public List<Action<string, int, int>> GenericResourceAmountSubscriptions = new();
-        public List<Action<int, int>> GenericResourceMaximumSubscriptions = new();
-        public SerializableDictionary<string, List<Action<int, int>>> ResourceAmountSubscriptions = new();
-        public SerializableDictionary<string, List<Action<int, int>>> ResourceMaximumSubscriptions = new();
+        public static List<Action<string, int, int>> GenericResourceAmountSubscriptions = new();
+        public static List<Action<int, int>> GenericResourceMaximumSubscriptions = new();
+        public static SerializableDictionary<string, List<Action<int, int>>> ResourceAmountSubscriptions = new();
+        public static SerializableDictionary<string, List<Action<int, int>>> ResourceMaximumSubscriptions = new();
 
         // Subscriptions to add or remove (before next event response)
-        public SerializableDictionary<string, List<Action<int, int>>> ResourceAmountSubscriptionsToAdd = new();
-        public SerializableDictionary<string, List<Action<int, int>>> ResourceMaximumSubscriptionsToAdd = new();
-        public SerializableDictionary<string, List<Action<int, int>>> ResourceAmountSubscriptionsToRemove = new();
-        public SerializableDictionary<string, List<Action<int, int>>> ResourceMaximumSubscriptionsToRemove = new();
+        public static SerializableDictionary<string, List<Action<int, int>>> ResourceAmountSubscriptionsToAdd = new();
+        public static SerializableDictionary<string, List<Action<int, int>>> ResourceMaximumSubscriptionsToAdd = new();
+        public static SerializableDictionary<string, List<Action<int, int>>> ResourceAmountSubscriptionsToRemove = new();
+        public static SerializableDictionary<string, List<Action<int, int>>> ResourceMaximumSubscriptionsToRemove = new();
 
-        public void ClearAllSubscriptions()
+        public static void ClearAllSubscriptions()
         {
             GenericResourceAmountSubscriptions = new();
             GenericResourceMaximumSubscriptions = new();
@@ -28,7 +28,10 @@ namespace HypnicEmpire
             ResourceMaximumSubscriptionsToAdd = new();
             ResourceAmountSubscriptionsToRemove = new();
             ResourceMaximumSubscriptionsToRemove = new();
-            
+        }
+
+        public static void CreateResourceTypeSubscriptionMaps()
+        {
             foreach (var rt in ResourceTypeSystem.ResourceData.ResourceTypes)
             {
                 ResourceAmountSubscriptions[rt.Name] = new();
@@ -40,20 +43,20 @@ namespace HypnicEmpire
             }
         }
 
-        public void SubscribeToGenericResourceAmountChange(Action<string, int, int> callback) { GenericResourceAmountSubscriptions.Add(callback); }
-        public void SubscribeToGenericResourceMaximumChange(Action<int, int> callback) { GenericResourceMaximumSubscriptions.Add(callback); }
-        public void SubscribeToResourceAmount(string resourceType, Action<int, int> callback) { ResourceAmountSubscriptionsToAdd[resourceType].Add(callback); }
-        public void UnsubscribeToResourceAmount(string resourceType, Action<int, int> callback)
+        public static void SubscribeToGenericResourceAmountChange(Action<string, int, int> callback) { GenericResourceAmountSubscriptions.Add(callback); }
+        public static void SubscribeToGenericResourceMaximumChange(Action<int, int> callback) { GenericResourceMaximumSubscriptions.Add(callback); }
+        public static void SubscribeToResourceAmount(string resourceType, Action<int, int> callback) { ResourceAmountSubscriptionsToAdd[resourceType].Add(callback); }
+        public static void UnsubscribeToResourceAmount(string resourceType, Action<int, int> callback)
         {
             if (ResourceAmountSubscriptions[resourceType].Contains(callback)) ResourceAmountSubscriptionsToRemove[resourceType].Add(callback);
         }
-        public void SubscribeToResourceMaximum(string resourceType, Action<int, int> callback) { ResourceMaximumSubscriptionsToAdd[resourceType].Add(callback); }
-        public void UnsubscribeToResourceMaximum(string resourceType, Action<int, int> callback)
+        public static void SubscribeToResourceMaximum(string resourceType, Action<int, int> callback) { ResourceMaximumSubscriptionsToAdd[resourceType].Add(callback); }
+        public static void UnsubscribeToResourceMaximum(string resourceType, Action<int, int> callback)
         {
             if (ResourceMaximumSubscriptions[resourceType].Contains(callback)) ResourceMaximumSubscriptionsToRemove[resourceType].Add(callback);
         }
 
-        public void ProcessSubscriptionsToAddAndRemove(string resourceType)
+        public static void ProcessSubscriptionsToAddAndRemove(string resourceType)
         {
             if (ResourceAmountSubscriptionsToAdd.ContainsKey(resourceType))
             {

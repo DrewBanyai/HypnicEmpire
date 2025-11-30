@@ -40,7 +40,6 @@ namespace HypnicEmpire
             if (gameState == null) return;
 
             ClearAllResourceValues();
-            GameController.GameSubscriptions.ClearAllSubscriptions();
             CopyGameState(gameState.GameState);
         }
 
@@ -64,9 +63,10 @@ namespace HypnicEmpire
             GameUnlockList.Clear();
             foreach (var item in other.GameUnlockList) GameUnlockList[item.Key] = item.Value;
 
+            //  Clear all resource current and maximum values and set them to their initial values
             ClearAllResourceValues();
-            foreach (var entry in other.CurrentResourceCounts) CurrentResourceCounts[entry.Key] = entry.Value;
-            foreach (var entry in other.CurrentResourceMaximum) CurrentResourceMaximum[entry.Key] = entry.Value;
+            foreach (var entry in ResourceTypeSystem.ResourceData.ResourceTypes) CurrentResourceCounts[entry.Name] = entry.InitialValue;
+            foreach (var entry in ResourceTypeSystem.ResourceData.ResourceTypes) CurrentResourceMaximum[entry.Name] = entry.InitialMaximum;
         }
 
         public int GetResourceAmount(string resourceType) { return CurrentResourceCounts.ContainsKey(resourceType) ? CurrentResourceCounts[resourceType] : 0; }
@@ -81,28 +81,32 @@ namespace HypnicEmpire
         
         public void AddToResource(string resourceType, int amount)
         {
-            GameController.GameSubscriptions.ProcessSubscriptionsToAddAndRemove(resourceType);
+            GameSubscriptionSystem.ProcessSubscriptionsToAddAndRemove(resourceType);
 
+            var previousAmount = CurrentResourceCounts[resourceType];
             CurrentResourceCounts[resourceType] = Math.Min(GetResourceMaxAmount(resourceType), Math.Max(0, CurrentResourceCounts[resourceType] + amount));
 
-            foreach (var callback in GameController.GameSubscriptions.ResourceAmountSubscriptions[resourceType])
-                callback(amount, CurrentResourceCounts[resourceType]);
+            if (CurrentResourceCounts[resourceType] != previousAmount)
+            {
+                foreach (var callback in GameSubscriptionSystem.ResourceAmountSubscriptions[resourceType])
+                    callback(amount, CurrentResourceCounts[resourceType]);
 
-            foreach (var callback in GameController.GameSubscriptions.GenericResourceAmountSubscriptions)
-                callback(resourceType, amount, CurrentResourceCounts[resourceType]);
+                foreach (var callback in GameSubscriptionSystem.GenericResourceAmountSubscriptions)
+                    callback(resourceType, amount, CurrentResourceCounts[resourceType]);
+            }
         }
 
         public void SetResourceMaximum(string resourceType, int maxAmount) { AddToResourceMaximum(resourceType, maxAmount - GetResourceMaxAmount(resourceType)); }
         private void AddToResourceMaximum(string resourceType, int maxAmount)
         {
-            GameController.GameSubscriptions.ProcessSubscriptionsToAddAndRemove(resourceType);
+            GameSubscriptionSystem.ProcessSubscriptionsToAddAndRemove(resourceType);
 
             CurrentResourceMaximum[resourceType] += maxAmount;
 
-            foreach (var callback in GameController.GameSubscriptions.ResourceMaximumSubscriptions[resourceType])
+            foreach (var callback in GameSubscriptionSystem.ResourceMaximumSubscriptions[resourceType])
                 callback(maxAmount, CurrentResourceMaximum[resourceType]);
 
-            foreach (var callback in GameController.GameSubscriptions.GenericResourceMaximumSubscriptions)
+            foreach (var callback in GameSubscriptionSystem.GenericResourceMaximumSubscriptions)
                 callback(maxAmount, CurrentResourceMaximum[resourceType]);
         }
         

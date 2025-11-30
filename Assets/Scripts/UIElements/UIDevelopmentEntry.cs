@@ -38,7 +38,7 @@ namespace HypnicEmpire
             Unlock = unlock;
 
             ShowStatusColor();
-            GameController.GameSubscriptions.SubscribeToGenericResourceAmountChange((string resourceType, int amount, int maximum) => { ShowStatusColor(); });
+            GameSubscriptionSystem.SubscribeToGenericResourceAmountChange((string resourceType, int amount, int maximum) => { ShowStatusColor(); });
 
             PurchaseButton?.onClick.RemoveAllListeners();
             PurchaseButton?.onClick.AddListener(() =>

@@ -99,9 +99,9 @@ namespace HypnicEmpire
             HardResetCancelButton?.onClick.AddListener(() => { SetResetButtonUnpacked(false); });
 
             //  Define UI responses to game unlock events
-            GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlock_Empty_Belly.ToString(), (bool shown) => { foreach (var obj in DevelopmentsTabGroup) obj?.SetActive(shown); });
-            GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlock_Action_Forage.ToString(), (bool shown) => { foreach (var obj in FinishedDevelopmentsSubGroup) obj?.SetActive(shown); });
-            GameUnlockSystem.AddGameUnlockAction(GameUnlock.Unlock_Buildings.ToString(), (bool shown) => { foreach (var obj in BuildingsTabGroup) obj?.SetActive(shown); });
+            GameUnlockSystem.AddGameUnlockAction("Unlock_Empty_Belly", (bool shown) => { foreach (var obj in DevelopmentsTabGroup) obj?.SetActive(shown); });
+            GameUnlockSystem.AddGameUnlockAction("Unlock_Action_Forage", (bool shown) => { foreach (var obj in FinishedDevelopmentsSubGroup) obj?.SetActive(shown); });
+            GameUnlockSystem.AddGameUnlockAction("Unlock_Buildings", (bool shown) => { foreach (var obj in BuildingsTabGroup) obj?.SetActive(shown); });
 
             foreach (var gu in GameUnlockSystem.UnlockIDs)
             {
@@ -111,7 +111,7 @@ namespace HypnicEmpire
             }
 
             //  Define UI responses to resource changes
-            GameController.GameSubscriptions.SubscribeToGenericResourceAmountChange((string resourceType, int amount, int maxAmount) => {
+            GameSubscriptionSystem.SubscribeToGenericResourceAmountChange((string resourceType, int amount, int maxAmount) => {
                 if (amount > 0)
                     ResourceListControl?.AddResourceEntry(resourceType);
             });

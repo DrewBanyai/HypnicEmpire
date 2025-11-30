@@ -18,8 +18,8 @@ namespace HypnicEmpire
             SetResourceNameText(resourceType);
             SetResourceAmountText(resourceType);
             
-            GameController.GameSubscriptions.SubscribeToResourceAmount(resourceType, (amountChange, newAmount) => { SetResourceAmountText(resourceType); });
-            GameController.GameSubscriptions.SubscribeToResourceMaximum(resourceType, (maxChange, newMax) => { SetResourceAmountText(resourceType); });
+            GameSubscriptionSystem.SubscribeToResourceAmount(resourceType, (amountChange, newAmount) => { SetResourceAmountText(resourceType); });
+            GameSubscriptionSystem.SubscribeToResourceMaximum(resourceType, (maxChange, newMax) => { SetResourceAmountText(resourceType); });
         }
 
         private void SetResourceIconImage(string resourceType)

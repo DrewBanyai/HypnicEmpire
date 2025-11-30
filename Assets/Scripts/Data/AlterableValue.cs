@@ -8,6 +8,7 @@ namespace HypnicEmpire
     public class AlterableValueUnlockCombo
     {
         public int Value;
+        public string Operator;
         public string Unlock;
     }
 
@@ -24,7 +25,6 @@ namespace HypnicEmpire
         public int CurrentValue;
         public int MinimumValue;
         public int MaximumValue;
-        public string UnlockTarget;
         public List<AlterableValueUnlockCombo> ValueUnlocks;
         public List<AlterableValueRemapValue> RemappingValues;
 
@@ -55,29 +55,23 @@ namespace HypnicEmpire
 
         private void BroadcastUnlock()
         {
-            switch (UnlockTarget)
+            foreach (var vu in ValueUnlocks)
             {
-                case "==":
-                    {
-                        var vu = ValueUnlocks.Find(vu => CurrentValue == vu.Value);
-                        if (vu != null)
+                switch (vu.Operator)
+                {
+                    case "==":
+                        if (CurrentValue == vu.Value)
                             GameUnlockSystem.SetUnlockValue(vu.Unlock, true);
-                    }
-                    break;
-                case ">=":
-                    {
-                        var vu = ValueUnlocks.Find(vu => CurrentValue >= vu.Value );
-                        if (vu != null)
+                        break;
+                    case "<=":
+                        if (CurrentValue <= vu.Value)
                             GameUnlockSystem.SetUnlockValue(vu.Unlock, true);
-                    }
-                    break;
-                case "<=":
-                    {
-                        var vu = ValueUnlocks.Find(vu => CurrentValue <= vu.Value);
-                        if (vu != null)
+                        break;
+                    case ">=":
+                        if (CurrentValue >= vu.Value)
                             GameUnlockSystem.SetUnlockValue(vu.Unlock, true);
-                    }
-                    break;
+                        break;
+                }
             }
         }
     }

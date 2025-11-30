@@ -1233,7 +1233,7 @@
             "Title": "More pockets on clothes",
             "Description": "After fiddling with the fundamental structure of the universe itself, it seems there are almost no options left to increase storage potential.\nAt least that is what you believe until a group of women appear at your doorstep, demanding some pockets for the dresses. How easy it could have been...",
             "EffectText": "Increase all storage by 20,000",
-            "Unlock": [ "Unlock_It_Has_Pocketsss" ],
+            "Unlock": [ "Unlock_More_Pockets_On_Clothes" ],
             "Cost": [ { "ResourceType": "Fabric", "Amount": -23438 }, { "ResourceType": "Artifacts", "Amount": -250 } ]
         },
         {

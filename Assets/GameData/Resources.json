@@ -33,175 +33,164 @@
 
             ],
             "Unlocks": [
-
+                { "Value": 0, "Operator": "==", "Unlock": "Unlock_Empty_Belly" },
+                { "Value": 0, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Food" }
             ]
         },
         {
             "Name": "Herbs",
-            "InitialValue": 3,
+            "InitialValue": 0,
             "InitialMaximum": 15,
             "ResourceGroup": "Basic",
             "Upgrades": [
 
             ],
             "Unlocks": [
-                
+                { "Value": 0, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Herbs" }
             ]
         },
         {
             "Name": "Treasure",
-            "InitialValue": 3,
-            "InitialMaximum": 15,
+            "InitialValue": 0,
+            "InitialMaximum": 10,
             "ResourceGroup": "Commerce",
             "Upgrades": [
 
             ],
             "Unlocks": [
-                
+                { "Value": 0, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Treasure" }
             ]
         },
         {
             "Name": "Money",
-            "InitialValue": 3,
-            "InitialMaximum": 15,
+            "InitialValue": 0,
+            "InitialMaximum": 100,
             "ResourceGroup": "Commerce",
             "Upgrades": [
 
             ],
             "Unlocks": [
-                
+                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Money" }
             ]
         },
         {
             "Name": "Wood",
-            "InitialValue": 3,
-            "InitialMaximum": 15,
+            "InitialValue": 0,
+            "InitialMaximum": 10,
             "ResourceGroup": "Basic",
             "Upgrades": [
 
             ],
             "Unlocks": [
-                
+                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Wood" }
             ]
         },
         {
             "Name": "Stone",
-            "InitialValue": 3,
-            "InitialMaximum": 15,
+            "InitialValue": 0,
+            "InitialMaximum": 10,
             "ResourceGroup": "Basic",
             "Upgrades": [
 
             ],
             "Unlocks": [
-                
-            ]
-        },
-        {
-            "Name": "People",
-            "InitialValue": 3,
-            "InitialMaximum": 15,
-            "ResourceGroup": "Population",
-            "Upgrades": [
-
-            ],
-            "Unlocks": [
-                
+                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Stone" }
             ]
         },
         {
             "Name": "Potions",
-            "InitialValue": 3,
-            "InitialMaximum": 15,
+            "InitialValue": 0,
+            "InitialMaximum": 10,
             "ResourceGroup": "Primary",
             "Upgrades": [
 
             ],
             "Unlocks": [
-                
+                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Potions" }
             ]
         },
         {
             "Name": "Fabric",
-            "InitialValue": 3,
-            "InitialMaximum": 15,
+            "InitialValue": 0,
+            "InitialMaximum": 10,
             "ResourceGroup": "Advanced",
             "Upgrades": [
 
             ],
             "Unlocks": [
-                
+                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Fabric" }
             ]
         },
         {
             "Name": "Iron",
-            "InitialValue": 3,
-            "InitialMaximum": 15,
+            "InitialValue": 0,
+            "InitialMaximum": 10,
             "ResourceGroup": "Basic",
             "Upgrades": [
 
             ],
             "Unlocks": [
-                
+                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Iron" }
             ]
         },
         {
             "Name": "Weaponry",
-            "InitialValue": 3,
-            "InitialMaximum": 15,
+            "InitialValue": 0,
+            "InitialMaximum": 10,
             "ResourceGroup": "Primary",
             "Upgrades": [
 
             ],
             "Unlocks": [
-                
+                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Weaponry" }
             ]
         },
         {
             "Name": "Gears",
-            "InitialValue": 3,
-            "InitialMaximum": 15,
+            "InitialValue": 0,
+            "InitialMaximum": 10,
             "ResourceGroup": "Advanced",
             "Upgrades": [
 
             ],
             "Unlocks": [
-                
+                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Gears" }
             ]
         },
         {
             "Name": "Luxuries",
-            "InitialValue": 3,
-            "InitialMaximum": 15,
+            "InitialValue": 0,
+            "InitialMaximum": 10,
             "ResourceGroup": "Advanced",
             "Upgrades": [
 
             ],
             "Unlocks": [
-                
+                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Luxuries" }
             ]
         },
         {
             "Name": "Artifacts",
-            "InitialValue": 3,
-            "InitialMaximum": 15,
+            "InitialValue": 0,
+            "InitialMaximum": 10,
             "ResourceGroup": "Advanced",
             "Upgrades": [
 
             ],
             "Unlocks": [
-                
+                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Artifacts" }
             ]
         },
         {
             "Name": "Tar",
-            "InitialValue": 3,
-            "InitialMaximum": 15,
+            "InitialValue": 0,
+            "InitialMaximum": 10,
             "ResourceGroup": "Advanced",
             "Upgrades": [
 
             ],
             "Unlocks": [
-                
+                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Tar" }
             ]
         }
     ]
