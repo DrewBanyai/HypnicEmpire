@@ -62,7 +62,6 @@ namespace HypnicEmpire
         [Header("Secondary Game Related UI Elements")]
         [SerializeField] public GameObject[] DevelopmentsTabGroup;
         [SerializeField] public GameObject[] BuildingsTabGroup;
-        [SerializeField] public GameObject[] FinishedDevelopmentsSubGroup;
 
         //  Collections of elements to use in menu functionality
         private List<Button> CenterMenuButtons => new() { ExitButton, OptionsButton, AchievementsButton, ActionsButton, DevelopmentsButton };
@@ -100,7 +99,6 @@ namespace HypnicEmpire
 
             //  Define UI responses to game unlock events
             GameUnlockSystem.AddGameUnlockAction("Unlock_Empty_Belly", (bool shown) => { foreach (var obj in DevelopmentsTabGroup) obj?.SetActive(shown); });
-            GameUnlockSystem.AddGameUnlockAction("Unlock_Action_Forage", (bool shown) => { foreach (var obj in FinishedDevelopmentsSubGroup) obj?.SetActive(shown); });
             GameUnlockSystem.AddGameUnlockAction("Unlock_Buildings", (bool shown) => { foreach (var obj in BuildingsTabGroup) obj?.SetActive(shown); });
 
             foreach (var gu in GameUnlockSystem.UnlockIDs)

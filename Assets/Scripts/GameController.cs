@@ -18,10 +18,9 @@ namespace HypnicEmpire
 
         public void Start()
         {
-            GameSubscriptionSystem.ClearAllSubscriptions();
-            ResourceTypeSystem.LoadAllResourceTypes(Application.dataPath + "/GameData/Resources.json");
             GameUnlockSystem.LoadAllUnlockIDs(Application.dataPath + "/GameData/UnlockIDs.json");
             JournalEntrySystem.LoadAllJournalEntries(Application.dataPath + "/GameData/JournalEntries.json");
+            ResourceTypeSystem.LoadAllResourceTypes(Application.dataPath + "/GameData/Resources.json");
             LevelDataSystem.LoadAllLevelData(Application.dataPath + "/GameData/LevelData.json");
             AlterableValueSystem.LoadAllAlterableValues(Application.dataPath + "/GameData/AlterableValues.json");
             DevelopmentSystem.LoadAllDevelopments(Application.dataPath + "/GameData/Developments.json");
@@ -97,6 +96,10 @@ namespace HypnicEmpire
                     GameUnlockSystem.AddGameUnlockAction(trigger, (bool unlocked) =>
                     {
                         if (!unlocked) return;
+                        
+                        if (CurrentGameState.GetUnlockValue(trigger) == true)
+                            return;
+                            
                         List<string> listMinusTrigger = development.Trigger.Where(t => t != trigger).Select(t => t).ToList();
                         foreach (var t in listMinusTrigger)
                             if (CurrentGameState.GetUnlockValue(t) == false)

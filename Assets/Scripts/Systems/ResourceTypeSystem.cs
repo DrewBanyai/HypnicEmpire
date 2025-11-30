@@ -69,19 +69,19 @@ namespace HypnicEmpire
                         {
                             case "==":
                                 if (currentAmount == ul.Value)
-                                    GameUnlockSystem.SetUnlockValue(ul.Unlock, true);
+                                    GameController.CurrentGameState.SetUnlockValue(ul.Unlock, true);
                                 break;
                             case "<=":
                                 if (currentAmount <= ul.Value)
-                                    GameUnlockSystem.SetUnlockValue(ul.Unlock, true);
+                                    GameController.CurrentGameState.SetUnlockValue(ul.Unlock, true);
                                 break;
                             case ">=":
                                 if (currentAmount >= ul.Value)
-                                    GameUnlockSystem.SetUnlockValue(ul.Unlock, true);
+                                    GameController.CurrentGameState.SetUnlockValue(ul.Unlock, true);
                                 break;
                             case "MAX":
                                 if (currentAmount >= resourceTypeData.GetMaximum())
-                                    GameUnlockSystem.SetUnlockValue(ul.Unlock, true);
+                                    GameController.CurrentGameState.SetUnlockValue(ul.Unlock, true);
                                 break;
                         }
                     }

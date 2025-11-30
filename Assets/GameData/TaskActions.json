@@ -69,7 +69,7 @@
         {
             "Name": "Polish",
             "DisplayName": "Polish",
-            "ActionSection": "Industrial",
+            "ActionSection": "Commercial",
             "PlayerSpeed": 300.0,
             "ResourceChange": [ { "ResourceType": "Money", "Amount": -50 }, { "ResourceType": "Treasure", "Amount": 1 } ]
         },

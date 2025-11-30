@@ -18,7 +18,7 @@ namespace HypnicEmpire
         public static SerializableDictionary<string, List<Action<int, int>>> ResourceAmountSubscriptionsToRemove = new();
         public static SerializableDictionary<string, List<Action<int, int>>> ResourceMaximumSubscriptionsToRemove = new();
 
-        public static void ClearAllSubscriptions()
+        public static void CreateResourceTypeSubscriptionMaps()
         {
             GenericResourceAmountSubscriptions = new();
             GenericResourceMaximumSubscriptions = new();
@@ -28,10 +28,7 @@ namespace HypnicEmpire
             ResourceMaximumSubscriptionsToAdd = new();
             ResourceAmountSubscriptionsToRemove = new();
             ResourceMaximumSubscriptionsToRemove = new();
-        }
 
-        public static void CreateResourceTypeSubscriptionMaps()
-        {
             foreach (var rt in ResourceTypeSystem.ResourceData.ResourceTypes)
             {
                 ResourceAmountSubscriptions[rt.Name] = new();
