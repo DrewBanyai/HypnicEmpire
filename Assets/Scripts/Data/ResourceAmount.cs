@@ -24,10 +24,10 @@ namespace HypnicEmpire
             return false;
         }
 
-        public static bool CheckCanChangeAll(this List<ResourceAmountData> amountList)
+        public static bool CheckCanChangeAll(this List<ResourceAmountData> amountList, bool allowPositivePartial = false)
         {
             foreach (var ra in amountList)
-                if (!ra.CheckCanChange()) return false;
+                if (!ra.CheckCanChange(allowPositivePartial)) return false;
 
             return true;
         }

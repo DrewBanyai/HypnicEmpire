@@ -128,7 +128,7 @@ namespace HypnicEmpire
 
         public void SetDelveResourceChange(List<ResourceAmountData> amountList)
         {
-            DelveTaskButton?.SetEnabled(amountList.CheckCanChangeAll());
+            DelveTaskButton?.SetEnabled(amountList.CheckCanChangeAll(true));
 
             ClearDelveResourceChanges();
             foreach (var ra in amountList)

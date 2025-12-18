@@ -123,7 +123,7 @@ namespace HypnicEmpire
             MainGameUIView.SetDelveResourceChange(GetCurrentDelveResourceChanges());
             GameSubscriptionSystem.SubscribeToGenericResourceAmountChange((string resourceType, int amount, int maxAmount) =>
             {
-                MainGameUIView.DelveTaskButton.SetEnabled(GetCurrentDelveResourceChanges().CheckCanChangeAll());
+                MainGameUIView.DelveTaskButton.SetEnabled(GetCurrentDelveResourceChanges().CheckCanChangeAll(true));
             });
 
             MainGameUIView.ActionsMenu.GetComponent<UIActionMenuController>()?.InitializeMenu();

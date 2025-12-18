@@ -25,9 +25,7 @@ namespace HypnicEmpire
 
             //  Look up the resource change values for this action (TODO: Pull based on developments/upgrades!!!)
 
-            List<ResourceAmountData> gainChange = actionState.ResourceChange.Where(rc => rc.Amount > 0).ToList();
-            List<ResourceAmountData> lossChange = actionState.ResourceChange.Where(rc => rc.Amount < 0).ToList();
-            ProcessButton?.SetEnabled(gainChange.CheckCanChangeAny(true) && lossChange.CheckCanChangeAll());
+            ProcessButton?.SetEnabled(actionState.ResourceChange.CheckCanChangeAny(true));
 
             GameSubscriptionSystem.SubscribeToGenericResourceAmountChange((string resourceType, int amount, int maxAmount) =>
             {

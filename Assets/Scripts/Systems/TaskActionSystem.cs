@@ -84,9 +84,7 @@ namespace HypnicEmpire
                 taskAction.ProgressCurrent = Math.Clamp(taskAction.ProgressCurrent + taskAction.ProgressSpeed * Time.deltaTime, 0, taskAction.ProgressMaximum);
                 int percent = (int)(taskAction.ProgressCurrent / taskAction.ProgressMaximum * 100f);
 
-                List<ResourceAmountData> gainChange = taskAction.ResourceChange.Where(rc => rc.Amount > 0).ToList();
-                List<ResourceAmountData> lossChange = taskAction.ResourceChange.Where(rc => rc.Amount < 0).ToList();
-                bool canChange = gainChange.CheckCanChangeAny(true) && lossChange.CheckCanChangeAll();
+                bool canChange = taskAction.ResourceChange.CheckCanChangeAny(true);
                 if (!canChange)
                 {
                     taskAction.ProgressCurrent = 0.0;
