@@ -1,7 +1,7 @@
-using System;
 using System.Collections.Generic;
-using UnityEngine;
 using System.IO;
+using System;
+using UnityEngine;
 
 namespace HypnicEmpire
 {
