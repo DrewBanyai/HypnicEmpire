@@ -1119,6 +1119,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Hunting
+      objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1774,6 +1778,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Buy Potion
+      objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2134,6 +2142,10 @@ PrefabInstance:
     - target: {fileID: 7855720636539475636, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Sell Food
       objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2872,6 +2884,10 @@ PrefabInstance:
     - target: {fileID: 7855720636539475636, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Refine
       objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3832,6 +3848,10 @@ PrefabInstance:
     - target: {fileID: 7855720636539475636, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Farming
       objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4973,6 +4993,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Weaving
+      objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5333,6 +5357,10 @@ PrefabInstance:
     - target: {fileID: 7855720636539475636, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Forging
       objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
@@ -5896,6 +5924,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Buy Weaponry
+      objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6256,6 +6288,10 @@ PrefabInstance:
     - target: {fileID: 7855720636539475636, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Sell Fabric
       objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
@@ -7185,6 +7221,10 @@ PrefabInstance:
     - target: {fileID: 7855720636539475636, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Chop Wood
       objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8226,6 +8266,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Trade Herbs
+      objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -9202,6 +9246,10 @@ PrefabInstance:
     - target: {fileID: 7855720636539475636, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Pump
       objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
@@ -11450,6 +11498,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Polish
+      objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -12113,6 +12165,10 @@ PrefabInstance:
     - target: {fileID: 7855720636539475636, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Market
       objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
@@ -12886,6 +12942,10 @@ PrefabInstance:
     - target: {fileID: 7855720636539475636, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Cut Stone
       objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
@@ -13789,6 +13849,10 @@ PrefabInstance:
     - target: {fileID: 7855720636539475636, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Fishing
       objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
@@ -14743,6 +14807,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Brew Potion
+      objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -15317,6 +15385,10 @@ PrefabInstance:
     - target: {fileID: 7855720636539475636, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Purify
       objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
@@ -16325,6 +16397,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Cultivate
+      objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -17310,6 +17386,10 @@ PrefabInstance:
     - target: {fileID: 7855720636539475636, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Mining
       objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
@@ -18668,6 +18748,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Forage
+      objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -19166,6 +19250,10 @@ PrefabInstance:
     - target: {fileID: 7855720636539475636, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337869367220573653, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
+      propertyPath: m_text
+      value: Manufacture
       objectReference: {fileID: 0}
     - target: {fileID: 8639742540370120597, guid: 2b790ea7b89680740b80d7d098915996, type: 3}
       propertyPath: m_AnchorMax.y
