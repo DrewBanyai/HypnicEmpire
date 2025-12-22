@@ -19,6 +19,7 @@ namespace HypnicEmpire
         public void Start()
         {
             GameUnlockSystem.LoadAllUnlockIDs(Application.dataPath + "/GameData/UnlockIDs.json");
+            AchievementsSystem.LoadAllAchievementsData(Application.dataPath + "/GameData/Achievements.json");
             JournalEntrySystem.LoadAllJournalEntries(Application.dataPath + "/GameData/JournalEntries.json");
             ResourceTypeSystem.LoadAllResourceTypes(Application.dataPath + "/GameData/Resources.json");
             LevelDataSystem.LoadAllLevelData(Application.dataPath + "/GameData/LevelData.json");
