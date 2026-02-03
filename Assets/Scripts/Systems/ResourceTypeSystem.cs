@@ -59,7 +59,7 @@ namespace HypnicEmpire
         {
             foreach (string resourceType in ResourceTypes)
             {
-                GameSubscriptionSystem.SubscribeToResourceAmount(resourceType, (int addAmount, int currentAmount) => {
+                GameSubscriptionSystem.SubscribeToResourceAmount(resourceType, (ResourceValue addAmount, ResourceValue currentAmount) => {
                     var resourceTypeData = ResourceData.ResourceTypes.Find(rt => rt.Name == resourceType);
                     if (resourceTypeData == null) return;
 

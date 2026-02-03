@@ -38,7 +38,7 @@ namespace HypnicEmpire
             Unlock = unlock;
 
             ShowStatusColor();
-            GameSubscriptionSystem.SubscribeToGenericResourceAmountChange((string resourceType, int amount, int maximum) => { ShowStatusColor(); });
+            GameSubscriptionSystem.SubscribeToGenericResourceAmountChange((string resourceType, ResourceValue amount, ResourceValue maximum) => { ShowStatusColor(); });
 
             PurchaseButton?.onClick.RemoveAllListeners();
             PurchaseButton?.onClick.AddListener(() =>
@@ -58,12 +58,12 @@ namespace HypnicEmpire
                 Destroy(child.gameObject);
             ResourceChangeEntries.Clear();
             
-            foreach (var costAmount in cost)
+            foreach (var ra in cost)
             {
                 var entryObject = Instantiate(ResourceCostUIPrefab, ResourceCostEntryParent);
                 var entryComponent = entryObject.GetComponent<UIResourceChangeEntry>();
-                entryComponent.ResourceNameText?.SetText(costAmount.ResourceType);
-                entryComponent.SetContent(costAmount.ResourceType, costAmount.Amount);
+                entryComponent.ResourceNameText?.SetText(ra.ResourceType);
+                entryComponent.SetContent(ra.ResourceType, ra.ResourceValue);
                 ResourceChangeEntries.Add(entryComponent);
             }
         }
@@ -75,7 +75,7 @@ namespace HypnicEmpire
         public void SetCost(List<ResourceAmountData> cost)
         {
             Cost.Clear();
-            foreach (var ra in cost) Cost.Add(new ResourceAmountData(ra.ResourceType, ra.Amount));
+            foreach (var ra in cost) Cost.Add(new ResourceAmountData(ra.ResourceType, ra.ResourceValue));
         }
 
         public void ShowStatusColor(bool overrideFinished = false)

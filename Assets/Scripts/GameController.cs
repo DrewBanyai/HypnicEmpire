@@ -72,7 +72,6 @@ namespace HypnicEmpire
             MainGameUIView.ActionSoundExcessControlEntry?.AddListener(CurrentGameState.ToggleActionSoundExcess);
 
             MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent.Value, CurrentGameState.LevelReached.Value, CurrentGameState.LevelCurrent.Value, CurrentLevelUp, CurrentLevelDown);
-            MainGameUIView.DelveTaskButton?.SetContents("Delve", 20f, 64f, CompleteDelve);
 
             MainGameUIView.LevelExplorationBar?.SetProgress((float)CurrentGameState.LevelDelveCount.Value / (float)LevelDataSystem.GetLevelData(CurrentGameState.LevelCurrent.Value).DelveCount);
             CurrentGameState.LevelDelveCount.Subscribe((newValue) =>
@@ -121,13 +120,8 @@ namespace HypnicEmpire
         {
             MainGameUIView.ResetUI();
 
-            MainGameUIView.SetDelveResourceChange(GetCurrentDelveResourceChanges());
-            GameSubscriptionSystem.SubscribeToGenericResourceAmountChange((string resourceType, int amount, int maxAmount) =>
-            {
-                MainGameUIView.DelveTaskButton.SetEnabled(GetCurrentDelveResourceChanges().CheckCanChangeAll(true));
-            });
-
             MainGameUIView.ActionsMenu.GetComponent<UIActionMenuController>()?.InitializeMenu();
+            MainGameUIView.DelveTaskButton?.SetContents("Delve", 20f, 64f, CompleteDelve);
 
             CheckDevelopments();
             CheckGameUnlocks();
@@ -245,7 +239,7 @@ namespace HypnicEmpire
 
             List<ResourceAmountData> amountsList = new();
             foreach (var rc in LevelDataSystem.GetGroupingByLevel(CurrentGameState.LevelCurrent.Value).ResourceChange)
-                amountsList.AddResourceAmount(new ResourceAmountData(rc.ResourceType, rc.Amount));
+                amountsList.AddResourceAmount(new ResourceAmountData(rc.ResourceType, rc.ResourceValue));
 
             return amountsList;
         }

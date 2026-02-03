@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 using System.Linq;
 
 namespace HypnicEmpire
@@ -10,6 +11,8 @@ namespace HypnicEmpire
         [SerializeField] public UITaskProcessButton ProcessButton;
         [SerializeField] public Transform ResourceChangeEntriesLossParent;
         [SerializeField] public Transform ResourceChangeEntriesGainParent;
+
+        private Action? UpdateButtonEnabledByResource = null;
 
         private List<ResourceAmountData> ResourceChange = new();
 
@@ -24,14 +27,16 @@ namespace HypnicEmpire
             SetResourceChangeUI(actionState.ResourceChange);
 
             //  Look up the resource change values for this action (TODO: Pull based on developments/upgrades!!!)
-
-            ProcessButton?.SetEnabled(actionState.ResourceChange.CheckCanChangeAny(true));
-
-            GameSubscriptionSystem.SubscribeToGenericResourceAmountChange((string resourceType, int amount, int maxAmount) =>
+            UpdateButtonEnabledByResource = () =>
             {
-                List<ResourceAmountData> gainChange = actionState.ResourceChange.Where(rc => rc.Amount > 0).ToList();
-                List<ResourceAmountData> lossChange = actionState.ResourceChange.Where(rc => rc.Amount < 0).ToList();
+                List<ResourceAmountData> gainChange = actionState.ResourceChange.Where(rc => rc.ResourceValue > 0).ToList();
+                List<ResourceAmountData> lossChange = actionState.ResourceChange.Where(rc => rc.ResourceValue < 0).ToList();
                 ProcessButton?.SetEnabled(gainChange.CheckCanChangeAny(true) && lossChange.CheckCanChangeAll());
+            };
+
+            UpdateButtonEnabledByResource();
+            GameSubscriptionSystem.SubscribeToGenericResourceAmountChange((string resourceType, ResourceValue amount, ResourceValue maxAmount) => {
+                UpdateButtonEnabledByResource?.Invoke();
             });
 
             ProcessButton?.SetContents(actionType, 20f, 100f, () =>
@@ -45,7 +50,7 @@ namespace HypnicEmpire
             if (resourceChange.IsIdentical(ResourceChange)) return;
 
             ResourceChange.Clear();
-            foreach (var entry in resourceChange) ResourceChange.Add(new ResourceAmountData(entry.ResourceType, entry.Amount));
+            foreach (var entry in resourceChange) ResourceChange.Add(new ResourceAmountData(entry.ResourceType, entry.ResourceValue));
 
             ClearResourceChangeUI();
             AddResourceChangeUI(resourceChange);
@@ -64,10 +69,10 @@ namespace HypnicEmpire
         {
             for (int i = 0; i < resourceChange.Count; ++i)
             {
-                var rAmount = resourceChange[i];
-                var entryObject = Instantiate(ResourceChangeUIPrefab, (rAmount.Amount >= 0) ? ResourceChangeEntriesGainParent : ResourceChangeEntriesLossParent);
+                var ra = resourceChange[i];
+                var entryObject = Instantiate(ResourceChangeUIPrefab, (ra.ResourceValue >= 0) ? ResourceChangeEntriesGainParent : ResourceChangeEntriesLossParent);
                 var entryComponent = entryObject.GetComponent<UIResourceChangeEntry>();
-                entryComponent.SetContent(rAmount.ResourceType, rAmount.Amount);
+                entryComponent.SetContent(ra.ResourceType, ra.ResourceValue);
             }
         }
     }

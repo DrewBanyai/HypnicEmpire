@@ -6,7 +6,7 @@
         {
             "Name": "Footsoldier",
             "Strength": 1,
-            "Cost": [ { "ResourceType": "Money", "Amount": -4000 }, { "ResourceType": "Food", "Amount": -12000 }, { "ResourceType": "Weaponry", "Amount": -400 } ],
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -4000 }, { "ResourceType": "Food", "ResourceValue": -12000 }, { "ResourceType": "Weaponry", "ResourceValue": -400 } ],
             "Upgrades": [
                 { "Trigger": "Unlock_Build_A_Hospital", "Effect": "Decrease all army costs by 100% (actually 50%)" },
                 { "Trigger": "Unlock_Gradiose_Bastion", "Effect": "Reduces cost of all non-magical units (50%)" },
@@ -17,7 +17,7 @@
         {
             "Name": "Brutish Golem",
             "Strength": 4,
-            "Cost": [ { "ResourceType": "Money", "Amount": -8000 }, { "ResourceType": "Stone", "Amount": -12000 }, { "ResourceType": "Weaponry", "Amount": -800 } ],
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -8000 }, { "ResourceType": "Stone", "ResourceValue": -12000 }, { "ResourceType": "Weaponry", "ResourceValue": -800 } ],
             "Upgrades": [
                 { "Trigger": "Unlock_Build_A_Hospital", "Effect": "Decrease all army costs by 100% (actually 50%)" },
                 { "Trigger": "Unlock_Battle_Victory_Six", "Effect": "Increases all unit strength by 100%" },
@@ -28,7 +28,7 @@
         {
             "Name": "Armored Zeppelin",
             "Strength": 10,
-            "Cost": [ { "ResourceType": "Money", "Amount": -12000 }, { "ResourceType": "Wood", "Amount": -12000 }, { "ResourceType": "Gears", "Amount": -6000 } ],
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -12000 }, { "ResourceType": "Wood", "ResourceValue": -12000 }, { "ResourceType": "Gears", "ResourceValue": -6000 } ],
             "Upgrades": [
                 { "Trigger": "Unlock_Build_A_Hospital", "Effect": "Decrease all army costs by 100% (actually 50%)" },
                 { "Trigger": "Unlock_Gradiose_Bastion", "Effect": "Reduces cost of all non-magical units (50%)" },
@@ -39,7 +39,7 @@
         {
             "Name": "Elven Battlewizard",
             "Strength": 25,
-            "Cost": [ { "ResourceType": "Money", "Amount": -24000 }, { "ResourceType": "Weaponry", "Amount": -4000 }, { "ResourceType": "Artifacts", "Amount": -2000 } ],
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -24000 }, { "ResourceType": "Weaponry", "ResourceValue": -4000 }, { "ResourceType": "Artifacts", "ResourceValue": -2000 } ],
             "Upgrades": [
                 { "Trigger": "Unlock_Build_A_Hospital", "Effect": "Decrease all army costs by 100% (actually 50%)" },
                 { "Trigger": "Unlock_Battle_Victory_Six", "Effect": "Increases all unit strength by 100%" },
@@ -50,7 +50,7 @@
         {
             "Name": "Flaming Howitzer",
             "Strength": 80,
-            "Cost": [ { "ResourceType": "Money", "Amount": -40000 }, { "ResourceType": "Tar", "Amount": -40000 }, { "ResourceType": "Gears", "Amount": -12000 } ],
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -40000 }, { "ResourceType": "Tar", "ResourceValue": -40000 }, { "ResourceType": "Gears", "ResourceValue": -12000 } ],
             "Upgrades": [
                 { "Trigger": "Unlock_Build_A_Hospital", "Effect": "Decrease all army costs by 100% (actually 50%)" },
                 { "Trigger": "Unlock_Gradiose_Bastion", "Effect": "Reduces cost of all non-magical units (50%)" },
@@ -61,7 +61,7 @@
         {
             "Name": "Spellbound Titan",
             "Strength": 200,
-            "Cost": [ { "ResourceType": "Tar", "Amount": -40000 }, { "ResourceType": "Gears", "Amount": -12000 }, { "ResourceType": "Artifacts", "Amount": -4000 } ],
+            "Cost": [ { "ResourceType": "Tar", "ResourceValue": -40000 }, { "ResourceType": "Gears", "ResourceValue": -12000 }, { "ResourceType": "Artifacts", "ResourceValue": -4000 } ],
             "Upgrades": [
                 { "Trigger": "Unlock_Build_A_Hospital", "Effect": "Decrease all army costs by 100% (actually 50%)" },
                 { "Trigger": "Unlock_Battle_Victory_Six", "Effect": "Increases all unit strength by 100%" },

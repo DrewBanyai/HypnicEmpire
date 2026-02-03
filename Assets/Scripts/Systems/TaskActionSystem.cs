@@ -70,9 +70,9 @@ namespace HypnicEmpire
             taskAction.ProgressSpeed = ((taskName == PrimaryTask) ? taskAction.PlayerSpeed : 0.0) + ((double)taskAction.WorkersAssigned * 10.0);
         }
 
-        public static void AddTaskUpdateCallback(string taskName, Action<int> updateCallback = null) { TaskUpdateCallbackMap[taskName] = updateCallback; }
+        public static void SetTaskUpdateCallback(string taskName, Action<int> updateCallback = null) { TaskUpdateCallbackMap[taskName] = updateCallback; }
 
-        public static void AddTaskFinishCallback(string taskName, Action finishCallback = null) { TaskFinishCallbackMap[taskName] = finishCallback; }
+        public static void SetTaskFinishCallback(string taskName, Action finishCallback = null) { TaskFinishCallbackMap[taskName] = finishCallback; }
 
         public static void Update()
         {
@@ -84,7 +84,9 @@ namespace HypnicEmpire
                 taskAction.ProgressCurrent = Math.Clamp(taskAction.ProgressCurrent + taskAction.ProgressSpeed * Time.deltaTime, 0, taskAction.ProgressMaximum);
                 int percent = (int)(taskAction.ProgressCurrent / taskAction.ProgressMaximum * 100f);
 
-                bool canChange = taskAction.ResourceChange.CheckCanChangeAny(true);
+                List<ResourceAmountData> gainChange = taskAction.ResourceChange.Where(rc => rc.ResourceValue > 0).ToList();
+                List<ResourceAmountData> lossChange = taskAction.ResourceChange.Where(rc => rc.ResourceValue < 0).ToList();
+                bool canChange = gainChange.CheckCanChangeAny(true) && lossChange.CheckCanChangeAll();
                 if (!canChange)
                 {
                     taskAction.ProgressCurrent = 0.0;

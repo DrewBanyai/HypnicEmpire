@@ -4,24 +4,24 @@ namespace HypnicEmpire
 {
     public class ResourceAmountData
     {
-        public ResourceAmountData(string resourceType, int amount)
+        public ResourceAmountData(string resourceType, ResourceValue resourceValue)
         {
             ResourceType = resourceType;
-            Amount = amount;
+            ResourceValue = resourceValue;
         }
 
         public string ResourceType;
-        public int Amount;
+        public ResourceValue ResourceValue;
 
         public bool CheckCanChange(bool allowPositivePartial = false)
         {
-            if (Amount == 0) return true;
+            if (ResourceValue == 0) return true;
 
-            int currentResourceAmount = GameController.CurrentGameState.GetResourceAmount(ResourceType);
-            if (Amount < 0) return currentResourceAmount >= Math.Abs(Amount);
+            ResourceValue currentResourceAmount = GameController.CurrentGameState.GetResourceAmount(ResourceType);
+            if (ResourceValue < 0) return currentResourceAmount >= ResourceValue.Abs();
 
-            int maxResourceAmount = GameController.CurrentGameState.GetResourceMaxAmount(ResourceType);
-            return allowPositivePartial ? (currentResourceAmount < maxResourceAmount) : (currentResourceAmount + Amount <= maxResourceAmount);
+            ResourceValue maxResourceAmount = GameController.CurrentGameState.GetResourceMaxAmount(ResourceType);
+            return allowPositivePartial ? (currentResourceAmount < maxResourceAmount) : (currentResourceAmount + ResourceValue <= maxResourceAmount);
         }
     }
 }

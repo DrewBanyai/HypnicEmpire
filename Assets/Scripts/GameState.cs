@@ -23,8 +23,8 @@ namespace HypnicEmpire
         public SerializableDictionary<string, bool> GameUnlockList = new();
         public bool IsUnlocked(string unlock) { return GameUnlockList.ContainsKey(unlock) && GameUnlockList[unlock] == true; }
 
-        public SerializableDictionary<string, int> CurrentResourceCounts = new();
-        public SerializableDictionary<string, int> CurrentResourceMaximum = new();
+        public SerializableDictionary<string, ResourceValue> CurrentResourceCounts = new();
+        public SerializableDictionary<string, ResourceValue> CurrentResourceMaximum = new();
         
         public int ClickCount = 0;
 
@@ -69,35 +69,35 @@ namespace HypnicEmpire
             foreach (var entry in ResourceTypeSystem.ResourceData.ResourceTypes) CurrentResourceMaximum[entry.Name] = entry.InitialMaximum;
         }
 
-        public int GetResourceAmount(string resourceType) { return CurrentResourceCounts.ContainsKey(resourceType) ? CurrentResourceCounts[resourceType] : 0; }
-        public int GetResourceMaxAmount(string resourceType) { return CurrentResourceMaximum.ContainsKey(resourceType) ? CurrentResourceMaximum[resourceType] : 0; }
-        public void SetResourceAmount(string resourceType, int amount) { AddToResource(resourceType, amount - GetResourceAmount(resourceType)); }
+        public ResourceValue GetResourceAmount(string resourceType) { return CurrentResourceCounts.ContainsKey(resourceType) ? CurrentResourceCounts[resourceType] : 0; }
+        public ResourceValue GetResourceMaxAmount(string resourceType) { return CurrentResourceMaximum.ContainsKey(resourceType) ? CurrentResourceMaximum[resourceType] : 0; }
+        public void SetResourceAmount(string resourceType, ResourceValue resourceValue) { AddToResource(resourceType, resourceValue - GetResourceAmount(resourceType)); }
 
         public void AddToResources(List<ResourceAmountData> resourceChange)
         {
             foreach (var ra in resourceChange)
-                AddToResource(ra.ResourceType, ra.Amount);
+                AddToResource(ra.ResourceType, ra.ResourceValue);
         }
         
-        public void AddToResource(string resourceType, int amount)
+        public void AddToResource(string resourceType, ResourceValue resourceValue)
         {
             GameSubscriptionSystem.ProcessSubscriptionsToAddAndRemove(resourceType);
 
-            var previousAmount = CurrentResourceCounts[resourceType];
-            CurrentResourceCounts[resourceType] = Math.Min(GetResourceMaxAmount(resourceType), Math.Max(0, CurrentResourceCounts[resourceType] + amount));
+            ResourceValue previousAmount = CurrentResourceCounts[resourceType];
+            CurrentResourceCounts[resourceType] = ResourceValue.Min(GetResourceMaxAmount(resourceType), ResourceValue.Max(0, CurrentResourceCounts[resourceType] + resourceValue));
 
             if (CurrentResourceCounts[resourceType] != previousAmount)
             {
                 foreach (var callback in GameSubscriptionSystem.ResourceAmountSubscriptions[resourceType])
-                    callback(amount, CurrentResourceCounts[resourceType]);
+                    callback(resourceValue, CurrentResourceCounts[resourceType]);
 
                 foreach (var callback in GameSubscriptionSystem.GenericResourceAmountSubscriptions)
-                    callback(resourceType, amount, CurrentResourceCounts[resourceType]);
+                    callback(resourceType, resourceValue, CurrentResourceCounts[resourceType]);
             }
         }
 
-        public void SetResourceMaximum(string resourceType, int maxAmount) { AddToResourceMaximum(resourceType, maxAmount - GetResourceMaxAmount(resourceType)); }
-        private void AddToResourceMaximum(string resourceType, int maxAmount)
+        public void SetResourceMaximum(string resourceType, ResourceValue maxAmount) { AddToResourceMaximum(resourceType, maxAmount - GetResourceMaxAmount(resourceType)); }
+        private void AddToResourceMaximum(string resourceType, ResourceValue maxAmount)
         {
             GameSubscriptionSystem.ProcessSubscriptionsToAddAndRemove(resourceType);
 

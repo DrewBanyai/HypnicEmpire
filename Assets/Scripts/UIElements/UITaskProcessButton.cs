@@ -36,8 +36,8 @@ namespace HypnicEmpire
             PlayerAction = actionType;
             SetButtonText(Localization.DisplayText_ActionName(actionType));
 
-            TaskActionSystem.AddTaskUpdateCallback(PlayerAction, (percent) => { UpdateProgressVisual(percent); });
-            TaskActionSystem.AddTaskFinishCallback(PlayerAction, progressFinishAction);
+            TaskActionSystem.SetTaskUpdateCallback(PlayerAction, (percent) => { UpdateProgressVisual(percent); });
+            TaskActionSystem.SetTaskFinishCallback(PlayerAction, progressFinishAction);
         }
 
         private void SetButtonText(string buttonText) { ButtonText?.SetText(buttonText); }

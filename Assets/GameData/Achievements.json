@@ -281,7 +281,7 @@
         "SpeedValue": 1
     },
     {
-        "Trigger": "Unlock_One_Hundred_WWood",
+        "Trigger": "Unlock_One_Hundred_Wood",
         "Name": "Hater of Trees",
         "Hint": "Gather more wood",
         "Text": "Produce a total of 100 wood",

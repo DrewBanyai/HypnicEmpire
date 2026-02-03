@@ -20,9 +20,9 @@ namespace HypnicEmpire
 
         private ResourceAmountData ChangeResourceAmount;
 
-        public ResourceAmountData GetResourceAmount() { return new ResourceAmountData(ChangeResourceAmount.ResourceType, ChangeResourceAmount.Amount); }
+        public ResourceAmountData GetResourceAmount() { return new ResourceAmountData(ChangeResourceAmount.ResourceType, ChangeResourceAmount.ResourceValue); }
 
-        public void SetContent(string resourceType, int changeAmount)
+        public void SetContent(string resourceType, ResourceValue changeAmount)
         {
             try
             {
@@ -51,14 +51,14 @@ namespace HypnicEmpire
         public bool CheckCanChange(bool overrideNoBG = false, bool greenEvenNegative = false)
         {
             Background?.SetActive(true);
-            if (ChangeResourceAmount.Amount == 0) return true;
+            if (ChangeResourceAmount.ResourceValue == 0) return true;
 
-            int currentResourceAmount = GameController.CurrentGameState.GetResourceAmount(ChangeResourceAmount.ResourceType);
-            int maxResourceAmount = GameController.CurrentGameState.GetResourceMaxAmount(ChangeResourceAmount.ResourceType);
+            ResourceValue currentResourceAmount = GameController.CurrentGameState.GetResourceAmount(ChangeResourceAmount.ResourceType);
+            ResourceValue maxResourceAmount = GameController.CurrentGameState.GetResourceMaxAmount(ChangeResourceAmount.ResourceType);
 
-            if (ChangeResourceAmount.Amount < 0)
+            if (ChangeResourceAmount.ResourceValue < 0)
             {
-                if (currentResourceAmount >= Math.Abs(ChangeResourceAmount.Amount))
+                if (currentResourceAmount >= ChangeResourceAmount.ResourceValue.Abs())
                 {
                     ResourceNameText?.SetColor(greenEvenNegative ? ResourceGainColor : ResourceLossColor);
                     ResourceChangeText?.SetColor(greenEvenNegative ? ResourceGainColor : ResourceLossColor);
@@ -68,7 +68,7 @@ namespace HypnicEmpire
             }
             else
             {
-                if (maxResourceAmount - currentResourceAmount <= ChangeResourceAmount.Amount)
+                if (maxResourceAmount - currentResourceAmount <= ChangeResourceAmount.ResourceValue)
                 {
                     ResourceNameText?.SetColor(ResourceGainColor);
                     ResourceChangeText?.SetColor(ResourceGainColor);

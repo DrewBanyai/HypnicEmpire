@@ -12,7 +12,7 @@ namespace HypnicEmpire
                 amountList.Add(new ResourceAmountData(add.ResourceType, 0));
 
             //  Find the entry for the given resource type and add the amount
-            amountList.Find(ra => ra.ResourceType == add.ResourceType).Amount += add.Amount;
+            amountList.Find(ra => ra.ResourceType == add.ResourceType).ResourceValue += add.ResourceValue;
         }
 
         public static bool CheckCanChangeAny(this List<ResourceAmountData> amountList, bool allowPositivePartial = false)
@@ -34,7 +34,7 @@ namespace HypnicEmpire
         public static void ExecuteChange(this List<ResourceAmountData> amountList)
         {
             foreach (ResourceAmountData ra in amountList)
-                GameController.CurrentGameState.AddToResource(ra.ResourceType, ra.Amount);
+                GameController.CurrentGameState.AddToResource(ra.ResourceType, ra.ResourceValue);
         }
 
         public static bool IsIdentical(this List<ResourceAmountData> amountList, List<ResourceAmountData> otherList)
@@ -43,7 +43,7 @@ namespace HypnicEmpire
             foreach (var entry in amountList)
             {
                 var foundEntry = otherList.Find(e => e.ResourceType == entry.ResourceType);
-                if (foundEntry == null || foundEntry.Amount != entry.Amount) return false;
+                if (foundEntry == null || foundEntry.ResourceValue != entry.ResourceValue) return false;
             }
 
             return true;

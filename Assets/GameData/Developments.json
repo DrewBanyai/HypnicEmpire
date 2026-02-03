@@ -18,7 +18,7 @@
             "Description": "Turns out, getting food by foraging is way harder than by farming. You miss your lush and full wheat fields already.",
             "EffectText": "Increases foraging speed",
             "Unlock": [ "Unlock_Foraging_Speed_Up" ],
-            "Cost": [ { "ResourceType": "Food", "Amount": -1 } ]
+            "Cost": [ { "ResourceType": "Food", "ResourceValue": -1 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Forage" ],
@@ -26,7 +26,7 @@
             "Description": "Those treasures of gold and silver will do you no good if you just pile them up and leave them to rust. Giving a couple of them away to some of those poor villagers could earn you some favors.",
             "EffectText": "Unlocks selling food",
             "Unlock": [ "Unlock_Action_Sell_Food" ],
-            "Cost": [{ "ResourceType": "Treasure", "Amount": -4 }]
+            "Cost": [{ "ResourceType": "Treasure", "ResourceValue": -4 }]
         },
         {
             "Trigger": [ "Unlock_Foraging_Speed_Up" ],
@@ -34,7 +34,7 @@
             "Description": "By replanting some of your gathered plants, you might increase the yields of future trips. Definitely worth the hassle in the long run.",
             "EffectText": "Increases foraging gain by *2.5",
             "Unlock": [ "Unlock_Foraging_Gain_Up_2_5" ],
-            "Cost": [ { "ResourceType": "Food", "Amount": -3 } ]
+            "Cost": [ { "ResourceType": "Food", "ResourceValue": -3 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Sell_Food" ],
@@ -42,7 +42,7 @@
             "Description": "Just selling food won't get you far.\nTo get the whole business going, you need a way to turn treasure into cash.\nTake a few more bags of it to the villages. Really talk to them and explain that they would benefit from all this too.",
             "EffectText": "Unlocks selling treasure",
             "Unlock": [ "Unlock_Action_Market" ],
-            "Cost": [ { "ResourceType": "Treasure", "Amount": -6 }, { "ResourceType": "Food", "Amount": -3 } ]
+            "Cost": [ { "ResourceType": "Treasure", "ResourceValue": -6 }, { "ResourceType": "Food", "ResourceValue": -3 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Sell_Food" ],
@@ -50,7 +50,7 @@
             "Description": "Your neighbors invited you to sample some of your herbs.\nYou are not sure, what they mean by that exactly, but it can't hurt to try some, right?",
             "EffectText": "Unlocks trading herbs for food",
             "Unlock": [ "Unlock_Action_Trade_Herbs" ],
-            "Cost": [ { "ResourceType": "Herbs", "Amount": -6 } ]
+            "Cost": [ { "ResourceType": "Herbs", "ResourceValue": -6 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Market" ],
@@ -58,7 +58,7 @@
             "Description": "They have been living here for quite a while and should certainly know a thing or two about some of the local plantlife.",
             "EffectText": "Increases foraging food gain by *2",
             "Unlock": [ "Unlock_Foraging_Food_Gain_Up_2" ],
-            "Cost": [ { "ResourceType": "Herbs", "Amount": -5 }, { "ResourceType": "Money", "Amount": -20 } ]
+            "Cost": [ { "ResourceType": "Herbs", "ResourceValue": -5 }, { "ResourceType": "Money", "ResourceValue": -20 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Market" ],
@@ -66,7 +66,7 @@
             "Description": "One of your neighbors must have once been a passable adventurer. Too bad he got crushed by a troll on his last trip. His wife would love to sell you his stuff, though.",
             "EffectText": "Increase delving speed",
             "Unlock": [ "Unlock_Delving_Speed_Up_2" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -30 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -30 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Market" ],
@@ -74,7 +74,7 @@
             "Description": "Take a trip with your fellow smokers to find good spots for herbs. If you listen closely, you may also get some tips on how to gather them efficiently.",
             "EffectText": "Increase foraging herb gain by *1.6",
             "Unlock": [ "Unlock_Foraging_Herb_Gain_Up_1_6" ],
-            "Cost": [ { "ResourceType": "Food", "Amount": -15 } ]
+            "Cost": [ { "ResourceType": "Food", "ResourceValue": -15 } ]
         },
         {
             "Trigger": [ "Unlock_Delving_Speed_Up_2" ],
@@ -82,7 +82,7 @@
             "Description": "You won't get very far, only talking to the dreary village elders. The next higher instance would be the local baron of the east kingdom who oversees the whole glum region.",
             "EffectText": "Increases treasure money gain by *2",
             "Unlock": [ "Unlock_Visit_The_Barony" ],
-            "Cost": [ { "ResourceType": "Food", "Amount": -10 }, { "ResourceType": "Money", "Amount": -30 } ]
+            "Cost": [ { "ResourceType": "Food", "ResourceValue": -10 }, { "ResourceType": "Money", "ResourceValue": -30 } ]
         },
         {
             "Trigger": [ "Unlock_Visit_The_Barony" ],
@@ -90,7 +90,7 @@
             "Description": "Driving back and forth to the Baron's estate again and again is somewhat tedious. If you invest a few treasures, you could certainly attract more travelling merchants to the region and increase your trading throughput.",
             "EffectText": "Increase the speed of all commercial actions",
             "Unlock": [ "Unlock_Commercial_Action_Speed_Up_2" ],
-            "Cost": [ { "ResourceType": "Treasure", "Amount": -8 } ]
+            "Cost": [ { "ResourceType": "Treasure", "ResourceValue": -8 } ]
         },
         {
             "Trigger": [ "Unlock_Visit_The_Barony" ],
@@ -98,7 +98,7 @@
             "Description": "Travel once more to the baron to actually buy the property you are currently living on. Right now, what you are doing is kind of in a legally gray area. Better be safe than sorry.",
             "EffectText": "Unlocks further building developments",
             "Unlock": [ "Unlock_Buildings" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -70 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -70 } ]
         },
         {
             "Trigger": [ "Unlock_Visit_The_Barony" ],
@@ -106,7 +106,7 @@
             "Description": "In your area there are many trees, although they are very dry and scrawny. But to build you need wood and for that you have to cut them down. All you lack is the axe.",
             "EffectText": "Unlocks the woodchopping action",
             "Unlock": [ "Unlock_Action_Chop_Wood" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -50 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -50 } ]
         },
         {
             "Trigger": [ "Unlock_Buildings" ],
@@ -114,7 +114,7 @@
             "Description": "You have way too much stuff. Maybe you should build a place to stuff all that stuff in?",
             "EffectText": "Doubles maximum storage space",
             "Unlock": [ "Unlock_Double_Max_Storage_Space" ],
-            "Cost": [ { "ResourceType": "Wood", "Amount": -6 }, { "ResourceType": "Money", "Amount": -50 } ]
+            "Cost": [ { "ResourceType": "Wood", "ResourceValue": -6 }, { "ResourceType": "Money", "ResourceValue": -50 } ]
         },
         {
             "Trigger": [ "Unlock_Buildings" ],
@@ -122,7 +122,7 @@
             "Description": "Deep in the nearby scrawny woods you found a perfect place to set up for hunting. You saw lots of deer here, they just run every time they see you.\nMaybe if you got up high enough, they would not notice you anymore?",
             "EffectText": "Unlocks the hunting action",
             "Unlock": [ "Unlock_Action_Hunting" ],
-            "Cost": [ { "ResourceType": "Wood", "Amount": -5 }, { "ResourceType": "Food", "Amount": -8 } ]
+            "Cost": [ { "ResourceType": "Wood", "ResourceValue": -5 }, { "ResourceType": "Food", "ResourceValue": -8 } ]
         },
         {
             "Trigger": [ "Unlock_Buildings" ],
@@ -130,7 +130,7 @@
             "Description": "Until now, you have always slept in your small patchy tent, but by now you are really fed up with it. And once you have a proper bed and some breakfast on a real table, you'll be even more motivated to go into the hole in the morning.",
             "EffectText": "Halves food cost of delving",
             "Unlock": [ "Unlock_Half_Food_Cost_Of_Delving" ],
-            "Cost": [ { "ResourceType": "Wood", "Amount": -10 }, { "ResourceType": "Money", "Amount": -80 } ]
+            "Cost": [ { "ResourceType": "Wood", "ResourceValue": -10 }, { "ResourceType": "Money", "ResourceValue": -80 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Chop_Wood" ],
@@ -138,7 +138,7 @@
             "Description": "Just cutting the wood where it falls is not ideal. By setting up a specific area for further hacking it to pieces you can be much quicker, as weirdly as that sounds.",
             "EffectText": "Increased woodchopping wood gain by *2",
             "Unlock": [ "Unlock_Chop_Wood_Gain_Up_2" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -40 }, { "ResourceType": "Wood", "Amount": -4 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -40 }, { "ResourceType": "Wood", "ResourceValue": -4 } ]
         },
         {
             "Trigger": [ "Unlock_Half_Food_Cost_Of_Delving" ],
@@ -146,7 +146,7 @@
             "Description": "You came out of your hole that one time and found half a dozen people standing around on your small plot of land. They come to you with a plea:\nThe land is too barren to sustain them, so they instead want to help you out with your endeavor. Of course you would need to pay them with a small salary and some food.\nA good idea to be honest. You just need to buy some more land and build some houses for them to stay in and you could have a sizable workforce in no time.",
             "EffectText": "Buys some starting land\n*Unlocks buying land\n*Unlocks building: Hut\nYou can assign multiple people at once by pressing shift",
             "Unlock": [ "Unlock_Buying_Land" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -150 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -150 } ]
         },
         {
             "Trigger": [ "Unlock_Buying_Land" ],
@@ -154,7 +154,7 @@
             "Description": "Some of the people living on your land now came from the king's city of Therasi, before they traveled east. They tell you of huge buildings, many stories tall, where they only count numbers day in and day out.\nThey also explain to you the need of a good modular storage system, easy to replicate and build. Actually a great idea so you can stuff more stuff away.",
             "EffectText": "Unlocks building: Shed",
             "Unlock": [ "Unlock_Building_Shed" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -30 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -30 } ]
         },
         {
             "Trigger": [ "Unlock_Buying_Land" ],
@@ -162,7 +162,7 @@
             "Description": "They are a silent bunch, those folk with green cloaks and low drawn hoods. They are not very fond of words and rather see action.\nYou hunt with them a bit, during which they show you their favorite spots. Perfect places for small granaries to build.\nOne for each of them. They like to stay alone.",
             "EffectText": "Unlocks building: Wooden Granary",
             "Unlock": [ "Unlock_Building_Wooden_Granary" ],
-            "Cost": [ { "ResourceType": "Food", "Amount": -5 } ]
+            "Cost": [ { "ResourceType": "Food", "ResourceValue": -5 } ]
         },
         {
             "Trigger": [ "Unlock_Buying_Land" ],
@@ -170,7 +170,7 @@
             "Description": "Not a lot of the village folk go near the hole. And only a handful of them actually take a few steps in. You need to sort them even further to find those who will thrive in the darkness below.",
             "EffectText": "Unlocks building: Delving Outpost",
             "Unlock": [ "Unlock_Building_Delving_Outpost" ],
-            "Cost": [ { "ResourceType": "Treasure", "Amount": -5 } ]
+            "Cost": [ { "ResourceType": "Treasure", "ResourceValue": -5 } ]
         },
         {
             "Trigger": [ "Unlock_Buying_Land" ],
@@ -178,7 +178,7 @@
             "Description": "Big, burly men and women who sleep all night and work all day. They mostly cut down trees and eat their lunch. Sometimes they press wild flowers they find on their way through the forest.",
             "EffectText": "Unlocks building: Busy Workshop",
             "Unlock": [ "Unlock_Building_Busy_Workshop" ],
-            "Cost": [ { "ResourceType": "Wood", "Amount": -5 } ]
+            "Cost": [ { "ResourceType": "Wood", "ResourceValue": -5 } ]
         },
         {
             "Trigger": [ "Unlock_Building_Shed" ],
@@ -186,7 +186,7 @@
             "Description": "You probably should not lug all your money around all the time. The jingling in your pockets starts getting on peoples nerves.",
             "EffectText": "Increases money storage by 300",
             "Unlock": [ "Unlock_Money_Storage_Up_300" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -150 }, { "ResourceType": "Wood", "Amount": -26 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -150 }, { "ResourceType": "Wood", "ResourceValue": -26 } ]
         },
         {
             "Trigger": [ "Unlock_Building_Shed" ],
@@ -194,7 +194,7 @@
             "Description": "The leader of the business people comes up to you. They have a proposition:\nThey could handle all your commercial needs for you for a small share of the profit. It might be a good idea to consider, so you do not have to sell all that treasure yourself anymore.",
             "EffectText": "Unlocks building: Shop",
             "Unlock": [ "Unlock_Building_Shop" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -180 }, { "ResourceType": "Treasure", "Amount": -10 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -180 }, { "ResourceType": "Treasure", "ResourceValue": -10 } ]
         },
         {
             "Trigger": [ "Unlock_Building_Busy_Workshop" ],
@@ -202,7 +202,7 @@
             "Description": "Some people have come to you with stones in their hands. They tell you, that they found them around the hole and that they might be usable for stronger foundations or even buildings.\nYou would need to invest some money though, to bring in a geologist from the city to take some measurements.",
             "EffectText": "Unlocks stonecutting action",
             "Unlock": [ "Unlock_Action_Cut_Stone" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -350 }, { "ResourceType": "Food", "Amount": -20 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -350 }, { "ResourceType": "Food", "ResourceValue": -20 } ]
         },
         {
             "Trigger": [ "Unlock_Money_Storage_Up_300" ],
@@ -210,7 +210,7 @@
             "Description": "You have more money than you know what to do with. Time to build another chest to keep the pickpockets away.",
             "EffectText": "Increases money storage by 300",
             "Unlock": [ "Unlock_Money_Storage_Up_Another_300" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -150 }, { "ResourceType": "Wood", "Amount": -26 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -150 }, { "ResourceType": "Wood", "ResourceValue": -26 } ]
         },
         {
             "Trigger": [ "Unlock_Money_Storage_Up_Another_300" ],
@@ -218,7 +218,7 @@
             "Description": "All your trading partners now have the same problem as you did before.\nTheir pockets are jingling terribly from all the profit they have made. A safe could remedy this.",
             "EffectText": "Shops now increase max money storage by 110",
             "Unlock": [ "Unlock_Shops_Increase_Max_Money_Up_110" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -400 }, { "ResourceType": "Stone", "Amount": -30 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -400 }, { "ResourceType": "Stone", "ResourceValue": -30 } ]
         },
         {
             "Trigger": [ "Unlock_Building_Shop" ],
@@ -226,7 +226,7 @@
             "Description": "The barony sends his regards and a proposition. He loves to see this tiny experiment going so well and offers you a really good deal on more land. As a gesture of good will, so to speak.",
             "EffectText": "Get 25 land",
             "Unlock": [ "Unlock_Buy_Land_Parcel_25" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -300 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -300 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Cut_Stone" ],
@@ -234,7 +234,7 @@
             "Description": "The geologist needs a bunch of more money, as well as lots of stone samples to find the most efficient spot. Expensive, but an investment well worth the cost it seems.",
             "EffectText": "Doubles stonecutting gain",
             "Unlock": [ "Unlock_Double_Stonecutting_Gain" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -200 }, { "ResourceType": "Wood", "Amount": -40 }, { "ResourceType": "Stone", "Amount": -10 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -200 }, { "ResourceType": "Wood", "ResourceValue": -40 }, { "ResourceType": "Stone", "ResourceValue": -10 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Cut_Stone" ],
@@ -242,7 +242,7 @@
             "Description": "The way down becomes longer and longer the further you get. Soon you will have to come up with strategies to shorten the dive times again. By removing some walls and installing a pulley system at depth, you could reach the interesting spots faster.",
             "EffectText": "Increase delve speed by *1.5",
             "Unlock": [ "Unlock_Delving_Speed_Up_1_5" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -700 }, { "ResourceType": "Wood", "Amount": -60 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -700 }, { "ResourceType": "Wood", "ResourceValue": -60 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Cut_Stone" ],
@@ -250,7 +250,7 @@
             "Description": "Some of the villagers would like to move in together. But that could be difficult with the small huts they have. It's time for an upgrade.",
             "EffectText": "Upgrades Huts to Cabins (Increases future population gain)",
             "Unlock": [ "Unlock_Stone_Foundations" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -900 }, { "ResourceType": "Stone", "Amount": -60 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -900 }, { "ResourceType": "Stone", "ResourceValue": -60 } ]
         },
         {
             "Trigger": [ "Unlock_Shops_Increase_Max_Money_Up_110" ],
@@ -258,7 +258,7 @@
             "Description": "The people in formal attire brought you another blueprint. They tell you of this amazing product they want to sell to you. A completely overhauled modular storage unit.\n... yeah, its just a bigger shed to be honest.",
             "EffectText": "Upgrade Shed to Warehouse (increases future storage capacity)",
             "Unlock": [ "Unlock_Shed_Upgrade_To_Warehouse" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -900 }, { "ResourceType": "Wood", "Amount": -55 }, { "ResourceType": "Stone", "Amount": -45 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -900 }, { "ResourceType": "Wood", "ResourceValue": -55 }, { "ResourceType": "Stone", "ResourceValue": -45 } ]
         },
         {
             "Trigger": [ "Unlock_Buy_Land_Parcel_25" ],
@@ -266,7 +266,7 @@
             "Description": "There is a bit of a food shortage in the west kingdom, where the animal attacks keep ramping up. Lots of people leave their homes in fear and travel east.\nThough not one of them is dumb enough to come even close to your barren piece of land. But this would be a perfect opportunity to increase your food selling capacities.",
             "EffectText": "Increase selling food effectiveness by *4",
             "Unlock": [ "Unlock_Bulk_Trade_Route" ],
-            "Cost": [ { "ResourceType": "Treasure", "Amount": -16 } ]
+            "Cost": [ { "ResourceType": "Treasure", "ResourceValue": -16 } ]
         },
         {
             "Trigger": [ "Unlock_Buy_Land_Parcel_25" ],
@@ -274,7 +274,7 @@
             "Description": "One evening the hunters silently show up at your doorstep. They murmur about their bows being shoddy and worn. They eye your pockets full of gold, but do not say another word.",
             "EffectText": "Increase hunting food gain by *2",
             "Unlock": [ "Unlock_Hunting_Food_Gain_2" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -400 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -400 } ]
         },
         {
             "Trigger": [ "Unlock_Double_Stonecutting_Gain" ],
@@ -282,7 +282,7 @@
             "Description": "And the geologist still needs even mroe money. This time to draw the perfect blueprints for the quarry. She thinks anything less than perfection would be too bad for this beautiful spot she has found.",
             "EffectText": "Half the cost of stonecutting",
             "Unlock": [ "Unlock_Half_Wood_Cost_Of_Stonecutting" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -600 }, { "ResourceType": "Wood", "Amount": -50 }, { "ResourceType": "Stone", "Amount": -20 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -600 }, { "ResourceType": "Wood", "ResourceValue": -50 }, { "ResourceType": "Stone", "ResourceValue": -20 } ]
         },
         {
             "Trigger": [ "Unlock_Double_Stonecutting_Gain" ],
@@ -290,7 +290,7 @@
             "Description": "This one time, the geologist actually wished to go down into the hole. You gave in to her request. To your amazement, she was less interested in the treasures than in the composition of hte rock walls. She speculated on a sidenote that structurally it would not be a problem to cut various small holes and bays in the walls.",
             "EffectText": "Decrease delving food cost by *0.8",
             "Unlock": [ "Unlock_Stone_Wall_Supply_Stashes" ],
-            "Cost": [ { "ResourceType": "Stone", "Amount": -40 } ]
+            "Cost": [ { "ResourceType": "Stone", "ResourceValue": -40 } ]
         },
         {
             "Trigger": [ "Unlock_Reach_Subsurface_Bog" ],
@@ -306,7 +306,7 @@
             "Description": "While it is nice to venture back down with the help of potions, it would be even nicer to not have to pay so much for them. The same merchant who sells you them takes pity on you and promises to get you some books on the matter, so you might make them yourself in the future.",
             "EffectText": "Unlocks brewing action",
             "Unlock": [ "Unlock_Action_Brew_Potion" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -350 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -350 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Brew_Potion" ],
@@ -314,7 +314,7 @@
             "Description": "It turns out that just putting anyone behind a chemical machine and calling it a day doesn't produce a very efficient result. It might be a bit expensive and you need to provide some samples, but maybe you could convince real alchemists to join your cause.",
             "EffectText": "Increase potion gain by *2",
             "Unlock": [ "Unlock_Brew_Potion_Gain_2" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -600 }, { "ResourceType": "Potions", "Amount": -10 }, { "ResourceType": "Herbs", "Amount": -15 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -600 }, { "ResourceType": "Potions", "ResourceValue": -10 }, { "ResourceType": "Herbs", "ResourceValue": -15 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Brew_Potion" ],
@@ -322,7 +322,7 @@
             "Description": "Your friends with the green thumb always run out of their stock. Annoyed they preach to you on how to grow these herbs yourself in small gardens. Probably a good idea, so you could make potions without having to forage all the time.",
             "EffectText": "Unlocks cultivation action",
             "Unlock": [ "Unlock_Action_Cultivate" ],
-            "Cost": [ { "ResourceType": "Wood", "Amount": -40 }, { "ResourceType": "Food", "Amount": -50 } ]
+            "Cost": [ { "ResourceType": "Wood", "ResourceValue": -40 }, { "ResourceType": "Food", "ResourceValue": -50 } ]
         },
         {
             "Trigger": [ "Unlock_Brew_Potion_Gain_2" ],
@@ -330,7 +330,7 @@
             "Description": "One night another hunter arrives at your doorstep. They complain about you stomping through the forest, scaring all the prey away. They imply you to stop doing that.\n...Fine. But they also want a drink. Good thing you have a lot of potions left.",
             "EffectText": "Removes the forage action\nIncreases hunting food gain by *1.25",
             "Unlock": [ "Unlock_No_More_Foraging" ],
-            "Cost": [ { "ResourceType": "Potions", "Amount": -15 } ]
+            "Cost": [ { "ResourceType": "Potions", "ResourceValue": -15 } ]
         },
         {
             "Trigger": [ "Unlock_No_More_Foraging" ],
@@ -338,7 +338,7 @@
             "Description": "You look around at your small flock of devoted workers and realize that you came from from your humble farmer beginnings. People look up to you with awe.\nIt is time to tell the whole world of your new village. And what better way to do that, than with a big feast.",
             "EffectText": "People no longer need to be paid",
             "Unlock": [ "Unlock_Village_Founded" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -1200 }, { "ResourceType": "Food", "Amount": -150 }, { "ResourceType": "Potions", "Amount": -15 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -1200 }, { "ResourceType": "Food", "ResourceValue": -150 }, { "ResourceType": "Potions", "ResourceValue": -15 } ]
         },
         {
             "Trigger": [ "Unlock_Village_Founded" ],
@@ -346,7 +346,7 @@
             "Description": "Someone is needed that does all the decisions and the people are in qualms about who to pick, till the people in formal attire inform everyone of a new method called 'democratic election'. Might be an idea to try. If it fails we can still just hold a deathmatch or something.",
             "EffectText": "Increase all action speed by 25%",
             "Unlock": [ "Unlock_Elected_As_Mayor" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -1400 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -1400 } ]
         },
         {
             "Trigger": [ "Unlock_Village_Founded" ],
@@ -354,7 +354,7 @@
             "Description": "With a great rumble and tumble and a snickering snack,\na cart arrived one day from way there in the back.\nInto the town square it rode and then sat still as rock",
             "EffectText": "Unlocks the weaving action",
             "Unlock": [ "Unlock_Action_Weaving" ],
-            "Cost": [ { "ResourceType": "Herbs", "Amount": -200 }, { "ResourceType": "Potions", "Amount": -15 }, { "ResourceType": "Food", "Amount": -240 } ]
+            "Cost": [ { "ResourceType": "Herbs", "ResourceValue": -200 }, { "ResourceType": "Potions", "ResourceValue": -15 }, { "ResourceType": "Food", "ResourceValue": -240 } ]
         },
         {
             "Trigger": [ "Unlock_Village_Founded" ],
@@ -362,7 +362,7 @@
             "Description": "You will need way more storage than before. Time to restructure your blueprints and bring some costs down in whatever way you can.",
             "EffectText": "Reduce Warehouse Costs by *0.2",
             "Unlock": [ "Unlock_Reduce_Warehouse_Cost_0_2" ],
-            "Cost": [ { "ResourceType": "Stone", "Amount": -200 }, { "ResourceType": "Fabric", "Amount": -130 } ]
+            "Cost": [ { "ResourceType": "Stone", "ResourceValue": -200 }, { "ResourceType": "Fabric", "ResourceValue": -130 } ]
         },
         {
             "Trigger": [ "Unlock_Elected_As_Mayor" ],
@@ -370,7 +370,7 @@
             "Description": "The night here in the east comes quickly and early. The moon often hides behind dark storm clouds and rarely flashes its face.\nAs soon as the sun sets, you can hardly see your hand in front of your eyes. Often one hears the surprised cry of a citizen who stumbles over a stone at night, followed by a painful groan when they hit the dirt.\nBut this is easy to put an end to. With a little wood and a few self-luminous pieces from the dungeon, this matter could be quickly fixed.",
             "EffectText": "Adds new project: Install arcane streetlamps",
             "Unlock": [ "Unlock_Project_Arcane_Streetlamps" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -1500 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -1500 } ]
         },
         {
             "Trigger": [ "Unlock_Elected_As_Mayor" ],
@@ -378,7 +378,7 @@
             "Description": "Now that you are in charge, you need someplace to rule from. A castle maybe. Or a palace. With lots of gold statues. And big paintings picturing you in royal attire. Huge banquet halls, a fancy throne-room, maybe indoor pools?",
             "EffectText": "Adds new project: Enact a new law",
             "Unlock": [ "Unlock_Project_Enact_New_Law" ],
-            "Cost": [ { "ResourceType": "Wood", "Amount": -300 }, { "ResourceType": "Stone", "Amount": -270 }, { "ResourceType": "Fabric", "Amount": -250 } ]
+            "Cost": [ { "ResourceType": "Wood", "ResourceValue": -300 }, { "ResourceType": "Stone", "ResourceValue": -270 }, { "ResourceType": "Fabric", "ResourceValue": -250 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Weaving" ],
@@ -386,7 +386,7 @@
             "Description": "The folks in cloth and fabric clad, look like they're bloody jumping mad, quickly build up wood and stone, to make a new building called home.",
             "EffectText": "Unlocks the sell fabric action",
             "Unlock": [ "Unlock_Action_Sell_Fabric" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -1800 }, { "ResourceType": "Wood", "Amount": -240 }, { "ResourceType": "Fabric", "Amount": -300 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -1800 }, { "ResourceType": "Wood", "ResourceValue": -240 }, { "ResourceType": "Fabric", "ResourceValue": -300 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Weaving" ],
@@ -394,7 +394,7 @@
             "Description": "Something genius came to you one night while drifting to sleep. If the floors of the warehouses are already filled to the brim, why not just use their ceilings too? With some fabric you can easily make sacks to hang stuff up. That way you could stuff almost double the stuff into all of your stuffy places!",
             "EffectText": "Add fabric to warehouse cost\n*Double warehouse effectiveness",
             "Unlock": [ "Unlock_Warehouse_Plus_Fabric" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -2200 }, { "ResourceType": "Wood", "Amount": -330 }, { "ResourceType": "Fabric", "Amount": -300 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -2200 }, { "ResourceType": "Wood", "ResourceValue": -330 }, { "ResourceType": "Fabric", "ResourceValue": -300 } ]
         },
         {
             "Trigger": [ "Unlock_Project_Enact_New_Law" ],
@@ -402,7 +402,7 @@
             "Description": "More than a dozen new carts enter the village one day. The people are wearing patched hats and short shirts, and are dressed far too cold for this time of year.\nOne climbs out, many scars on his face, and introduces himself as Marvin.",
             "EffectText": "Unlocks the fishing action\nGain 8 Population",
             "Unlock": [ "Unlock_Action_Fishing" ],
-            "Cost": [ { "ResourceType": "Wood", "Amount": -320 }, { "ResourceType": "Food", "Amount": -390 }, { "ResourceType": "Fabric", "Amount": -300 } ]
+            "Cost": [ { "ResourceType": "Wood", "ResourceValue": -320 }, { "ResourceType": "Food", "ResourceValue": -390 }, { "ResourceType": "Fabric", "ResourceValue": -300 } ]
         },
         {
             "Trigger": [ "Unlock_Project_Enact_New_Law" ],
@@ -410,7 +410,7 @@
             "Description": "Someone suggested, instead of using our weak and frail children to do backbreaking work and hard labor, we could, instead, send them into some sort of facility that teaches them all the important stuff like writing and math? Sounds like a really dumb plan, but let's try it anyway.",
             "EffectText": "Increases industrial gain by +20%",
             "Unlock": [ "Unlock_Increase_Industrial_Gain_0_2" ],
-            "Cost": [ { "ResourceType": "Food", "Amount": -410 }, { "ResourceType": "Fabric", "Amount": -320 } ]
+            "Cost": [ { "ResourceType": "Food", "ResourceValue": -410 }, { "ResourceType": "Fabric", "ResourceValue": -320 } ]
         },
         {
             "Trigger": [ "Unlock_Project_Enact_New_Law" ],
@@ -418,7 +418,7 @@
             "Description": "Everywhere you look, there's much on the streets. There you go again, someone tipping a bucket of filth out of a gable window, which lands with a loud splash right at your feet. The culprit quickly ducks their head back inside as they realize who they almost threw their crap at.\nThe stink of the village is hardly bearable anymore. You remember the idea of the folks from Therasi. A new invention called a sewer system. Might actually be a good idea for here, too.",
             "EffectText": "Adds new project: Dig a sewer system",
             "Unlock": [ "Unlock_Project_Dig_Sewer_System" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -1800 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -1800 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Sell_Fabric" ],
@@ -426,7 +426,7 @@
             "Description": "In cloth and hat and twine they sing, of water clear and pleasant.\nBut a bubbly brooklet oh so keen, is sadly just not present.",
             "EffectText": "Increase Cultivate Efficiency by 200%",
             "Unlock": [ "Unlock_Cultivate_Efficiency_Gain_200" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -1600 }, { "ResourceType": "Stone", "Amount": -320 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -1600 }, { "ResourceType": "Stone", "ResourceValue": -320 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Sell_Fabric" ],
@@ -434,7 +434,7 @@
             "Description": "Despite everyone having generally high spirits and lots of motivation, the occasional slumps in mood are visible throughout the public. Time to give the people some entertainment and fun after their hard work hours. Which will mostly consist of heavy drinking.",
             "EffectText": "Unlocks building: Tavern",
             "Unlock": [ "Unlock_Building_Tavern" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -1700 }, { "ResourceType": "Potions", "Amount": -16 }, { "ResourceType": "Food", "Amount": -400 }, { "ResourceType": "Herbs", "Amount": -330 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -1700 }, { "ResourceType": "Potions", "ResourceValue": -16 }, { "ResourceType": "Food", "ResourceValue": -400 }, { "ResourceType": "Herbs", "ResourceValue": -330 } ]
         },
         {
             "Trigger": [ "Unlock_Building_Tavern" ],
@@ -442,7 +442,7 @@
             "Description": "While speaking with her on the topic of limestone and its benefits and weaknesses compared to other types of stone, the geologist asked you how to have fun. This question wasn't particularly difficult to answer, but nevertheless you struggled quite a bit to find the right words. Finally, you decided to just show her.",
             "EffectText": "Half stonecutting cost",
             "Unlock": [ "Unlock_Half_Cost_Of_Stonecutting" ],
-            "Cost": [ { "ResourceType": "Potions", "Amount": -144 }, { "ResourceType": "Food", "Amount": -1175 } ]
+            "Cost": [ { "ResourceType": "Potions", "ResourceValue": -144 }, { "ResourceType": "Food", "ResourceValue": -1175 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Fishing" ],
@@ -450,7 +450,7 @@
             "Description": "Marvin the Fisherman comes to you with a plea. He says, they serve the almight god Rethoros in their stretches of lands and he and his people are distraught of our heathendom. They wish for places of worship, to strengthen their bond to their god again. This would also allow them to be much more productive in turn.",
             "EffectText": "Unlocks building: Temple",
             "Unlock": [ "Unlock_Building_Temple" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -2100 }, { "ResourceType": "Treasure", "Amount": -10 }, { "ResourceType": "Stone", "Amount": -320 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -2100 }, { "ResourceType": "Treasure", "ResourceValue": -10 }, { "ResourceType": "Stone", "ResourceValue": -320 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Fishing" ],
@@ -458,7 +458,7 @@
             "Description": "The southerners also bring with them their knowledge of medicine and ancient art of healing. Which mostly involves fish and fish byproducts. But still, it seems to work, they are all very healthy and tenacious. A good idea then to establish some of their health shops in our community.",
             "EffectText": "Add potion storage to corner shops",
             "Unlock": [ "Unlock_Shop_Potion_Storage" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -2200 }, { "ResourceType": "Wood", "Amount": -330 }, { "ResourceType": "Fabric", "Amount": -330 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -2200 }, { "ResourceType": "Wood", "ResourceValue": -330 }, { "ResourceType": "Fabric", "ResourceValue": -330 } ]
         },
         {
             "Trigger": [ "Unlock_Increase_Industrial_Gain_0_2" ],
@@ -466,7 +466,7 @@
             "Description": "Land is getting rare around you. Where you once had wide plains and rocky hills, you can find only houses and workshops now. Everything is filled to the brim with the signs of civilization. Your settlement already approaches the forest, brushing against the underbrush.",
             "EffectText": "Gain 200 land\nReduce hunting gain by 15%\n*Reduce wood gain by 15%\nUnlocks further developments",
             "Unlock": [ "Unlock_Cut_Down_The_Forest" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -2250 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -2250 } ]
         },
         {
             "Trigger": [ "Unlock_Increase_Industrial_Gain_0_2" ],
@@ -474,7 +474,7 @@
             "Description": "Those weird kids you send to school are gathering in front of the town hall again. This time they want books to read. Even better, they want a whole place, that we fill up with all sorts of readable material. They say it would help them learn.",
             "EffectText": "When adding to a project, gain additional bonus percentages",
             "Unlock": [ "Unlock_Build_A_Public_Library" ],
-            "Cost": [ { "ResourceType": "Wood", "Amount": -340 }, { "ResourceType": "Stone", "Amount": -320 }, { "ResourceType": "Fabric", "Amount": -300 } ]
+            "Cost": [ { "ResourceType": "Wood", "ResourceValue": -340 }, { "ResourceType": "Stone", "ResourceValue": -320 }, { "ResourceType": "Fabric", "ResourceValue": -300 } ]
         },
         {
             "Trigger": [ "Unlock_Building_Temple" ],
@@ -482,7 +482,7 @@
             "Description": "The Fishers from the south were sitting on a nearby bench and watching the clothmakers closely during their midday break, inspecting each and every movement they made from afar. After a while, one of them stood up and went over there. 'That's just not right', he proclaimed.",
             "EffectText": "Increase fabric gain by 100%",
             "Unlock": [ "Unlock_Increase_Fabric_Gain_100" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -2500 }, { "ResourceType": "Potions", "Amount": -95 }, { "ResourceType": "Fabric", "Amount": -700 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -2500 }, { "ResourceType": "Potions", "ResourceValue": -95 }, { "ResourceType": "Fabric", "ResourceValue": -700 } ]
         },
         {
             "Trigger": [ "Unlock_Build_A_Public_Library" ],
@@ -490,7 +490,7 @@
             "Description": "Last night, the settlement had it's first fire. Marvin tried to shop off his cooking skills. They weren't very good. You lost thirteen buildings.",
             "EffectText": "Upgrades Cabins to Houses (increases future population gain, gain money storage)",
             "Unlock": [ "Unlock_Cabins_To_Houses" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -2600 }, { "ResourceType": "Food", "Amount": -840 }, { "ResourceType": "Fabric", "Amount": -720 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -2600 }, { "ResourceType": "Food", "ResourceValue": -840 }, { "ResourceType": "Fabric", "ResourceValue": -720 } ]
         },
         {
             "Trigger": [ "Unlock_Cut_Down_The_Forest" ],
@@ -498,7 +498,7 @@
             "Description": "Once again a messenger arrives with news from the rest of the kingdom. The attacks in the west, from the Itari jungle refuse to stop. In fact, in many places new rumors are circulating. Of gigantic trees that walk around and smash everything in their way, giant spiders and swarms of rats and wasps that drive away the few remaining settlers. Clinging vines that clutch and tear down the houses left behind. The capital is already overflowing with western refugees.",
             "EffectText": "Unlocks new project: Construct a Palisade",
             "Unlock": [ "Unlock_Project_Construct_Palisade" ],
-            "Cost": [ { "ResourceType": "Wood", "Amount": -720 } ]
+            "Cost": [ { "ResourceType": "Wood", "ResourceValue": -720 } ]
         },
         {
             "Trigger": [ "Unlock_Cut_Down_The_Forest" ],
@@ -506,7 +506,7 @@
             "Description": "While removing huge parts of the forest, the woodworkers stumbled upon huge patches of very fertile soil. Roughly at the same spots where you gathered your first herbs all that time ago. We should not let that lucky find go to waste.",
             "EffectText": "Increase herb gain by *1.5",
             "Unlock": [ "Unlock_Increase_Herb_Gain_1_5" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -2550 }, { "ResourceType": "Fabric", "Amount": -690 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -2550 }, { "ResourceType": "Fabric", "ResourceValue": -690 } ]
         },
         {
             "Trigger": [ "Unlock_Cut_Down_The_Forest" ],
@@ -514,7 +514,7 @@
             "Description": "Both the wood- and stoneworkers came to you in a big bulk. They have some improvements in mind, regarding the workshops you set up all over the countryside. Mainly, they want to talk about removing the saunas. They say they are not really that useful for work.",
             "EffectText": "Reduces workshop cost by *0.5",
             "Unlock": [ "Unlock_Reduce_Workshop_Cost_0_5" ],
-            "Cost": [ { "ResourceType": "Wood", "Amount": -750 }, { "ResourceType": "Stone", "Amount": -720 }, { "ResourceType": "Fabric", "Amount": -700 } ]
+            "Cost": [ { "ResourceType": "Wood", "ResourceValue": -750 }, { "ResourceType": "Stone", "ResourceValue": -720 }, { "ResourceType": "Fabric", "ResourceValue": -700 } ]
         },
         {
             "Trigger": [ "Unlock_Increase_Herb_Gain_1_5" ],
@@ -522,7 +522,7 @@
             "Description": "You are important enough to send another delegation. Your settlement is slowly turning into one of the biggest in the region, rivaling even the one the baron resides over. Once in his lounge room you talk about the weather. And rising food prices. And politics. All in all, not very pleasant.",
             "EffectText": "Allows cheaper bulk buying of land",
             "Unlock": [ "Unlock_Cheaper_Bulk_Land_Buys" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -6000 }, { "ResourceType": "Food", "Amount": -1125 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -6000 }, { "ResourceType": "Food", "ResourceValue": -1125 } ]
         },
         {
             "Trigger": [ "Unlock_Increase_Herb_Gain_1_5" ],
@@ -530,7 +530,7 @@
             "Description": "One day you wake up and think to yourself that you have to introduce some changes now. You have the feeling that everything has become so fast lately. People don't even say hello to each other on the streets anymore. Everyone rushes back and forth without even looking up.",
             "EffectText": "Reduces all action speeds by *0.25\nIncreases all action efficiency by *4\nProject costs will automatically be removed from now on",
             "Unlock": [ "Unlocks_Auto_Project_Cost_Removal" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -1000 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -1000 } ]
         },
         {
             "Trigger": [ "Unlock_Cabins_To_Houses" ],
@@ -538,7 +538,7 @@
             "Description": "The day before you had around thirteen meetings with different people. Today you are already up to either and it is not even noon. You are exhausted. Who knew, that being the person in charge of literally everything could be so exhausting. Time to come up with an idea to take some work off your shoulders.",
             "EffectText": "Enables the discovery of lots of guild developments",
             "Unlock": [ "Unlocks_Establish_Guild_Laws" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -6250 }, { "ResourceType": "Fabric", "Amount": -988 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -6250 }, { "ResourceType": "Fabric", "ResourceValue": -988 } ]
         },
         {
             "Trigger": [ "Unlocks_Auto_Project_Cost_Removal" ],
@@ -546,7 +546,7 @@
             "Description": "The people are still wary of their surroundings. It might be good to show them that there is nothing to fear out there.",
             "EffectText": "Reduce Workshop Cost by 0.5\nReduce Granary Cost by 0.5",
             "Unlock": [ "Unlock_Send_Out_Scouts" ],
-            "Cost": [ { "ResourceType": "Food", "Amount": -1100 }, { "ResourceType": "Potions", "Amount": -119 }, { "ResourceType": "Weaponry", "Amount": -125 } ]
+            "Cost": [ { "ResourceType": "Food", "ResourceValue": -1100 }, { "ResourceType": "Potions", "ResourceValue": -119 }, { "ResourceType": "Weaponry", "ResourceValue": -125 } ]
         },
         {
             "Trigger": [ "Unlock_Reach_Frostbound_Catacombs" ],
@@ -562,7 +562,7 @@
             "Description": "You will still remember the day when they brought the first body up from the depths, years after this story is over. The desperate cries of a father who lost his daughter. A wife who's husband will never come home. A child, not even grasping the whole magnitude of the situation yet, asking innocently for their parent.\nYou were not prepared for it all.",
             "EffectText": "Increase delving speed by 50%",
             "Unlock": [ "Unlock_Designate_A_Graveyard" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -7000 }, { "ResourceType": "Stone", "Amount": -1100 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -7000 }, { "ResourceType": "Stone", "ResourceValue": -1100 } ]
         },
         {
             "Trigger": [ "Unlock_Send_Out_Scouts" ],
@@ -570,7 +570,7 @@
             "Description": "Each and everyone of them wears a disdain on their faces, that you feel deep in your soul. It is clear, that they don't want to be here in this desolateness of rocks and dust. They had to leave everything behind except their history. Proud farmsteads and acres upon acres of land that once fed most of the kingdom. Only to end up here with the rest of the featful who seek refuge in this region, thankfully so barren of any vegetation.",
             "EffectText": "Increase food consumption by 50%\nGain 10 population",
             "Unlock": [ "Unlock_Refugees_From_The_North" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -6875 }, { "ResourceType": "Food", "Amount": -1213 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -6875 }, { "ResourceType": "Food", "ResourceValue": -1213 } ]
         },
         {
             "Trigger": [ "Unlock_Establish_Guild_Laws" ],
@@ -578,7 +578,7 @@
             "Description": "The nicely clothed folk handed you lots of paper, all filled with statistics and numbers and graphs and what not and held long and difficult talks about why it would be so hugely important that they would get their own guild. You didn't understand most of it, to be honest.",
             "EffectText": "Reduce Shop Cost by 0.5\nReduce Tavern Cost by 0.5",
             "Unlock": [ "Unlock_Establish_Formal_Attire_Guild" ],
-            "Cost": [ { "ResourceType": "Wood", "Amount": -1063 }, { "ResourceType": "Stone", "Amount": -1038 }, { "ResourceType": "Fabric", "Amount": -1025 } ]
+            "Cost": [ { "ResourceType": "Wood", "ResourceValue": -1063 }, { "ResourceType": "Stone", "ResourceValue": -1038 }, { "ResourceType": "Fabric", "ResourceValue": -1025 } ]
         },
         {
             "Trigger": [ "Unlock_Establish_Guild_Laws" ],
@@ -586,7 +586,7 @@
             "Description": "They send you a hat and a shawl and a shirt, made with much love oh that is overt\nBribery you could surely call that, though you have to admit, it is a cool hat.",
             "EffectText": "All weaponry, potion and fabric gain +25%",
             "Unlock": [ "Unlock_Establish_Crafter_Guild" ],
-            "Cost": [ { "ResourceType": "Stone", "Amount": -1075 }, { "ResourceType": "Herbs", "Amount": -938 } ]
+            "Cost": [ { "ResourceType": "Stone", "ResourceValue": -1075 }, { "ResourceType": "Herbs", "ResourceValue": -938 } ]
         },
         {
             "Trigger": [ "Unlock_Establish_Guild_Laws" ],
@@ -594,7 +594,7 @@
             "Description": "One evening you hear a bit of ruckus outside of the town hall. There stood half a dozen\nhalf-naked muscle-packed brutes. They wanted to speak with you.\nYou politely declined.",
             "EffectText": "All stone and iron gain +25%",
             "Unlock": [ "Unlock_Establish_Metalworker_Guild" ],
-            "Cost": [ { "ResourceType": "Wood", "Amount": -1075 }, { "ResourceType": "Fabric", "Amount": -875 } ]
+            "Cost": [ { "ResourceType": "Wood", "ResourceValue": -1075 }, { "ResourceType": "Fabric", "ResourceValue": -875 } ]
         },
         {
             "Trigger": [ "Unlock_Establish_Guild_Laws" ],
@@ -602,7 +602,7 @@
             "Description": "They didn't come to you personally. Rather one morning you found an arrow lodged into the door of the town hall. Impaled on it, a brief, but very detailed blueprint.",
             "EffectText": "+7 Hunting Jobs\n+7 Woodcutting Jobs",
             "Unlock": [ "Unlock_Establish_Woodsman_Guild" ],
-            "Cost": [ { "ResourceType": "Stone", "Amount": -1063 }, { "ResourceType": "Weaponry", "Amount": -169 } ]
+            "Cost": [ { "ResourceType": "Stone", "ResourceValue": -1063 }, { "ResourceType": "Weaponry", "ResourceValue": -169 } ]
         },
         {
             "Trigger": [ "Unlock_Establish_Guild_Laws" ],
@@ -610,7 +610,7 @@
             "Description": "Everyone likes and needs food right? That is obviously worth a guild hall on its own. They didn't even need to convince you at all. Like even without that huge buffet they dished up for you, you would have said yes/nBut it was still a nice gesture.",
             "EffectText": "+7 Fishing Jobs\n+7 Farming Jobs",
             "Unlock": [ "Unlock_Establish_Produce_Guild" ],
-            "Cost": [ { "ResourceType": "Food", "Amount": -1213 }, { "ResourceType": "Wood", "Amount": -1063 }, { "ResourceType": "Herbs", "Amount": -875 } ]
+            "Cost": [ { "ResourceType": "Food", "ResourceValue": -1213 }, { "ResourceType": "Wood", "ResourceValue": -1063 }, { "ResourceType": "Herbs", "ResourceValue": -875 } ]
         },
         {
             "Trigger": [ "Unlock_Establish_Guild_Laws" ],
@@ -618,7 +618,7 @@
             "Description": "You are not even sure who these people are, that stoof before you. Have they been here all along? With their disheveled, long hair and tattered clothes, they already look very artistic to you at least. Anyway, what have you got to lose?",
             "EffectText": "Reduce all project costs by 5%",
             "Unlock": [ "Unlock_Establish_Artists_Guild" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -6750 }, { "ResourceType": "Potions", "Amount": -156 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -6750 }, { "ResourceType": "Potions", "ResourceValue": -156 } ]
         },
         {
             "Trigger": [ "Unlock_Establish_Formal_Attire_Guild", "Unlock_Establish_Crafter_Guild", "Unlock_Establish_Metalworker_Guild", "Unlock_Establish_Woodsman_Guild", "Unlock_Establish_Produce_Guild", "Unlock_Establish_Artists_Guild" ],
@@ -626,7 +626,7 @@
             "Description": "One morning, while on the way to get some tea, you stumble upon a meeting you did not even know existed up until that point. All of the guild hall leaders secretly met in one of the conference rooms in the town hall without your knowledge. They look defiantly at you.",
             "EffectText": "Increase global action speed by 10%",
             "Unlock": [ "Unlock_Establish_Council_Of_Guilds" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -7000 }, { "ResourceType": "Wood", "Amount": -1100 }, { "ResourceType": "Stone", "Amount": -1063 }, { "ResourceType": "Fabric", "Amount": -1063 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -7000 }, { "ResourceType": "Wood", "ResourceValue": -1100 }, { "ResourceType": "Stone", "ResourceValue": -1063 }, { "ResourceType": "Fabric", "ResourceValue": -1063 } ]
         },
         {
             "Trigger": [ "Unlock_Reach_Ironclad_Fortress" ],
@@ -634,7 +634,7 @@
             "Description": "She sits at the edge of the huge fortress, looking up in awe to the glittering gray towers and walls. She already tinkered with the idea of a future mine, but this is of course much better. Plans to strip and extract this whole giant complex already form in her mind like a river flowing down the mountain. Sometimes you are a bit scared of her.",
             "EffectText": "Unlocks the mining action\n+20 mining jobs",
             "Unlock": [ "Unlock_Action_Mining" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -7250 }, { "ResourceType": "Stone", "Amount": -1100 }, { "ResourceType": "Fabric", "Amount": -1063 }, { "ResourceType": "Potions", "Amount": -194 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -7250 }, { "ResourceType": "Stone", "ResourceValue": -1100 }, { "ResourceType": "Fabric", "ResourceValue": -1063 }, { "ResourceType": "Potions", "ResourceValue": -194 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Mining" ],
@@ -642,7 +642,7 @@
             "Description": "You follow in the tradition of all cultures that ever existed. As soon as you got your hands on something hard and sturdy, the first thought was to make weapons out of it.",
             "EffectText": "Unlocks forging action",
             "Unlock": [ "Unlock_Action_Forging" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -7250 }, { "ResourceType": "Stone", "Amount": -1063 }, { "ResourceType": "Iron", "Amount": -1063 }, { "ResourceType": "Weaponry", "Amount": -181 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -7250 }, { "ResourceType": "Stone", "ResourceValue": -1063 }, { "ResourceType": "Iron", "ResourceValue": -1063 }, { "ResourceType": "Weaponry", "ResourceValue": -181 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Mining" ],
@@ -650,7 +650,7 @@
             "Description": "Late at night, there's a knock at your door. The geologist stands in front of you, completely and utterly drunk, in her hands the construction plans for a lorry system. A complicated network of tunnels and rails that partly uses the natural paths of the dungeon. While she takes a long nap she mumbles something about finally feeling accepted for once. Meanwhile, you brood over the scrawly notes on the couch until the next morning.",
             "EffectText": "Unlocks new project: Construct a minecart rail system",
             "Unlock": [ "Unlock_Project_Construct_Minecart_Rail_System" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -3750 }, { "ResourceType": "Iron", "Amount": -625 }, { "ResourceType": "Wood", "Amount": -500 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -3750 }, { "ResourceType": "Iron", "ResourceValue": -625 }, { "ResourceType": "Wood", "ResourceValue": -500 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Mining" ],
@@ -658,7 +658,7 @@
             "Description": "The east is sometimes hit with awful tremors coming from the nearby mountain ranges. The fact that wee're digging deep down and could potentially destabilize the whole cavern system probably doesn't help either.",
             "EffectText": "Reduce warehouse cost by *0.1",
             "Unlock": [ "Unlock_Iron_Reinforced_Warehouses" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -7500 }, { "ResourceType": "Iron", "Amount": -1125 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -7500 }, { "ResourceType": "Iron", "ResourceValue": -1125 } ]
         },
         {
             "Trigger": [ "Unlock_Refugees_From_The_North" ],
@@ -666,7 +666,7 @@
             "Description": "They keep for themselves those northerners. Too foreign is this land to them, compared to their lush planes and fields. Still some come to you. They would have a suggestion. One that would majorly change the landscape, but also allow them to get some respite from their homesickness. The least you can do is to hear them out.",
             "EffectText": "Unlocks new project: Divert the river",
             "Unlock": [ "Unlock_Project_Divert_The_River" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -7125 }, { "ResourceType": "Wood", "Amount": -1063 }, { "ResourceType": "Iron", "Amount": -875 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -7125 }, { "ResourceType": "Wood", "ResourceValue": -1063 }, { "ResourceType": "Iron", "ResourceValue": -875 } ]
         },
         {
             "Trigger": [ "Unlock_Finished_Divert_The_River" ],
@@ -674,7 +674,7 @@
             "Description": "Thanks to the newly diverted river, there is not much more space to the left of the settlement. Enough to house a small port and some additional warehouses for the express purpose of trading the shipping. This way the treasure we unearth and the goods we produce can soon be distributed to the whole kingdom.",
             "EffectText": "Reduces Speed of all Economic Actions by 0.5\n*Increases Money Gain of Economic Actions by *1.2",
             "Unlock": [ "Unlock_Build_River_Port" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -7375 }, { "ResourceType": "Wood", "Amount": -1100 }, { "ResourceType": "Iron", "Amount": -625 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -7375 }, { "ResourceType": "Wood", "ResourceValue": -1100 }, { "ResourceType": "Iron", "ResourceValue": -625 } ]
         },
         {
             "Trigger": [ "Unlock_Finished_Divert_The_River" ],
@@ -682,7 +682,7 @@
             "Description": "The proud northerners are still somewhat distant towards the rest of the townsfolk. Maybe another construction project will help them feel more at home here? Maybe we should build something that they recognize at first glance?",
             "EffectText": "Increase farming food gain by 100%",
             "Unlock": [ "Unlock_Mills_For_Farms" ],
-            "Cost": [ { "ResourceType": "Wood", "Amount": -1125 }, { "ResourceType": "Fabric", "Amount": -1125 }, { "ResourceType": "Iron", "Amount": -875 } ]
+            "Cost": [ { "ResourceType": "Wood", "ResourceValue": -1125 }, { "ResourceType": "Fabric", "ResourceValue": -1125 }, { "ResourceType": "Iron", "ResourceValue": -875 } ]
         },
         {
             "Trigger": [ "Unlock_Finished_Divert_The_River" ],
@@ -690,7 +690,7 @@
             "Description": "Well not everything worked out perfectly. Turns out we do still need some water for our gardens, which no one thought about at the time. But hey, lets just build something else to get some water back into the settlement, just as we managed to remove all of it.",
             "EffectText": "Increase farming food gain by 50%\nIncrease cultivating herb gain by 50%",
             "Unlock": [ "Unlock_Built_An_Aqueduct" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -7500 }, { "ResourceType": "Stone", "Amount": -1125 }, { "ResourceType": "Iron", "Amount": -1000 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -7500 }, { "ResourceType": "Stone", "ResourceValue": -1125 }, { "ResourceType": "Iron", "ResourceValue": -1000 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Forging" ],
@@ -698,7 +698,7 @@
             "Description": "The north wasn't always the peaceful and tranquil community of farmers it is now, they tell you. Before all that, there was constant civil war, civilians and soldiers slaughtering each other alike in a desperate attempt to cement their own truth. In the end, the kingdom succeeded, but not without heavy losses. Still today the people there look towards the capital with distrust.",
             "EffectText": "Increase forging weaponry gain by 100%\n*+10 Market Job Cap",
             "Unlock": [ "Unlock_Forging_Weaponry_Gain_100" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -7500 }, { "ResourceType": "Food", "Amount": -1250 }, { "ResourceType": "Iron", "Amount": -1063 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -7500 }, { "ResourceType": "Food", "ResourceValue": -1250 }, { "ResourceType": "Iron", "ResourceValue": -1063 } ]
         },
         {
             "Trigger": [ "Unlock_Forging_Weaponry_Gain_100" ],
@@ -706,7 +706,7 @@
             "Description": "They bring tales of carnage and destruction. Stories about huge plant monsters and ferocious animals with too many claws and teeth. Of course they only heard of them second hand, but they still frightened them enough that they made for the east. Dozens of city folk from all over the kingdom stand before your doors, all wanting someplace to stay and hopefully some food and work.",
             "EffectText": "Unlocks unrest\nGain 10 population",
             "Unlock": [ "Unlock_Unrest" ],
-            "Cost": [ { "ResourceType": "Food", "Amount": -1313 }, { "ResourceType": "Potions", "Amount": -194 } ]
+            "Cost": [ { "ResourceType": "Food", "ResourceValue": -1313 }, { "ResourceType": "Potions", "ResourceValue": -194 } ]
         },
         {
             "Trigger": [ "Unlock_Unrest" ],
@@ -714,7 +714,7 @@
             "Description": "You realize, that you never really paid too much mind to the regulations and laws of this here new land. In fact, mostpeople just did whatever they wanted. Until now that also kind of worked, but it of course can't go on like this, with all the different new people in your settlement. You need to bring some order into this jumble of opinions.",
             "EffectText": "Unlocks new project: Install a jurisdiction system",
             "Unlock": [ "Unlock_Project_Install_Jurisdiction" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -7725 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -7725 } ]
         },
         {
             "Trigger": [ "Unlock_Unrest" ],
@@ -722,7 +722,7 @@
             "Description": "You did not think that more would come so soon. It seems like the fights in the east are rapidly increasing. More and more soldiers from the kingdom are sent to the front lines, trying to stem the tide of monsters coming from the Itari jungle\nStill, no one has heard anything from the elves within...",
             "EffectText": "Gain 5% unrest\nGain 10 population",
             "Unlock": [ "Unlock_Second_Wave_Of_Refugees" ],
-            "Cost": [ { "ResourceType": "Food", "Amount": -1450 }, { "ResourceType": "Potions", "Amount": -194 } ]
+            "Cost": [ { "ResourceType": "Food", "ResourceValue": -1450 }, { "ResourceType": "Potions", "ResourceValue": -194 } ]
         },
         {
             "Trigger": [ "Unlock_Unrest" ],
@@ -730,7 +730,7 @@
             "Description": "New faces means also new bellies to fill. And that might be a problem. The forest and river can only give so much. Time to expand the fields then. The northerners are quick to draw up some plans for additional farms, complete with their own little storage units.",
             "EffectText": "Unlocks building: Farmstead",
             "Unlock": [ "Unlock_Building_Farmstead" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -7775 }, { "ResourceType": "Food", "Amount": -1475 }, { "ResourceType": "Herbs", "Amount": -1250 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -7775 }, { "ResourceType": "Food", "ResourceValue": -1475 }, { "ResourceType": "Herbs", "ResourceValue": -1250 } ]
         },
         {
             "Trigger": [ "Unlock_Unrest" ],
@@ -738,7 +738,7 @@
             "Description": "As tensions rise into the sky, a revolution really night,\ninstead of talking to the mobs, the ruler fixates on stock.\nHow can they put more stuff in, in all the warehouses they've been?",
             "EffectText": "Unlocks Reorder Warehouses Project",
             "Unlock": [ "Unlock_Project_Reorder_Warehouses" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -8063 }, { "ResourceType": "Food", "Amount": -2375 }, { "ResourceType": "Wood", "Amount": -1450 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -8063 }, { "ResourceType": "Food", "ResourceValue": -2375 }, { "ResourceType": "Wood", "ResourceValue": -1450 } ]
         },
         {
             "Trigger": [ "Unlock_Project_Install_Jurisdiction" ],
@@ -746,7 +746,7 @@
             "Description": "The council is out of their minds. They say we should actually allow some crime to be done and take taxes on them. Like take a part of the money that for example the pickpockets steal. That way we can regulate they spout. What other madness will they come up with?",
             "EffectText": "All money gain +25%\nGain 5% Unrest",
             "Unlock": [ "Unlock_Allow_Thievery" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -7875 }, { "ResourceType": "Weaponry", "Amount": -206 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -7875 }, { "ResourceType": "Weaponry", "ResourceValue": -206 } ]
         },
         {
             "Trigger": [ "Unlock_Project_Install_Jurisdiction" ],
@@ -754,7 +754,7 @@
             "Description": "What good is law if no one is there to uphold it? You are not really a fan of the guardsfolk yourself, but you'll have to bite the arrow on that one it seems.",
             "EffectText": "Unlocks building: Guardhouse",
             "Unlock": [ "Unlock_Building_Guardhouse" ],
-            "Cost": [ { "ResourceType": "Stone", "Amount": -1425 }, { "ResourceType": "Iron", "Amount": -1375 } ]
+            "Cost": [ { "ResourceType": "Stone", "ResourceValue": -1425 }, { "ResourceType": "Iron", "ResourceValue": -1375 } ]
         },
         {
             "Trigger": [ "Unlock_Second_Wave_Of_Refugees" ],
@@ -762,7 +762,7 @@
             "Description": "As the unrest rises in your settlement, you one day get a letter from the baron. They heard of your plight and try to give you advice to reduce the animosity between your followers. Unfortunately, it's mostly just useless drivel, as can only come from a nobleman who has never worked a day in his life. Most of it is just a variation of 'give them something nice'. So pointless...",
             "EffectText": "Unlocks the refine action\nUnlocks new project: Distribute to the poor",
             "Unlock": [ "Unlock_Project_Distribute_To_Poor" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -8000 }, { "ResourceType": "Potions", "Amount": -219 }, { "ResourceType": "Herbs", "Amount": -1375 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -8000 }, { "ResourceType": "Potions", "ResourceValue": -219 }, { "ResourceType": "Herbs", "ResourceValue": -1375 } ]
         },
         {
             "Trigger": [ "Unlock_Second_Wave_Of_Refugees" ],
@@ -770,7 +770,7 @@
             "Description": "Like always, there is too much work and not enough workers. You definitely have an idea on how to fix that problem. Though most of the newcomers won't like it one bit.",
             "EffectText": "Gain 5% Unrest\n+10 Industrial Jobs\n+10 Delving Jobs",
             "Unlock": [ "Unlock_Force_Refugees_To_Work" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -8000 }, { "ResourceType": "Weaponry", "Amount": -206 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -8000 }, { "ResourceType": "Weaponry", "ResourceValue": -206 } ]
         },
         {
             "Trigger": [ "Unlock_Allow_Thievery" ],
@@ -778,7 +778,7 @@
             "Description": "It worked really well the first time, so it might be time to expand this business venture? Build them their own little dens of depravity? Well regulated of course. Wouldn't want anything illegal happening there.",
             "EffectText": "Unlocks building: Thief Den",
             "Unlock": [ "Unlock_Building_Thief_Den" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -8188 }, { "ResourceType": "Potions", "Amount": -206 }, { "ResourceType": "Weaponry", "Amount": -206 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -8188 }, { "ResourceType": "Potions", "ResourceValue": -206 }, { "ResourceType": "Weaponry", "ResourceValue": -206 } ]
         },
         {
             "Trigger": [ "Unlock_Project_Distribute_To_Poor" ],
@@ -786,7 +786,7 @@
             "Description": "Good and bad news. An enormous monstrosity broke out of the jungle in the west, almost bigger than a mountain, half plant and half beast. Teeth like trees and claws the size of a person. That's why more people than before are coming right now. But the good news are, that the king finally plans to take action. So the people feel safer soon and hopefully stay away for a bit.",
             "EffectText": "Gain 10% unrest\nGain 15 population",
             "Unlock": [ "Unlock_Last_Wave_Of_Refugees" ],
-            "Cost": [ { "ResourceType": "Food", "Amount": -2813 }, { "ResourceType": "Potions", "Amount": -219 } ]
+            "Cost": [ { "ResourceType": "Food", "ResourceValue": -2813 }, { "ResourceType": "Potions", "ResourceValue": -219 } ]
         },
         {
             "Trigger": [ "Unlock_Project_Distribute_To_Poor" ],
@@ -794,7 +794,7 @@
             "Description": "The mood must finally be raised again. It is about time that the people really get the things that they need. And what they need is obviously alcohol. And lots of it.",
             "EffectText": "When adding to a project, gain addition bonus percentages",
             "Unlock": [ "Unlock_Construct_Brewery" ],
-            "Cost": [ { "ResourceType": "Wood", "Amount": -1625 }, { "ResourceType": "Stone", "Amount": -1625 }, { "ResourceType": "Iron", "Amount": -1500 } ]
+            "Cost": [ { "ResourceType": "Wood", "ResourceValue": -1625 }, { "ResourceType": "Stone", "ResourceValue": -1625 }, { "ResourceType": "Iron", "ResourceValue": -1500 } ]
         },
         {
             "Trigger": [ "Unlock_Force_Refugees_To_Work" ],
@@ -802,7 +802,7 @@
             "Description": "There are simply not enough resources to construct all the housing that is necessary. At least not in our current design. But we could of course always make them a bit smaller. Really simplify the design, reduce it to only the really necessary stuff. Would of course make living there a bit more unpleasant than otherwise.",
             "EffectText": "Unlocks building: Ghetto",
             "Unlock": [ "Unlock_Building_Ghetto" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -8188 }, { "ResourceType": "Wood", "Amount": -1750 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -8188 }, { "ResourceType": "Wood", "ResourceValue": -1750 } ]
         },
         {
             "Trigger": [ "Unlock_Building_Ghetto" ],
@@ -810,7 +810,7 @@
             "Description": "You produce more. You have more people. You are the biggest settlement in the whole region, if not the whole east. You have earned this. You have culture and food and money. And a whole lot of problems. Still we will try. And we will try for as long as it takes.",
             "EffectText": "People pay taxes now",
             "Unlock": [ "Unlock_Proclaim_A_City" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -8250 }, { "ResourceType": "Food", "Amount": -2813 }, { "ResourceType": "Luxuries", "Amount": -1813 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -8250 }, { "ResourceType": "Food", "ResourceValue": -2813 }, { "ResourceType": "Luxuries", "ResourceValue": -1813 } ]
         },
         {
             "Trigger": [ "Unlock_Proclaim_A_City" ],
@@ -818,7 +818,7 @@
             "Description": "There is just too much gold to distribute onto all of your money storage businesses. There must be a simpler solution. Maybe some sort of facility or complex to specifically contain money and other valuable things.",
             "EffectText": "Increases Money Storage by 20,000",
             "Unlock": [ "Unlock_Construct_A_Treasury" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -8275 }, { "ResourceType": "Stone", "Amount": -1875 }, { "ResourceType": "Iron", "Amount": -1875 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -8275 }, { "ResourceType": "Stone", "ResourceValue": -1875 }, { "ResourceType": "Iron", "ResourceValue": -1875 } ]
         },
         {
             "Trigger": [ "Unlock_Proclaim_A_City" ],
@@ -826,7 +826,7 @@
             "Description": "People complain about the lack of nature in the city. Isn't that why they came here in the first place? To escape from all the weird and dangerous plant life that creeps up everywhere?\nBut oh well, if they need their little gardens and hedges to feel good, you can make it happen.",
             "EffectText": "Reduce Unrest by 10%",
             "Unlock": [ "Unlock_Design_Inner_City_Park" ],
-            "Cost": [ { "ResourceType": "Wood", "Amount": -1938 }, { "ResourceType": "Herbs", "Amount": -1625 }, { "ResourceType": "Luxuries", "Amount": -1563 } ]
+            "Cost": [ { "ResourceType": "Wood", "ResourceValue": -1938 }, { "ResourceType": "Herbs", "ResourceValue": -1625 }, { "ResourceType": "Luxuries", "ResourceValue": -1563 } ]
         },
         {
             "Trigger": [ "Unlock_Proclaim_A_City" ],
@@ -834,7 +834,7 @@
             "Description": "The crafters came up with a crazy idea. They hate having to move stuff around every-time, so they tried figuring out on how to get stuff from one place to another without moving themselves. Sounds crazy to you, but if they can do it cheaper than actual people could, more power to them.",
             "EffectText": "Unlocks the Manufacture action",
             "Unlock": [ "Unlock_Action_Manufacture" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -8250 }, { "ResourceType": "Iron", "Amount": -1938 }, { "ResourceType": "Wood", "Amount": -1750 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -8250 }, { "ResourceType": "Iron", "ResourceValue": -1938 }, { "ResourceType": "Wood", "ResourceValue": -1750 } ]
         },
         {
             "Trigger": [ "Unlock_Design_Inner_City_Park" ],
@@ -842,7 +842,7 @@
             "Description": "What better way to decorate a tamed nature than with a tamed spring. Surrounded by carved stone, of course, and without the subsequent annoying river that makes everything muddy.",
             "EffectText": "Reduce Unrest by 5%",
             "Unlock": [ "Unlock_Build_A_Fountain" ],
-            "Cost": [ { "ResourceType": "Stone", "Amount": -2000 } ]
+            "Cost": [ { "ResourceType": "Stone", "ResourceValue": -2000 } ]
         },
         {
             "Trigger": [ "Unlock_Build_A_Fountain" ],
@@ -850,7 +850,7 @@
             "Description": "Radical measures are needed to divert people's attention from the current chaos. Only an immense construction project of gigantic proportions that consumes far too many resources and t akes forever to complete can help us now.",
             "EffectText": "Unlocks new project: Build a coliseum",
             "Unlock": [ "Unlock_Project_Build_A_Coliseum" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -30000 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -30000 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Manufacture" ],
@@ -858,7 +858,7 @@
             "Description": "It turns out that wind is something similar to water. And with all the new gears, we can now use it in a similar way. Hopefully it won't be used up over time.",
             "EffectText": "Unlocks Building: Mill",
             "Unlock": [ "Unlock_Building_Mill" ],
-            "Cost": [ { "ResourceType": "Wood", "Amount": -2000 }, { "ResourceType": "Gears", "Amount": -1250 } ]
+            "Cost": [ { "ResourceType": "Wood", "ResourceValue": -2000 }, { "ResourceType": "Gears", "ResourceValue": -1250 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Manufacture" ],
@@ -866,7 +866,7 @@
             "Description": "Many of the industries located here could benefit from the cogwheel. Most of them already work with wheels of some kind anyway. Looms, sawmills, spinning wheels, water pumps, carts and carriages...",
             "EffectText": "Unlocks new project: Modernise",
             "Unlock": [ "Unlock_Project_Modernise" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -25000 }, { "ResourceType": "Iron", "Amount": -2000 }, { "ResourceType": "Wood", "Amount": -1625 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -25000 }, { "ResourceType": "Iron", "ResourceValue": -2000 }, { "ResourceType": "Wood", "ResourceValue": -1625 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Manufacture" ],
@@ -874,7 +874,7 @@
             "Description": "The reports of monsters come at ever shorter intervals. A woodcutter from afar is even said to have seen one himself sneaking around in the undergrowth.\nThe rumors keep building up, it's time for you to calm people down.",
             "EffectText": "Reduces all action speeds by *0.5\n*Increases all action efficiency by *2",
             "Unlock": [ "Unlock_Grand_Speech" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -25000 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -25000 } ]
         },
         {
             "Trigger": [ "Unlock_Project_Build_A_Coliseum" ],
@@ -882,7 +882,7 @@
             "Description": "Some would say in times like these it's a waste of money and resources, but people are stressed and stressed people often do rash things. They need a real place to unwind and forget about everyday troubles.",
             "EffectText": "When adding to a project, gain additional bonus percentages",
             "Unlock": [ "Unlock_Entertainment_District" ],
-            "Cost": [ { "ResourceType": "Wood", "Amount": -2250 }, { "ResourceType": "Stone", "Amount": -2250 }, { "ResourceType": "Fabric", "Amount": -1875 } ]
+            "Cost": [ { "ResourceType": "Wood", "ResourceValue": -2250 }, { "ResourceType": "Stone", "ResourceValue": -2250 }, { "ResourceType": "Fabric", "ResourceValue": -1875 } ]
         },
         {
             "Trigger": [ "Unlock_Project_Modernise" ],
@@ -890,7 +890,7 @@
             "Description": "Putting cogs onto cogs while those cogs are touching other cogs has the nice effect, that we do nto need the workers in between anymore and they can be used elsewhere now. Our workshops can be made more compact and become way more efficient.",
             "EffectText": "Upgrade Workshop to Factory (increased Industrial Job Capacity)",
             "Unlock": [ "Unlock_Automate_Everything" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -29375 }, { "ResourceType": "Gears", "Amount": -2125 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -29375 }, { "ResourceType": "Gears", "ResourceValue": -2125 } ]
         },
         {
             "Trigger": [ "Unlock_Grand_Speech" ],
@@ -898,7 +898,7 @@
             "Description": "Still more people arrive daily. Once again we need to expand our current housing system, zoning in more outer districts, which in turns also means we need to expand our walls to provide safe living to everyone here.\nTheir tales of giant eight-legged spider monsters and walking trees encroaching onto the whole kingdom also doesn't help morale.",
             "EffectText": "Gain 10% unrest\nGain 10 population\nFood need of workers doubles",
             "Unlock": [ "Unlock_Another_Wave_Scared_People" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -28750 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -28750 } ]
         },
         {
             "Trigger": [ "Unlock_Another_Wave_Scared_People" ],
@@ -906,7 +906,7 @@
             "Description": "Strangely enough, despite all the problems and scary monster stories that are plaguing us at the moment, despite the masses of refugees flooding into the city every day and reports of an increasingly weakening warfront, the economic situation is better than ever.\nAlmost as if... the plight of many is paying off well for us?",
             "EffectText": "+20 job caps for all commercial jobs",
             "Unlock": [ "Unlock_More_Clerks" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -31250 }, { "ResourceType": "Food", "Amount": -3125 }, { "ResourceType": "Luxuries", "Amount": -2163 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -31250 }, { "ResourceType": "Food", "ResourceValue": -3125 }, { "ResourceType": "Luxuries", "ResourceValue": -2163 } ]
         },
         {
             "Trigger": [ "Unlock_More_Clerks" ],
@@ -914,7 +914,7 @@
             "Description": "With all this war going on, the wizards are in dire need of a new base of operation. The current capiral, where their university grounds are located seems to be in more and more danger of approaching forces. The kings army also seems to be on the defense right now.",
             "EffectText": "Unlocks the Purify action",
             "Unlock": [ "Unlock_Action_Purify" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -32500 }, { "ResourceType": "Treasure", "Amount": -94 }, { "ResourceType": "Luxuries", "Amount": -2200 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -32500 }, { "ResourceType": "Treasure", "ResourceValue": -94 }, { "ResourceType": "Luxuries", "ResourceValue": -2200 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Purify" ],
@@ -922,7 +922,7 @@
             "Description": "Every day there are several complaints from people about the wizards in their small apartments. Reports of explosions, the stench of smoke and housemates turned into animals. Last time, a horse even came by claiming to have once been a factory worker until it drank from the wrong coffee mug. It can't go on like this.",
             "EffectText": "Increase artifact gain by 100%",
             "Unlock": [ "Unlock_University_For_Wizards" ],
-            "Cost": [ { "ResourceType": "Iron", "Amount": -2288 }, { "ResourceType": "Stone", "Amount": -1625 }, { "ResourceType": "Treasure", "Amount": -75 }, { "ResourceType": "Artifacts", "Amount": -75 } ]
+            "Cost": [ { "ResourceType": "Iron", "ResourceValue": -2288 }, { "ResourceType": "Stone", "ResourceValue": -1625 }, { "ResourceType": "Treasure", "ResourceValue": -75 }, { "ResourceType": "Artifacts", "ResourceValue": -75 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Purify" ],
@@ -930,7 +930,7 @@
             "Description": "The wizards are currently working on a way to magically create food. This involves complex rituals and complicated spells. And, above all, a lot of explosions.",
             "EffectText": "Upgrade the Granery to Food Markets (increased food storage)",
             "Unlock": [ "Unlock_Granary_To_Food_Market" ],
-            "Cost": [ { "ResourceType": "Food", "Amount": -3188 }, { "ResourceType": "Fabric", "Amount": -2250 }, { "ResourceType": "Artifacts", "Amount": -100 } ]
+            "Cost": [ { "ResourceType": "Food", "ResourceValue": -3188 }, { "ResourceType": "Fabric", "ResourceValue": -2250 }, { "ResourceType": "Artifacts", "ResourceValue": -100 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Purify" ],
@@ -938,7 +938,7 @@
             "Description": "No matter how often the high council of wizards affirms that the artifacts are not relics of faith but rather a wonder of transmagical engineering, the southern religious community still want to display them in their temple.\nOne random bystander said this towards the matter. 'They just look kinda nice in there.'",
             "EffectText": "Adds artifact storage to temples",
             "Unlock": [ "Unlock_Temple_Artifact_Storage" ],
-            "Cost": [ { "ResourceType": "Stone", "Amount": -2300 }, { "ResourceType": "Iron", "Amount": -2300 }, { "ResourceType": "Artifacts", "Amount": -13 } ]
+            "Cost": [ { "ResourceType": "Stone", "ResourceValue": -2300 }, { "ResourceType": "Iron", "ResourceValue": -2300 }, { "ResourceType": "Artifacts", "ResourceValue": -13 } ]
         },
         {
             "Trigger": [ "Unlock_University_For_Wizards" ],
@@ -946,7 +946,7 @@
             "Description": "The news broke towards the town like an unstoppable tidal wave. It swept through the streets leaving crying and distraught citizens until it finally reached your ears.\nThe royal army was completely wiped out, except a couple of stragglers, which scattered to the four winds like headless chickens. The dismay is palpable by every single one of your people. No one is sure on what to do now.",
             "EffectText": "Increases Unrest by 30%",
             "Unlock": [ "Unlock_The_King_Is_Dead" ],
-            "Cost": [ { "ResourceType": "Potions", "Amount": -188 } ]
+            "Cost": [ { "ResourceType": "Potions", "ResourceValue": -188 } ]
         },
         {
             "Trigger": [ "Unlock_The_King_Is_Dead" ],
@@ -954,7 +954,7 @@
             "Description": "People flock to the city's temples in large numbers. Many pray for the dead and their lost loved ones. Others ask to be spared from the green monsters, for whom nothing now stands between us.\nWho could possibly ridicule their efforts? What else can protect us now apart from faith?",
             "EffectText": "Upgrade Temple to Cathedral (increased Treasure storage and food gain)",
             "Unlock": [ "Unlock_Temple_To_Cathedral" ],
-            "Cost": [ { "ResourceType": "Stone", "Amount": -2438 }, { "ResourceType": "Luxuries", "Amount": -2000 } ]
+            "Cost": [ { "ResourceType": "Stone", "ResourceValue": -2438 }, { "ResourceType": "Luxuries", "ResourceValue": -2000 } ]
         },
         {
             "Trigger": [ "Unlock_The_King_Is_Dead" ],
@@ -962,7 +962,7 @@
             "Description": "Nothing holds people back anymore and they flood in from all over the country. Many have heard of this place, of you and the rest of the inhabitants who have built up a reasonably pleasant civilization here in the wasteland. Your city seems like the only remaining safe haven that exists.",
             "EffectText": "Gain 10% unrest\nGain 20 population",
             "Unlock": [ "Unlock_Daily_Streams_Of_Refugees" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -33125 }, { "ResourceType": "Food", "Amount": -3750 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -33125 }, { "ResourceType": "Food", "ResourceValue": -3750 } ]
         },
         {
             "Trigger": [ "Unlock_The_King_Is_Dead" ],
@@ -970,7 +970,7 @@
             "Description": "It finally happened. The last warehouse in the last corner of the city finally could hold no more. But as if on cue, the wizards approached you. They already have an idea. Simple and straightforward, without any major risks.",
             "EffectText": "Unlocks new project: Transdimensional Storage Modules",
             "Unlock": [ "Unlock_Project_Transdimensional_Storage_Modules" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -31250 }, { "ResourceType": "Treasure", "Amount": -150 }, { "ResourceType": "Artifacts", "Amount": -150 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -31250 }, { "ResourceType": "Treasure", "ResourceValue": -150 }, { "ResourceType": "Artifacts", "ResourceValue": -150 } ]
         },
         {
             "Trigger": [ "Unlock_Daily_Streams_Of_Refugees" ],
@@ -978,7 +978,7 @@
             "Description": "How long do we want to keep doing the same thing before we realize that we're just going around in circles? It's the same every time, a whole wave of people comes, we can't deal with it at first and then it somehow works out. There must be a way to simplify the whole thing.",
             "EffectText": "Unlocks new project: Streamline Refugee intake",
             "Unlock": [ "Unlock_Project_Streamline_Refugee_Intake" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -35000 }, { "ResourceType": "Luxuries", "Amount": -2625 }, { "ResourceType": "Potions", "Amount": -225 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -35000 }, { "ResourceType": "Luxuries", "ResourceValue": -2625 }, { "ResourceType": "Potions", "ResourceValue": -225 } ]
         },
         {
             "Trigger": [ "Unlock_Daily_Streams_Of_Refugees" ],
@@ -986,7 +986,7 @@
             "Description": "Reports from your scouts paint a terrible picture. The entire west is completely depopulated and covered in wild jungle. Anyone who couldn't escape in time is dead. It doesn't look any better for the rest of the kingdom. Those who have not yet fled are holding out in mad desperation or are just waiting for the end. Time to finally take responsibility.",
             "EffectText": "Reduce Unrest by 5%",
             "Unlock": [ "Unlock_Announce_City_As_Safe_Haven" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -32500 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -32500 } ]
         },
         {
             "Trigger": [ "Unlock_Announce_City_As_Safe_Haven" ],
@@ -994,7 +994,7 @@
             "Description": "One day, your scouts bring you a beautiful person. Their noble lineage is recognizable at first glance. They have barely managed to escape from the stormed capital and have finally arrived in your city after a long and arduous journey.\nIn addition, they have a request to make of you. The androgynous heir is now probably the last of their line. A fact that doesn't have to stay that way. They ask for your hand in marriage. Which in turn would make you the new legitimate king.",
             "EffectText": "People pay more taxes (DEV NOTE: 5%?)",
             "Unlock": [ "Unlock_Marry_The_Heir" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -33750 }, { "ResourceType": "Food", "Amount": -4875 }, { "ResourceType": "Artifacts", "Amount": -200 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -33750 }, { "ResourceType": "Food", "ResourceValue": -4875 }, { "ResourceType": "Artifacts", "ResourceValue": -200 } ]
         },
         {
             "Trigger": [ "Unlock_Temple_To_Cathedral" ],
@@ -1002,7 +1002,7 @@
             "Description": "A single wizard is regularly visiting the temples. You observe him a bit, using small trinkets and blinking instruments to measure something or other. After a few days of this, they approach you with another idea. Using prayer to influence plant growth.",
             "EffectText": "Unlocks new project: Faith insertion",
             "Unlock": [ "Unlock_Project_Faith_Insertion" ],
-            "Cost": [ { "ResourceType": "Food", "Amount": -4500 }, { "ResourceType": "Luxuries", "Amount": -2563 }, { "ResourceType": "Treasure", "Amount": -163 } ]
+            "Cost": [ { "ResourceType": "Food", "ResourceValue": -4500 }, { "ResourceType": "Luxuries", "ResourceValue": -2563 }, { "ResourceType": "Treasure", "ResourceValue": -163 } ]
         },
         {
             "Trigger": [ "Unlock_Finished_Transdimensional_Storage_Modules" ],
@@ -1010,7 +1010,7 @@
             "Description": "Recently, magicians have been offering their secret mixtures on the public streets. Transformed animals now run through the streets here and there, claiming to have once been a renowned member of our society. Some skins are now blue and there are people sporting bald heads or enormous ears.",
             "EffectText": "Increase potion gain from brewing by 50%",
             "Unlock": [ "Unlock_Brews_Of_The_High_Council" ],
-            "Cost": [ { "ResourceType": "Iron", "Amount": -2625 }, { "ResourceType": "Potions", "Amount": -238 }, { "ResourceType": "Artifacts", "Amount": -188 } ]
+            "Cost": [ { "ResourceType": "Iron", "ResourceValue": -2625 }, { "ResourceType": "Potions", "ResourceValue": -238 }, { "ResourceType": "Artifacts", "ResourceValue": -188 } ]
         },
         {
             "Trigger": [ "Unlock_Finished_Transdimensional_Storage_Modules" ],
@@ -1018,7 +1018,7 @@
             "Description": "Hell is a hot place. Perfect for melting metals. Unfortunately, of course, it's not right here, but probably somewhere deep below. Sadly, you have never run across it on your forays into the hole. Nevertheless, some wizards have been able to open a portal to it. Or at least to a place that is similarly very hot.",
             "EffectText": "Increase weaponry gain from forging by 50%",
             "Unlock": [ "Unlock_Enchanted_Forges" ],
-            "Cost": [ { "ResourceType": "Gears", "Amount": -2625 }, { "ResourceType": "Weaponry", "Amount": -225 }, { "ResourceType": "Artifacts", "Amount": -188 } ]
+            "Cost": [ { "ResourceType": "Gears", "ResourceValue": -2625 }, { "ResourceType": "Weaponry", "ResourceValue": -225 }, { "ResourceType": "Artifacts", "ResourceValue": -188 } ]
         },
         {
             "Trigger": [ "Unlock_Marry_The_Heir" ],
@@ -1026,7 +1026,7 @@
             "Description": "Now that hardly anyone goes out into the wilderness voluntarily anymore and nobody needs anything from out there anyway, many former adventurers have fallen by the wayside. But you already have an idea of how you could use these brave fellows for something more useful.",
             "EffectText": "Upgrade Delving Outpost to Dungeon Entrance (Increased delve Cap and weaponry storage)",
             "Unlock": [ "Unlock_Delving_Output_To_Dungeon_Entrance" ],
-            "Cost": [ { "ResourceType": "Food", "Amount": -8750 }, { "ResourceType": "Gears", "Amount": -7500 }, { "ResourceType": "Artifacts", "Amount": -188 } ]
+            "Cost": [ { "ResourceType": "Food", "ResourceValue": -8750 }, { "ResourceType": "Gears", "ResourceValue": -7500 }, { "ResourceType": "Artifacts", "ResourceValue": -188 } ]
         },
         {
             "Trigger": [ "Unlock_Marry_The_Heir" ],
@@ -1034,7 +1034,7 @@
             "Description": "The androgynous heir sometimes gives you valuable advise. As is the case this time. They believe that people will only accept your regency if you behave yourself accordingly. And that includes the right domicile for a person of your standing.",
             "EffectText": "Increase money storage by 40,000",
             "Unlock": [ "Unlock_Build_A_Castle" ],
-            "Cost": [ { "ResourceType": "Stone", "Amount": -8750 }, { "ResourceType": "Iron", "Amount": -8750 }, { "ResourceType": "Luxuries", "Amount": -8750 }, { "ResourceType": "Treasure", "Amount": -188 } ]
+            "Cost": [ { "ResourceType": "Stone", "ResourceValue": -8750 }, { "ResourceType": "Iron", "ResourceValue": -8750 }, { "ResourceType": "Luxuries", "ResourceValue": -8750 }, { "ResourceType": "Treasure", "ResourceValue": -188 } ]
         },
         {
             "Trigger": [ "Unlock_Marry_The_Heir" ],
@@ -1042,7 +1042,7 @@
             "Description": "The androgynous heir has another proposition for you. One that requires a little more... privacy. Only if you feel comfortable with it, of course.",
             "EffectText": "+3 population\nDecrease Unrest by 5%",
             "Unlock": [ "Unlock_Have_Some_Heirs" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -33750 }, { "ResourceType": "Food", "Amount": -10000 }, { "ResourceType": "Potions", "Amount": -263 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -33750 }, { "ResourceType": "Food", "ResourceValue": -10000 }, { "ResourceType": "Potions", "ResourceValue": -263 } ]
         },
         {
             "Trigger": [ "Unlock_Project_Faith_Insertion" ],
@@ -1050,7 +1050,7 @@
             "Description": "We need to consolidate residential units again. People on top of people next to people. Crammed into tiny rooms with the bare essentials.\nIt can't go on like this. We have to go further, up higher ever higher.",
             "EffectText": "Combine House and Ghetto into Apartment Complexes",
             "Unlock": [ "Unlock_Combine_House_And_Ghetto_To_Apartments" ],
-            "Cost": [ { "ResourceType": "Wood", "Amount": -2750 }, { "ResourceType": "Stone", "Amount": -2750 }, { "ResourceType": "Iron", "Amount": -2750 } ]
+            "Cost": [ { "ResourceType": "Wood", "ResourceValue": -2750 }, { "ResourceType": "Stone", "ResourceValue": -2750 }, { "ResourceType": "Iron", "ResourceValue": -2750 } ]
         },
         {
             "Trigger": [ "Unlock_Combine_House_And_Ghetto_To_Apartments" ],
@@ -1058,7 +1058,7 @@
             "Description": "It should come as no surprise that our guardsmen are already completely overburdened. We have cultures from all over the kingdom crammed together and our collective demise is already looming on the horizon. Unrest is spreading faster than it can be contained.",
             "EffectText": "Reduce Guardhouse Cost by 200%",
             "Unlock": [ "Unlock_Reduce_Guardhouse_Cost_200" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -33750 }, { "ResourceType": "Iron", "Amount": -6250 }, { "ResourceType": "Weaponry", "Amount": -275 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -33750 }, { "ResourceType": "Iron", "ResourceValue": -6250 }, { "ResourceType": "Weaponry", "ResourceValue": -275 } ]
         },
         {
             "Trigger": [ "Unlock_Brews_Of_The_High_Council" ],
@@ -1066,7 +1066,7 @@
             "Description": "Below you will find more and more old people in robes. They are exploring the hole in their own way, with telescopes and measuring equipment. They have found their own ways and secrets, which they are happy to tell you and anyone else who wants to listen.",
             "EffectText": "+10 Delve Job Capacity",
             "Unlock": [ "Unlock_Secrets_Of_The_Deep" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -33750 }, { "ResourceType": "Herbs", "Amount": -2750 }, { "ResourceType": "Wood", "Amount": -2500 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -33750 }, { "ResourceType": "Herbs", "ResourceValue": -2750 }, { "ResourceType": "Wood", "ResourceValue": -2500 } ]
         },
         {
             "Trigger": [ "Unlock_Build_A_Castle" ],
@@ -1074,7 +1074,7 @@
             "Description": "A cry from afar. A deep rumble from beyond the forest.\nScreaming people at the edge of the farmsteads, running away in wild desperation. Nurses rush in to tend to bleeding faces.\nA roar so deafening that it can be heard from far and wide. Trees break under the hooves.\nThey have arrived.",
             "EffectText": "Increase Unrest by 10%\nUnlocks Warfare",
             "Unlock": [ "Unlock_Warfare" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -35000 }, { "ResourceType": "Weaponry", "Amount": -275 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -35000 }, { "ResourceType": "Weaponry", "ResourceValue": -275 } ]
         },
         {
             "Trigger": [ "Unlock_Warfare" ],
@@ -1082,7 +1082,7 @@
             "Description": "Sometimes people even dig the ever larger holes with their hands. A trench grows like a vine around the outer palisade. Tons of material is carried away in buckets and handcards only just as far as necessary. Never out of sight of the bowmen sitting above.",
             "EffectText": "+15 population",
             "Unlock": [ "Unlock_Dug_A_Moat" ],
-            "Cost": [ { "ResourceType": "Food", "Amount": -15000 }, { "ResourceType": "Wood", "Amount": -11250 }, { "ResourceType": "Stone", "Amount": -11250 } ]
+            "Cost": [ { "ResourceType": "Food", "ResourceValue": -15000 }, { "ResourceType": "Wood", "ResourceValue": -11250 }, { "ResourceType": "Stone", "ResourceValue": -11250 } ]
         },
         {
             "Trigger": [ "Unlock_Warfare" ],
@@ -1090,7 +1090,7 @@
             "Description": "Every day we receive new reports of people being injured in the wild. Inflamed spider bites, lungs pierced by antlers and poison ivy that wraps itself around necks like a thin rope. The number of injured people in constantly rising.",
             "EffectText": "Decrease all army costs by 100%",
             "Unlock": [ "Unlock_Build_A_Hospital" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -62500 }, { "ResourceType": "Wood", "Amount": -12500 }, { "ResourceType": "Gears", "Amount": -12500 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -62500 }, { "ResourceType": "Wood", "ResourceValue": -12500 }, { "ResourceType": "Gears", "ResourceValue": -12500 } ]
         },
         {
             "Trigger": [ "Unlock_Warfare" ],
@@ -1098,7 +1098,7 @@
             "Description": "Angry crowds gather outside your doors. But not as usual to complain, but instead all with a similar desire to do something about the impending doom, to take action against the fear and despair. Most of them are prepared to do anything, but are hardly able to even wield a sword.",
             "EffectText": "Unlocks new army: Footsoldier",
             "Unlock": [ "Unlock_Army_Footsoldier" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -68750 }, { "ResourceType": "Fabric", "Amount": -12500 }, { "ResourceType": "Weaponry", "Amount": -1000 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -68750 }, { "ResourceType": "Fabric", "ResourceValue": -12500 }, { "ResourceType": "Weaponry", "ResourceValue": -1000 } ]
         },
         {
             "Trigger": [ "Unlock_Warfare" ],
@@ -1106,7 +1106,7 @@
             "Description": "For years and years we tried to ignore everything that was going on for as best as we could. But finally we can no longer divert our eyes, for there are no more places to look without getting a glimpse of the danger that is now headed for us and us alone.\nThe beast is on our doorstep and we can no longer hide away in our wasteland.",
             "EffectText": "Unlocks new project: Turn on the war economy",
             "Unlock": [ "Unlock_Project_War_Economy" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -75000 }, { "ResourceType": "Artifacts", "Amount": -188 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -75000 }, { "ResourceType": "Artifacts", "ResourceValue": -188 } ]
         },
         {
             "Trigger": [ "Unlock_Dug_A_Moat" ],
@@ -1114,7 +1114,7 @@
             "Description": "Our old wooden palisade won't be enough anymore. The geologist personally draws you plans that utilize the best properties of the stone we have available to us.\nThis will have to be enough. It has to.",
             "EffectText": "+25 population",
             "Unlock": [ "Unlock_Massive_Stone_Wall" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -80000 }, { "ResourceType": "Stone", "Amount": -15000 }, { "ResourceType": "Iron", "Amount": -12500 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -80000 }, { "ResourceType": "Stone", "ResourceValue": -15000 }, { "ResourceType": "Iron", "ResourceValue": -12500 } ]
         },
         {
             "Trigger": [ "Unlock_Army_Footsoldier" ],
@@ -1122,7 +1122,7 @@
             "Description": "What if there was a soldier who didn't have to risk their life to defend our homeland? One who would march out without any regard for their own life and hold the line with iron discipline. One of the wizards promises you that such a thing could be possible under certain circumstances.",
             "EffectText": "Unlocks new army: Brutish Golem",
             "Unlock": [ "Unlock_Army_Brutish_Golem" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -83750 }, { "ResourceType": "Stone", "Amount": -16250 }, { "ResourceType": "Gears", "Amount": -10000 }, { "ResourceType": "Artifacts", "Amount": -194 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -83750 }, { "ResourceType": "Stone", "ResourceValue": -16250 }, { "ResourceType": "Gears", "ResourceValue": -10000 }, { "ResourceType": "Artifacts", "ResourceValue": -194 } ]
         },
         {
             "Trigger": [ "Unlock_Massive_Stone_Wall" ],
@@ -1130,7 +1130,7 @@
             "Description": "Higher every higher do we need to reach, to observe everything that surrounds our land. From every corner they can come, so we have to let our gaze penetrate into the deepest and furthest parts of the east. Enormous towers should do the trick.",
             "EffectText": "+40 population",
             "Unlock": [ "Unlock_Guard_Towers_Atop_The_Wall" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -106250 }, { "ResourceType": "Stone", "Amount": -21094 }, { "ResourceType": "Wood", "Amount": -15625 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -106250 }, { "ResourceType": "Stone", "ResourceValue": -21094 }, { "ResourceType": "Wood", "ResourceValue": -15625 } ]
         },
         {
             "Trigger": [ "Unlock_Build_A_Hospital" ],
@@ -1138,7 +1138,7 @@
             "Description": "Our people are dying. And we can't do a single thing against it.\nBut at least we can make their death graceful.",
             "EffectText": "Decrease delving speed by 50%\nIncrease delving efficiency by 100%",
             "Unlock": [ "Unlock_Mausoleum_For_The_Dead" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -81250 }, { "ResourceType": "Stone", "Amount": -15625 }, { "ResourceType": "Fabric", "Amount": -12500 }, { "ResourceType": "Treasure", "Amount": -194 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -81250 }, { "ResourceType": "Stone", "ResourceValue": -15625 }, { "ResourceType": "Fabric", "ResourceValue": -12500 }, { "ResourceType": "Treasure", "ResourceValue": -194 } ]
         },
         {
             "Trigger": [ "Unlock_Army_Brutish_Golem" ],
@@ -1146,7 +1146,7 @@
             "Description": "So far, the sky was like freedom to us, but that changed one evening as they suddenly came in droves. Claws and beaks wreak havok among unsuspecting passersby. Glowing eyes, wings too large to belong to any normal avian, and a certain hatred for all of our kind in their behavior. We face another threat.",
             "EffectText": "Unlock new army: Armored Zeppelin",
             "Unlock": [ "Unlock_Army_Armored_Zeppelin" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -106250 }, { "ResourceType": "Fabric", "Amount": -21094 }, { "ResourceType": "Wood", "Amount": -15625 }, { "ResourceType": "Weaponry", "Amount": -1328 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -106250 }, { "ResourceType": "Fabric", "ResourceValue": -21094 }, { "ResourceType": "Wood", "ResourceValue": -15625 }, { "ResourceType": "Weaponry", "ResourceValue": -1328 } ]
         },
         {
             "Trigger": [ "Unlock_Reach_Oily_Grottos", "Unlock_Warfare" ],
@@ -1154,7 +1154,7 @@
             "Description": "You know of a peculiar attribute of the black sludge to easily burst into flames. The intensity shocked you at first, but also gave you an idea. What if you could transport this substance all the way to the surface? It could probably be used in more ways than you realized.",
             "EffectText": "Unlocks the Pump Action",
             "Unlock": [ "Unlock_Action_Pump" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -82500 }, { "ResourceType": "Iron", "Amount": -16250 }, { "ResourceType": "Gears", "Amount": -10000 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -82500 }, { "ResourceType": "Iron", "ResourceValue": -16250 }, { "ResourceType": "Gears", "ResourceValue": -10000 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Pump" ],
@@ -1162,7 +1162,7 @@
             "Description": "Some fight their own battles, on their own kind field. The only ones standing between us and starvation are those toiling endlessly on the rocky outcrops that grow our vegetables and fruit",
             "EffectText": "Farming gain increased by 20%",
             "Unlock": [ "Unlock_Invigorated_Farmers" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -106250 }, { "ResourceType": "Food", "Amount": -23438 }, { "ResourceType": "Fabric", "Amount": -18750 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -106250 }, { "ResourceType": "Food", "ResourceValue": -23438 }, { "ResourceType": "Fabric", "ResourceValue": -18750 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Pump" ],
@@ -1170,7 +1170,7 @@
             "Description": "The only ones who still regularly venture into the wilderness are the silent hunters. They have withdrawn even further, and are only rarely seen carting wagons full of mutated game to the city. They wear amulets made of bone and have fangs attached to their knives. Their eyes are often as deep blue as the sky.",
             "EffectText": "Hunting food gain reduced by 50%\nHunting action also gains potions",
             "Unlock": [ "Unlock_Silent_Hunter_Tribute" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -106250 }, { "ResourceType": "Wood", "Amount": -20313 }, { "ResourceType": "Herbs", "Amount": -15625 }, { "ResourceType": "Potions", "Amount": -391 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -106250 }, { "ResourceType": "Wood", "ResourceValue": -20313 }, { "ResourceType": "Herbs", "ResourceValue": -15625 }, { "ResourceType": "Potions", "ResourceValue": -391 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Pump" ],
@@ -1178,7 +1178,7 @@
             "Description": "One lonely morning, a fisherman spots something in the downriver. A body. Then more and more arrive. So far they haven't stopped. Along with them are gloating more and more of the goods of civilization.  Those specks of culture, one does not really need, but that are really nice to have.",
             "EffectText": "Fishing action also gains luxuries",
             "Unlock": [ "Unlock_Stuff_Floats_Down_River" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -106250 }, { "ResourceType": "Herbs", "Amount": -21094 }, { "ResourceType": "Iron", "Amount": -18750 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -106250 }, { "ResourceType": "Herbs", "ResourceValue": -21094 }, { "ResourceType": "Iron", "ResourceValue": -18750 } ]
         },
         {
             "Trigger": [ "Unlock_Action_Pump" ],
@@ -1186,7 +1186,7 @@
             "Description": "We have built something that moves without magic or bodily strength. It seems like a miracle, but the sludge we found deep beneath, seems to have its own magic of fire and steam. We can certainly use it in this time of strive.",
             "EffectText": "Increase all industrial gain by 20%",
             "Unlock": [ "Unlock_Burn_Tar_Generate_Steam" ],
-            "Cost": [ { "ResourceType": "Tar", "Amount": -22344 }, { "ResourceType": "Iron", "Amount": -18750 } ]
+            "Cost": [ { "ResourceType": "Tar", "ResourceValue": -22344 }, { "ResourceType": "Iron", "ResourceValue": -18750 } ]
         },
         {
             "Trigger": [ "Unlock_Guard_Towers_Atop_The_Wall" ],
@@ -1194,7 +1194,7 @@
             "Description": "A symbol of our might. One that gives people hope. One that cannot be brought down and turned into mulch as easily as the others. We can build it. We have to build it. And we must do it quickly.",
             "EffectText": "Decrease cost of all non-magical units [DEV NOTE: 50%]",
             "Unlock": [ "Unlock_Gradiose_Bastion" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -106250 }, { "ResourceType": "Stone", "Amount": -21875 }, { "ResourceType": "Iron", "Amount": -17188 }, { "ResourceType": "Gears", "Amount": -15625 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -106250 }, { "ResourceType": "Stone", "ResourceValue": -21875 }, { "ResourceType": "Iron", "ResourceValue": -17188 }, { "ResourceType": "Gears", "ResourceValue": -15625 } ]
         },
         {
             "Trigger": [ "Unlock_Guard_Towers_Atop_The_Wall" ],
@@ -1202,7 +1202,7 @@
             "Description": "Ragged and wounded, they limp arm in arm through our gates. They wander the streets, every eye on them, heads bowered and bodied bruised, until they finally stand before you. Only a fraction of their forces remain, but it is a miracle that any have survived at all. They bow their heads and swear allegiance to you.",
             "EffectText": "Increase army strength by 100\nDecrease Unrest by 5%",
             "Unlock": [ "Unlock_Remains_Of_The_Royal_Army" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -107031 }, { "ResourceType": "Food", "Amount": -25000 }, { "ResourceType": "Weaponry", "Amount": -1406 }, { "ResourceType": "Potions", "Amount": -391 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -107031 }, { "ResourceType": "Food", "ResourceValue": -25000 }, { "ResourceType": "Weaponry", "ResourceValue": -1406 }, { "ResourceType": "Potions", "ResourceValue": -391 } ]
         },
         {
             "Trigger": [ "Unlock_Army_Armored_Zeppelin" ],
@@ -1210,7 +1210,7 @@
             "Description": "Who would have thought that there was still a shred of civilization out there? The elves that came don't talk much and have no answers for us. Just a request to join.",
             "EffectText": "Unlock new army: Elven Battlewizard",
             "Unlock": [ "Unlock_Army_Elven_Battlewizard" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -107813 }, { "ResourceType": "Wood", "Amount": -22500 }, { "ResourceType": "Artifacts", "Amount": -234 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -107813 }, { "ResourceType": "Wood", "ResourceValue": -22500 }, { "ResourceType": "Artifacts", "ResourceValue": -234 } ]
         },
         {
             "Trigger": [ "Unlock_Gradiose_Bastion" ],
@@ -1218,7 +1218,7 @@
             "Description": "Albeit reluctantly, the elves finally share their secrets with us. The techniques they have used to keep the beast at bay all these years. The wizards can barely contain their excitement. Some are already drooling.",
             "EffectText": "Reduce enemy army strength by 30%",
             "Unlock": [ "Unlock_Install_Warding_Stones" ],
-            "Cost": [ { "ResourceType": "Stone", "Amount": -37500 }, { "ResourceType": "Artifacts", "Amount": -12500 } ]
+            "Cost": [ { "ResourceType": "Stone", "ResourceValue": -37500 }, { "ResourceType": "Artifacts", "ResourceValue": -12500 } ]
         },
         {
             "Trigger": [ "Unlock_Stuff_Floats_Down_River" ],
@@ -1226,7 +1226,7 @@
             "Description": "Status and titles are no longer of any use to us. Who are we to determine what each of us may be. No one needs formalities anymore and although everyone comes from somewhere different, we are welded together by our torments. Let's throw off the old chains and allow ourselves that last bit of freedom.",
             "EffectText": "Unlocks infinite jobs, disables all job caps",
             "Unlock": [ "Unlock_General_Education_For_All" ],
-            "Cost": [ { "ResourceType": "Herbs", "Amount": -22188 }, { "ResourceType": "Fabric", "Amount": -20313 }, { "ResourceType": "Luxuries", "Amount": -15625 } ]
+            "Cost": [ { "ResourceType": "Herbs", "ResourceValue": -22188 }, { "ResourceType": "Fabric", "ResourceValue": -20313 }, { "ResourceType": "Luxuries", "ResourceValue": -15625 } ]
         },
         {
             "Trigger": [ "Unlock_General_Education_For_All" ],
@@ -1234,7 +1234,7 @@
             "Description": "After fiddling with the fundamental structure of the universe itself, it seems there are almost no options left to increase storage potential.\nAt least that is what you believe until a group of women appear at your doorstep, demanding some pockets for the dresses. How easy it could have been...",
             "EffectText": "Increase all storage by 20,000",
             "Unlock": [ "Unlock_More_Pockets_On_Clothes" ],
-            "Cost": [ { "ResourceType": "Fabric", "Amount": -23438 }, { "ResourceType": "Artifacts", "Amount": -250 } ]
+            "Cost": [ { "ResourceType": "Fabric", "ResourceValue": -23438 }, { "ResourceType": "Artifacts", "ResourceValue": -250 } ]
         },
         {
             "Trigger": [ "Unlock_Army_Elven_Battlewizard" ],
@@ -1242,7 +1242,7 @@
             "Description": "There are many a development that we should probably never have invented. This is another such case. This level of destruction was previously unimaginable. You can hardly imagine what would happen if we used this weapon against each other. It is almost like a living thing, a mythical dragon, spewing its fire without restraint for friend or foe.",
             "EffectText": "Unlock new army: Flaming Howitzer",
             "Unlock": [ "Unlock_Army_Flaming_Howitzer" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -117188 }, { "ResourceType": "Tar", "Amount": -28125 }, { "ResourceType": "Iron", "Amount": -23438 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -117188 }, { "ResourceType": "Tar", "ResourceValue": -28125 }, { "ResourceType": "Iron", "ResourceValue": -23438 } ]
         },
         {
             "Trigger": [ "Unlock_Army_Elven_Battlewizard" ],
@@ -1250,7 +1250,7 @@
             "Description": "More and more the elves open up to us about all their arcane arts, they honed for centuries, deep in the Itari jungle. Some are too dangerous for mortal minds and a couple of wizards go insane. Most of the others are still willing to wager on this chance. Too great is their thirst for knowledge.",
             "EffectText": "Decrease cost of all magical units (by half)",
             "Unlock": [ "Unlock_Secret_Of_The_Elves" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -121527 }, { "ResourceType": "Luxuries", "Amount": -31250 }, { "ResourceType": "Artifacts", "Amount": -15625 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -121527 }, { "ResourceType": "Luxuries", "ResourceValue": -31250 }, { "ResourceType": "Artifacts", "ResourceValue": -15625 } ]
         },
         {
             "Trigger": [ "Unlock_Army_Flaming_Howitzer" ],
@@ -1258,7 +1258,7 @@
             "Description": "The ultimate weapon. The ultimate symbol of your resistance. The result of thousands of people working together in unison to create the answer to the army of the beast. A magnificant and terrifying weapon that fittingly resembles their makers. We could not be more proud.",
             "EffectText": "Unlock new army: Spellbound Titan",
             "Unlock": [ "Unlock_Army_Spellbound_Titan" ],
-            "Cost": [ { "ResourceType": "Money", "Amount": -125000 }, { "ResourceType": "Tar", "Amount": -39063 }, { "ResourceType": "Gears", "Amount": -31250 }, { "ResourceType": "Artifacts", "Amount": -23438 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -125000 }, { "ResourceType": "Tar", "ResourceValue": -39063 }, { "ResourceType": "Gears", "ResourceValue": -31250 }, { "ResourceType": "Artifacts", "ResourceValue": -23438 } ]
         },
         {
             "Trigger": [ "Unlock_Reach_The_Last_Chamber" ],

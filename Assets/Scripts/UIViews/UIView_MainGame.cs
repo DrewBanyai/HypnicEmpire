@@ -13,9 +13,6 @@ namespace HypnicEmpire
         private const string RedditURL = "";
         private const string ItchIoURL = "";
 
-        [Header("UI Element Prefabs")]
-        [SerializeField] public GameObject UIResourceChangeEntryPrefab;
-
         [Header("Primary Menu UI Buttons")]
         [SerializeField] public Button ExitButton;
         [SerializeField] public Button OptionsButton;
@@ -37,8 +34,6 @@ namespace HypnicEmpire
         [Header("UI List Display Parents")]
         [SerializeField] public UIJournalMenu JournalMenuControl;
         [SerializeField] public UIDevelopmentsMenu DevelopmentsMenuControl;
-        [SerializeField] public Transform DelveResourceLossParent;
-        [SerializeField] public Transform DelveResourceGainParent;
 
         [Header("Secondary Menu UI Elements")]
         [SerializeField] public Button SaveAndExitButton;
@@ -109,7 +104,7 @@ namespace HypnicEmpire
             }
 
             //  Define UI responses to resource changes
-            GameSubscriptionSystem.SubscribeToGenericResourceAmountChange((string resourceType, int amount, int maxAmount) => {
+            GameSubscriptionSystem.SubscribeToGenericResourceAmountChange((string resourceType, ResourceValue amount, ResourceValue maxAmount) => {
                 if (amount > 0)
                     ResourceListControl?.AddResourceEntry(resourceType);
             });
@@ -126,15 +121,6 @@ namespace HypnicEmpire
             ShowCenterMenu(ActionsButton, ActionsMenu);
         }
 
-        public void SetDelveResourceChange(List<ResourceAmountData> amountList)
-        {
-            DelveTaskButton?.SetEnabled(amountList.CheckCanChangeAll(true));
-
-            ClearDelveResourceChanges();
-            foreach (var ra in amountList)
-                AddDelveResourceChange(ra.ResourceType, ra.Amount);
-        }
-
         void ShowCenterMenu(Button button, GameObject menuToShow)
         {
             foreach (var btn in CenterMenuButtons)
@@ -149,27 +135,6 @@ namespace HypnicEmpire
             HardResetButton?.SetInteractable(!unpacked);
             HardResetConfirmButton?.gameObject.SetActive(unpacked);
             HardResetCancelButton?.gameObject.SetActive(unpacked);
-        }
-
-        public void ClearDelveResourceChanges()
-        {
-            if (DelveResourceLossParent != null)
-                foreach (Transform child in DelveResourceLossParent)
-                    Destroy(child.gameObject);
-
-            if (DelveResourceGainParent != null)
-                foreach (Transform child in DelveResourceGainParent)
-                    Destroy(child.gameObject);
-        }
-
-        public void AddDelveResourceChange(string resourceType, int resourceChange)
-        {
-            if (DelveResourceLossParent != null && DelveResourceGainParent != null && UIResourceChangeEntryPrefab != null)
-            {
-                var entry = Instantiate(UIResourceChangeEntryPrefab, (resourceChange < 0) ? DelveResourceLossParent : DelveResourceGainParent);
-                entry.GetComponent<UIResourceChangeEntry>().SetContent(resourceType, resourceChange);
-            }
-            
         }
 
         public void AddOpenDevelopment(string name, string description, string extraInfo, List<ResourceAmountData> cost, List<string> unlock)
