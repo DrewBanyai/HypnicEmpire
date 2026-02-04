@@ -112,8 +112,8 @@ namespace HypnicEmpire
         
         public void SetResourceUnlocked(string resourceType, bool unlocked)
         {
-            string? resourceUnlock = ResourceTypeSystem.GetUnlockFromResourceType(resourceType);
-            if (resourceUnlock != null) SetUnlockValue(resourceUnlock, unlocked);
+            string resourceUnlock = ResourceTypeSystem.GetUnlockFromResourceType(resourceType);
+            if (resourceUnlock != default) SetUnlockValue(resourceUnlock, unlocked);
         }
 
         public void SetUnlockValue(string unlock, bool unlocked)

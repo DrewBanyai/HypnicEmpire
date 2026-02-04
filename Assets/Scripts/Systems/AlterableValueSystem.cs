@@ -9,9 +9,14 @@ namespace HypnicEmpire
     {
         public static Dictionary<string, AlterableValue> ValueMap = new();
 
-        public static AlterableValue? GetAlterableValue(string name)
+        public static AlterableValue GetAlterableValue(string name)
         {
-            return ValueMap.ContainsKey(name) ? ValueMap[name] : null;
+            return ValueMap.ContainsKey(name) ? ValueMap[name] : new AlterableValue() { Name = "UNKNOWN" };
+        }
+
+        public static int GetAlterableValueCurrentVal(string name)
+        {
+            return ValueMap.ContainsKey(name) ? ValueMap[name].CurrentValue : 0;
         }
 
         private static bool IsAlterableValueValid(AlterableValue aVal)

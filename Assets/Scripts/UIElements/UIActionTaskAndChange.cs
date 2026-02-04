@@ -12,8 +12,6 @@ namespace HypnicEmpire
         [SerializeField] public Transform ResourceChangeEntriesLossParent;
         [SerializeField] public Transform ResourceChangeEntriesGainParent;
 
-        private Action? UpdateButtonEnabledByResource = null;
-
         private List<ResourceAmountData> ResourceChange = new();
 
         public void SetContent(string actionType, TaskActionState actionState)
@@ -27,16 +25,13 @@ namespace HypnicEmpire
             SetResourceChangeUI(actionState.ResourceChange);
 
             //  Look up the resource change values for this action (TODO: Pull based on developments/upgrades!!!)
-            UpdateButtonEnabledByResource = () =>
-            {
+            List<ResourceAmountData> gainChange = actionState.ResourceChange.Where(rc => rc.ResourceValue > 0).ToList();
+            List<ResourceAmountData> lossChange = actionState.ResourceChange.Where(rc => rc.ResourceValue < 0).ToList();
+            ProcessButton?.SetEnabled(gainChange.CheckCanChangeAny(true) && lossChange.CheckCanChangeAll());
+            GameSubscriptionSystem.SubscribeToGenericResourceAmountChange((string resourceType, ResourceValue amount, ResourceValue maxAmount) => {
                 List<ResourceAmountData> gainChange = actionState.ResourceChange.Where(rc => rc.ResourceValue > 0).ToList();
                 List<ResourceAmountData> lossChange = actionState.ResourceChange.Where(rc => rc.ResourceValue < 0).ToList();
                 ProcessButton?.SetEnabled(gainChange.CheckCanChangeAny(true) && lossChange.CheckCanChangeAll());
-            };
-
-            UpdateButtonEnabledByResource();
-            GameSubscriptionSystem.SubscribeToGenericResourceAmountChange((string resourceType, ResourceValue amount, ResourceValue maxAmount) => {
-                UpdateButtonEnabledByResource?.Invoke();
             });
 
             ProcessButton?.SetContents(actionType, 20f, 100f, () =>

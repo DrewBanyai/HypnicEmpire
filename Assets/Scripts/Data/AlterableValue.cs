@@ -27,14 +27,14 @@ namespace HypnicEmpire
         public List<AlterableValueUnlockCombo> ValueUnlocks;
         public List<AlterableValueRemapValue> RemappingValues;
 
-        public int? GetCurrentValueRemap()
+        public int GetCurrentValueRemap()
         {
-            return RemappingValues.Find(rv => rv.Value == CurrentValue)?.Value;
+            return RemappingValues.Any(rv => rv.Value == CurrentValue) ? RemappingValues.Find(rv => rv.Value == CurrentValue).Value : -1;
         }
 
-        public string? GetCurrentValueRemapNote()
+        public string GetCurrentValueRemapNote()
         {
-            return RemappingValues.Find(rv => rv.Value == CurrentValue)?.Note;
+            return RemappingValues.Any(rv => rv.Value == CurrentValue) ? RemappingValues.Find(rv => rv.Value == CurrentValue).Note : "UNKNOWN";
         }
 
         public string GetValueUnlock()

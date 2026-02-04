@@ -11,7 +11,7 @@ namespace HypnicEmpire
         public string Name;
         public string DisplayName;
         public string ActionSection;
-        public double PlayerSpeed = 1.0;
+        public Func<GameState, double> TaskSpeedFunc = null;
         public double ProgressSpeed = 0.0;
         public double ProgressCurrent = 0.0;
         public double ProgressMaximum = 1000.0;
@@ -28,6 +28,9 @@ namespace HypnicEmpire
         public static SerializableDictionary<string, TaskActionState> TaskActionMap = new();
         public static SerializableDictionary<string, Action<int>> TaskUpdateCallbackMap = new();
         public static SerializableDictionary<string, Action> TaskFinishCallbackMap = new();
+        private static GameState CurrentGameState = null;
+
+        public static void SetGameState(GameState gameState) { CurrentGameState = gameState; }
 
         public static bool AddWorkerToTask(string taskName)
         {
@@ -55,19 +58,22 @@ namespace HypnicEmpire
         {
             string currentPrimary = PrimaryTask;
             PrimaryTask = "";
-            if (!string.IsNullOrEmpty(currentPrimary) && TaskActionMap.ContainsKey(currentPrimary))
-                UpdateTaskProgressSpeed(currentPrimary);
+            //if (!string.IsNullOrEmpty(currentPrimary) && TaskActionMap.ContainsKey(currentPrimary))
+            //    UpdateTaskProgressSpeed(currentPrimary);
             
             PrimaryTask = taskName;
-            if (!string.IsNullOrEmpty(taskName) && TaskActionMap.ContainsKey(taskName))
-                UpdateTaskProgressSpeed(taskName);
+            //if (!string.IsNullOrEmpty(taskName) && TaskActionMap.ContainsKey(taskName))
+            //    UpdateTaskProgressSpeed(taskName);
         }
 
         public static void UpdateTaskProgressSpeed(string taskName)
         {
             if (!TaskActionMap.ContainsKey(taskName)) return;
-            var taskAction = TaskActionMap[taskName];
-            taskAction.ProgressSpeed = ((taskName == PrimaryTask) ? taskAction.PlayerSpeed : 0.0) + ((double)taskAction.WorkersAssigned * 10.0);
+            TaskActionState taskAction = TaskActionMap[taskName];
+            taskAction.ProgressSpeed = 0.0;
+            if (taskName == PrimaryTask)
+                taskAction.ProgressSpeed = taskAction.TaskSpeedFunc(CurrentGameState);
+            taskAction.ProgressSpeed += ((double)taskAction.WorkersAssigned * 10.0);
         }
 
         public static void SetTaskUpdateCallback(string taskName, Action<int> updateCallback = null) { TaskUpdateCallbackMap[taskName] = updateCallback; }
@@ -78,6 +84,7 @@ namespace HypnicEmpire
         {
             foreach (var taskAction in TaskActionMap.Values)
             {
+                UpdateTaskProgressSpeed(taskAction.Name);
                 if (taskAction.ProgressSpeed == 0.0 && taskAction.ProgressCurrent == 0.0)
                     continue;
 
@@ -122,16 +129,16 @@ namespace HypnicEmpire
 
                     ActionsList.Clear();
                     TaskActionMap.Clear();
-                    foreach (TaskActionData ta in taskData.ActionData)
+                    foreach (TaskActionData tad in taskData.ActionData)
                     {
-                        ActionsList.Add(ta.Name);
-                        TaskActionMap[ta.Name] = new TaskActionState()
+                        ActionsList.Add(tad.Name);
+                        TaskActionMap[tad.Name] = new TaskActionState()
                         {
-                            Name = ta.Name,
-                            DisplayName = ta.DisplayName,
-                            ActionSection = ta.ActionSection,
-                            PlayerSpeed = ta.PlayerSpeed,
-                            ResourceChange = ta.ResourceChange
+                            Name = tad.Name,
+                            DisplayName = tad.DisplayName,
+                            ActionSection = tad.ActionSection,
+                            TaskSpeedFunc = tad.ValueDeterminant.GetSpeed,
+                            ResourceChange = tad.ResourceChange
                         };
                     }
 

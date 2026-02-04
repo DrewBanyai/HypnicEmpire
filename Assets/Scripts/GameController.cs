@@ -28,6 +28,9 @@ namespace HypnicEmpire
             TaskActionSystem.LoadAllTaskActions(Application.dataPath + "/GameData/TaskActions.json");
             CurrentGameState.Initialize(InitialGameState);
             MainGameUIView.Initialize();
+
+            TaskActionSystem.SetGameState(CurrentGameState);
+
             SetupMainGameUI();
         }
 
