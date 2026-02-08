@@ -8,6 +8,8 @@ namespace HypnicEmpire
     [JsonConverter(typeof(ResourceValueConverter))]
     public class ResourceValue
     {
+        static public bool SHOW_HUNDREDTHS = false;
+
         // Using an internal integer to represent the value in "hundredths"
         // This avoids all floating point inaccuracy and mixed-sign arithmetic issues.
         [UnityEngine.SerializeField] private long _totalHundredths;
@@ -67,6 +69,88 @@ namespace HypnicEmpire
         public static bool operator >=(ResourceValue a, ResourceValue b)
         {
             return a._totalHundredths >= b._totalHundredths;
+        }
+
+        /// Operator Overrides for douintsbles
+        public static ResourceValue operator +(ResourceValue a, int b)
+        {
+            return new ResourceValue(a._totalHundredths + (int)(b * 100));
+        }
+
+        public static ResourceValue operator -(ResourceValue a, int b)
+        {
+            return new ResourceValue(a._totalHundredths - (int)(b * 100));
+        }
+
+        public static ResourceValue operator *(ResourceValue a, int b)
+        {
+            return new ResourceValue((long)(a._totalHundredths * b));
+        }
+
+        public static ResourceValue operator /(ResourceValue a, int b)
+        {
+            return new ResourceValue((long)(a._totalHundredths / b));
+        }
+
+        public static bool operator <(ResourceValue a, int b)
+        {
+            return a._totalHundredths < (int)(b * 100);
+        }
+
+        public static bool operator >(ResourceValue a, int b)
+        {
+            return a._totalHundredths > (int)(b * 100);
+        }
+
+        public static bool operator <=(ResourceValue a, int b)
+        {
+            return a._totalHundredths <= (int)(b * 100);
+        }
+
+        public static bool operator >=(ResourceValue a, int b)
+        {
+            return a._totalHundredths >= (int)(b * 100);
+        }
+
+        /// Operator Overrides for doubles
+        public static ResourceValue operator +(ResourceValue a, double b)
+        {
+            return new ResourceValue(a._totalHundredths + (int)(b * 100.0));
+        }
+
+        public static ResourceValue operator -(ResourceValue a, double b)
+        {
+            return new ResourceValue(a._totalHundredths - (int)(b * 100.0));
+        }
+
+        public static ResourceValue operator *(ResourceValue a, double b)
+        {
+            return new ResourceValue((long)(a._totalHundredths * b));
+        }
+
+        public static ResourceValue operator /(ResourceValue a, double b)
+        {
+            return new ResourceValue((long)(a._totalHundredths / b));
+        }
+
+        public static bool operator <(ResourceValue a, double b)
+        {
+            return a._totalHundredths < (int)(b * 100.0);
+        }
+
+        public static bool operator >(ResourceValue a, double b)
+        {
+            return a._totalHundredths > (int)(b * 100.0);
+        }
+
+        public static bool operator <=(ResourceValue a, double b)
+        {
+            return a._totalHundredths <= (int)(b * 100.0);
+        }
+
+        public static bool operator >=(ResourceValue a, double b)
+        {
+            return a._totalHundredths >= (int)(b * 100.0);
         }
 
         public static bool operator ==(ResourceValue a, ResourceValue b)
@@ -143,18 +227,14 @@ namespace HypnicEmpire
         public string Text()
         {
             string sign = _totalHundredths < 0 && WholeValue == 0 ? "-" : "";
-            if (Hundredths != 0)
+            if (Hundredths != 0 && SHOW_HUNDREDTHS)
                 return $"{sign}{WholeValue}.{Tenths}{Hundredths}";
             if (Tenths != 0)
                 return $"{sign}{WholeValue}.{Tenths}";
             return $"{sign}{WholeValue}";
         }
 
-        public override string ToString()
-        {
-            string sign = _totalHundredths < 0 && WholeValue == 0 ? "-" : "";
-            return $"{sign}{WholeValue}.{Tenths}{Hundredths}";
-        }
+        public override string ToString() { return Text(); }
 
         public double ToDouble()
         {
