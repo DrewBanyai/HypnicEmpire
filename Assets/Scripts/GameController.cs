@@ -241,7 +241,7 @@ namespace HypnicEmpire
             if (CurrentGameState.LevelCurrent.Value >= LevelDataSystem.GetLevelCount() || CurrentGameState.LevelCurrent.Value < 0) return new List<ResourceAmountData>();
 
             List<ResourceAmountData> amountsList = new();
-            foreach (var rc in LevelDataSystem.GetGroupingByLevel(CurrentGameState.LevelCurrent.Value).ResourceChange)
+            foreach (var rc in LevelDataSystem.GetGroupingByLevel(CurrentGameState.LevelCurrent.Value).LevelResourceChange)
                 amountsList.AddResourceAmount(new ResourceAmountData(rc.ResourceType, rc.ResourceValue));
 
             return amountsList;

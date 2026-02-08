@@ -17,7 +17,7 @@ namespace HypnicEmpire
         public string Name;
         public string Image;
         public int Difficulty;
-        public List<ResourceAmountData> ResourceChange;
+        public List<ResourceAmountData> LevelResourceChange;
         public Sprite ImageSprite;
     }
 
