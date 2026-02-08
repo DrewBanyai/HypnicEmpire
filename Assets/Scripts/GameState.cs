@@ -19,9 +19,6 @@ namespace HypnicEmpire
 
         public List<string> JournalEntries = new();
 
-        //  The list of game unlocks that have occurred
-        public SerializableDictionary<string, bool> GameUnlockList = new();
-        public bool IsUnlocked(string unlock) { return GameUnlockList.ContainsKey(unlock) && GameUnlockList[unlock] == true; }
 
         public SerializableDictionary<string, ResourceValue> CurrentResourceCounts = new();
         public SerializableDictionary<string, ResourceValue> CurrentResourceMaximum = new();
@@ -41,6 +38,7 @@ namespace HypnicEmpire
 
             ClearAllResourceValues();
             CopyGameState(gameState.GameState);
+            CopyGameUnlocks(gameState.GameUnlocks);
         }
 
         public void ClearAllResourceValues()
@@ -60,13 +58,17 @@ namespace HypnicEmpire
             LevelCurrent.SetValue(other.LevelCurrent.Value);
             LevelDelveCount.SetValue(other.LevelDelveCount.Value);
 
-            GameUnlockList.Clear();
-            foreach (var item in other.GameUnlockList) GameUnlockList[item.Key] = item.Value;
 
             //  Clear all resource current and maximum values and set them to their initial values
             ClearAllResourceValues();
             foreach (var entry in ResourceTypeSystem.ResourceData.ResourceTypes) CurrentResourceCounts[entry.Name] = entry.InitialValue;
             foreach (var entry in ResourceTypeSystem.ResourceData.ResourceTypes) CurrentResourceMaximum[entry.Name] = entry.InitialMaximum;
+        }
+
+        public void CopyGameUnlocks(SerializableDictionary<string, bool> gameUnlocks)
+        {
+            foreach (var gu in gameUnlocks)
+                GameUnlockSystem.SetUnlockValue(gu.Key, gu.Value);
         }
 
         public ResourceValue GetResourceAmount(string resourceType) { return CurrentResourceCounts.ContainsKey(resourceType) ? CurrentResourceCounts[resourceType] : 0; }
@@ -113,19 +115,10 @@ namespace HypnicEmpire
         public void SetResourceUnlocked(string resourceType, bool unlocked)
         {
             string resourceUnlock = ResourceTypeSystem.GetUnlockFromResourceType(resourceType);
-            if (resourceUnlock != default) SetUnlockValue(resourceUnlock, unlocked);
+            if (resourceUnlock != default) GameUnlockSystem.SetUnlockValue(resourceUnlock, unlocked);
         }
 
-        public void SetUnlockValue(string unlock, bool unlocked)
-        {
-            GameUnlockSystem.SetUnlockValue(unlock, unlocked);
-            GameUnlockList[unlock] = unlocked;
-        }
 
-        public bool GetUnlockValue(string unlock)
-        {
-            return GameUnlockList.ContainsKey(unlock) ? GameUnlockList[unlock] : false;
-        }
 
         public void Click()
         {

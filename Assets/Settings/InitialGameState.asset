@@ -26,22 +26,12 @@ MonoBehaviour:
       come up empty, already silently cursing the old fool who sold you the treasure
       map.\nBut then you finally stumble upon it, almost dropping down its gaping
       entrance.\n\nYou found a hole in the ground.
-    GameUnlockList:
-      m_keys:
-      - Unlock_Resource_Food
-      - Unlock_Action_Delve
-      m_values: 0101
     CurrentResourceCounts:
-      m_keys:
-      - Food
-      - Treasure
-      m_values: 0300000000000000
+      m_keys: []
+      m_values: []
     CurrentResourceMaximum:
-      m_keys:
-      - Food
-      - Treasure
-      - Herbs
-      m_values: 0f0000000a0000000a000000
+      m_keys: []
+      m_values: []
     ClickCount: 0
     MasterVolume: 50
     SFXVolume: 50
@@ -49,3 +39,6 @@ MonoBehaviour:
     ActionSoundExcess: 0
     Fullscreen: 0
     WindowBorder: 1
+  GameUnlocks:
+    m_keys: []
+    m_values: 

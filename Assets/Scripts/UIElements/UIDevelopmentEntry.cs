@@ -47,7 +47,7 @@ namespace HypnicEmpire
                 {
                     GameController.CurrentGameState.AddToResources(Cost);
                     foreach (var u in Unlock)
-                        GameController.CurrentGameState.SetUnlockValue(u, true);
+                        GameUnlockSystem.SetUnlockValue(u, true);
                 }
             });
         }
@@ -80,7 +80,7 @@ namespace HypnicEmpire
 
         public void ShowStatusColor(bool overrideFinished = false)
         {
-            bool keyContained = Unlock.Select(u => GameController.CurrentGameState.GameUnlockList.ContainsKey(u)).ToList().All(uEntry => uEntry == true);
+            bool keyContained = Unlock.Select(u => GameUnlockSystem.GameUnlockList.ContainsKey(u)).ToList().All(uEntry => uEntry == true);
             if (keyContained || overrideFinished)
             {
                 PurchaseButton?.SetInteractable(false);

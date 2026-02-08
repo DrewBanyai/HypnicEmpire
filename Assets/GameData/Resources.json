@@ -1,6 +1,6 @@
 {
     "UnlockToResourceTypes": [
-        { "Unlock": "Unlock_Resource_Food", "ResourceType": "Food" },
+        { "Unlock": "Unlock_Game_Start", "ResourceType": "Food" },
         { "Unlock": "Unlock_Resource_Herbs", "ResourceType": "Herbs" },
         { "Unlock": "Unlock_Resource_Treasure", "ResourceType": "Treasure" },
         { "Unlock": "Unlock_Resource_Money", "ResourceType": "Money" },

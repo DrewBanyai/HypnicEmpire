@@ -9,6 +9,7 @@ namespace HypnicEmpire
     {
         public static List<string> UnlockIDs = new();
         private static Dictionary<string, List<Action<bool>>> UnlockActionMap = new();
+        public static SerializableDictionary<string, bool> GameUnlockList = new();
 
         public static void AddGameUnlockAction(string unlock, Action<bool> action)
         {
@@ -22,6 +23,12 @@ namespace HypnicEmpire
             if (UnlockActionMap.ContainsKey(unlock))
                 foreach (var action in UnlockActionMap[unlock])
                     action?.Invoke(unlocked);
+            GameUnlockList[unlock] = unlocked;
+        }
+
+        public static bool IsUnlocked(string unlockID)
+        {
+            return GameUnlockList.ContainsKey(unlockID) ? GameUnlockList[unlockID] : false;
         }
 
         public static bool IsUnlockIDValid(string unlockID) { return UnlockIDs.Contains(unlockID); }

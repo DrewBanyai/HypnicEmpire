@@ -28,7 +28,7 @@ namespace HypnicEmpire
 
             UIActionTaskAndChange actionButtonGroup = ActionButtonGroupings[actionType];
             string unlock = TaskActionSystem.UnlockToActionMap.FirstOrDefault(x => x.Value == actionType).Key.ToString();
-            bool unlockStatus = GameController.CurrentGameState.GameUnlockList.ContainsKey(unlock) ? GameController.CurrentGameState.GameUnlockList[unlock]  : false;
+            bool unlockStatus = GameUnlockSystem.IsUnlocked(unlock);
             TaskActionState actionState = TaskActionSystem.TaskActionMap[actionType];
             actionButtonGroup.SetContent(actionType, actionState);
 

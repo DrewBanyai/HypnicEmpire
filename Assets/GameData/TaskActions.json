@@ -1,28 +1,28 @@
 {
-    "UnlockToActionMap": [
-        { "Unlock": "Unlock_Action_Delve", "Action": "Delve" },
-        { "Unlock": "Unlock_Action_Sell_Food", "Action": "Sell_Food" },
-        { "Unlock": "Unlock_Action_Market", "Action": "Market" },
-        { "Unlock": "Unlock_Action_Buy_Potion", "Action": "Buy_Potion" },
-        { "Unlock": "Unlock_Action_Sell_Fabric", "Action": "Sell_Fabric" },
-        { "Unlock": "Unlock_Action_Buy_Weaponry", "Action": "Buy_Weaponry" },
-        { "Unlock": "Unlock_Action_Polish", "Action": "Polish" },
-        { "Unlock": "Unlock_Action_Forage", "Action": "Forage" },
-        { "Unlock": "Unlock_Action_Trade_Herbs", "Action": "Trade_Herbs" },
-        { "Unlock": "Unlock_Action_Chop_Wood", "Action": "Chop_Wood" },
-        { "Unlock": "Unlock_Action_Hunting", "Action": "Hunting" },
-        { "Unlock": "Unlock_Action_Fishing", "Action": "Fishing" },
-        { "Unlock": "Unlock_Action_Farming", "Action": "Farming" },
-        { "Unlock": "Unlock_Action_Cut_Stone", "Action": "Cut_Stone" },
-        { "Unlock": "Unlock_Action_Cultivate", "Action": "Cultivate" },
-        { "Unlock": "Unlock_Action_Brew_Potion", "Action": "Brew_Potion" },
-        { "Unlock": "Unlock_Action_Weaving", "Action": "Weaving" },
-        { "Unlock": "Unlock_Action_Mining", "Action": "Mining" },
-        { "Unlock": "Unlock_Action_Refine", "Action": "Refine" },
-        { "Unlock": "Unlock_Action_Manufacture", "Action": "Manufacture" },
-        { "Unlock": "Unlock_Action_Purify", "Action": "Purify" },
-        { "Unlock": "Unlock_Action_Pump", "Action": "Pump" }
-    ],
+    "UnlockToActionMap": {
+        "Unlock_Game_Start": "Delve",
+        "Unlock_Action_Sell_Food": "Sell_Food",
+        "Unlock_Action_Market": "Market",
+        "Unlock_Action_Buy_Potion": "Buy_Potion",
+        "Unlock_Action_Sell_Fabric": "Sell_Fabric",
+        "Unlock_Action_Buy_Weaponry": "Buy_Weaponry",
+        "Unlock_Action_Polish": "Polish",
+        "Unlock_Action_Forage": "Forage",
+        "Unlock_Action_Trade_Herbs": "Trade_Herbs",
+        "Unlock_Action_Chop_Wood": "Chop_Wood",
+        "Unlock_Action_Hunting": "Hunting",
+        "Unlock_Action_Fishing": "Fishing",
+        "Unlock_Action_Farming": "Farming",
+        "Unlock_Action_Cut_Stone": "Cut_Stone",
+        "Unlock_Action_Cultivate": "Cultivate",
+        "Unlock_Action_Brew_Potion": "Brew_Potion",
+        "Unlock_Action_Weaving": "Weaving",
+        "Unlock_Action_Mining": "Mining",
+        "Unlock_Action_Refine": "Refine",
+        "Unlock_Action_Manufacture": "Manufacture",
+        "Unlock_Action_Purify": "Purify",
+        "Unlock_Action_Pump": "Pump"
+    },
     "ActionData": [
         {
             "Name": "Delve",
@@ -31,15 +31,15 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Delving_Speed_Up_2": 2.0,
-                    "Unlock_Delving_Speed_Up_1_5": 1.5,
-                    "Unlock_Establish_Council_Of_Guilds": 1.1,
-                    "Unlock_Designate_A_Graveyard": 1.5,
-                    "Unlock_Grand_Speech": 0.5,
-                    "Unlock_Mausoleum_For_The_Dead": 0.5
+                "UnlockAlterations": {
+                    "Unlock_Delving_Speed_Up_2": { "SpeedMultiplier": 2.0, "CostChanges": [], "RewardChanges": [] },
+                    "Unlock_Half_Food_Cost_Of_Delving": { "SpeedMultiplier": 2.0, "CostChanges": [ { "ResourceType": "Food", "Multiplier": 0.5, "Additive": 0.0} ], "RewardChanges": [] },
+                    "Unlock_Delving_Speed_Up_1_5": { "SpeedMultiplier": 1.5, "CostChanges": [], "RewardChanges": [] },
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] },
+                    "Unlock_Designate_A_Graveyard": { "SpeedMultiplier": 1.5, "CostChanges": [], "RewardChanges": [] },
+                    "Unlock_Grand_Speech": { "SpeedMultiplier": 0.5, "CostChanges": [], "RewardChanges": [] },
+                    "Unlock_Mausoleum_For_The_Dead": { "SpeedMultiplier": 0.5, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                     "DelveTaskSpeedPercent",
                     "GlobalActionSpeedPercent"
@@ -48,16 +48,32 @@
             "ResourceChange": [ { "ResourceType": "Food", "ResourceValue": -1 }, { "ResourceType": "Treasure", "ResourceValue": 1 } ]
         },
         {
+            "Name": "Forage",
+            "DisplayName": "Forage",
+            "ActionSection": "Agricultural",
+            "ValueDeterminant": {
+                "Efficiency": 1.0,
+                "DefaultSpeed": 300.0,
+                "UnlockAlterations": {
+                    "Unlock_Foraging_Speed_Up": { "SpeedMultiplier": 2.0, "CostChanges": [], "RewardChanges": [] },
+                    "Unlock_Foraging_Gain_Up_2_5": { "SpeedMultiplier": 2.0, "CostChanges": [], "RewardChanges": [ { "ResourceType": "Food", "Multiplier": 2.5, "Additive": 0.0}, { "ResourceType": "Herbs", "Multiplier": 2.5, "Additive": 0.0} ] },
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                },
+                "AlterableValuePercentAdditions": [
+                ]
+            },
+            "ResourceChange": [ { "ResourceType": "Food", "ResourceValue": 0.2 }, { "ResourceType": "Herbs", "ResourceValue": 0.1 } ]
+        },
+        {
             "Name": "Sell_Food",
             "DisplayName": "Sell Food",
             "ActionSection": "Commercial",
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },
@@ -70,10 +86,9 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },
@@ -86,10 +101,9 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },
@@ -102,10 +116,9 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },
@@ -118,10 +131,9 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },
@@ -134,32 +146,13 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },
             "ResourceChange": [ { "ResourceType": "Money", "ResourceValue": -50 }, { "ResourceType": "Treasure", "ResourceValue": 1 } ]
-        },
-        {
-            "Name": "Forage",
-            "DisplayName": "Forage",
-            "ActionSection": "Agricultural",
-            "ValueDeterminant": {
-                "Efficiency": 1.0,
-                "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Foraging_Speed_Up": 2.0,
-                    "Unlock_Foraging_Gain_Up_2_5": 2.5,
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
-                },
-                "UnlockAdditives": {},
-                "AlterableValuePercentAdditions": [
-                ]
-            },
-            "ResourceChange": [ { "ResourceType": "Food", "ResourceValue": 0.2 }, { "ResourceType": "Herbs", "ResourceValue": 0.1 } ]
         },
         {
             "Name": "Trade_Herbs",
@@ -168,10 +161,9 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },
@@ -184,10 +176,9 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },
@@ -200,10 +191,9 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },
@@ -216,10 +206,9 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },
@@ -232,10 +221,9 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },
@@ -248,10 +236,9 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },
@@ -264,10 +251,9 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },
@@ -280,10 +266,9 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },
@@ -296,10 +281,9 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },
@@ -312,10 +296,9 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },
@@ -328,10 +311,9 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },
@@ -344,10 +326,9 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },
@@ -360,10 +341,9 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },
@@ -376,10 +356,9 @@
             "ValueDeterminant": {
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
-                "UnlockMultipliers": {
-                    "Unlock_Establish_Council_Of_Guilds": 1.1
+                "UnlockAlterations": {
+                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
                 },
-                "UnlockAdditives": {},
                 "AlterableValuePercentAdditions": [
                 ]
             },

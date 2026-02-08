@@ -1,4 +1,6 @@
 [
+    "Unlock_Game_Start",
+
     "Unlock_Delve_Fifty",
     "Unlock_Delve_Two_Hundred",
     "Unlock_Delve_Five_Hundred",
@@ -8,8 +10,6 @@
     "Unlock_Delve_Fifty_Thousand",
     "Unlock_Delve_Two_Hundred_Thousand",
     "Unlock_Delve_To_The_Bottom",
-
-    "Unlock_Game_Start",
 
     "Unlock_One_Villager",
     "Unlock_Thirty_Villagers",

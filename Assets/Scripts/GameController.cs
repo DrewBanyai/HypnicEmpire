@@ -29,8 +29,6 @@ namespace HypnicEmpire
             CurrentGameState.Initialize(InitialGameState);
             MainGameUIView.Initialize();
 
-            TaskActionSystem.SetGameState(CurrentGameState);
-
             SetupMainGameUI();
         }
 
@@ -100,12 +98,12 @@ namespace HypnicEmpire
                     {
                         if (!unlocked) return;
                         
-                        if (CurrentGameState.GetUnlockValue(trigger) == true)
+                        if (GameUnlockSystem.IsUnlocked(trigger))
                             return;
                             
                         List<string> listMinusTrigger = development.Trigger.Where(t => t != trigger).Select(t => t).ToList();
                         foreach (var t in listMinusTrigger)
-                            if (CurrentGameState.GetUnlockValue(t) == false)
+                            if (!GameUnlockSystem.IsUnlocked(t))
                                 return;
 
                         MainGameUIView.AddOpenDevelopment(development.Title, development.Description, development.EffectText, development.Cost, development.Unlock);
@@ -127,12 +125,11 @@ namespace HypnicEmpire
             MainGameUIView.DelveTaskButton?.SetContents("Delve", 20f, 64f, CompleteDelve);
 
             CheckDevelopments();
-            CheckGameUnlocks();
             SubscribeToJournalEntries();
 
             //  If we haven't loaded a game state with the very first unlock, unlock it now
-            if (!CurrentGameState.GameUnlockList.Contains("Unlock_Game_Start"))
-                CurrentGameState.SetUnlockValue("Unlock_Game_Start", true);
+            if (!GameUnlockSystem.IsUnlocked("Unlock_Game_Start"))
+                GameUnlockSystem.SetUnlockValue("Unlock_Game_Start", true);
         }
 
         public void CheckDevelopments()
@@ -140,18 +137,12 @@ namespace HypnicEmpire
 
         }
 
-        public void CheckGameUnlocks()
-        {
-            foreach (var gu in GameUnlockSystem.UnlockIDs)
-                GameUnlockSystem.SetUnlockValue(gu, CurrentGameState.IsUnlocked(gu));
-        }
-
         public void SubscribeToJournalEntries()
         {
             foreach (var je in JournalEntrySystem.JournalEntryDataMap)
                 GameUnlockSystem.AddGameUnlockAction(je.Key, (bool unlocked) => {
                     if (!unlocked) return;
-                    if (!CurrentGameState.GetUnlockValue(je.Key))
+                    if (!GameUnlockSystem.IsUnlocked(je.Key))
                         MainGameUIView?.JournalMenuControl?.AddJournalEntry(je.Value.Text[UnityEngine.Random.Range(0, je.Value.Text.Count)]);
                 });
         }
@@ -208,14 +199,25 @@ namespace HypnicEmpire
 
         public void SaveGame()
         {
-            File.WriteAllText(SaveFilePath, JsonSerialization.Serialize(CurrentGameState));
+            GameSaveData saveData = new GameSaveData { 
+                GameState = CurrentGameState, 
+                GameUnlockList = GameUnlockSystem.GameUnlockList 
+            };
+            File.WriteAllText(SaveFilePath, JsonSerialization.Serialize(saveData));
         }
 
         public void LoadGame()
         {
-            string gameStateJson = File.ReadAllText(SaveFilePath);
-            if (!string.IsNullOrEmpty(gameStateJson))
-                CurrentGameState.CopyGameState(JsonSerialization.Deserialize<GameState>(gameStateJson));
+            string json = File.ReadAllText(SaveFilePath);
+            if (!string.IsNullOrEmpty(json))
+            {
+                var saveData = JsonSerialization.Deserialize<GameSaveData>(json);
+                if (saveData != null)
+                {
+                    CurrentGameState.CopyGameState(saveData.GameState);
+                    GameUnlockSystem.GameUnlockList = saveData.GameUnlockList;
+                }
+            }
 
             PostLoadInitialState();
         }

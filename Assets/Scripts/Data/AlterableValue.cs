@@ -60,15 +60,15 @@ namespace HypnicEmpire
                 {
                     case "==":
                         if (CurrentValue == vu.Value)
-                            GameController.CurrentGameState.SetUnlockValue(vu.Unlock, true);
+                            GameUnlockSystem.SetUnlockValue(vu.Unlock, true);
                         break;
                     case "<=":
                         if (CurrentValue <= vu.Value)
-                            GameController.CurrentGameState.SetUnlockValue(vu.Unlock, true);
+                            GameUnlockSystem.SetUnlockValue(vu.Unlock, true);
                         break;
                     case ">=":
                         if (CurrentValue >= vu.Value)
-                            GameController.CurrentGameState.SetUnlockValue(vu.Unlock, true);
+                            GameUnlockSystem.SetUnlockValue(vu.Unlock, true);
                         break;
                 }
             }

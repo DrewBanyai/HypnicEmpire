@@ -10,5 +10,6 @@ namespace HypnicEmpire
     public class GameStateScriptableObject : ScriptableObject
     {
         public GameState GameState;
+        public SerializableDictionary<string, bool> GameUnlocks = new();
     }
 }

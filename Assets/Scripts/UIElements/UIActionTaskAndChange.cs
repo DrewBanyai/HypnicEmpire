@@ -22,21 +22,22 @@ namespace HypnicEmpire
             if (ResourceChangeEntriesGainParent == null) return;
 
             //  TODO: Subscribe to any changes in Player Action data so that we can alter resources as needed and call SetResourceChangeUI on any changes
-            SetResourceChangeUI(actionState.ResourceChange);
+            SetResourceChangeUI(actionState.GetResourceChange());
 
             //  Look up the resource change values for this action (TODO: Pull based on developments/upgrades!!!)
-            List<ResourceAmountData> gainChange = actionState.ResourceChange.Where(rc => rc.ResourceValue > 0).ToList();
-            List<ResourceAmountData> lossChange = actionState.ResourceChange.Where(rc => rc.ResourceValue < 0).ToList();
+            var actionResourceChange = actionState.GetResourceChange();
+            List<ResourceAmountData> gainChange = actionResourceChange.Where(rc => rc.ResourceValue > 0).ToList();
+            List<ResourceAmountData> lossChange = actionResourceChange.Where(rc => rc.ResourceValue < 0).ToList();
             ProcessButton?.SetEnabled(gainChange.CheckCanChangeAny(true) && lossChange.CheckCanChangeAll());
             GameSubscriptionSystem.SubscribeToGenericResourceAmountChange((string resourceType, ResourceValue amount, ResourceValue maxAmount) => {
-                List<ResourceAmountData> gainChange = actionState.ResourceChange.Where(rc => rc.ResourceValue > 0).ToList();
-                List<ResourceAmountData> lossChange = actionState.ResourceChange.Where(rc => rc.ResourceValue < 0).ToList();
+                List<ResourceAmountData> gainChange = actionResourceChange.Where(rc => rc.ResourceValue > 0).ToList();
+                List<ResourceAmountData> lossChange = actionResourceChange.Where(rc => rc.ResourceValue < 0).ToList();
                 ProcessButton?.SetEnabled(gainChange.CheckCanChangeAny(true) && lossChange.CheckCanChangeAll());
             });
 
             ProcessButton?.SetContents(actionType, 20f, 100f, () =>
             {
-                GameController.CurrentGameState.AddToResources(ResourceChange);
+                GameController.CurrentGameState.AddToResources(actionState.GetResourceChange());
             });
         }
 
