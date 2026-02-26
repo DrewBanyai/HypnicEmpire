@@ -61,7 +61,9 @@ namespace HypnicEmpire
             if (resourceChange.IsIdentical(ResourceChange)) return;
 
             ResourceChange.Clear();
-            foreach (var entry in resourceChange) ResourceChange.Add(new ResourceAmountData(entry.ResourceType, entry.ResourceValue));
+            foreach (var entry in resourceChange)
+                if (entry.ResourceValue != 0.0)
+                    ResourceChange.Add(new ResourceAmountData(entry.ResourceType, entry.ResourceValue));
 
             ClearResourceChangeUI();
             AddResourceChangeUI(resourceChange);
