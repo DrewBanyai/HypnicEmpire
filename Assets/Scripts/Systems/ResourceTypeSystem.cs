@@ -41,6 +41,7 @@ namespace HypnicEmpire
 
                     GameSubscriptionSystem.CreateResourceTypeSubscriptionMaps();
                     SubscribeToResourceUnlocks();
+                    SubscribeToAlterationUnlocks();
 
                     Debug.Log($"Successfully loaded {ResourceData.ResourceGroups.Count} Resource Groups and {ResourceData.ResourceTypes.Count} Resource Types from {jsonFilePath}");
                 }
@@ -53,6 +54,31 @@ namespace HypnicEmpire
             {
                 Debug.LogWarning($"Resources.json not found at {jsonFilePath}");
             }
+        }
+
+        private static void SubscribeToAlterationUnlocks()
+        {
+            foreach (var rt in ResourceData.ResourceTypes)
+            {
+                if (rt.UnlockAlterations == null) continue;
+
+                foreach (var unlockKey in rt.UnlockAlterations.Keys)
+                {
+                    string resourceName = rt.Name;
+                    GameUnlockSystem.AddGameUnlockAction(unlockKey, false, (bool unlocked) => {
+                        UpdateResourceMaximum(resourceName);
+                    });
+                }
+            }
+        }
+
+        private static void UpdateResourceMaximum(string resourceType)
+        {
+            var resourceTypeData = ResourceData.ResourceTypes.Find(rt => rt.Name == resourceType);
+            if (resourceTypeData == null) return;
+
+            int newMax = resourceTypeData.GetMaximum();
+            GameController.CurrentGameState.SetResourceMaximum(resourceType, newMax);
         }
 
         private static void SubscribeToResourceUnlocks()

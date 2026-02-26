@@ -62,7 +62,7 @@ namespace HypnicEmpire
             //  Clear all resource current and maximum values and set them to their initial values
             ClearAllResourceValues();
             foreach (var entry in ResourceTypeSystem.ResourceData.ResourceTypes) CurrentResourceCounts[entry.Name] = entry.InitialValue;
-            foreach (var entry in ResourceTypeSystem.ResourceData.ResourceTypes) CurrentResourceMaximum[entry.Name] = entry.InitialMaximum;
+            foreach (var entry in ResourceTypeSystem.ResourceData.ResourceTypes) CurrentResourceMaximum[entry.Name] = entry.GetMaximum();
         }
 
         public void CopyGameUnlocks(SerializableDictionary<string, bool> gameUnlocks)

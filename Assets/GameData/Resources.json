@@ -1,20 +1,65 @@
 {
     "UnlockToResourceTypes": [
-        { "Unlock": "Unlock_Game_Start", "ResourceType": "Food" },
-        { "Unlock": "Unlock_Resource_Herbs", "ResourceType": "Herbs" },
-        { "Unlock": "Unlock_Resource_Treasure", "ResourceType": "Treasure" },
-        { "Unlock": "Unlock_Resource_Money", "ResourceType": "Money" },
-        { "Unlock": "Unlock_Resource_Wood", "ResourceType": "Wood" },
-        { "Unlock": "Unlock_Resource_Stone", "ResourceType": "Stone" },
-        { "Unlock": "Unlock_Resource_People", "ResourceType": "People" },
-        { "Unlock": "Unlock_Resource_Potions", "ResourceType": "Potions" },
-        { "Unlock": "Unlock_Resource_Fabric", "ResourceType": "Fabric" },
-        { "Unlock": "Unlock_Resource_Iron", "ResourceType": "Iron" },
-        { "Unlock": "Unlock_Resource_Weaponry", "ResourceType": "Weaponry" },
-        { "Unlock": "Unlock_Resource_Gears", "ResourceType": "Gears" },
-        { "Unlock": "Unlock_Resource_Luxuries", "ResourceType": "Luxuries" },
-        { "Unlock": "Unlock_Resource_Artifacts", "ResourceType": "Artifacts" },
-        { "Unlock": "Unlock_Resource_Tar", "ResourceType": "Tar" }
+        {
+            "Unlock": "Unlock_Game_Start",
+            "ResourceType": "Food"
+        },
+        {
+            "Unlock": "Unlock_Resource_Herbs",
+            "ResourceType": "Herbs"
+        },
+        {
+            "Unlock": "Unlock_Resource_Treasure",
+            "ResourceType": "Treasure"
+        },
+        {
+            "Unlock": "Unlock_Resource_Money",
+            "ResourceType": "Money"
+        },
+        {
+            "Unlock": "Unlock_Resource_Wood",
+            "ResourceType": "Wood"
+        },
+        {
+            "Unlock": "Unlock_Resource_Stone",
+            "ResourceType": "Stone"
+        },
+        {
+            "Unlock": "Unlock_Resource_People",
+            "ResourceType": "People"
+        },
+        {
+            "Unlock": "Unlock_Resource_Potions",
+            "ResourceType": "Potions"
+        },
+        {
+            "Unlock": "Unlock_Resource_Fabric",
+            "ResourceType": "Fabric"
+        },
+        {
+            "Unlock": "Unlock_Resource_Iron",
+            "ResourceType": "Iron"
+        },
+        {
+            "Unlock": "Unlock_Resource_Weaponry",
+            "ResourceType": "Weaponry"
+        },
+        {
+            "Unlock": "Unlock_Resource_Gears",
+            "ResourceType": "Gears"
+        },
+        {
+            "Unlock": "Unlock_Resource_Luxuries",
+            "ResourceType": "Luxuries"
+        },
+        {
+            "Unlock": "Unlock_Resource_Artifacts",
+            "ResourceType": "Artifacts"
+        },
+        {
+            "Unlock": "Unlock_Resource_Tar",
+            "ResourceType": "Tar"
+        }
     ],
     "ResourceGroups": [
         "Population",
@@ -29,169 +74,285 @@
             "InitialValue": 3,
             "InitialMaximum": 15,
             "ResourceGroup": "Primary",
-            "Upgrades": [
-
-            ],
+            "Upgrades": [],
             "Unlocks": [
-                { "Value": 0, "Operator": "==", "Unlock": "Unlock_Empty_Belly" },
-                { "Value": 0, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Food" }
-            ]
+                {
+                    "Value": 0,
+                    "Operator": "==",
+                    "Unlock": "Unlock_Empty_Belly"
+                },
+                {
+                    "Value": 0,
+                    "Operator": "MAX",
+                    "Unlock": "Unlock_Max_Out_Food"
+                }
+            ],
+            "UnlockAlterations": {
+                "Unlock_Double_Max_Storage_Space": {
+                    "MaxAdditive": 0.0,
+                    "MaxMultiplier": 2.0
+                }
+            }
         },
         {
             "Name": "Herbs",
             "InitialValue": 0,
             "InitialMaximum": 15,
             "ResourceGroup": "Basic",
-            "Upgrades": [
-
-            ],
+            "Upgrades": [],
             "Unlocks": [
-                { "Value": 0, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Herbs" }
-            ]
+                {
+                    "Value": 0,
+                    "Operator": "MAX",
+                    "Unlock": "Unlock_Max_Out_Herbs"
+                }
+            ],
+            "UnlockAlterations": {
+                "Unlock_Double_Max_Storage_Space": {
+                    "MaxAdditive": 0.0,
+                    "MaxMultiplier": 2.0
+                }
+            }
         },
         {
             "Name": "Treasure",
             "InitialValue": 0,
             "InitialMaximum": 10,
             "ResourceGroup": "Commerce",
-            "Upgrades": [
-
-            ],
+            "Upgrades": [],
             "Unlocks": [
-                { "Value": 0, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Treasure" }
-            ]
+                {
+                    "Value": 0,
+                    "Operator": "MAX",
+                    "Unlock": "Unlock_Max_Out_Treasure"
+                }
+            ],
+            "UnlockAlterations": {
+                "Unlock_Double_Max_Storage_Space": {
+                    "MaxAdditive": 0.0,
+                    "MaxMultiplier": 2.0
+                }
+            }
         },
         {
             "Name": "Money",
             "InitialValue": 0,
             "InitialMaximum": 100,
             "ResourceGroup": "Commerce",
-            "Upgrades": [
-
-            ],
+            "Upgrades": [],
             "Unlocks": [
-                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Money" }
-            ]
+                {
+                    "Value": 1,
+                    "Operator": "MAX",
+                    "Unlock": "Unlock_Max_Out_Money"
+                }
+            ],
+            "UnlockAlterations": {
+                "Unlock_Double_Max_Storage_Space": {
+                    "MaxAdditive": 0.0,
+                    "MaxMultiplier": 2.0
+                }
+            }
         },
         {
             "Name": "Wood",
             "InitialValue": 0,
             "InitialMaximum": 10,
             "ResourceGroup": "Basic",
-            "Upgrades": [
-
-            ],
+            "Upgrades": [],
             "Unlocks": [
-                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Wood" }
-            ]
+                {
+                    "Value": 1,
+                    "Operator": "MAX",
+                    "Unlock": "Unlock_Max_Out_Wood"
+                }
+            ],
+            "UnlockAlterations": {
+                "Unlock_Double_Max_Storage_Space": {
+                    "MaxAdditive": 0.0,
+                    "MaxMultiplier": 2.0
+                }
+            }
         },
         {
             "Name": "Stone",
             "InitialValue": 0,
             "InitialMaximum": 10,
             "ResourceGroup": "Basic",
-            "Upgrades": [
-
-            ],
+            "Upgrades": [],
             "Unlocks": [
-                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Stone" }
-            ]
+                {
+                    "Value": 1,
+                    "Operator": "MAX",
+                    "Unlock": "Unlock_Max_Out_Stone"
+                }
+            ],
+            "UnlockAlterations": {
+                "Unlock_Double_Max_Storage_Space": {
+                    "MaxAdditive": 0.0,
+                    "MaxMultiplier": 2.0
+                }
+            }
         },
         {
             "Name": "Potions",
             "InitialValue": 0,
             "InitialMaximum": 10,
             "ResourceGroup": "Primary",
-            "Upgrades": [
-
-            ],
+            "Upgrades": [],
             "Unlocks": [
-                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Potions" }
-            ]
+                {
+                    "Value": 1,
+                    "Operator": "MAX",
+                    "Unlock": "Unlock_Max_Out_Potions"
+                }
+            ],
+            "UnlockAlterations": {
+                "Unlock_Double_Max_Storage_Space": {
+                    "MaxAdditive": 0.0,
+                    "MaxMultiplier": 2.0
+                }
+            }
         },
         {
             "Name": "Fabric",
             "InitialValue": 0,
             "InitialMaximum": 10,
             "ResourceGroup": "Advanced",
-            "Upgrades": [
-
-            ],
+            "Upgrades": [],
             "Unlocks": [
-                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Fabric" }
-            ]
+                {
+                    "Value": 1,
+                    "Operator": "MAX",
+                    "Unlock": "Unlock_Max_Out_Fabric"
+                }
+            ],
+            "UnlockAlterations": {
+                "Unlock_Double_Max_Storage_Space": {
+                    "MaxAdditive": 0.0,
+                    "MaxMultiplier": 2.0
+                }
+            }
         },
         {
             "Name": "Iron",
             "InitialValue": 0,
             "InitialMaximum": 10,
             "ResourceGroup": "Basic",
-            "Upgrades": [
-
-            ],
+            "Upgrades": [],
             "Unlocks": [
-                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Iron" }
-            ]
+                {
+                    "Value": 1,
+                    "Operator": "MAX",
+                    "Unlock": "Unlock_Max_Out_Iron"
+                }
+            ],
+            "UnlockAlterations": {
+                "Unlock_Double_Max_Storage_Space": {
+                    "MaxAdditive": 0.0,
+                    "MaxMultiplier": 2.0
+                }
+            }
         },
         {
             "Name": "Weaponry",
             "InitialValue": 0,
             "InitialMaximum": 10,
             "ResourceGroup": "Primary",
-            "Upgrades": [
-
-            ],
+            "Upgrades": [],
             "Unlocks": [
-                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Weaponry" }
-            ]
+                {
+                    "Value": 1,
+                    "Operator": "MAX",
+                    "Unlock": "Unlock_Max_Out_Weaponry"
+                }
+            ],
+            "UnlockAlterations": {
+                "Unlock_Double_Max_Storage_Space": {
+                    "MaxAdditive": 0.0,
+                    "MaxMultiplier": 2.0
+                }
+            }
         },
         {
             "Name": "Gears",
             "InitialValue": 0,
             "InitialMaximum": 10,
             "ResourceGroup": "Advanced",
-            "Upgrades": [
-
-            ],
+            "Upgrades": [],
             "Unlocks": [
-                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Gears" }
-            ]
+                {
+                    "Value": 1,
+                    "Operator": "MAX",
+                    "Unlock": "Unlock_Max_Out_Gears"
+                }
+            ],
+            "UnlockAlterations": {
+                "Unlock_Double_Max_Storage_Space": {
+                    "MaxAdditive": 0.0,
+                    "MaxMultiplier": 2.0
+                }
+            }
         },
         {
             "Name": "Luxuries",
             "InitialValue": 0,
             "InitialMaximum": 10,
             "ResourceGroup": "Advanced",
-            "Upgrades": [
-
-            ],
+            "Upgrades": [],
             "Unlocks": [
-                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Luxuries" }
-            ]
+                {
+                    "Value": 1,
+                    "Operator": "MAX",
+                    "Unlock": "Unlock_Max_Out_Luxuries"
+                }
+            ],
+            "UnlockAlterations": {
+                "Unlock_Double_Max_Storage_Space": {
+                    "MaxAdditive": 0.0,
+                    "MaxMultiplier": 2.0
+                }
+            }
         },
         {
             "Name": "Artifacts",
             "InitialValue": 0,
             "InitialMaximum": 10,
             "ResourceGroup": "Advanced",
-            "Upgrades": [
-
-            ],
+            "Upgrades": [],
             "Unlocks": [
-                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Artifacts" }
-            ]
+                {
+                    "Value": 1,
+                    "Operator": "MAX",
+                    "Unlock": "Unlock_Max_Out_Artifacts"
+                }
+            ],
+            "UnlockAlterations": {
+                "Unlock_Double_Max_Storage_Space": {
+                    "MaxAdditive": 0.0,
+                    "MaxMultiplier": 2.0
+                }
+            }
         },
         {
             "Name": "Tar",
             "InitialValue": 0,
             "InitialMaximum": 10,
             "ResourceGroup": "Advanced",
-            "Upgrades": [
-
-            ],
+            "Upgrades": [],
             "Unlocks": [
-                { "Value": 1, "Operator": "MAX", "Unlock": "Unlock_Max_Out_Tar" }
-            ]
+                {
+                    "Value": 1,
+                    "Operator": "MAX",
+                    "Unlock": "Unlock_Max_Out_Tar"
+                }
+            ],
+            "UnlockAlterations": {
+                "Unlock_Double_Max_Storage_Space": {
+                    "MaxAdditive": 0.0,
+                    "MaxMultiplier": 2.0
+                }
+            }
         }
     ]
 }
