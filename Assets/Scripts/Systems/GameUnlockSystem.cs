@@ -8,22 +8,27 @@ namespace HypnicEmpire
     public static class GameUnlockSystem
     {
         public static List<string> UnlockIDs = new();
-        private static Dictionary<string, List<Action<bool>>> UnlockActionMap = new();
+        private static Dictionary<string, List<Action<bool>>> UnlockActionMapBefore = new();
+        private static Dictionary<string, List<Action<bool>>> UnlockActionMapAfter = new();
         public static SerializableDictionary<string, bool> GameUnlockList = new();
 
-        public static void AddGameUnlockAction(string unlock, Action<bool> action)
+        public static void AddGameUnlockAction(string unlock, bool before, Action<bool> action)
         {
-            if (!UnlockActionMap.ContainsKey(unlock))
-                UnlockActionMap[unlock] = new();
-            UnlockActionMap[unlock].Add(action);
+            var actionMap = before ? UnlockActionMapBefore : UnlockActionMapAfter;
+            if (!actionMap.ContainsKey(unlock))
+                actionMap[unlock] = new();
+            actionMap[unlock].Add(action);
         }
 
         public static void SetUnlockValue(string unlock, bool unlocked)
         {
-            if (UnlockActionMap.ContainsKey(unlock))
-                foreach (var action in UnlockActionMap[unlock])
+            if (UnlockActionMapBefore.ContainsKey(unlock))
+                foreach (var action in UnlockActionMapBefore[unlock])
                     action?.Invoke(unlocked);
             GameUnlockList[unlock] = unlocked;
+            if (UnlockActionMapAfter.ContainsKey(unlock))
+                foreach (var action in UnlockActionMapAfter[unlock])
+                    action?.Invoke(unlocked);
         }
 
         public static bool IsUnlocked(string unlockID)

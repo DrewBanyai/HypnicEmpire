@@ -93,14 +93,14 @@ namespace HypnicEmpire
             HardResetCancelButton?.onClick.AddListener(() => { SetResetButtonUnpacked(false); });
 
             //  Define UI responses to game unlock events
-            GameUnlockSystem.AddGameUnlockAction("Unlock_Empty_Belly", (bool shown) => { foreach (var obj in DevelopmentsTabGroup) obj?.SetActive(shown); });
-            GameUnlockSystem.AddGameUnlockAction("Unlock_Buildings", (bool shown) => { foreach (var obj in BuildingsTabGroup) obj?.SetActive(shown); });
+            GameUnlockSystem.AddGameUnlockAction("Unlock_Empty_Belly", true, (bool shown) => { foreach (var obj in DevelopmentsTabGroup) obj?.SetActive(shown); });
+            GameUnlockSystem.AddGameUnlockAction("Unlock_Buildings", true, (bool shown) => { foreach (var obj in BuildingsTabGroup) obj?.SetActive(shown); });
 
             foreach (var gu in GameUnlockSystem.UnlockIDs)
             {
                 string unlockedResource = ResourceTypeSystem.GetResourceTypeFromUnlock(gu);
                 if (unlockedResource != null)
-                    GameUnlockSystem.AddGameUnlockAction(gu.ToString(), (bool shown) => { if (shown) ResourceListControl?.AddResourceEntry(unlockedResource); }); 
+                    GameUnlockSystem.AddGameUnlockAction(gu.ToString(), true, (bool shown) => { if (shown) ResourceListControl?.AddResourceEntry(unlockedResource); }); 
             }
 
             //  Define UI responses to resource changes

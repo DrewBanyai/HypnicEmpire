@@ -30,7 +30,7 @@ namespace HypnicEmpire
                 var entryComponent = entryObject.GetComponent<UIDevelopmentEntry>();
                 entryComponent?.SetContent(name, description, extraInfo, cost, unlock);
                 foreach (var u in unlock)
-                    GameUnlockSystem.AddGameUnlockAction(u, (bool unlocked) => { if (unlocked) TransferDevelopmentToFinished(entryObject); });
+                    GameUnlockSystem.AddGameUnlockAction(u, true, (bool unlocked) => { if (unlocked) TransferDevelopmentToFinished(entryObject); });
             }
         }
         

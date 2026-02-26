@@ -29,7 +29,7 @@ namespace HypnicEmpire
             {
                 foreach (var unlockKey in actionState.ValueDeterminant.UnlockAlterations.Keys)
                 {
-                    GameUnlockSystem.AddGameUnlockAction(unlockKey, (bool unlocked) => {
+                    GameUnlockSystem.AddGameUnlockAction(unlockKey, false, (bool unlocked) => {
                         RefreshUI(actionState);
                     });
                 }

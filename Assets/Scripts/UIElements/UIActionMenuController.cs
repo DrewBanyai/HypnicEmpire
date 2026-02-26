@@ -33,7 +33,7 @@ namespace HypnicEmpire
             actionButtonGroup.SetContent(actionType, actionState);
 
             SetActionActive(actionType, unlockStatus);
-            GameUnlockSystem.AddGameUnlockAction(unlock, (bool unlocked) => {
+            GameUnlockSystem.AddGameUnlockAction(unlock, true, (bool unlocked) => {
                 SetActionActive(actionType, unlocked);
             });
         }

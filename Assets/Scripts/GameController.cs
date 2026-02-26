@@ -94,7 +94,7 @@ namespace HypnicEmpire
             {
                 foreach (var trigger in development.Trigger)
                 {
-                    GameUnlockSystem.AddGameUnlockAction(trigger, (bool unlocked) =>
+                    GameUnlockSystem.AddGameUnlockAction(trigger, true, (bool unlocked) =>
                     {
                         if (!unlocked) return;
                         
@@ -140,7 +140,7 @@ namespace HypnicEmpire
         public void SubscribeToJournalEntries()
         {
             foreach (var je in JournalEntrySystem.JournalEntryDataMap)
-                GameUnlockSystem.AddGameUnlockAction(je.Key, (bool unlocked) => {
+                GameUnlockSystem.AddGameUnlockAction(je.Key, true, (bool unlocked) => {
                     if (!unlocked) return;
                     if (!GameUnlockSystem.IsUnlocked(je.Key))
                         MainGameUIView?.JournalMenuControl?.AddJournalEntry(je.Value.Text[UnityEngine.Random.Range(0, je.Value.Text.Count)]);
