@@ -32,37 +32,260 @@
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
                 "UnlockAlterations": {
-                    "Unlock_Delving_Speed_Up_2": { "SpeedMultiplier": 2.0, "CostChanges": [], "RewardChanges": [] },
-                    "Unlock_Half_Food_Cost_Of_Delving": { "SpeedMultiplier": 2.0, "CostChanges": [ { "ResourceType": "Food", "Multiplier": 0.5, "Additive": 0.0} ], "RewardChanges": [] },
-                    "Unlock_Delving_Speed_Up_1_5": { "SpeedMultiplier": 1.5, "CostChanges": [], "RewardChanges": [] },
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] },
-                    "Unlock_Designate_A_Graveyard": { "SpeedMultiplier": 1.5, "CostChanges": [], "RewardChanges": [] },
-                    "Unlock_Grand_Speech": { "SpeedMultiplier": 0.5, "CostChanges": [], "RewardChanges": [] },
-                    "Unlock_Mausoleum_For_The_Dead": { "SpeedMultiplier": 0.5, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Delving_Speed_Up_2": {
+                        "SpeedMultiplier": 2.0,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Half_Food_Cost_Of_Delving": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 0.5,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Potions",
+                                "Multiplier": 0.5,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Weaponry",
+                                "Multiplier": 0.5,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Stone_Wall_Supply_Stashes": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 0.8,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Delving_Speed_Up_1_5": {
+                        "SpeedMultiplier": 1.5,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Potions",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Weaponry",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Treasure",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Wood",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Stone",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Herbs",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Fabric",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Iron",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Tar",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Designate_A_Graveyard": {
+                        "SpeedMultiplier": 1.5,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Potions",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Weaponry",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Treasure",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Wood",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Stone",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Herbs",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Fabric",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Iron",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Tar",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Mausoleum_For_The_Dead": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Potions",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Weaponry",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Treasure",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Wood",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Stone",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Herbs",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Fabric",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Iron",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Tar",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
                 },
                 "AlterableValuePercentAdditions": [
                     "DelveTaskSpeedPercent",
                     "GlobalActionSpeedPercent"
                 ]
             },
-            "ResourceChange": [ { "ResourceType": "Food", "ResourceValue": -1 }, { "ResourceType": "Treasure", "ResourceValue": 1 } ]
-        },
-        {
-            "Name": "Forage",
-            "DisplayName": "Forage",
-            "ActionSection": "Agricultural",
-            "ValueDeterminant": {
-                "Efficiency": 1.0,
-                "DefaultSpeed": 300.0,
-                "UnlockAlterations": {
-                    "Unlock_Foraging_Speed_Up": { "SpeedMultiplier": 2.0, "CostChanges": [], "RewardChanges": [] },
-                    "Unlock_Foraging_Gain_Up_2_5": { "SpeedMultiplier": 2.0, "CostChanges": [], "RewardChanges": [ { "ResourceType": "Food", "Multiplier": 2.5, "Additive": 0.0}, { "ResourceType": "Herbs", "Multiplier": 2.5, "Additive": 0.0} ] },
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+            "ResourceChange": [
+                {
+                    "ResourceType": "Food",
+                    "ResourceValue": -1
                 },
-                "AlterableValuePercentAdditions": [
-                ]
-            },
-            "ResourceChange": [ { "ResourceType": "Food", "ResourceValue": 0.2 }, { "ResourceType": "Herbs", "ResourceValue": 0.1 } ]
+                {
+                    "ResourceType": "Treasure",
+                    "ResourceValue": 1
+                }
+            ]
         },
         {
             "Name": "Sell_Food",
@@ -70,14 +293,104 @@
             "ActionSection": "Commercial",
             "ValueDeterminant": {
                 "Efficiency": 1.0,
-                "DefaultSpeed": 300.0,
+                "DefaultSpeed": 600.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Commercial_Action_Speed_Up_2": {
+                        "SpeedMultiplier": 2.0,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Bulk_Trade_Route": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Build_River_Port": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Allow_Thievery": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 1.25,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Food", "ResourceValue": -1 }, { "ResourceType": "Money", "ResourceValue": 1 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Food",
+                    "ResourceValue": -1
+                },
+                {
+                    "ResourceType": "Money",
+                    "ResourceValue": 1
+                }
+            ]
         },
         {
             "Name": "Market",
@@ -85,14 +398,98 @@
             "ActionSection": "Commercial",
             "ValueDeterminant": {
                 "Efficiency": 1.0,
-                "DefaultSpeed": 300.0,
+                "DefaultSpeed": 600.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Visit_The_Barony": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Commercial_Action_Speed_Up_2": {
+                        "SpeedMultiplier": 2.0,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Treasure",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Build_River_Port": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Allow_Thievery": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 1.25,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Treasure",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Treasure", "ResourceValue": -1 }, { "ResourceType": "Money", "ResourceValue": 5 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Treasure",
+                    "ResourceValue": -1
+                },
+                {
+                    "ResourceType": "Money",
+                    "ResourceValue": 5
+                }
+            ]
         },
         {
             "Name": "Buy_Potion",
@@ -100,14 +497,81 @@
             "ActionSection": "Commercial",
             "ValueDeterminant": {
                 "Efficiency": 1.0,
-                "DefaultSpeed": 300.0,
+                "DefaultSpeed": 600.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Commercial_Action_Speed_Up_2": {
+                        "SpeedMultiplier": 2.0,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Potions",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Crafter_Guild": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Potions",
+                                "Multiplier": 1.25,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Build_River_Port": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Potions",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Money", "ResourceValue": -5 }, { "ResourceType": "Potions", "ResourceValue": 1 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Money",
+                    "ResourceValue": -5
+                },
+                {
+                    "ResourceType": "Potions",
+                    "ResourceValue": 1
+                }
+            ]
         },
         {
             "Name": "Sell_Fabric",
@@ -115,14 +579,87 @@
             "ActionSection": "Commercial",
             "ValueDeterminant": {
                 "Efficiency": 1.0,
-                "DefaultSpeed": 300.0,
+                "DefaultSpeed": 600.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Commercial_Action_Speed_Up_2": {
+                        "SpeedMultiplier": 2.0,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Fabric",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Build_River_Port": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Allow_Thievery": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 1.25,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Fabric",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Fabric", "ResourceValue": -2 }, { "ResourceType": "Money", "ResourceValue": 8 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Fabric",
+                    "ResourceValue": -2
+                },
+                {
+                    "ResourceType": "Money",
+                    "ResourceValue": 8
+                }
+            ]
         },
         {
             "Name": "Buy_Weaponry",
@@ -130,14 +667,81 @@
             "ActionSection": "Commercial",
             "ValueDeterminant": {
                 "Efficiency": 1.0,
-                "DefaultSpeed": 300.0,
+                "DefaultSpeed": 600.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Commercial_Action_Speed_Up_2": {
+                        "SpeedMultiplier": 2.0,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Weaponry",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Crafter_Guild": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Weaponry",
+                                "Multiplier": 1.25,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Build_River_Port": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Weaponry",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Money", "ResourceValue": -10 }, { "ResourceType": "Weaponry", "ResourceValue": 2 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Money",
+                    "ResourceValue": -10
+                },
+                {
+                    "ResourceType": "Weaponry",
+                    "ResourceValue": 2
+                }
+            ]
         },
         {
             "Name": "Polish",
@@ -147,12 +751,191 @@
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Commercial_Action_Speed_Up_2": {
+                        "SpeedMultiplier": 2.0,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Treasure",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Build_River_Port": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Treasure",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Money", "ResourceValue": -50 }, { "ResourceType": "Treasure", "ResourceValue": 1 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Money",
+                    "ResourceValue": -50
+                },
+                {
+                    "ResourceType": "Treasure",
+                    "ResourceValue": 1
+                }
+            ]
+        },
+        {
+            "Name": "Forage",
+            "DisplayName": "Forage",
+            "ActionSection": "Agricultural",
+            "ValueDeterminant": {
+                "Efficiency": 1.0,
+                "DefaultSpeed": 300.0,
+                "UnlockAlterations": {
+                    "Unlock_Foraging_Speed_Up": {
+                        "SpeedMultiplier": 2.0,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Foraging_Gain_Up_2_5": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 2.5,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Herbs",
+                                "Multiplier": 2.5,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Foraging_Food_Gain_Up_2": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Foraging_Herb_Gain_Up_1_6": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Herbs",
+                                "Multiplier": 1.6,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Finished_Construct_Palisade": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Increase_Herb_Gain_1_5": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Herbs",
+                                "Multiplier": 1.5,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Herbs",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Herbs",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
+                },
+                "AlterableValuePercentAdditions": []
+            },
+            "ResourceChange": [
+                {
+                    "ResourceType": "Food",
+                    "ResourceValue": 0.2
+                },
+                {
+                    "ResourceType": "Herbs",
+                    "ResourceValue": 0.1
+                }
+            ]
         },
         {
             "Name": "Trade_Herbs",
@@ -160,14 +943,76 @@
             "ActionSection": "Commercial",
             "ValueDeterminant": {
                 "Efficiency": 1.0,
-                "DefaultSpeed": 300.0,
+                "DefaultSpeed": 600.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Commercial_Action_Speed_Up_2": {
+                        "SpeedMultiplier": 2.0,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Finished_Construct_Palisade": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Herbs",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Herbs",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Herbs", "ResourceValue": -1 }, { "ResourceType": "Food", "ResourceValue": 1 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Herbs",
+                    "ResourceValue": -0.1
+                },
+                {
+                    "ResourceType": "Food",
+                    "ResourceValue": 0.2
+                }
+            ]
         },
         {
             "Name": "Chop_Wood",
@@ -175,14 +1020,77 @@
             "ActionSection": "Industrial",
             "ValueDeterminant": {
                 "Efficiency": 1.0,
-                "DefaultSpeed": 300.0,
+                "DefaultSpeed": 660.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Chop_Wood_Gain_Up_2": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Wood",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Increase_Industrial_Gain_0_2": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Wood",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Cut_Down_The_Forest": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Wood",
+                                "Multiplier": 0.85,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Wood",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Wood",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Wood", "ResourceValue": 5 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Wood",
+                    "ResourceValue": 0.5
+                }
+            ]
         },
         {
             "Name": "Hunting",
@@ -190,14 +1098,108 @@
             "ActionSection": "Agricultural",
             "ValueDeterminant": {
                 "Efficiency": 1.0,
-                "DefaultSpeed": 300.0,
+                "DefaultSpeed": 660.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Hunting_Food_Gain_2": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_No_More_Foraging": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 1.25,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Cut_Down_The_Forest": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 0.85,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Finished_Construct_Palisade": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Silent_Hunter_Tribute": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 0.5,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Potions",
+                                "Multiplier": 1.0,
+                                "Additive": 1.0
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Food", "ResourceValue": 15 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Food",
+                    "ResourceValue": 1.5
+                },
+                {
+                    "ResourceType": "Potions",
+                    "ResourceValue": 0.0
+                }
+            ]
         },
         {
             "Name": "Fishing",
@@ -205,14 +1207,90 @@
             "ActionSection": "Agricultural",
             "ValueDeterminant": {
                 "Efficiency": 1.0,
-                "DefaultSpeed": 300.0,
+                "DefaultSpeed": 660.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Finished_Construct_Palisade": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Luxuries",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Finished_Divert_The_River": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 0.5,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Luxuries",
+                                "Multiplier": 0.5,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Luxuries",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Stuff_Floats_Down_River": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Luxuries",
+                                "Multiplier": 1.0,
+                                "Additive": 0.3
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Food", "ResourceValue": 15 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Food",
+                    "ResourceValue": 1.5
+                },
+                {
+                    "ResourceType": "Luxuries",
+                    "ResourceValue": 0.0
+                }
+            ]
         },
         {
             "Name": "Farming",
@@ -220,14 +1298,87 @@
             "ActionSection": "Agricultural",
             "ValueDeterminant": {
                 "Efficiency": 1.0,
-                "DefaultSpeed": 300.0,
+                "DefaultSpeed": 660.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Finished_Construct_Palisade": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Mills_For_Farms": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Built_An_Aqueduct": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 1.5,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Invigorated_Farmers": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 1.25,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Food", "ResourceValue": 3 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Food",
+                    "ResourceValue": 3
+                }
+            ]
         },
         {
             "Name": "Cut_Stone",
@@ -235,14 +1386,115 @@
             "ActionSection": "Industrial",
             "ValueDeterminant": {
                 "Efficiency": 1.0,
-                "DefaultSpeed": 300.0,
+                "DefaultSpeed": 360.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Double_Stonecutting_Gain": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Stone",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Half_Wood_Cost_Of_Stonecutting": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Wood",
+                                "Multiplier": 0.5,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Increase_Industrial_Gain_0_2": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Stone",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Wood",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Stone",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Half_Cost_Of_Stonecutting": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Wood",
+                                "Multiplier": 0.5,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Establish_Metalworker_Guild": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Stone",
+                                "Multiplier": 1.25,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Wood",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Stone",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Wood", "ResourceValue": -2 }, { "ResourceType": "Stone", "ResourceValue": 5 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Wood",
+                    "ResourceValue": -2
+                },
+                {
+                    "ResourceType": "Stone",
+                    "ResourceValue": 0.5
+                }
+            ]
         },
         {
             "Name": "Cultivate",
@@ -250,14 +1502,99 @@
             "ActionSection": "Agricultural",
             "ValueDeterminant": {
                 "Efficiency": 1.0,
-                "DefaultSpeed": 300.0,
+                "DefaultSpeed": 400.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Cultivate_Efficiency_Gain_200": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 3.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Herbs",
+                                "Multiplier": 3.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Increase_Herb_Gain_1_5": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Herbs",
+                                "Multiplier": 1.5,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Herbs",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Built_An_Aqueduct": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Herbs",
+                                "Multiplier": 1.5,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Food",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Herbs",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Food", "ResourceValue": -1 }, { "ResourceType": "Herbs", "ResourceValue": 1 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Food",
+                    "ResourceValue": -1
+                },
+                {
+                    "ResourceType": "Herbs",
+                    "ResourceValue": 1
+                }
+            ]
         },
         {
             "Name": "Brew_Potion",
@@ -267,12 +1604,127 @@
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Brew_Potion_Gain_2": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Potions",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Increase_Industrial_Gain_0_2": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Potions",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Wood",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Herbs",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Potions",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Crafter_Guild": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Potions",
+                                "Multiplier": 1.25,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Wood",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Herbs",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Potions",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Brews_Of_The_High_Council": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Potions",
+                                "Multiplier": 1.5,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Burn_Tar_Generate_Steam": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Potions",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Wood", "ResourceValue": -1 }, { "ResourceType": "Herbs", "ResourceValue": -2 }, { "ResourceType": "Potions", "ResourceValue": 1 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Wood",
+                    "ResourceValue": -1
+                },
+                {
+                    "ResourceType": "Herbs",
+                    "ResourceValue": -2
+                },
+                {
+                    "ResourceType": "Potions",
+                    "ResourceValue": 0.5
+                }
+            ]
         },
         {
             "Name": "Weaving",
@@ -280,14 +1732,104 @@
             "ActionSection": "Industrial",
             "ValueDeterminant": {
                 "Efficiency": 1.0,
-                "DefaultSpeed": 300.0,
+                "DefaultSpeed": 160.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Increase_Industrial_Gain_0_2": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Fabric",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Increase_Fabric_Gain_100": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Fabric",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Herbs",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Fabric",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Crafter_Guild": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Fabric",
+                                "Multiplier": 1.25,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Herbs",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Fabric",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Burn_Tar_Generate_Steam": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Fabric",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Herbs", "ResourceValue": -4 }, { "ResourceType": "Fabric", "ResourceValue": 1 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Herbs",
+                    "ResourceValue": -4
+                },
+                {
+                    "ResourceType": "Fabric",
+                    "ResourceValue": 1
+                }
+            ]
         },
         {
             "Name": "Mining",
@@ -295,14 +1837,223 @@
             "ActionSection": "Industrial",
             "ValueDeterminant": {
                 "Efficiency": 1.0,
-                "DefaultSpeed": 300.0,
+                "DefaultSpeed": 160.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Increase_Industrial_Gain_0_2": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Iron",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Wood",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Stone",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Iron",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Metalworker_Guild": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Iron",
+                                "Multiplier": 1.25,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Wood",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Stone",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Iron",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Burn_Tar_Generate_Steam": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Iron",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Wood", "ResourceValue": -4 }, { "ResourceType": "Stone", "ResourceValue": -4 }, { "ResourceType": "Iron", "ResourceValue": 1 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Wood",
+                    "ResourceValue": -4
+                },
+                {
+                    "ResourceType": "Stone",
+                    "ResourceValue": -4
+                },
+                {
+                    "ResourceType": "Iron",
+                    "ResourceValue": 1
+                }
+            ]
+        },
+        {
+            "Name": "Forging",
+            "DisplayName": "Forging",
+            "ActionSection": "Industrial",
+            "ValueDeterminant": {
+                "Efficiency": 1.0,
+                "DefaultSpeed": 160.0,
+                "UnlockAlterations": {
+                    "Unlock_Increase_Industrial_Gain_0_2": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Weaponry",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Iron",
+                                "Multiplier": 4,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Weaponry",
+                                "Multiplier": 4,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Crafter_Guild": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Weaponry",
+                                "Multiplier": 1.25,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Forging_Weaponry_Gain_100": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Weaponry",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Iron",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Weaponry",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Enchanted_Forges": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Weaponry",
+                                "Multiplier": 1.5,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Burn_Tar_Generate_Steam": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Weaponry",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
+                },
+                "AlterableValuePercentAdditions": []
+            },
+            "ResourceChange": [
+                {
+                    "ResourceType": "Iron",
+                    "ResourceValue": -2
+                },
+                {
+                    "ResourceType": "Weaponry",
+                    "ResourceValue": 0.38
+                }
+            ]
         },
         {
             "Name": "Refine",
@@ -312,12 +2063,94 @@
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Increase_Industrial_Gain_0_2": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Luxuries",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Fabric",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Luxuries",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Money",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Fabric",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Luxuries",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Burn_Tar_Generate_Steam": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Luxuries",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Iron", "ResourceValue": -1 }, { "ResourceType": "Weaponry", "ResourceValue": 1 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Money",
+                    "ResourceValue": -80
+                },
+                {
+                    "ResourceType": "Fabric",
+                    "ResourceValue": -8
+                },
+                {
+                    "ResourceType": "Luxuries",
+                    "ResourceValue": 7.4
+                }
+            ]
         },
         {
             "Name": "Manufacture",
@@ -327,12 +2160,80 @@
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Increase_Industrial_Gain_0_2": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Gears",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Iron",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Gears",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Iron",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Gears",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Burn_Tar_Generate_Steam": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Gears",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Iron", "ResourceValue": -1 }, { "ResourceType": "Gears", "ResourceValue": 1 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Iron",
+                    "ResourceValue": -1
+                },
+                {
+                    "ResourceType": "Gears",
+                    "ResourceValue": 1
+                }
+            ]
         },
         {
             "Name": "Purify",
@@ -342,12 +2243,119 @@
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Increase_Industrial_Gain_0_2": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Artifacts",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Treasure",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Luxuries",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Gears",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Artifacts",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [
+                            {
+                                "ResourceType": "Treasure",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Luxuries",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            },
+                            {
+                                "ResourceType": "Gears",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Artifacts",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_University_For_Wizards": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Artifacts",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Burn_Tar_Generate_Steam": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Artifacts",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Treasure", "ResourceValue": -1 }, { "ResourceType": "Luxuries", "ResourceValue": -2 }, { "ResourceType": "Gears", "ResourceValue": -2 }, { "ResourceType": "Artifacts", "ResourceValue": 2 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Treasure",
+                    "ResourceValue": -1
+                },
+                {
+                    "ResourceType": "Luxuries",
+                    "ResourceValue": -2
+                },
+                {
+                    "ResourceType": "Gears",
+                    "ResourceValue": -2
+                },
+                {
+                    "ResourceType": "Artifacts",
+                    "ResourceValue": 2.25
+                }
+            ]
         },
         {
             "Name": "Pump",
@@ -357,12 +2365,64 @@
                 "Efficiency": 1.0,
                 "DefaultSpeed": 300.0,
                 "UnlockAlterations": {
-                    "Unlock_Establish_Council_Of_Guilds": { "SpeedMultiplier": 1.1, "CostChanges": [], "RewardChanges": [] }
+                    "Unlock_Increase_Industrial_Gain_0_2": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Tar",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Auto_Project_Cost_Removal": {
+                        "SpeedMultiplier": 0.25,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Tar",
+                                "Multiplier": 4.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Establish_Council_Of_Guilds": {
+                        "SpeedMultiplier": 1.1,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Grand_Speech": {
+                        "SpeedMultiplier": 0.5,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Tar",
+                                "Multiplier": 2.0,
+                                "Additive": 0.0
+                            }
+                        ]
+                    },
+                    "Unlock_Burn_Tar_Generate_Steam": {
+                        "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": [
+                            {
+                                "ResourceType": "Tar",
+                                "Multiplier": 1.2,
+                                "Additive": 0.0
+                            }
+                        ]
+                    }
                 },
-                "AlterableValuePercentAdditions": [
-                ]
+                "AlterableValuePercentAdditions": []
             },
-            "ResourceChange": [ { "ResourceType": "Tar", "ResourceValue": 1 } ]
+            "ResourceChange": [
+                {
+                    "ResourceType": "Tar",
+                    "ResourceValue": 1
+                }
+            ]
         }
     ]
 }
