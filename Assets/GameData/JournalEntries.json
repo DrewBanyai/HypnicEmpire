@@ -272,7 +272,7 @@
         "Text": [ "The rate of people accidentally locking themselves out has strangely increased greatly after we completely fenced off the village." ]
     },
     {
-        "Trigger": "Unlocks_Auto_Project_Cost_Removal",
+        "Trigger": "Unlock_Auto_Project_Cost_Removal",
         "Text": [ "After you have annoyed everyone for several days with your plans and laws, they assure you that they will slow down from now on." ]
     },
     {

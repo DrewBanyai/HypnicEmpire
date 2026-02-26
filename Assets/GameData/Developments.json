@@ -529,7 +529,7 @@
             "Title": "Reorganize the whole settlement",
             "Description": "One day you wake up and think to yourself that you have to introduce some changes now. You have the feeling that everything has become so fast lately. People don't even say hello to each other on the streets anymore. Everyone rushes back and forth without even looking up.",
             "EffectText": "Reduces all action speeds by *0.25\nIncreases all action efficiency by *4\nProject costs will automatically be removed from now on",
-            "Unlock": [ "Unlocks_Auto_Project_Cost_Removal" ],
+            "Unlock": [ "Unlock_Auto_Project_Cost_Removal" ],
             "Cost": [ { "ResourceType": "Money", "ResourceValue": -1000 } ]
         },
         {
@@ -541,7 +541,7 @@
             "Cost": [ { "ResourceType": "Money", "ResourceValue": -6250 }, { "ResourceType": "Fabric", "ResourceValue": -988 } ]
         },
         {
-            "Trigger": [ "Unlocks_Auto_Project_Cost_Removal" ],
+            "Trigger": [ "Unlock_Auto_Project_Cost_Removal" ],
             "Title": "Send out scouts",
             "Description": "The people are still wary of their surroundings. It might be good to show them that there is nothing to fear out there.",
             "EffectText": "Reduce Workshop Cost by 0.5\nReduce Granary Cost by 0.5",
