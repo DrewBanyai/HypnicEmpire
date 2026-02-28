@@ -8,6 +8,7 @@ namespace HypnicEmpire
     public static class AchievementsSystem
     {
         public static Dictionary<string, AchievementData> AchievementDataMap = new();
+        public static List<string> UnlockedAchievements = new();
         public static int ProgressBoostPercent = 100;
 
         public static double GetProgressBoostMultiplier() { return ProgressBoostPercent / 100.0; }
@@ -38,6 +39,25 @@ namespace HypnicEmpire
             else
             {
                 Debug.LogWarning($"Achievements.json not found at {jsonFilePath}");
+            }
+        }
+
+        public static void InitializeListeners()
+        {
+            foreach (var achievement in AchievementDataMap.Values)
+            {
+                string trigger = achievement.Trigger;
+                GameUnlockSystem.AddGameUnlockAction(trigger, true, (bool unlocked) =>
+                {
+                    if (unlocked)
+                    {
+                        if (!UnlockedAchievements.Contains(trigger))
+                        {
+                            UnlockedAchievements.Add(trigger);
+                            JournalEntrySystem.AddJournalEntry("Unlocked " + achievement.Name);
+                        }
+                    }
+                });
             }
         }
     }

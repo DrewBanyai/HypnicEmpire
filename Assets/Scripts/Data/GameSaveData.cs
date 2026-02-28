@@ -10,5 +10,6 @@ namespace HypnicEmpire
     {
         public GameState GameState;
         public SerializableDictionary<string, bool> GameUnlockList;
+        public List<string> UnlockedAchievements;
     }
 }

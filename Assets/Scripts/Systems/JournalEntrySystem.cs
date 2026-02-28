@@ -9,6 +9,14 @@ namespace HypnicEmpire
     {
         public static Dictionary<string, JournalEntryData> JournalEntryDataMap = new();
         public static List<string> ShownJournalEntries = new();
+        public static event Action<string> OnJournalEntryAdded;
+
+        public static void AddJournalEntry(string text)
+        {
+            if (string.IsNullOrEmpty(text)) return;
+            ShownJournalEntries.Add(text);
+            OnJournalEntryAdded?.Invoke(text);
+        }
 
         public static void LoadAllJournalEntries(string jsonFilePath)
         {
