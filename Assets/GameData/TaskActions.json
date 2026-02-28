@@ -69,6 +69,11 @@
                         ],
                         "RewardChanges": []
                     },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
                     "Unlock_Delving_Speed_Up_1_5": {
                         "SpeedMultiplier": 1.5,
                         "CostChanges": [],
@@ -317,6 +322,11 @@
                             }
                         ]
                     },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
                     "Unlock_Auto_Project_Cost_Removal": {
                         "SpeedMultiplier": 0.25,
                         "CostChanges": [
@@ -413,6 +423,11 @@
                     },
                     "Unlock_Commercial_Action_Speed_Up_2": {
                         "SpeedMultiplier": 2.0,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
                         "CostChanges": [],
                         "RewardChanges": []
                     },
@@ -521,6 +536,11 @@
                             }
                         ]
                     },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
                     "Unlock_Establish_Crafter_Guild": {
                         "SpeedMultiplier": 1.0,
                         "CostChanges": [],
@@ -602,6 +622,11 @@
                                 "Additive": 0.0
                             }
                         ]
+                    },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
                     },
                     "Unlock_Establish_Council_Of_Guilds": {
                         "SpeedMultiplier": 1.1,
@@ -691,6 +716,11 @@
                             }
                         ]
                     },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
                     "Unlock_Establish_Crafter_Guild": {
                         "SpeedMultiplier": 1.0,
                         "CostChanges": [],
@@ -772,6 +802,11 @@
                             }
                         ]
                     },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
                     "Unlock_Establish_Council_Of_Guilds": {
                         "SpeedMultiplier": 1.1,
                         "CostChanges": [],
@@ -841,6 +876,11 @@
                                 "Additive": 0.0
                             }
                         ]
+                    },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
                     },
                     "Unlock_Foraging_Food_Gain_Up_2": {
                         "SpeedMultiplier": 1.0,
@@ -961,6 +1001,11 @@
                             }
                         ]
                     },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
                     "Unlock_Auto_Project_Cost_Removal": {
                         "SpeedMultiplier": 0.25,
                         "CostChanges": [
@@ -1044,6 +1089,11 @@
                             }
                         ]
                     },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
                     "Unlock_Cut_Down_The_Forest": {
                         "SpeedMultiplier": 1.0,
                         "CostChanges": [],
@@ -1121,6 +1171,11 @@
                                 "Additive": 0.0
                             }
                         ]
+                    },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
                     },
                     "Unlock_Cut_Down_The_Forest": {
                         "SpeedMultiplier": 1.0,
@@ -1211,6 +1266,11 @@
                 "UnlockAlterations": {
                     "Unlock_Finished_Construct_Palisade": {
                         "SpeedMultiplier": 1.0,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
                         "CostChanges": [],
                         "RewardChanges": []
                     },
@@ -1310,6 +1370,11 @@
                                 "Additive": 0.0
                             }
                         ]
+                    },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
                     },
                     "Unlock_Auto_Project_Cost_Removal": {
                         "SpeedMultiplier": 0.25,
@@ -1420,6 +1485,11 @@
                                 "Additive": 0.0
                             }
                         ]
+                    },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
                     },
                     "Unlock_Auto_Project_Cost_Removal": {
                         "SpeedMultiplier": 0.25,
@@ -1532,6 +1602,11 @@
                             }
                         ]
                     },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
                     "Unlock_Auto_Project_Cost_Removal": {
                         "SpeedMultiplier": 0.25,
                         "CostChanges": [
@@ -1625,6 +1700,11 @@
                                 "Additive": 0.0
                             }
                         ]
+                    },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
                     },
                     "Unlock_Auto_Project_Cost_Removal": {
                         "SpeedMultiplier": 0.25,
@@ -1756,6 +1836,11 @@
                             }
                         ]
                     },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
                     "Unlock_Auto_Project_Cost_Removal": {
                         "SpeedMultiplier": 0.25,
                         "CostChanges": [
@@ -1849,6 +1934,11 @@
                                 "Additive": 0.0
                             }
                         ]
+                    },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
                     },
                     "Unlock_Auto_Project_Cost_Removal": {
                         "SpeedMultiplier": 0.25,
@@ -1957,6 +2047,11 @@
                                 "Additive": 0.0
                             }
                         ]
+                    },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
                     },
                     "Unlock_Auto_Project_Cost_Removal": {
                         "SpeedMultiplier": 0.25,
@@ -2074,6 +2169,11 @@
                             }
                         ]
                     },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
                     "Unlock_Auto_Project_Cost_Removal": {
                         "SpeedMultiplier": 0.25,
                         "CostChanges": [
@@ -2171,6 +2271,11 @@
                             }
                         ]
                     },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
+                    },
                     "Unlock_Auto_Project_Cost_Removal": {
                         "SpeedMultiplier": 0.25,
                         "CostChanges": [
@@ -2253,6 +2358,11 @@
                                 "Additive": 0.0
                             }
                         ]
+                    },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
                     },
                     "Unlock_Auto_Project_Cost_Removal": {
                         "SpeedMultiplier": 0.25,
@@ -2375,6 +2485,11 @@
                                 "Additive": 0.0
                             }
                         ]
+                    },
+                    "Unlock_Elected_As_Mayor": {
+                        "SpeedMultiplier": 1.25,
+                        "CostChanges": [],
+                        "RewardChanges": []
                     },
                     "Unlock_Auto_Project_Cost_Removal": {
                         "SpeedMultiplier": 0.25,
