@@ -26,8 +26,11 @@ namespace HypnicEmpire
             AlterableValueSystem.LoadAllAlterableValues(Application.dataPath + "/GameData/AlterableValues.json");
             DevelopmentSystem.LoadAllDevelopments(Application.dataPath + "/GameData/Developments.json");
             TaskActionSystem.LoadAllTaskActions(Application.dataPath + "/GameData/TaskActions.json");
+
             CurrentGameState.Initialize(InitialGameState);
             MainGameUIView.Initialize();
+            
+            JournalEntrySystem.OnJournalEntryAdded += (string text) => MainGameUIView?.JournalMenuControl?.AddJournalEntry(text);
 
             SetupMainGameUI();
         }
@@ -130,6 +133,12 @@ namespace HypnicEmpire
             //  If we haven't loaded a game state with the very first unlock, unlock it now
             if (!GameUnlockSystem.IsUnlocked("Unlock_Game_Start"))
                 GameUnlockSystem.SetUnlockValue("Unlock_Game_Start", true);
+
+            AchievementsSystem.InitializeListeners();
+
+            //  Link Achievement UI
+            var achievementsCollection = MainGameUIView?.AchievementsMenu?.GetComponentInChildren<AchievementsCollection>();
+            achievementsCollection?.LinkAchievementUI();
         }
 
         public void CheckDevelopments()
@@ -143,7 +152,7 @@ namespace HypnicEmpire
                 GameUnlockSystem.AddGameUnlockAction(je.Key, true, (bool unlocked) => {
                     if (!unlocked) return;
                     if (!GameUnlockSystem.IsUnlocked(je.Key))
-                        MainGameUIView?.JournalMenuControl?.AddJournalEntry(je.Value.Text[UnityEngine.Random.Range(0, je.Value.Text.Count)]);
+                        JournalEntrySystem.AddJournalEntry(je.Value.Text[UnityEngine.Random.Range(0, je.Value.Text.Count)]);
                 });
         }
 
@@ -201,7 +210,8 @@ namespace HypnicEmpire
         {
             GameSaveData saveData = new GameSaveData { 
                 GameState = CurrentGameState, 
-                GameUnlockList = GameUnlockSystem.GameUnlockList 
+                GameUnlockList = GameUnlockSystem.GameUnlockList,
+                UnlockedAchievements = AchievementsSystem.UnlockedAchievements
             };
             File.WriteAllText(SaveFilePath, JsonSerialization.Serialize(saveData));
         }
@@ -216,6 +226,7 @@ namespace HypnicEmpire
                 {
                     CurrentGameState.CopyGameState(saveData.GameState);
                     GameUnlockSystem.GameUnlockList = saveData.GameUnlockList;
+                    AchievementsSystem.UnlockedAchievements = saveData.UnlockedAchievements ?? new();
                 }
             }
 
