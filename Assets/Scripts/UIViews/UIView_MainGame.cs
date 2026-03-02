@@ -34,6 +34,7 @@ namespace HypnicEmpire
         [Header("UI List Display Parents")]
         [SerializeField] public UIJournalMenu JournalMenuControl;
         [SerializeField] public UIDevelopmentsMenu DevelopmentsMenuControl;
+        [SerializeField] public UIBuildingsMenu BuildingsMenuControl;
 
         [Header("Secondary Menu UI Elements")]
         [SerializeField] public Button SaveAndExitButton;
@@ -108,6 +109,8 @@ namespace HypnicEmpire
                 if (amount > 0)
                     ResourceListControl?.AddResourceEntry(resourceType);
             });
+
+            BuildingsMenuControl?.InitializeMenu();
         }
 
         public void ResetUI()

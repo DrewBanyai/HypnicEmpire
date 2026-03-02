@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.68235296, g: 0.6784314, b: 0.6, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -369,6 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   BuildingName: Building Name
+  BuildingButtonBox: {fileID: 1862759282785869255}
   BuildingTitleText: {fileID: 7705101992813558603}
   BuildingCountText: {fileID: 8509199762383362440}
   BuildingIconImage: {fileID: 4512328179143111293}
@@ -376,16 +377,16 @@ MonoBehaviour:
   BuildingEffectText: {fileID: 734497512279241906}
   AvailableColor:
     serializedVersion: 2
-    rgba: 10071470
+    rgba: 4288261550
   AvailableMouseOverColor:
     serializedVersion: 2
-    rgba: 7965323
+    rgba: 4286155403
   AvailableCantAffordColor:
     serializedVersion: 2
-    rgba: 9873881
+    rgba: 4288063961
   UnavailableColor:
     serializedVersion: 2
-    rgba: 10397106
+    rgba: 4288587186
 --- !u!1 &2255355677714150783
 GameObject:
   m_ObjectHideFlags: 0

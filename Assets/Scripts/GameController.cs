@@ -18,6 +18,8 @@ namespace HypnicEmpire
 
         public void Start()
         {
+            Time.timeScale = 5f;
+
             GameUnlockSystem.LoadAllUnlockIDs(Application.dataPath + "/GameData/UnlockIDs.json");
             AchievementsSystem.LoadAllAchievementsData(Application.dataPath + "/GameData/Achievements.json");
             JournalEntrySystem.LoadAllJournalEntries(Application.dataPath + "/GameData/JournalEntries.json");
@@ -26,6 +28,7 @@ namespace HypnicEmpire
             AlterableValueSystem.LoadAllAlterableValues(Application.dataPath + "/GameData/AlterableValues.json");
             DevelopmentSystem.LoadAllDevelopments(Application.dataPath + "/GameData/Developments.json");
             TaskActionSystem.LoadAllTaskActions(Application.dataPath + "/GameData/TaskActions.json");
+            BuildingDataSystem.LoadAllBuildingsData(Application.dataPath + "/GameData/Buildings.json");
 
             CurrentGameState.Initialize(InitialGameState);
             MainGameUIView.Initialize();
