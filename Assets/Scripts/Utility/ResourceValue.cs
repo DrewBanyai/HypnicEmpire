@@ -14,11 +14,11 @@ namespace HypnicEmpire
         // This avoids all floating point inaccuracy and mixed-sign arithmetic issues.
         [UnityEngine.SerializeField] private long _totalHundredths;
 
-        public int WholeValue => (int)(_totalHundredths / 100);
-        public int Tenths => (int)(Math.Abs(_totalHundredths / 10) % 10);
-        public int Hundredths => (int)(Math.Abs(_totalHundredths) % 10);
+        public long WholeValue => (long)(_totalHundredths / 100);
+        public long Tenths => (long)(Math.Abs(_totalHundredths / 10) % 10);
+        public long Hundredths => (long)(Math.Abs(_totalHundredths) % 10);
 
-        public ResourceValue(int value = 0)
+        public ResourceValue(long value = 0)
         {
             _totalHundredths = (long)value * 100;
         }
@@ -28,7 +28,7 @@ namespace HypnicEmpire
             _totalHundredths = (long)Math.Round(value * 100);
         }
 
-        public ResourceValue(int whole, int tenths, int hundredths)
+        public ResourceValue(long whole, long tenths, long hundredths)
         {
             long sign = whole < 0 ? -1 : 1;
             // If whole is 0, we need to check if we're intending a negative value from components
@@ -36,19 +36,19 @@ namespace HypnicEmpire
             _totalHundredths = (long)whole * 100 + sign * (tenths * 10 + hundredths);
         }
 
-        private ResourceValue(long totalHundredths)
+        private ResourceValue(long totalHundredths, bool isRaw)
         {
             _totalHundredths = totalHundredths;
         }
 
         public static ResourceValue operator +(ResourceValue a, ResourceValue b)
         {
-            return new ResourceValue(a._totalHundredths + b._totalHundredths);
+            return new ResourceValue(a._totalHundredths + b._totalHundredths, true);
         }
 
         public static ResourceValue operator -(ResourceValue a, ResourceValue b)
         {
-            return new ResourceValue(a._totalHundredths - b._totalHundredths);
+            return new ResourceValue(a._totalHundredths - b._totalHundredths, true);
         }
 
         public static bool operator <(ResourceValue a, ResourceValue b)
@@ -71,86 +71,86 @@ namespace HypnicEmpire
             return a._totalHundredths >= b._totalHundredths;
         }
 
-        /// Operator Overrides for douintsbles
-        public static ResourceValue operator +(ResourceValue a, int b)
+        /// Operator Overrides for longs
+        public static ResourceValue operator +(ResourceValue a, long b)
         {
-            return new ResourceValue(a._totalHundredths + (int)(b * 100));
+            return new ResourceValue(a._totalHundredths + (long)(b * 100), true);
         }
 
-        public static ResourceValue operator -(ResourceValue a, int b)
+        public static ResourceValue operator -(ResourceValue a, long b)
         {
-            return new ResourceValue(a._totalHundredths - (int)(b * 100));
+            return new ResourceValue(a._totalHundredths - (long)(b * 100), true);
         }
 
-        public static ResourceValue operator *(ResourceValue a, int b)
+        public static ResourceValue operator *(ResourceValue a, long b)
         {
-            return new ResourceValue((long)(a._totalHundredths * b));
+            return new ResourceValue((long)(a._totalHundredths * b), true);
         }
 
-        public static ResourceValue operator /(ResourceValue a, int b)
+        public static ResourceValue operator /(ResourceValue a, long b)
         {
-            return new ResourceValue((long)(a._totalHundredths / b));
+            return new ResourceValue((long)(a._totalHundredths / b), true);
         }
 
-        public static bool operator <(ResourceValue a, int b)
+        public static bool operator <(ResourceValue a, long b)
         {
-            return a._totalHundredths < (int)(b * 100);
+            return a._totalHundredths < (long)(b * 100);
         }
 
-        public static bool operator >(ResourceValue a, int b)
+        public static bool operator >(ResourceValue a, long b)
         {
-            return a._totalHundredths > (int)(b * 100);
+            return a._totalHundredths > (long)(b * 100);
         }
 
-        public static bool operator <=(ResourceValue a, int b)
+        public static bool operator <=(ResourceValue a, long b)
         {
-            return a._totalHundredths <= (int)(b * 100);
+            return a._totalHundredths <= (long)(b * 100);
         }
 
-        public static bool operator >=(ResourceValue a, int b)
+        public static bool operator >=(ResourceValue a, long b)
         {
-            return a._totalHundredths >= (int)(b * 100);
+            return a._totalHundredths >= (long)(b * 100);
         }
 
         /// Operator Overrides for doubles
         public static ResourceValue operator +(ResourceValue a, double b)
         {
-            return new ResourceValue(a._totalHundredths + (int)(b * 100.0));
+            return new ResourceValue(a._totalHundredths + (long)Math.Round(b * 100.0), true);
         }
 
         public static ResourceValue operator -(ResourceValue a, double b)
         {
-            return new ResourceValue(a._totalHundredths - (int)(b * 100.0));
+            return new ResourceValue(a._totalHundredths - (long)Math.Round(b * 100.0), true);
         }
 
         public static ResourceValue operator *(ResourceValue a, double b)
         {
-            return new ResourceValue((long)(a._totalHundredths * b));
+            return new ResourceValue((long)Math.Round(a._totalHundredths * b), true);
         }
 
         public static ResourceValue operator /(ResourceValue a, double b)
         {
-            return new ResourceValue((long)(a._totalHundredths / b));
+            return new ResourceValue((long)Math.Round(a._totalHundredths / b), true);
         }
 
         public static bool operator <(ResourceValue a, double b)
         {
-            return a._totalHundredths < (int)(b * 100.0);
+            return a._totalHundredths < (long)(b * 100.0);
         }
 
         public static bool operator >(ResourceValue a, double b)
         {
-            return a._totalHundredths > (int)(b * 100.0);
+            return a._totalHundredths > (long)(b * 100.0);
         }
 
         public static bool operator <=(ResourceValue a, double b)
         {
-            return a._totalHundredths <= (int)(b * 100.0);
+            return a._totalHundredths <= (long)(b * 100.0);
         }
 
         public static bool operator >=(ResourceValue a, double b)
         {
-            return a._totalHundredths >= (int)(b * 100.0);
+            return a._totalHundredths >= (long)(b * 100.0);
         }
 
         public static bool operator ==(ResourceValue a, ResourceValue b)
@@ -160,7 +160,7 @@ namespace HypnicEmpire
             return a._totalHundredths == b._totalHundredths;
         }
 
-        public static bool operator ==(ResourceValue a, int b)
+        public static bool operator ==(ResourceValue a, long b)
         {
             if (a is null) return false;
             return a._totalHundredths == (long)(b * 100);
@@ -177,7 +177,7 @@ namespace HypnicEmpire
             return !(a == b);
         }
 
-        public static bool operator !=(ResourceValue a, int b)
+        public static bool operator !=(ResourceValue a, long b)
         {
             if (a is null) return true;
             return !(a._totalHundredths == (long)(b * 100));
@@ -201,15 +201,15 @@ namespace HypnicEmpire
             return _totalHundredths.GetHashCode();
         }
 
-        // Implicit cast from int to allow comparisons like "if (ResourceValue == 0)"
-        public static implicit operator ResourceValue(int value)
+        // Implicit cast from long to allow comparisons like "if (ResourceValue == 0)"
+        public static implicit operator ResourceValue(long value)
         {
             return new ResourceValue(value);
         }
 
         public ResourceValue Abs()
         {
-            return new ResourceValue(Math.Abs(_totalHundredths));
+            return new ResourceValue(Math.Abs(_totalHundredths), true);
         }
 
         public bool Positive => _totalHundredths > 0;
@@ -276,12 +276,12 @@ namespace HypnicEmpire
                 if (item.TryGetValue("_totalHundredths", out JToken total))
                 {
                     // This allows loading from the serialized internal state if needed
-                    return (ResourceValue)typeof(ResourceValue).GetConstructor(System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance, null, new[] { typeof(long) }, null).Invoke(new object[] { total.Value<long>() });
+                    return (ResourceValue)typeof(ResourceValue).GetConstructor(System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance, null, new[] { typeof(long), typeof(bool) }, null).Invoke(new object[] { total.Value<long>(), true });
                 }
                 // Check for component pieces if they exist
-                int w = item.Value<int>("WholeValue");
-                int t = item.Value<int>("Tenths");
-                int h = item.Value<int>("Hundredths");
+                long w = item.Value<long>("WholeValue");
+                long t = item.Value<long>("Tenths");
+                long h = item.Value<long>("Hundredths");
                 return new ResourceValue(w, t, h);
             }
             return null;
