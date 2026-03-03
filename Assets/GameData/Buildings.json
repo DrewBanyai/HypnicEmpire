@@ -12409,7 +12409,7 @@
             ]
         },
         {
-            "Name": "Busy Workshop / Factory",
+            "Name": "Busy Workshop",
             "Text": "Processing resources in style.",
             "BuildingIcon": "BuildingIcons/BuildingIcon_BusyWorkshop",
             "StartingCount": {
@@ -12933,6 +12933,530 @@
                 {
                     "Trigger": "Unlock_Automate_Everything",
                     "Effect": "Upgrade to Factory (+3 max industrial jobs, +3% industrial action gain, land cost * 10)"
+                }
+            ]
+        },
+        {
+            "Name": "Factory",
+            "Text": "Processing resources in style.",
+            "BuildingIcon": "BuildingIcons/BuildingIcon_BusyWorkshop",
+            "StartingCount": {
+                "Amount": 0,
+                "Note": ""
+            },
+            "Costs": [
+                {
+                    "Count": 0,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -30
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -4
+                        }
+                    ]
+                },
+                {
+                    "Count": 1,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -41
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -6
+                        }
+                    ]
+                },
+                {
+                    "Count": 2,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -55
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -8
+                        }
+                    ]
+                },
+                {
+                    "Count": 3,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -74
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -10
+                        }
+                    ]
+                },
+                {
+                    "Count": 4,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -100
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -14
+                        }
+                    ]
+                },
+                {
+                    "Count": 5,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -135
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -18
+                        }
+                    ]
+                },
+                {
+                    "Count": 6,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -182
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -25
+                        }
+                    ]
+                },
+                {
+                    "Count": 7,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -246
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -33
+                        }
+                    ]
+                },
+                {
+                    "Count": 8,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -331
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -45
+                        }
+                    ]
+                },
+                {
+                    "Count": 9,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -447
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -60
+                        }
+                    ]
+                },
+                {
+                    "Count": 10,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -604
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -81
+                        }
+                    ]
+                },
+                {
+                    "Count": 11,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -815
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -109
+                        }
+                    ]
+                },
+                {
+                    "Count": 12,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -1100
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -147
+                        }
+                    ]
+                },
+                {
+                    "Count": 13,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -1485
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -198
+                        }
+                    ]
+                },
+                {
+                    "Count": 14,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -2004
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -268
+                        }
+                    ]
+                },
+                {
+                    "Count": 15,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -2705
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -361
+                        }
+                    ]
+                },
+                {
+                    "Count": 16,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -3652
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -487
+                        }
+                    ]
+                },
+                {
+                    "Count": 17,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -4930
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -658
+                        }
+                    ]
+                },
+                {
+                    "Count": 18,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -6656
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -888
+                        }
+                    ]
+                },
+                {
+                    "Count": 19,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -8984
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -1198
+                        }
+                    ]
+                },
+                {
+                    "Count": 20,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -12130
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -1618
+                        }
+                    ]
+                },
+                {
+                    "Count": 21,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -16374
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -2184
+                        }
+                    ]
+                },
+                {
+                    "Count": 22,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -22104
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -2948
+                        }
+                    ]
+                },
+                {
+                    "Count": 23,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -29840
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -3980
+                        }
+                    ]
+                },
+                {
+                    "Count": 24,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -40284
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -4029
+                        }
+                    ]
+                },
+                {
+                    "Count": 25,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -54384
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -5439
+                        },
+                        {
+                            "ResourceType": "Gears",
+                            "ResourceValue": -5439
+                        }
+                    ]
+                },
+                {
+                    "Count": 26,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -73418
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -7342
+                        },
+                        {
+                            "ResourceType": "Gears",
+                            "ResourceValue": -7342
+                        }
+                    ]
+                },
+                {
+                    "Count": 27,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "ResourceValue": -1
+                        },
+                        {
+                            "ResourceType": "Money",
+                            "ResourceValue": -99114
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -9912
+                        },
+                        {
+                            "ResourceType": "Gears",
+                            "ResourceValue": -9912
+                        }
+                    ]
+                },
+                {
+                    "Count": 28,
+                    "Cost": [
+                        {
+                            "ResourceType": "Land",
+                            "Amount": -9999999
+                        }
+                    ]
+                }
+            ],
+            "AlteredValues": [
+                {
+                    "ValueName": "MaxIndustrialJobs",
+                    "Amount": 1
+                },
+                {
+                    "ValueName": "IndustrialActionGainPercent",
+                    "Amount": 3
+                }
+            ],
+            "Upgrades": [
+                {
+                    "Trigger": "Unlock_Send_Out_Scouts",
+                    "Effect": "Reduce Workshop and Granary Cost by 0.5"
                 }
             ]
         }
