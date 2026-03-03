@@ -130,7 +130,10 @@ namespace HypnicEmpire
                 btn?.SetInteractable(btn != button);
 
             foreach (var menu in Menus)
-                menu?.SetActive(menu == menuToShow);
+            {
+                Transform transform = menu.GetComponent<Transform>();
+                transform.localScale = new Vector3(transform.localScale.x, menu == menuToShow ? 1f : 0f, transform.localScale.z);
+            }
         }
 
         public void SetResetButtonUnpacked(bool unpacked)
