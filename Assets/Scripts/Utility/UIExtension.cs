@@ -18,5 +18,8 @@ namespace HypnicEmpire
 
         //  Button
         public static void SetInteractable(this Button button, bool interactable) { button.interactable = interactable; }
+
+        //  GameObject
+        public static void SetScaleY(this GameObject gameObject, float scale) { var t = gameObject.GetComponent<Transform>(); t.localScale = new Vector3(t.localScale.x, scale, t.localScale.z); }
     }
 }
