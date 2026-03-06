@@ -6092,7 +6092,7 @@
         },
         {
             "Name": "Temple",
-            "Text": "They call them Reliquaries\nBut it's all nonsense. / Grand decadent halls full of gold, silver and glass.",
+            "Text": "They call them Reliquaries\nBut it's all nonsense.",
             "BuildingIcon": "BuildingIcons/BuildingIcon_Temple",
             "StartingCount": {
                 "Amount": 0,
@@ -6621,9 +6621,9 @@
             ]
         },
         {
-            "Name": "Temple",
-            "Text": "They call them Reliquaries\nBut it's all nonsense. / Grand decadent halls full of gold, silver and glass.",
-            "BuildingIcon": "BuildingIcons/BuildingIcon_Temple",
+            "Name": "Cathedral",
+            "Text": "Grand decadent halls full of gold, silver and glass.",
+            "BuildingIcon": "BuildingIcons/BuildingIcon_Cathedral",
             "StartingCount": {
                 "Amount": 0,
                 "Note": ""
@@ -7147,8 +7147,7 @@
                     "Amount": 10
                 }
             ],
-            "Upgrades": [
-            ]
+            "Upgrades": []
         },
         {
             "Name": "Wooden Granary",
