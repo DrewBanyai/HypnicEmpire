@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 using TMPro;
-using System.Security.AccessControl;
 
 namespace HypnicEmpire
 {
