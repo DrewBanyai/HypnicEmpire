@@ -18,10 +18,10 @@ namespace HypnicEmpire
 
         [SerializeField] public TextMeshProUGUI BuildingEffectText;
 
-        public Color32 AvailableColor;
-        public Color32 AvailableMouseOverColor;
-        public Color32 AvailableCantAffordColor;
-        public Color32 UnavailableColor;
+        [SerializeField] public Color32 AvailableColor;
+        [SerializeField] public Color32 AvailableMouseOverColor;
+        [SerializeField] public Color32 AvailableCantAffordColor;
+        [SerializeField] public Color32 UnavailableColor;
 
         public void SetBuildingData(BuildingData data)
         {
