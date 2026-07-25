@@ -31,6 +31,12 @@ namespace HypnicEmpire
             BuildingDataSystem.LoadAllBuildingsData(Application.dataPath + "/GameData/Buildings.json");
 
             CurrentGameState.Initialize(InitialGameState);
+
+            // Make building/project "modifier" effects live: seeds building counts, accumulates
+            // AlteredValues into modifier AlterableValues, and refreshes resource maxima. Must run
+            // after AlterableValues + Buildings load and after the game state exists.
+            ModifierValueSystem.Initialize();
+
             MainGameUIView.Initialize();
             
             JournalEntrySystem.OnJournalEntryAdded += (string text) => MainGameUIView?.JournalMenuControl?.AddJournalEntry(text);

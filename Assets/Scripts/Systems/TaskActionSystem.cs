@@ -21,7 +21,9 @@ namespace HypnicEmpire
 
         public List<ResourceAmountData> GetResourceChange()
         {
-            return ValueDeterminant.GetResourceChange(ResourceChange);
+            // Apply GainPct modifiers (building/project effects) to the reward. Positive
+            // (gained) amounts are scaled; costs/losses are left untouched.
+            return ModifierValueSystem.ApplyGain(Name, ActionSection, ValueDeterminant.GetResourceChange(ResourceChange));
         }
     }
 
@@ -42,7 +44,9 @@ namespace HypnicEmpire
             var taskAction = TaskActionMap[taskName];
             taskAction.WorkersAssigned += 1;
             UpdateTaskProgressSpeed(taskName);
-            return taskAction.WorkersAssigned < 10; // TODO: Pull from a system that determines the maximum number of workers on this task
+            // Worker cap = base cap + JobCap modifiers for this action's job section.
+            string jobSection = ModifierValueSystem.SectionForAction(taskAction.Name, taskAction.ActionSection);
+            return taskAction.WorkersAssigned < ModifierValueSystem.GetJobCap(jobSection);
         }
 
         public static bool RemoveWorkerFromTask(string taskName)
@@ -76,6 +80,8 @@ namespace HypnicEmpire
             if (taskName == PrimaryTask)
                 taskAction.ProgressSpeed = taskAction.ValueDeterminant.GetSpeed();
             taskAction.ProgressSpeed += ((double)taskAction.WorkersAssigned * 10.0);
+            // Apply SpeedPct modifiers (building/project effects) to the whole task speed.
+            taskAction.ProgressSpeed *= ModifierValueSystem.GetActionSpeedMultiplier(taskAction.Name, taskAction.ActionSection);
         }
 
         public static void SetTaskUpdateCallback(string taskName, Action<int> updateCallback = null) { TaskUpdateCallbackMap[taskName] = updateCallback; }

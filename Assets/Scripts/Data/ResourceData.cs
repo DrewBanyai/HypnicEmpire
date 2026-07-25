@@ -34,7 +34,10 @@ namespace HypnicEmpire
 
         public int GetMaximum()
         {
-            double max = InitialMaximum;
+            // Base storage + additive "AddMax" storage modifiers (building/project driven),
+            // then the resource's own unlock alterations. Modifier storage is folded in before
+            // the unlock multipliers so a storage-doubling unlock also scales building storage.
+            double max = InitialMaximum + ModifierValueSystem.GetResourceMaxAdditive(Name, ResourceGroup);
             if (UnlockAlterations != null)
             {
                 var unlockedAlterations = UnlockAlterations.Where(ua => GameUnlockSystem.IsUnlocked(ua.Key));

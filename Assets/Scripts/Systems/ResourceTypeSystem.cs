@@ -81,6 +81,15 @@ namespace HypnicEmpire
             GameController.CurrentGameState.SetResourceMaximum(resourceType, newMax);
         }
 
+        // Recompute every resource's maximum from GetMaximum() and push into the game state.
+        // Called by ModifierValueSystem after storage modifiers change (building/project effects).
+        public static void RefreshAllResourceMaxima()
+        {
+            if (GameController.CurrentGameState == null || ResourceData?.ResourceTypes == null) return;
+            foreach (var rt in ResourceData.ResourceTypes)
+                GameController.CurrentGameState.SetResourceMaximum(rt.Name, rt.GetMaximum());
+        }
+
         private static void SubscribeToResourceUnlocks()
         {
             foreach (string resourceType in ResourceTypes)
