@@ -25,8 +25,8 @@
             "ResourceType": "Stone"
         },
         {
-            "Unlock": "Unlock_Resource_People",
-            "ResourceType": "People"
+            "Unlock": "Unlock_Resource_Population",
+            "ResourceType": "Population"
         },
         {
             "Unlock": "Unlock_Resource_Potions",

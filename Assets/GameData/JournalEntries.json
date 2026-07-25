@@ -292,7 +292,7 @@
         "Text": [ "After a night filled with booze and excesses you still don't quite know how to answer that question. But the geologist seemed satisfied anyway. And almost comatose from all the drinking she did...\nOh well..." ]
     },
     {
-        "Trigger": "Unlocks_Establish_Guild_Laws",
+        "Trigger": "Unlock_Establish_Guild_Laws",
         "Text": [ "That's really smart! Just put more people in charge under you who do their own thing instead of bothering you all the time. Now you have finally enough time to use all those saunas you build into everything!\nNow you just have to figure out who should get to abe a guild and who shouldn't." ]
     },
     {

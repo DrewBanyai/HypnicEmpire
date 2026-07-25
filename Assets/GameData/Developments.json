@@ -1,7 +1,7 @@
 {
     "CostMultiplierUnlocks": [
         { "Unlock": "Unlock_Finished_Arcane_Streetlamps", "Multiplier": 0.8 },
-        { "Unlock": "Unlock_Finished_Wartime_Economy", "Multiplier": 0.8 }
+        { "Unlock": "Unlock_Finished_War_Economy", "Multiplier": 0.8 }
     ],
     "DevelopmentEntries": [
         {
@@ -537,7 +537,7 @@
             "Title": "Establish guild laws",
             "Description": "The day before you had around thirteen meetings with different people. Today you are already up to either and it is not even noon. You are exhausted. Who knew, that being the person in charge of literally everything could be so exhausting. Time to come up with an idea to take some work off your shoulders.",
             "EffectText": "Enables the discovery of lots of guild developments",
-            "Unlock": [ "Unlocks_Establish_Guild_Laws" ],
+            "Unlock": [ "Unlock_Establish_Guild_Laws" ],
             "Cost": [ { "ResourceType": "Money", "ResourceValue": -6250 }, { "ResourceType": "Fabric", "ResourceValue": -988 } ]
         },
         {
@@ -761,7 +761,7 @@
             "Title": "Give them what they want and need",
             "Description": "As the unrest rises in your settlement, you one day get a letter from the baron. They heard of your plight and try to give you advice to reduce the animosity between your followers. Unfortunately, it's mostly just useless drivel, as can only come from a nobleman who has never worked a day in his life. Most of it is just a variation of 'give them something nice'. So pointless...",
             "EffectText": "Unlocks the refine action\nUnlocks new project: Distribute to the poor",
-            "Unlock": [ "Unlock_Project_Distribute_To_Poor" ],
+            "Unlock": [ "Unlock_Project_Distribute_To_Poor", "Unlock_Action_Refine" ],
             "Cost": [ { "ResourceType": "Money", "ResourceValue": -8000 }, { "ResourceType": "Potions", "ResourceValue": -219 }, { "ResourceType": "Herbs", "ResourceValue": -1375 } ]
         },
         {

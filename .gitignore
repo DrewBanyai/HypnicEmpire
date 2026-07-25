@@ -102,3 +102,6 @@ InitTestScene*.unity*
 # Ignore all .md files except README.md
 *.md
 !README.md
+
+# Auto-generated files from the validation check system
+GameDataValidationReport.txt

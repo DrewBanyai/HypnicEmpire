@@ -1,6 +1,5 @@
 [
     "Unlock_Game_Start",
-
     "Unlock_Delve_Fifty",
     "Unlock_Delve_Two_Hundred",
     "Unlock_Delve_Five_Hundred",
@@ -10,39 +9,33 @@
     "Unlock_Delve_Fifty_Thousand",
     "Unlock_Delve_Two_Hundred_Thousand",
     "Unlock_Delve_To_The_Bottom",
-
     "Unlock_One_Villager",
     "Unlock_Thirty_Villagers",
     "Unlock_Eighty_Villagers",
     "Unlock_One_Hundred_Fifty_Villagers",
     "Unlock_Three_Hundred_Villagers",
     "Unlock_Five_Hundred_Villagers",
-
     "Unlock_One_Money",
     "Unlock_One_Thousand_Money",
     "Unlock_Ten_Thousand_Money",
     "Unlock_One_Hundred_Thousand_Money",
     "Unlock_One_Million_Money",
     "Unlock_Ten_Million_Money",
-
     "Unlock_One_Potion",
     "Unlock_One_Hundred_Potions",
     "Unlock_One_Thousand_Potions",
     "Unlock_Ten_Thousand_Potions",
     "Unlock_One_Hundred_Thousand_Potions",
-
     "Unlock_One_Wood",
     "Unlock_One_Hundred_Wood",
     "Unlock_One_Thousand_Wood",
     "Unlock_Ten_Thousand_Wood",
     "Unlock_One_Hundred_Thousand_Wood",
-
     "Unlock_One_Stone",
     "Unlock_One_Hundred_Stone",
     "Unlock_One_Thousand_Stone",
     "Unlock_Ten_Thousand_Stone",
     "Unlock_One_Hundred_Thousand_Stone",
-
     "Unlock_Max_Out_Money",
     "Unlock_Max_Out_Treasure",
     "Unlock_Max_Out_Food",
@@ -57,7 +50,6 @@
     "Unlock_Max_Out_Luxuries",
     "Unlock_Max_Out_Gears",
     "Unlock_Max_Out_Artifacts",
-
     "Unlock_Resource_Money",
     "Unlock_Resource_Treasure",
     "Unlock_Resource_Food",
@@ -72,30 +64,26 @@
     "Unlock_Resource_Luxuries",
     "Unlock_Resource_Gears",
     "Unlock_Resource_Artifacts",
-
+    "Unlock_Resource_Population",
     "Unlock_Twenty_Land",
     "Unlock_Sixty_Land",
     "Unlock_Two_Hundred_Land",
     "Unlock_Five_Hundred_Land",
-
     "Unlock_Ten_Buildings",
     "Unlock_Fifty_Buildings",
     "Unlock_One_Hundred_Buildings",
     "Unlock_Two_Hundred_Buildings",
     "Unlock_Four_Hundred_Buildings",
-
     "Unlock_Finished_One_Project",
     "Unlock_Finished_Five_Projects",
     "Unlock_Finished_Fifteen_Projects",
     "Unlock_Finished_Thirty_Five_Projects",
-
     "Unlock_Army_Strength_One",
     "Unlock_Army_Strength_Fifty",
     "Unlock_Army_Strength_Two_Hundred_Fifty",
     "Unlock_Army_Strength_Five_Hundred",
     "Unlock_Army_Strength_Two_Thousand",
     "Unlock_Army_Strength_Five_Thousand",
-
     "Unlock_Battle_Victory_One",
     "Unlock_Battle_Victory_Two",
     "Unlock_Battle_Victory_Three",
@@ -114,17 +102,13 @@
     "Unlock_Battle_Victory_Sixteen",
     "Unlock_Battle_Victory_Seventeen",
     "Unlock_Battle_Victory_Eighteen",
-
     "Unlock_Unrest_Above_Eighty",
     "Unlock_Unrest_Under_Twenty",
-
     "Unlock_Supporter",
     "Unlock_Manual_Save",
-
     "Unlock_Five_Hundred_Clicks",
     "Unlock_Two_Thousand_Clicks",
     "Unlock_Five_Thousand_Clicks",
-
     "Unlock_Empty_Belly",
     "Unlock_Action_Forage",
     "Unlock_Foraging_Speed_Up",
@@ -198,7 +182,7 @@
     "Unlock_Reduce_Workshop_Cost_0_5",
     "Unlock_Cheaper_Bulk_Land_Buys",
     "Unlock_Auto_Project_Cost_Removal",
-    "Unlocks_Establish_Guild_Laws",
+    "Unlock_Establish_Guild_Laws",
     "Unlock_Send_Out_Scouts",
     "Unlock_Reach_Frostbound_Catacombs",
     "Unlock_Action_Buy_Weaponry",
@@ -243,6 +227,7 @@
     "Unlock_Construct_A_Treasury",
     "Unlock_Design_Inner_City_Park",
     "Unlock_Action_Manufacture",
+    "Unlock_Action_Refine",
     "Unlock_Build_A_Fountain",
     "Unlock_Project_Build_A_Coliseum",
     "Unlock_Finished_Build_A_Coliseum",
@@ -277,6 +262,8 @@
     "Unlock_Combine_House_And_Ghetto_To_Apartments",
     "Unlock_Reduce_Guardhouse_Cost_200",
     "Unlock_Secrets_Of_The_Deep",
+    "Unlock_Reach_The_End",
+    "Unlock_Reach_The_Last_Chamber",
     "Unlock_Warfare",
     "Unlock_Dug_A_Moat",
     "Unlock_Build_A_Hospital",

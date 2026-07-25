@@ -591,7 +591,7 @@
         "Name": "Population",
         "CurrentValue": 0,
         "MinimumValue": 0,
-        "MaximumValue": 0,
+        "MaximumValue": 99999999,
         "ValueUnlocks": [
             {
                 "Value": 1,
@@ -690,7 +690,7 @@
         "RemappingValues": []
     },
     {
-        "Name": "ProjectsCompleted",
+        "Name": "FinishedProjects",
         "CurrentValue": 0,
         "MinimumValue": 0,
         "MaximumValue": 10000,
@@ -834,7 +834,7 @@
             {
                 "Value": 1,
                 "Operator": ">=",
-                "Unlock": "Unlock_One_Potions"
+                "Unlock": "Unlock_One_Potion"
             },
             {
                 "Value": 100,
@@ -858,5 +858,322 @@
             }
         ],
         "RemappingValues": []
+    },
+    {
+        "Name": "MaxMoneyStorage",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "AddMax",
+                "Target": "Resource:Money"
+            }
+        ]
+    },
+    {
+        "Name": "MaxFoodStorage",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "AddMax",
+                "Target": "Resource:Food"
+            }
+        ]
+    },
+    {
+        "Name": "MaxTreasureStorage",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "AddMax",
+                "Target": "Resource:Treasure"
+            }
+        ]
+    },
+    {
+        "Name": "MaxPotionStorage",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "AddMax",
+                "Target": "Resource:Potions"
+            }
+        ]
+    },
+    {
+        "Name": "MaxWeaponryStorage",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "AddMax",
+                "Target": "Resource:Weaponry"
+            }
+        ]
+    },
+    {
+        "Name": "MaxArtifactStorage",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "AddMax",
+                "Target": "Resource:Artifacts"
+            }
+        ]
+    },
+    {
+        "Name": "BasicResourceStorage",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "AddMax",
+                "Target": "ResourceGroup:Basic"
+            }
+        ]
+    },
+    {
+        "Name": "WarehouseReorders",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "AddMax",
+                "Target": "ResourceGroup:Basic"
+            }
+        ]
+    },
+    {
+        "Name": "MaxDelvingJobs",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "JobCap",
+                "Target": "Section:Delving"
+            }
+        ]
+    },
+    {
+        "Name": "MaxFarmingJobs",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "JobCap",
+                "Target": "Section:Farming"
+            }
+        ]
+    },
+    {
+        "Name": "MaxAgriculturalJobs",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "JobCap",
+                "Target": "Section:Agricultural"
+            }
+        ]
+    },
+    {
+        "Name": "MaxCommercialJobs",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "JobCap",
+                "Target": "Section:Commercial"
+            }
+        ]
+    },
+    {
+        "Name": "MaxIndustrialJobs",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "JobCap",
+                "Target": "Section:Industrial"
+            }
+        ]
+    },
+    {
+        "Name": "GlobalActionSpeedPercent",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "SpeedPct",
+                "Target": "Action:*"
+            }
+        ]
+    },
+    {
+        "Name": "DelveTaskSpeedPercent",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "SpeedPct",
+                "Target": "Action:Delve"
+            }
+        ]
+    },
+    {
+        "Name": "MoneyGainPercent",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "GainPct",
+                "Target": "Resource:Money"
+            }
+        ]
+    },
+    {
+        "Name": "FoodGainPercent",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "GainPct",
+                "Target": "Resource:Food"
+            }
+        ]
+    },
+    {
+        "Name": "FarmingFoodGainPercent",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "GainPct",
+                "Target": "Section:Farming",
+                "Resource": "Food"
+            }
+        ]
+    },
+    {
+        "Name": "AllAgriculturalGainPercent",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "GainPct",
+                "Target": "Section:Agricultural"
+            }
+        ]
+    },
+    {
+        "Name": "IndustrialActionGainPercent",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "GainPct",
+                "Target": "Section:Industrial"
+            }
+        ]
+    },
+    {
+        "Name": "DistributedToThePoor",
+        "Kind": "Modifier",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 1000000000,
+        "ValueUnlocks": [],
+        "RemappingValues": [],
+        "Applications": [
+            {
+                "Op": "AddValue",
+                "Target": "Value:Unrest",
+                "Reduces": true
+            }
+        ]
     }
 ]
