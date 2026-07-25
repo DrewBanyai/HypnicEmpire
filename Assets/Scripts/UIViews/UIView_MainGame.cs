@@ -19,6 +19,8 @@ namespace HypnicEmpire
         [SerializeField] public Button AchievementsButton;
         [SerializeField] public Button ActionsButton;
         [SerializeField] public Button DevelopmentsButton;
+        [SerializeField] public Button BuildingsButton;
+        [SerializeField] public Button WarfareButton;
         [SerializeField] public Button DiscordButton;
         [SerializeField] public Button RedditButton;
         [SerializeField] public Button ItchIoButton;
@@ -29,6 +31,8 @@ namespace HypnicEmpire
         [SerializeField] public GameObject AchievementsMenu;
         [SerializeField] public GameObject ActionsMenu;
         [SerializeField] public GameObject DevelopmentsMenu;
+        [SerializeField] public GameObject BuildingsMenu;
+        [SerializeField] public GameObject WarfareMenu;
         [SerializeField] public UIResourceListMenu ResourceListControl;
         
         [Header("UI List Display Parents")]
@@ -58,10 +62,12 @@ namespace HypnicEmpire
         [Header("Secondary Game Related UI Elements")]
         [SerializeField] public GameObject[] DevelopmentsTabGroup;
         [SerializeField] public GameObject[] BuildingsTabGroup;
+        [SerializeField] public GameObject[] ProjectsTabGroup;
+        [SerializeField] public GameObject[] WarfareTabGroup;
 
         //  Collections of elements to use in menu functionality
-        private List<Button> CenterMenuButtons => new() { ExitButton, OptionsButton, AchievementsButton, ActionsButton, DevelopmentsButton };
-        private List<GameObject> Menus => new() { ExitMenu, OptionsMenu, AchievementsMenu, ActionsMenu, DevelopmentsMenu };
+        [SerializeField] public List<Button> CenterMenuButtons;
+        [SerializeField] public List<GameObject> Menus;
 
         //  Button Actions
         public Action SaveAndExitButtonAction;
@@ -79,6 +85,8 @@ namespace HypnicEmpire
             AchievementsButton?.onClick.AddListener(() => { ShowCenterMenu(AchievementsButton, AchievementsMenu); });
             ActionsButton?.onClick.AddListener(() => { ShowCenterMenu(ActionsButton, ActionsMenu); GameController.CurrentGameState.Click(); });
             DevelopmentsButton?.onClick.AddListener(() => { ShowCenterMenu(DevelopmentsButton, DevelopmentsMenu); });
+            BuildingsButton?.onClick.AddListener(() => { ShowCenterMenu(BuildingsButton, BuildingsMenu); });
+            WarfareButton?.onClick.AddListener(() => { ShowCenterMenu(WarfareButton, WarfareMenu); });
 
             DiscordButton?.onClick.AddListener(() => { Application.OpenURL(DiscordURL); });
             RedditButton?.onClick.AddListener(() => { Application.OpenURL(RedditURL); });
@@ -93,9 +101,27 @@ namespace HypnicEmpire
             HardResetButton?.onClick.AddListener(() => { SetResetButtonUnpacked(true); });
             HardResetCancelButton?.onClick.AddListener(() => { SetResetButtonUnpacked(false); });
 
-            //  Define UI responses to game unlock events
-            GameUnlockSystem.AddGameUnlockAction("Unlock_Empty_Belly", true, (bool shown) => { foreach (var obj in DevelopmentsTabGroup) obj?.SetActive(shown); });
-            GameUnlockSystem.AddGameUnlockAction("Unlock_Buildings", true, (bool shown) => { foreach (var obj in BuildingsTabGroup) obj?.SetActive(shown); });
+            //  Define UI responses to game unlock events.
+            //  Registered unlock actions fire only WHEN an unlock is set — they never apply an initial
+            //  state — so both tab groups must start HIDDEN explicitly, otherwise their scene-default
+            //  (active) leaves them visible at startup.
+            foreach (var obj in DevelopmentsTabGroup) obj?.SetActive(false);
+            foreach (var obj in BuildingsTabGroup)    obj?.SetActive(false);
+            if (ProjectsTabGroup != null) foreach (var obj in ProjectsTabGroup) obj?.SetActive(false);
+            if (WarfareTabGroup != null) foreach (var obj in WarfareTabGroup) obj?.SetActive(false);
+
+            //  Developments tab: revealed once the first purchasable development is added to the menu
+            //  (see AddOpenDevelopment). The earliest development triggers on Unlock_Empty_Belly, so the
+            //  tab appears only AFTER Empty_Belly AND a development is actually available — never before.
+
+            //  Buildings tab: revealed when the barony is visited (Unlock_Visit_The_Barony).
+            GameUnlockSystem.AddGameUnlockAction("Unlock_Visit_The_Barony", true, (bool shown) => { foreach (var obj in BuildingsTabGroup) obj?.SetActive(shown); });
+
+            //  Projects tab: revealed when the first project (Arcane Streetlamps) unlocks.
+            GameUnlockSystem.AddGameUnlockAction("Unlock_Project_Arcane_Streetlamps", true, (bool shown) => { if (ProjectsTabGroup != null) foreach (var obj in ProjectsTabGroup) obj?.SetActive(shown); });
+
+            //  Warfare tab: revealed when warfare unlocks (Unlock_Warfare).
+            GameUnlockSystem.AddGameUnlockAction("Unlock_Warfare", true, (bool shown) => { if (WarfareTabGroup != null) foreach (var obj in WarfareTabGroup) obj?.SetActive(shown); });
 
             foreach (var gu in GameUnlockSystem.UnlockIDs)
             {
@@ -130,10 +156,7 @@ namespace HypnicEmpire
                 btn?.SetInteractable(btn != button);
 
             foreach (var menu in Menus)
-            {
-                Transform transform = menu.GetComponent<Transform>();
-                transform.localScale = new Vector3(transform.localScale.x, menu == menuToShow ? 1f : 0f, transform.localScale.z);
-            }
+                menu.SetScaleY(menu == menuToShow ? 1f : 0f);
         }
 
         public void SetResetButtonUnpacked(bool unpacked)
@@ -146,6 +169,9 @@ namespace HypnicEmpire
         public void AddOpenDevelopment(string name, string description, string extraInfo, List<ResourceAmountData> cost, List<string> unlock)
         {
             DevelopmentsMenuControl?.AddOpenDevelopment(name, description, extraInfo, cost, unlock);
+            //  A purchasable development now exists — reveal the Developments tab (idempotent; also
+            //  re-shows it on load, when saved unlocks are replayed and open developments are re-added).
+            foreach (var obj in DevelopmentsTabGroup) obj?.SetActive(true);
         }
 
         public void ResetDevelopmentMenu()
