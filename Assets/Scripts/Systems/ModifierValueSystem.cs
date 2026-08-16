@@ -39,6 +39,9 @@ namespace HypnicEmpire
     {
         public const int BaseJobCap = 10;   // prior hard-coded worker cap per task (TaskActionSystem)
 
+        // Raised after a recompute settles, for state derived from building/project counts (land usage).
+        public static event Action OnValuesRecomputed;
+
         // Job-section vocabulary is NOT identical to an action's ActionSection (design §3.3):
         // Delve's ActionSection is "Unaffiliated" but it is a "Delving" job, and "Farming" is a
         // crop-farming subset of the Agricultural section. Bind those exceptions here; anything
@@ -214,6 +217,10 @@ namespace HypnicEmpire
                 ResourceTypeSystem.RefreshAllResourceMaxima();
             }
             finally { _recomputing = false; }
+
+            // Announced outside the guard so a listener that ends up unlocking something is still able
+            // to drive a further recompute.
+            OnValuesRecomputed?.Invoke();
         }
 
         // -- consumer queries (read the accumulated modifier values) ------------

@@ -37,6 +37,9 @@ namespace HypnicEmpire
             // after AlterableValues + Buildings load and after the game state exists.
             ModifierValueSystem.Initialize();
 
+            //  Used land is derived from building counts, so land initializes once those are seeded.
+            LandSystem.Initialize();
+
             MainGameUIView.Initialize();
             
             JournalEntrySystem.OnJournalEntryAdded += (string text) => MainGameUIView?.JournalMenuControl?.AddJournalEntry(text);
@@ -131,6 +134,10 @@ namespace HypnicEmpire
 
         public void PostLoadInitialState()
         {
+            //  Loading or resetting replaces the acquired land count, so land is brought back in line
+            //  before the UI reads it.
+            LandSystem.Refresh();
+
             MainGameUIView.ResetUI();
 
             MainGameUIView.ActionsMenu.GetComponent<UIActionMenuController>()?.InitializeMenu();

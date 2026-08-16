@@ -39,6 +39,7 @@ namespace HypnicEmpire
         [SerializeField] public UIJournalMenu JournalMenuControl;
         [SerializeField] public UIDevelopmentsMenu DevelopmentsMenuControl;
         [SerializeField] public UIBuildingsMenu BuildingsMenuControl;
+        [SerializeField] public UILandOwnershipMenu LandOwnershipMenuControl;
 
         [Header("Secondary Menu UI Elements")]
         [SerializeField] public Button SaveAndExitButton;
@@ -137,6 +138,7 @@ namespace HypnicEmpire
             });
 
             BuildingsMenuControl?.InitializeMenu();
+            LandOwnershipMenuControl?.InitializeMenu();
         }
 
         public void ResetUI()
@@ -146,6 +148,8 @@ namespace HypnicEmpire
             ResetDevelopmentMenu();
             ResourceListControl?.ClearAllResourceEntries();
             BuildingsMenuControl?.ApplyRevealState();
+            LandOwnershipMenuControl?.ApplyRevealState();
+            LandOwnershipMenuControl?.RefreshDisplay();
 
             SetResetButtonUnpacked(false);
             ShowCenterMenu(ActionsButton, ActionsMenu);

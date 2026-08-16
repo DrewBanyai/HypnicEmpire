@@ -32,6 +32,9 @@ namespace HypnicEmpire
         public string ResourceType;
         public ResourceValue ResourceValue;
         public int Amount; // To handle both field names found in JSON
+
+        //  Whichever of the two field names the entry was authored with.
+        public ResourceValue GetValue() { return ResourceValue ?? new ResourceValue(Amount); }
     }
 
     public class BuildingAlteredValue

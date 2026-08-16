@@ -25,6 +25,10 @@ namespace HypnicEmpire
         
         public int ClickCount = 0;
 
+        //  Land gained on top of the authored starting amount. Total owned, used and free land are all
+        //  derived from this by LandSystem.
+        public int LandAcquired = 0;
+
         public int MasterVolume = 50;
         public int SFXVolume = 50;
         public int MusicVolume = 50;
@@ -58,6 +62,7 @@ namespace HypnicEmpire
             LevelCurrent.SetValue(other.LevelCurrent.Value);
             LevelDelveCount.SetValue(other.LevelDelveCount.Value);
 
+            LandAcquired = other.LandAcquired;
 
             //  Clear all resource current and maximum values and set them to their initial values
             ClearAllResourceValues();
