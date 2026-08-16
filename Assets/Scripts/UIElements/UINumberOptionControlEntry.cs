@@ -32,5 +32,11 @@ namespace HypnicEmpire
             IncreaseButton?.SetInteractable(upInteractable);
             DecreaseButton?.SetInteractable(downInteractable);
         }
+
+        public void SetAdjustmentButtonsVisible(bool visible)
+        {
+            IncreaseButton?.gameObject.SetActive(visible);
+            DecreaseButton?.gameObject.SetActive(visible);
+        }
     }
 }

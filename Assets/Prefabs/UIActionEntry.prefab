@@ -287,6 +287,7 @@ MonoBehaviour:
   ProcessButton: {fileID: 6976150708491781939}
   ResourceChangeEntriesLossParent: {fileID: 5469230332653838390}
   ResourceChangeEntriesGainParent: {fileID: 8639742540370120597}
+  WorkerControl: {fileID: 3164358264884169066}
 --- !u!1 &8500038975360838682
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,6 +534,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7768316992015617950}
   m_SourcePrefab: {fileID: 100100000, guid: 887780da7dd045f4581add71c05fa590, type: 3}
+--- !u!114 &3164358264884169066 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2927480705879699354, guid: 887780da7dd045f4581add71c05fa590, type: 3}
+  m_PrefabInstance: {fileID: 237159309144418032}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8258613370130623886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1733a1fc7c5294ea0b53d0d7007f6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!224 &7889797993329213290 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7941181343382165914, guid: 887780da7dd045f4581add71c05fa590, type: 3}

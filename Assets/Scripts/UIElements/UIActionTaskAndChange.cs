@@ -7,15 +7,21 @@ namespace HypnicEmpire
 {
     public class UIActionTaskAndChange : MonoBehaviour
     {
+        //  Assigning workers to an action is meaningless before the settlement has any
+        //  citizens, so the worker control's arrows stay hidden until the first one arrives.
+        private const string CitizensUnlock = "Unlock_One_Villager";
+
         [SerializeField] public GameObject ResourceChangeUIPrefab;
         [SerializeField] public UITaskProcessButton ProcessButton;
         [SerializeField] public Transform ResourceChangeEntriesLossParent;
         [SerializeField] public Transform ResourceChangeEntriesGainParent;
+        [SerializeField] public UINumberOptionControlEntry WorkerControl;
 
         private List<ResourceAmountData> ResourceChange = new();
 
         public void SetContent(string actionType, TaskActionState actionState)
         {
+            InitializeWorkerControlVisibility();
 
             if (ResourceChangeUIPrefab == null) return;
             if (ResourceChangeEntriesLossParent == null) return;
@@ -44,6 +50,20 @@ namespace HypnicEmpire
             {
                 GameController.CurrentGameState.AddToResources(actionState.GetResourceChange());
             });
+        }
+
+        private void InitializeWorkerControlVisibility()
+        {
+            if (WorkerControl == null) return;
+
+            SetWorkerControlVisible(GameUnlockSystem.IsUnlocked(CitizensUnlock));
+            GameUnlockSystem.AddGameUnlockAction(CitizensUnlock, true, SetWorkerControlVisible);
+        }
+
+        private void SetWorkerControlVisible(bool visible)
+        {
+            if (WorkerControl == null) return;
+            WorkerControl.SetAdjustmentButtonsVisible(visible);
         }
 
         private void RefreshUI(TaskActionState actionState)
