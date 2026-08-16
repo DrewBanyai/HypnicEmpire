@@ -145,6 +145,7 @@ namespace HypnicEmpire
 
             ResetDevelopmentMenu();
             ResourceListControl?.ClearAllResourceEntries();
+            BuildingsMenuControl?.ApplyRevealState();
 
             SetResetButtonUnpacked(false);
             ShowCenterMenu(ActionsButton, ActionsMenu);

@@ -22,6 +22,7 @@
     "BuildingTypes": [
         {
             "Name": "Simple Hut",
+            "RevealUnlock": "Unlock_Buying_Land",
             "Text": "People who work sadly also need a place to sleep",
             "StartingCount": {
                 "Amount": 0,
@@ -542,6 +543,7 @@
         },
         {
             "Name": "Cabin",
+            "RevealUnlock": "Unlock_Stone_Foundations",
             "Text": "A comfortable living space. At least better than before.",
             "StartingCount": {
                 "Amount": 0,
@@ -1117,6 +1119,7 @@
         },
         {
             "Name": "House",
+            "RevealUnlock": "Unlock_Cabins_To_Houses",
             "Text": "One house connected to another house still equals just one house.",
             "BuildingIcon": "BuildingIcons/BuildingIcon_House",
             "StartingCount": {
@@ -2009,6 +2012,7 @@
         },
         {
             "Name": "Ghetto",
+            "RevealUnlock": "Unlock_Building_Ghetto",
             "Text": "Cramped and ugly but full of hopeful people.",
             "BuildingIcon": "BuildingIcons/BuildingIcon_Ghetto",
             "StartingCount": {
@@ -2414,6 +2418,7 @@
         },
         {
             "Name": "Guardhouse",
+            "RevealUnlock": "Unlock_Building_Guardhouse",
             "Text": "Their most important job is just being there",
             "BuildingIcon": "BuildingIcons/BuildingIcon_Guardhouse",
             "StartingCount": {
@@ -2973,6 +2978,7 @@
         },
         {
             "Name": "Apartment Complex",
+            "RevealUnlock": "Unlock_Combine_House_And_Ghetto_To_Apartments",
             "Text": "Now you can have neighbors above your neighbors.",
             "StartingCount": {
                 "Amount": 0,
@@ -3756,6 +3762,7 @@
         },
         {
             "Name": "Delving Outpost",
+            "RevealUnlock": "Unlock_Building_Delving_Outpost",
             "Text": "A singular outpost on top of the hole. Makes everything easier.",
             "BuildingIcon": "BuildingIcons/BuildingIcon_DelvingOutpost",
             "StartingCount": {
@@ -4338,6 +4345,7 @@
         },
         {
             "Name": "Dungeon Entrance",
+            "RevealUnlock": "Unlock_Delving_Output_To_Dungeon_Entrance",
             "Text": "Now multiple well lit ways lead into the deep.",
             "StartingCount": {
                 "Amount": 0,
@@ -4807,6 +4815,7 @@
         },
         {
             "Name": "Thieves Den",
+            "RevealUnlock": "Unlock_Building_Thief_Den",
             "Text": "They are good for the economy.",
             "BuildingIcon": "BuildingIcons/BuildingIcon_ThievesDen",
             "StartingCount": {
@@ -5059,6 +5068,7 @@
         },
         {
             "Name": "Shop",
+            "RevealUnlock": "Unlock_Building_Shop",
             "Text": "Sells and buys anything you want and need.",
             "BuildingIcon": "BuildingIcons/BuildingIcon_Shop",
             "StartingCount": {
@@ -5563,6 +5573,7 @@
         },
         {
             "Name": "Tavern",
+            "RevealUnlock": "Unlock_Building_Tavern",
             "Text": "Its greatest export are drunken tales... and beer.",
             "BuildingIcon": "BuildingIcons/BuildingIcon_Tavern",
             "StartingCount": {
@@ -6092,6 +6103,7 @@
         },
         {
             "Name": "Temple",
+            "RevealUnlock": "Unlock_Building_Temple",
             "Text": "They call them Reliquaries\nBut it's all nonsense.",
             "BuildingIcon": "BuildingIcons/BuildingIcon_Temple",
             "StartingCount": {
@@ -6622,6 +6634,7 @@
         },
         {
             "Name": "Cathedral",
+            "RevealUnlock": "Unlock_Temple_To_Cathedral",
             "Text": "Grand decadent halls full of gold, silver and glass.",
             "BuildingIcon": "BuildingIcons/BuildingIcon_Cathedral",
             "StartingCount": {
@@ -7151,6 +7164,7 @@
         },
         {
             "Name": "Wooden Granary",
+            "RevealUnlock": "Unlock_Building_Wooden_Granary",
             "Text": "A local hotspot for hunters and gatherers and the like.",
             "BuildingIcon": "BuildingIcons/BuildingIcon_WoodenGranary",
             "StartingCount": {
@@ -7595,6 +7609,7 @@
         },
         {
             "Name": "Food Market",
+            "RevealUnlock": "Unlock_Granary_To_Food_Market",
             "Text": "Fresh produce every day of the week. Except holidays. Sorry.",
             "StartingCount": {
                 "Amount": 0,
@@ -8051,6 +8066,7 @@
         },
         {
             "Name": "Farmstead",
+            "RevealUnlock": "Unlock_Building_Farmstead",
             "Text": "The home of carrots, cabbages and dairy products.",
             "BuildingIcon": "BuildingIcons/BuildingIcon_Farmstead",
             "StartingCount": {
@@ -8459,6 +8475,7 @@
         },
         {
             "Name": "Mill",
+            "RevealUnlock": "Unlock_Building_Mill",
             "Text": "Does the wind ever tire of blowing?",
             "StartingCount": {
                 "Amount": 0,
@@ -8842,6 +8859,7 @@
         },
         {
             "Name": "Small Shed",
+            "RevealUnlock": "Unlock_Building_Shed",
             "Text": "For resource containment.",
             "StartingCount": {
                 "Amount": 0,
@@ -9038,6 +9056,7 @@
         },
         {
             "Name": "Warehouse",
+            "RevealUnlock": "Unlock_Shed_Upgrade_To_Warehouse",
             "Text": "Houses wares. A fitting name.",
             "BuildingIcon": "BuildingIcons/BuildingIcon_Warehouse",
             "StartingCount": {
@@ -12409,6 +12428,7 @@
         },
         {
             "Name": "Busy Workshop",
+            "RevealUnlock": "Unlock_Building_Busy_Workshop",
             "Text": "Processing resources in style.",
             "BuildingIcon": "BuildingIcons/BuildingIcon_BusyWorkshop",
             "StartingCount": {
@@ -12937,6 +12957,7 @@
         },
         {
             "Name": "Factory",
+            "RevealUnlock": "Unlock_Automate_Everything",
             "Text": "Processing resources in style.",
             "BuildingIcon": "BuildingIcons/BuildingIcon_BusyWorkshop",
             "StartingCount": {

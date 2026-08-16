@@ -7,6 +7,8 @@ namespace HypnicEmpire
         public string Name;
         public string Text;
         public string BuildingIcon;
+        //  Unlock that reveals this building. Empty means always revealed.
+        public string RevealUnlock;
         public BuildingStartingCount StartingCount;
         public List<BuildingCostTier> Costs;
         public List<BuildingAlteredValue> AlteredValues;

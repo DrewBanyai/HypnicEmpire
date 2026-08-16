@@ -32,14 +32,12 @@
 //                     to) rather than at stage 0 alongside it. Only Unlock_Game_Start is a
 //                     true seed; every other unlock is reached through the graph. Threshold
 //                     unlocks that gate nothing (achievement-only counts) are omitted.
-//   * Buildings     — revealed by a build/transform unlock. Leaf nodes today: their
-//                     AlteredValues raise stats but they grant NO unlocks, so nothing
-//                     gates on them yet. When a "building grants an unlock" mechanism is
-//                     added (e.g. the structure that will enable Refine), populate the
-//                     building option's GrantedUnlocks and that dependency resolves.
-//                     DATA GAP: BuildingData carries no reveal-unlock field, so the
-//                     name->unlock map below is inferred from the developments that grant
-//                     Unlock_Building_* / transform unlocks. Move it into BuildingData.
+//   * Buildings     — revealed by the build/transform unlock each one declares in its
+//                     RevealUnlock field. Leaf nodes today: their AlteredValues raise stats
+//                     but they grant NO unlocks, so nothing gates on them yet. When a
+//                     "building grants an unlock" mechanism is added (e.g. the structure that
+//                     will enable Refine), populate the building option's GrantedUnlocks and
+//                     that dependency resolves.
 //
 // DATA GAP (worth fixing in the data): LevelData has no field linking a grouping to
 // its reach unlock, so the grouping->reach map is hardcoded below. Ideally each
@@ -85,34 +83,6 @@ namespace HypnicEmpire.PathViz
             { "Oily Grottos",         "Unlock_Reach_Oily_Grottos" },
             { "The Last Chamber",     "Unlock_Reach_The_Last_Chamber" },
             { "End Of The Hole",      "Unlock_Reach_The_End" },
-        };
-
-        // Building name -> the unlock that reveals it. Inferred (see header DATA GAP):
-        // Unlock_Building_* come from developments; transforms (Cabins->Houses, etc.) and
-        // the two starters (gated on the general Unlock_Buildings) are best-effort.
-        private static readonly Dictionary<string, string> BuildingRevealUnlock = new()
-        {
-            { "Simple Hut",        "Unlock_Buildings" },
-            { "Cabin",             "Unlock_Buildings" },
-            { "House",             "Unlock_Cabins_To_Houses" },
-            { "Ghetto",            "Unlock_Building_Ghetto" },
-            { "Guardhouse",        "Unlock_Building_Guardhouse" },
-            { "Apartment Complex", "Unlock_Combine_House_And_Ghetto_To_Apartments" },
-            { "Delving Outpost",   "Unlock_Building_Delving_Outpost" },
-            { "Dungeon Entrance",  "Unlock_Delving_Output_To_Dungeon_Entrance" },
-            { "Thieves Den",       "Unlock_Building_Thief_Den" },
-            { "Shop",              "Unlock_Building_Shop" },
-            { "Tavern",            "Unlock_Building_Tavern" },
-            { "Temple",            "Unlock_Building_Temple" },
-            { "Cathedral",         "Unlock_Temple_To_Cathedral" },
-            { "Wooden Granary",    "Unlock_Building_Wooden_Granary" },
-            { "Food Market",       "Unlock_Granary_To_Food_Market" },
-            { "Farmstead",         "Unlock_Building_Farmstead" },
-            { "Mill",              "Unlock_Building_Mill" },
-            { "Small Shed",        "Unlock_Building_Shed" },
-            { "Warehouse",         "Unlock_Shed_Upgrade_To_Warehouse" },
-            { "Busy Workshop",     "Unlock_Building_Busy_Workshop" },
-            { "Factory",           "Unlock_Automate_Everything" },
         };
 
         public HypnicEmpireDataSource(string gameDataDirectory) { _dir = gameDataDirectory; }
@@ -259,8 +229,7 @@ namespace HypnicEmpire.PathViz
             {
                 var name = Str(b, "Name");
                 if (string.IsNullOrEmpty(name)) continue;
-                var eb = new EconomyBuilding { Id = name };
-                if (BuildingRevealUnlock.TryGetValue(name, out var rev)) eb.RevealUnlock = rev;
+                var eb = new EconomyBuilding { Id = name, RevealUnlock = Str(b, "RevealUnlock") };
 
                 foreach (var tier in Arr(b["Costs"]))       // base cost = the Count 0 tier
                 {
@@ -607,7 +576,8 @@ namespace HypnicEmpire.PathViz
                 if (string.IsNullOrEmpty(name)) continue;
 
                 var opt = new PathOption { Id = $"bld:{name}", Kind = OptionKind.Building, Display = $"Building: {name}", SourceRef = $"Buildings.json > {name}" };
-                if (BuildingRevealUnlock.TryGetValue(name, out var reveal))
+                var reveal = Str(b, "RevealUnlock");
+                if (!string.IsNullOrEmpty(reveal))
                     opt.RequiredUnlocks.Add(reveal);
                 // Buildings grant no unlocks in the current data (see header). Populate
                 // opt.GrantedUnlocks when a building->unlock mechanism is added.

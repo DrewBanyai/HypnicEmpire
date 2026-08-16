@@ -51,6 +51,11 @@ namespace HypnicEmpire
             if (BuildingButtonBox != null) BuildingButtonBox.color = AvailableColor;
         }
 
+        public void SetRevealed(bool revealed)
+        {
+            gameObject.SetActive(revealed);
+        }
+
         void Start()
         {
             //  TODO: Subscribe to changes in resource (value and maximum) as well as building count to update UI
