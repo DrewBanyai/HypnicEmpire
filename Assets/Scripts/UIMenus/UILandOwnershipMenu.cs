@@ -82,6 +82,14 @@ namespace HypnicEmpire
         {
             if (ResourceChangeUIPrefab == null || ResourceChangeEntryParent == null) return;
 
+            //  A source without the entry component can only ever produce inert clones, so it is
+            //  reported instead of quietly filling the list with them.
+            if (ResourceChangeUIPrefab.GetComponent<UIResourceChangeEntry>() == null)
+            {
+                Debug.LogWarning($"'{name}' cannot build land cost entries: '{ResourceChangeUIPrefab.name}' has no {nameof(UIResourceChangeEntry)}.", this);
+                return;
+            }
+
             foreach (Transform child in ResourceChangeEntryParent)
                 Destroy(child.gameObject);
             CostEntries.Clear();
@@ -89,8 +97,13 @@ namespace HypnicEmpire
             foreach (var change in LandSystem.GetLandPurchaseChanges())
             {
                 var entryObject = Instantiate(ResourceChangeUIPrefab, ResourceChangeEntryParent);
+
+                //  Entry prefabs carry an authored depth from the screen space camera canvas they were
+                //  built in. Stacked onto the depth of this panel it puts the row behind the camera, so
+                //  rows are pinned to the plane of the panel. The layout group still places x and y.
+                entryObject.transform.localPosition = Vector3.zero;
+
                 var entryComponent = entryObject.GetComponent<UIResourceChangeEntry>();
-                if (entryComponent == null) continue;
 
                 entryComponent.SetContent(change.ResourceType, change.ResourceValue);
 
