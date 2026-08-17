@@ -10,34 +10,58 @@ namespace HypnicEmpire
         [SerializeField] public SerializableDictionary<string, UIActionTaskAndChange> ActionButtonGroupings = new();
         [SerializeField] public SerializableDictionary<string, Transform> ActionSectionAreaMap = new();
 
+        //  First-run setup only: the subscriptions made here live for the whole session, so calling this a
+        //  second time would leave every action group responding twice to the same unlock. Bringing the menu
+        //  back in line with a newly loaded or reset game state is RefreshMenu's job.
         public void InitializeMenu()
         {
-            //  Hide all sections and action button groups
+            foreach (var actionType in TaskActionSystem.ActionsList)
+                SubscribeActionButtonGrouping(actionType);
+
+            RefreshMenu();
+        }
+
+        //  Idempotent: re-derives every action group's visibility and displayed values from the current game
+        //  state, without touching subscriptions. Safe to call after any load or reset.
+        public void RefreshMenu()
+        {
+            //  Hide all sections and action button groups, then unhide only what the current state unlocks
             foreach (var section in ActionSectionAreaMap) { section.Value.gameObject.SetActive(false); }
             foreach (var actionButtonGroup in ActionButtonGroupings) { actionButtonGroup.Value.gameObject.SetActive(false); }
 
-            //  Set all content on the action button groups, unhide them when valid, and subscribe to changes
             foreach (var actionType in TaskActionSystem.ActionsList)
-                SetActionButtonGroupingData(actionType);
+            {
+                if (!TryGetActionUnlock(actionType, out string unlock)) continue;
+
+                ActionButtonGroupings[actionType].Refresh();
+                SetActionActive(actionType, GameUnlockSystem.IsUnlocked(unlock));
+            }
         }
-        
-        public void SetActionButtonGroupingData(string actionType)
+
+        private void SubscribeActionButtonGrouping(string actionType)
         {
-            if (!TaskActionSystem.UnlockToActionMap.Values.Contains(actionType)) return;
-            if (!ActionButtonGroupings.ContainsKey(actionType)) return;
+            if (!TryGetActionUnlock(actionType, out string unlock)) return;
 
-            UIActionTaskAndChange actionButtonGroup = ActionButtonGroupings[actionType];
-            string unlock = TaskActionSystem.UnlockToActionMap.FirstOrDefault(x => x.Value == actionType).Key.ToString();
-            bool unlockStatus = GameUnlockSystem.IsUnlocked(unlock);
             TaskActionState actionState = TaskActionSystem.TaskActionMap[actionType];
-            actionButtonGroup.SetContent(actionType, actionState);
+            ActionButtonGroupings[actionType].SetContent(actionType, actionState);
 
-            SetActionActive(actionType, unlockStatus);
             GameUnlockSystem.AddGameUnlockAction(unlock, true, (bool unlocked) => {
                 SetActionActive(actionType, unlocked);
             });
         }
-        
+
+        private bool TryGetActionUnlock(string actionType, out string unlock)
+        {
+            unlock = null;
+
+            if (!ActionButtonGroupings.ContainsKey(actionType)) return false;
+            if (!TaskActionSystem.TaskActionMap.ContainsKey(actionType)) return false;
+            if (!TaskActionSystem.UnlockToActionMap.Values.Contains(actionType)) return false;
+
+            unlock = TaskActionSystem.UnlockToActionMap.FirstOrDefault(x => x.Value == actionType).Key;
+            return unlock != null;
+        }
+
         public void SetActionActive(string actionType, bool active)
         {
             Debug.Log($"SetActionActive({actionType}, {active})");

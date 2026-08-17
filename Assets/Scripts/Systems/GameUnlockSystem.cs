@@ -14,21 +14,42 @@ namespace HypnicEmpire
 
         public static void AddGameUnlockAction(string unlock, bool before, Action<bool> action)
         {
+            if (action == null) return;
+
             var actionMap = before ? UnlockActionMapBefore : UnlockActionMapAfter;
             if (!actionMap.ContainsKey(unlock))
                 actionMap[unlock] = new();
             actionMap[unlock].Add(action);
         }
 
+        //  A subscriber whose listeners are rebuilt (a system re-initialized after a load or reset) must be
+        //  able to withdraw the old ones, otherwise its registrations stack and a single unlock invokes them
+        //  once per registration. Registration is not deduplicated, so a subscriber removes exactly the
+        //  delegate instances it added.
+        public static void RemoveGameUnlockAction(string unlock, bool before, Action<bool> action)
+        {
+            if (action == null) return;
+
+            var actionMap = before ? UnlockActionMapBefore : UnlockActionMapAfter;
+            if (actionMap.TryGetValue(unlock, out var actions))
+                actions.Remove(action);
+        }
+
         public static void SetUnlockValue(string unlock, bool unlocked)
         {
-            if (UnlockActionMapBefore.ContainsKey(unlock))
-                foreach (var action in UnlockActionMapBefore[unlock])
-                    action?.Invoke(unlocked);
+            InvokeUnlockActions(UnlockActionMapBefore, unlock, unlocked);
             GameUnlockList[unlock] = unlocked;
-            if (UnlockActionMapAfter.ContainsKey(unlock))
-                foreach (var action in UnlockActionMapAfter[unlock])
-                    action?.Invoke(unlocked);
+            InvokeUnlockActions(UnlockActionMapAfter, unlock, unlocked);
+        }
+
+        //  Dispatched over a copy so that an action is free to add or remove unlock actions while it runs
+        //  (buying a development registers the actions of what it opens up) without invalidating iteration.
+        private static void InvokeUnlockActions(Dictionary<string, List<Action<bool>>> actionMap, string unlock, bool unlocked)
+        {
+            if (!actionMap.TryGetValue(unlock, out var actions) || actions.Count == 0) return;
+
+            foreach (var action in actions.ToArray())
+                action?.Invoke(unlocked);
         }
 
         public static bool IsUnlocked(string unlockID)

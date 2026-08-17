@@ -19,8 +19,15 @@ namespace HypnicEmpire
 
         private List<ResourceAmountData> ResourceChange = new();
 
+        //  The task this group displays, kept so Refresh can re-render it without re-subscribing.
+        private TaskActionState ActionState;
+
+        //  First-run setup only: the subscriptions made here live for the whole session. Use Refresh to
+        //  re-render against a newly loaded or reset game state.
         public void SetContent(string actionType, TaskActionState actionState)
         {
+            ActionState = actionState;
+
             InitializeWorkerControlVisibility();
 
             if (ResourceChangeUIPrefab == null) return;
@@ -52,12 +59,33 @@ namespace HypnicEmpire
             });
         }
 
+        //  Idempotent: brings the display back in line with the current game state, for after a load or reset
+        //  replaces it. Deliberately does not subscribe to anything — see SetContent.
+        public void Refresh()
+        {
+            ApplyWorkerControlVisibility();
+
+            if (ActionState == null) return;
+            if (ResourceChangeUIPrefab == null) return;
+            if (ResourceChangeEntriesLossParent == null) return;
+            if (ResourceChangeEntriesGainParent == null) return;
+
+            RefreshUI(ActionState);
+        }
+
         private void InitializeWorkerControlVisibility()
         {
             if (WorkerControl == null) return;
 
-            SetWorkerControlVisible(GameUnlockSystem.IsUnlocked(CitizensUnlock));
+            ApplyWorkerControlVisibility();
             GameUnlockSystem.AddGameUnlockAction(CitizensUnlock, true, SetWorkerControlVisible);
+        }
+
+        private void ApplyWorkerControlVisibility()
+        {
+            if (WorkerControl == null) return;
+
+            SetWorkerControlVisible(GameUnlockSystem.IsUnlocked(CitizensUnlock));
         }
 
         private void SetWorkerControlVisible(bool visible)

@@ -25,6 +25,9 @@ namespace HypnicEmpire
         public static GameState CurrentGameState = new();
         public UIView_MainGame MainGameUIView;
 
+        private UIActionMenuController ActionsMenuController =>
+            MainGameUIView?.ActionsMenu?.GetComponent<UIActionMenuController>();
+
         private void Awake()
         {
             Instance = this;
@@ -143,9 +146,24 @@ namespace HypnicEmpire
             SaveUtility.SaveCallback = () => { SaveGame(); };
 
             //  Now initialize the UI
+            InitializeUnlockListeners();
             PostLoadInitialState();
         }
 
+        //  Subscribing to unlocks is a first-run concern, not a per-load one: every listener below is driven by
+        //  static game data and lives for the whole session, so registering them again on load or reset would
+        //  simply stack a second set and make each unlock fire its listeners twice. They are registered before
+        //  any unlock is applied so that nothing set during the first PostLoadInitialState is missed.
+        private void InitializeUnlockListeners()
+        {
+            ActionsMenuController?.InitializeMenu();
+            JournalEntrySystem.InitializeListeners();
+            AchievementsSystem.InitializeListeners();
+        }
+
+        //  Re-applies state, and only state: everything here must be safe to run repeatedly, because a load or
+        //  a hard reset replaces the game state mid-session and the UI has to be brought back in line with it.
+        //  Registering listeners belongs in InitializeUnlockListeners instead.
         public void PostLoadInitialState()
         {
             //  Loading or resetting replaces the acquired land count, so land is brought back in line
@@ -154,17 +172,14 @@ namespace HypnicEmpire
 
             MainGameUIView.ResetUI();
 
-            MainGameUIView.ActionsMenu.GetComponent<UIActionMenuController>()?.InitializeMenu();
+            ActionsMenuController?.RefreshMenu();
             MainGameUIView.DelveTaskButton?.SetContents("Delve", 20f, 64f, CompleteDelve);
 
             CheckDevelopments();
-            SubscribeToJournalEntries();
 
             //  If we haven't loaded a game state with the very first unlock, unlock it now
             if (!GameUnlockSystem.IsUnlocked("Unlock_Game_Start"))
                 GameUnlockSystem.SetUnlockValue("Unlock_Game_Start", true);
-
-            AchievementsSystem.InitializeListeners();
 
             //  Link Achievement UI
             var achievementsCollection = MainGameUIView?.AchievementsMenu?.GetComponentInChildren<AchievementsCollection>();
@@ -174,16 +189,6 @@ namespace HypnicEmpire
         public void CheckDevelopments()
         {
 
-        }
-
-        public void SubscribeToJournalEntries()
-        {
-            foreach (var je in JournalEntrySystem.JournalEntryDataMap)
-                GameUnlockSystem.AddGameUnlockAction(je.Key, true, (bool unlocked) => {
-                    if (!unlocked) return;
-                    if (!GameUnlockSystem.IsUnlocked(je.Key))
-                        JournalEntrySystem.AddJournalEntry(je.Value.Text[UnityEngine.Random.Range(0, je.Value.Text.Count)]);
-                });
         }
 
         public void CurrentLevelUp()

@@ -12,6 +12,9 @@ namespace HypnicEmpire
         public static List<string> UnlockedAchievements = new();
         public static int ProgressBoostPercent = 100;
 
+        //  The unlock listener registered per trigger, kept so it can be withdrawn again on re-initialization.
+        private static readonly Dictionary<string, Action<bool>> UnlockListeners = new();
+
         public static event Action<string> OnAchievementUnlocked;
 
         public static double GetProgressBoostMultiplier() { return ProgressBoostPercent / 100.0; }
@@ -55,12 +58,17 @@ namespace HypnicEmpire
             }
         }
 
+        //  Idempotent: the previously registered listeners are withdrawn first, so calling this again (after a
+        //  load or reset, or after achievement data is reloaded) leaves exactly one listener per trigger
+        //  instead of stacking a second set that would announce every unlock twice.
         public static void InitializeListeners()
         {
+            ClearListeners();
+
             foreach (var achievement in AchievementDataMap.Values)
             {
                 string trigger = achievement.Trigger;
-                GameUnlockSystem.AddGameUnlockAction(trigger, true, (bool unlocked) =>
+                Action<bool> listener = (bool unlocked) =>
                 {
                     if (unlocked)
                     {
@@ -71,8 +79,19 @@ namespace HypnicEmpire
                             OnAchievementUnlocked?.Invoke(trigger);
                         }
                     }
-                });
+                };
+
+                UnlockListeners[trigger] = listener;
+                GameUnlockSystem.AddGameUnlockAction(trigger, true, listener);
             }
+        }
+
+        public static void ClearListeners()
+        {
+            foreach (var listener in UnlockListeners)
+                GameUnlockSystem.RemoveGameUnlockAction(listener.Key, true, listener.Value);
+
+            UnlockListeners.Clear();
         }
 
         public static AchievementData GetAchievementByName(string name)
