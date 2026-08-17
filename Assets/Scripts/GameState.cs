@@ -40,7 +40,6 @@ namespace HypnicEmpire
         {
             if (gameState == null) return;
 
-            ClearAllResourceValues();
             CopyGameState(gameState.GameState);
             CopyGameUnlocks(gameState.GameUnlocks);
         }
@@ -56,18 +55,50 @@ namespace HypnicEmpire
             }
         }
 
+        //  Every resource back to the starting count and maximum authored in Resources.json.
+        public void ResetResourceValuesToAuthoredDefaults()
+        {
+            ClearAllResourceValues();
+            if (ResourceTypeSystem.ResourceData?.ResourceTypes == null) return;
+
+            foreach (var entry in ResourceTypeSystem.ResourceData.ResourceTypes)
+            {
+                CurrentResourceCounts[entry.Name] = entry.InitialValue;
+                CurrentResourceMaximum[entry.Name] = entry.GetMaximum();
+            }
+        }
+
         public void CopyGameState(GameState other)
         {
+            if (other == null) return;
+
             LevelReached.SetValue(other.LevelReached.Value);
             LevelCurrent.SetValue(other.LevelCurrent.Value);
             LevelDelveCount.SetValue(other.LevelDelveCount.Value);
 
             LandAcquired = other.LandAcquired;
 
-            //  Clear all resource current and maximum values and set them to their initial values
-            ClearAllResourceValues();
-            foreach (var entry in ResourceTypeSystem.ResourceData.ResourceTypes) CurrentResourceCounts[entry.Name] = entry.InitialValue;
-            foreach (var entry in ResourceTypeSystem.ResourceData.ResourceTypes) CurrentResourceMaximum[entry.Name] = entry.GetMaximum();
+            CopyResourceValues(other);
+        }
+
+        //  Authored defaults are the baseline so that every known resource has an entry, then whatever the
+        //  source state holds is laid over the top. A save carries the accumulated counts and maxima and so
+        //  keeps them; the authored new game state carries none, so it stays on the defaults. Values are
+        //  assigned rather than pushed through AddToResource so the reward multiplier and the maximum clamp
+        //  cannot alter what was saved.
+        private void CopyResourceValues(GameState other)
+        {
+            ResetResourceValuesToAuthoredDefaults();
+
+            if (other.CurrentResourceCounts != null)
+                foreach (var entry in other.CurrentResourceCounts)
+                    if (entry.Value is not null && CurrentResourceCounts.ContainsKey(entry.Key))
+                        CurrentResourceCounts[entry.Key] = entry.Value;
+
+            if (other.CurrentResourceMaximum != null)
+                foreach (var entry in other.CurrentResourceMaximum)
+                    if (entry.Value is not null && CurrentResourceMaximum.ContainsKey(entry.Key))
+                        CurrentResourceMaximum[entry.Key] = entry.Value;
         }
 
         public void CopyGameUnlocks(SerializableDictionary<string, bool> gameUnlocks)
