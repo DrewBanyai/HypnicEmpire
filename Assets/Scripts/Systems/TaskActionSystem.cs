@@ -23,8 +23,14 @@ namespace HypnicEmpire
         {
             // Apply GainPct modifiers (building/project effects) to the reward. Positive
             // (gained) amounts are scaled; costs/losses are left untouched.
-            return ModifierValueSystem.ApplyGain(Name, ActionSection, ValueDeterminant.GetResourceChange(ResourceChange));
+            // A missing ValueDeterminant (incomplete JSON) means no unlock alterations to apply.
+            List<ResourceAmountData> baseChange = ValueDeterminant != null
+                ? ValueDeterminant.GetResourceChange(ResourceChange)
+                : TaskActionValueDeterminant.CopyResourceChange(ResourceChange);
+            return ModifierValueSystem.ApplyGain(Name, ActionSection, baseChange);
         }
+
+        public double GetSpeed() { return ValueDeterminant != null ? ValueDeterminant.GetSpeed() : 0.0; }
     }
 
     public static class TaskActionSystem
@@ -78,7 +84,7 @@ namespace HypnicEmpire
             TaskActionState taskAction = TaskActionMap[taskName];
             taskAction.ProgressSpeed = 0.0;
             if (taskName == PrimaryTask)
-                taskAction.ProgressSpeed = taskAction.ValueDeterminant.GetSpeed();
+                taskAction.ProgressSpeed = taskAction.GetSpeed();
             taskAction.ProgressSpeed += ((double)taskAction.WorkersAssigned * 10.0);
             // Apply SpeedPct modifiers (building/project effects) to the whole task speed.
             taskAction.ProgressSpeed *= ModifierValueSystem.GetActionSpeedMultiplier(taskAction.Name, taskAction.ActionSection);
@@ -132,14 +138,26 @@ namespace HypnicEmpire
                 {
                     string jsonContent = File.ReadAllText(jsonFilePath);
                     var taskData = JsonSerialization.Deserialize<TaskUnlockAndActionData>(jsonContent);
+                    if (taskData == null)
+                    {
+                        Debug.LogError($"Failed to deserialize TaskActionStates from {jsonFilePath}");
+                        return;
+                    }
 
                     UnlockToActionMap.Clear();
-                    foreach (var uta in taskData.UnlockToActionMap) UnlockToActionMap[uta.Key] = uta.Value;
+                    if (taskData.UnlockToActionMap != null)
+                        foreach (var uta in taskData.UnlockToActionMap) UnlockToActionMap[uta.Key] = uta.Value;
 
                     ActionsList.Clear();
                     TaskActionMap.Clear();
-                    foreach (TaskActionData tad in taskData.ActionData)
+                    foreach (TaskActionData tad in taskData.ActionData ?? new List<TaskActionData>())
                     {
+                        if (tad == null || string.IsNullOrEmpty(tad.Name))
+                        {
+                            Debug.LogWarning($"Skipping task action with no Name in {jsonFilePath}");
+                            continue;
+                        }
+
                         ActionsList.Add(tad.Name);
                         TaskActionMap[tad.Name] = new TaskActionState()
                         {
@@ -147,7 +165,7 @@ namespace HypnicEmpire
                             DisplayName = tad.DisplayName,
                             ActionSection = tad.ActionSection,
                             ValueDeterminant = tad.ValueDeterminant,
-                            ResourceChange = tad.ResourceChange
+                            ResourceChange = tad.ResourceChange ?? new List<ResourceAmountData>()
                         };
                     }
 
