@@ -15,7 +15,7 @@ namespace HypnicEmpire
 
         [SerializeField, Min(0f)]
         [Tooltip("Multiplies positive resource rewards. Resource costs are unaffected.")]
-        private float resourceRewardMultiplier = 10f;
+        private float resourceRewardMultiplier = 1f;
 
         public static double CurrentResourceRewardMultiplier =>
             Instance == null ? 1d : Mathf.Max(0f, Instance.resourceRewardMultiplier);
