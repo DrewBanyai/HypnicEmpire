@@ -90,6 +90,9 @@ namespace HypnicEmpire
         {
             GameSubscriptionSystem.ProcessSubscriptionsToAddAndRemove(resourceType);
 
+            if (resourceValue > 0)
+                resourceValue *= GameController.CurrentResourceRewardMultiplier;
+
             ResourceValue previousAmount = CurrentResourceCounts[resourceType];
             CurrentResourceCounts[resourceType] = ResourceValue.Min(GetResourceMaxAmount(resourceType), ResourceValue.Max(0, CurrentResourceCounts[resourceType] + resourceValue));
 

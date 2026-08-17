@@ -10,11 +10,25 @@ namespace HypnicEmpire
 {
     public class GameController : MonoBehaviour
     {
+        private static GameController Instance;
         private static string SaveFilePath => Application.persistentDataPath + "/saveGame.dat";
+
+        [SerializeField, Min(0f)]
+        [Tooltip("Multiplies positive resource rewards. Resource costs are unaffected.")]
+        private float resourceRewardMultiplier = 10f;
+
+        public static double CurrentResourceRewardMultiplier =>
+            Instance == null ? 1d : Mathf.Max(0f, Instance.resourceRewardMultiplier);
+
         [SerializeField] public GameStateScriptableObject InitialGameState;
 
         public static GameState CurrentGameState = new();
         public UIView_MainGame MainGameUIView;
+
+        private void Awake()
+        {
+            Instance = this;
+        }
 
         public void Start()
         {
