@@ -30,8 +30,9 @@ namespace HypnicEmpire
             if (BuildingTitleText != null) BuildingTitleText.text = data.Name;
             if (BuildingDescriptionText != null) BuildingDescriptionText.text = data.Text;
 
-            // Load icon from BuildingIcon path or fallback to name
-            string spritePath = !string.IsNullOrEmpty(data.BuildingIcon) ? data.BuildingIcon : $"BuildingIcons/{data.Name.Replace(" ", "")}";
+            //  An explicit BuildingIcon path wins; otherwise the icon is found by the naming
+            //  convention of the BuildingIcons folder: BuildingIcon_<NameWithoutSpaces>.
+            string spritePath = !string.IsNullOrEmpty(data.BuildingIcon) ? data.BuildingIcon : $"BuildingIcons/BuildingIcon_{data.Name.Replace(" ", "")}";
             Sprite sprite = Resources.Load<Sprite>(spritePath);
             if (sprite != null && BuildingIconImage != null) BuildingIconImage.sprite = sprite;
 

@@ -24,6 +24,7 @@
             "Name": "Simple Hut",
             "RevealUnlock": "Unlock_Buying_Land",
             "Text": "People who work sadly also need a place to sleep",
+            "BuildingIcon": "BuildingIcons/BuildingIcon_SimpleHut",
             "StartingCount": {
                 "Amount": 0,
                 "Note": ""
@@ -4347,6 +4348,7 @@
             "Name": "Dungeon Entrance",
             "RevealUnlock": "Unlock_Delving_Output_To_Dungeon_Entrance",
             "Text": "Now multiple well lit ways lead into the deep.",
+            "BuildingIcon": "BuildingIcons/BuildingIcon_DungeonEntrance",
             "StartingCount": {
                 "Amount": 0,
                 "Note": "(1/4 Delving Outpost count)"
@@ -7611,6 +7613,7 @@
             "Name": "Food Market",
             "RevealUnlock": "Unlock_Granary_To_Food_Market",
             "Text": "Fresh produce every day of the week. Except holidays. Sorry.",
+            "BuildingIcon": "BuildingIcons/BuildingIcon_FoodMarket",
             "StartingCount": {
                 "Amount": 0,
                 "Note": "Granary count / 2"
@@ -8477,6 +8480,7 @@
             "Name": "Mill",
             "RevealUnlock": "Unlock_Building_Mill",
             "Text": "Does the wind ever tire of blowing?",
+            "BuildingIcon": "BuildingIcons/BuildingIcon_Mill",
             "StartingCount": {
                 "Amount": 0,
                 "Note": ""
@@ -8861,6 +8865,7 @@
             "Name": "Small Shed",
             "RevealUnlock": "Unlock_Building_Shed",
             "Text": "For resource containment.",
+            "BuildingIcon": "BuildingIcons/BuildingIcon_SmallShed",
             "StartingCount": {
                 "Amount": 0,
                 "Note": ""
@@ -12959,7 +12964,7 @@
             "Name": "Factory",
             "RevealUnlock": "Unlock_Automate_Everything",
             "Text": "Processing resources in style.",
-            "BuildingIcon": "BuildingIcons/BuildingIcon_BusyWorkshop",
+            "BuildingIcon": "BuildingIcons/BuildingIcon_Factory",
             "StartingCount": {
                 "Amount": 0,
                 "Note": ""

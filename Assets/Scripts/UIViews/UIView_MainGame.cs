@@ -115,8 +115,8 @@ namespace HypnicEmpire
             //  (see AddOpenDevelopment). The earliest development triggers on Unlock_Empty_Belly, so the
             //  tab appears only AFTER Empty_Belly AND a development is actually available — never before.
 
-            //  Buildings tab: revealed when the barony is visited (Unlock_Visit_The_Barony).
-            GameUnlockSystem.AddGameUnlockAction("Unlock_Visit_The_Barony", true, (bool shown) => { foreach (var obj in BuildingsTabGroup) obj?.SetActive(shown); });
+            //  Buildings tab: revealed when "People have come to work for you" is bought (Unlock_Buying_Land).
+            GameUnlockSystem.AddGameUnlockAction("Unlock_Buying_Land", true, (bool shown) => { foreach (var obj in BuildingsTabGroup) obj?.SetActive(shown); });
 
             //  Projects tab: revealed when the first project (Arcane Streetlamps) unlocks.
             GameUnlockSystem.AddGameUnlockAction("Unlock_Project_Arcane_Streetlamps", true, (bool shown) => { if (ProjectsTabGroup != null) foreach (var obj in ProjectsTabGroup) obj?.SetActive(shown); });

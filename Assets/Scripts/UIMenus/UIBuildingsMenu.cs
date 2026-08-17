@@ -14,6 +14,10 @@ namespace HypnicEmpire
         //  ownership) never enter this map and are left untouched.
         private readonly Dictionary<GameObject, List<UIBuildingButton>> ButtonsOfSection = new();
 
+        //  Buttons naming no known building. They have no cost, effect or reveal unlock to work from,
+        //  so they are misconfigured rather than ungated and stay hidden.
+        private readonly HashSet<UIBuildingButton> ButtonsMissingData = new();
+
         public void InitializeMenu()
         {
             //  Inactive children are included: a button hidden by its reveal unlock must still be
@@ -21,6 +25,7 @@ namespace HypnicEmpire
             GetComponentsInChildren(true, BuildingButtons);
             RevealUnlockOfButton.Clear();
             ButtonsOfSection.Clear();
+            ButtonsMissingData.Clear();
 
             Transform content = GetComponent<ScrollRect>()?.content;
 
@@ -29,6 +34,12 @@ namespace HypnicEmpire
                 if (button == null) continue;
 
                 var data = BuildingDataSystem.GetBuildingData(button.BuildingName);
+                if (data == null)
+                {
+                    ButtonsMissingData.Add(button);
+                    Debug.LogWarning($"Building button '{button.name}' names no known building ('{button.BuildingName}') and stays hidden.", button);
+                }
+
                 button.SetBuildingData(data);
                 MapButtonToSection(button, content);
 
@@ -53,6 +64,12 @@ namespace HypnicEmpire
             foreach (var button in BuildingButtons)
             {
                 if (button == null) continue;
+                if (ButtonsMissingData.Contains(button))
+                {
+                    button.SetRevealed(false);
+                    continue;
+                }
+
                 string revealUnlock = RevealUnlockOfButton.TryGetValue(button, out var unlock) ? unlock : null;
                 button.SetRevealed(string.IsNullOrEmpty(revealUnlock) || GameUnlockSystem.IsUnlocked(revealUnlock));
             }
