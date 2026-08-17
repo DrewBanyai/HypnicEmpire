@@ -234,19 +234,61 @@ namespace HypnicEmpire
 
         public void LoadGame()
         {
-            string json = File.ReadAllText(SaveFilePath);
-            if (!string.IsNullOrEmpty(json))
+            if (!File.Exists(SaveFilePath))
             {
-                var saveData = JsonSerialization.Deserialize<GameSaveData>(json);
-                if (saveData != null)
-                {
-                    CurrentGameState.CopyGameState(saveData.GameState);
-                    GameUnlockSystem.GameUnlockList = saveData.GameUnlockList;
-                    AchievementsSystem.UnlockedAchievements = saveData.UnlockedAchievements ?? new();
-                }
+                Debug.LogWarning($"Save file not found at {SaveFilePath}");
+                return;
             }
 
-            PostLoadInitialState();
+            try
+            {
+                string json = File.ReadAllText(SaveFilePath);
+                if (string.IsNullOrEmpty(json))
+                {
+                    Debug.LogWarning($"Save file at {SaveFilePath} is empty");
+                    return;
+                }
+
+                var saveData = JsonSerialization.Deserialize<GameSaveData>(json);
+                if (!TryValidateSaveData(saveData, out string validationError))
+                {
+                    Debug.LogError($"Save file at {SaveFilePath} is invalid: {validationError}");
+                    return;
+                }
+
+                CurrentGameState.CopyGameState(saveData.GameState);
+                GameUnlockSystem.GameUnlockList = saveData.GameUnlockList;
+                AchievementsSystem.UnlockedAchievements = saveData.UnlockedAchievements ?? new();
+                PostLoadInitialState();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Error loading save from {SaveFilePath}: {e.Message}");
+            }
+        }
+
+        private static bool TryValidateSaveData(GameSaveData saveData, out string error)
+        {
+            if (saveData == null)
+            {
+                error = "deserialized save data is null";
+                return false;
+            }
+
+            if (saveData.GameState == null)
+            {
+                error = "GameState is missing";
+                return false;
+            }
+
+            if (saveData.GameUnlockList == null)
+            {
+                error = "GameUnlockList is missing";
+                return false;
+            }
+
+            error = null;
+            return true;
         }
 
         public void ResetGame()
