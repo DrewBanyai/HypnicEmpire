@@ -58,7 +58,7 @@ namespace HypnicEmpire
 
         public int GetCurrentValueRemap()
         {
-            return RemappingValues.Any(rv => rv.Value == CurrentValue) ? RemappingValues.Find(rv => rv.Value == CurrentValue).Value : -1;
+            return RemappingValues.Any(rv => rv.Value == CurrentValue) ? RemappingValues.Find(rv => rv.Value == CurrentValue).Remap : -1;
         }
 
         public string GetCurrentValueRemapNote()
