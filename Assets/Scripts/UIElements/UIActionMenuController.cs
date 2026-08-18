@@ -9,6 +9,7 @@ namespace HypnicEmpire
     {
         [SerializeField] public SerializableDictionary<string, UIActionTaskAndChange> ActionButtonGroupings = new();
         [SerializeField] public SerializableDictionary<string, Transform> ActionSectionAreaMap = new();
+        [SerializeField] private bool debugActionVisibility;
 
         //  First-run setup only: the subscriptions made here live for the whole session, so calling this a
         //  second time would leave every action group responding twice to the same unlock. Bringing the menu
@@ -64,7 +65,9 @@ namespace HypnicEmpire
 
         public void SetActionActive(string actionType, bool active)
         {
-            Debug.Log($"SetActionActive({actionType}, {active})");
+            if (debugActionVisibility)
+                Debug.Log($"SetActionActive({actionType}, {active})");
+
             var actionButtonGroup = ActionButtonGroupings.ContainsKey(actionType) ? ActionButtonGroupings[actionType] : null;
             actionButtonGroup?.gameObject.SetActive(active);
 
