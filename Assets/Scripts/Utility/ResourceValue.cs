@@ -41,6 +41,11 @@ namespace HypnicEmpire
             _totalHundredths = totalHundredths;
         }
 
+        internal static ResourceValue FromRaw(long totalHundredths)
+        {
+            return new ResourceValue(totalHundredths, true);
+        }
+
         public static ResourceValue operator +(ResourceValue a, ResourceValue b)
         {
             return new ResourceValue(a._totalHundredths + b._totalHundredths, true);
@@ -276,7 +281,7 @@ namespace HypnicEmpire
                 if (item.TryGetValue("_totalHundredths", out JToken total))
                 {
                     // This allows loading from the serialized internal state if needed
-                    return (ResourceValue)typeof(ResourceValue).GetConstructor(System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance, null, new[] { typeof(long), typeof(bool) }, null).Invoke(new object[] { total.Value<long>(), true });
+                    return ResourceValue.FromRaw(total.Value<long>());
                 }
                 // Check for component pieces if they exist
                 long w = item.Value<long>("WholeValue");
