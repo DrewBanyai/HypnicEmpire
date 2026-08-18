@@ -71,6 +71,17 @@ namespace HypnicEmpire
             return GetNextPurchaseCost(buildingName).CheckCanChangeAll();
         }
 
+        //  A price the player cannot work towards at all, as opposed to one they cannot meet yet: some
+        //  resource is asked for in greater quantity than it can currently be stockpiled. Only raising
+        //  that maximum opens the building up, so it is worth telling the two apart on the button.
+        //
+        //  Land plays no part, being excluded from the purchase cost along with every other question that
+        //  treats it as a resource. Whether enough of it is free is for CanBuild to answer.
+        public static bool IsPermanentlyUnaffordable(string buildingName)
+        {
+            return GetNextPurchaseCost(buildingName).ExceedsResourceCapacityAny();
+        }
+
         public static bool Build(string buildingName)
         {
             if (!CanBuild(buildingName)) return false;

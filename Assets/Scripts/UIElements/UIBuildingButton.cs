@@ -129,13 +129,15 @@ namespace HypnicEmpire
             BuildingCountText?.SetText(Localization.DisplayText_BuildingCount(Data == null ? 0 : ModifierValueSystem.GetBuildingCount(Data.Name)));
         }
 
-        //  A button naming no known building has no price to read and so can never be bought, which is a
-        //  different state from a building the player simply cannot afford yet.
+        //  Three shades of unbuyable, worth keeping apart. A button naming no known building has no price
+        //  to read at all; a price above what the resources can ever hold cannot be saved towards, so it
+        //  reads as unavailable too; short of that the player merely cannot afford it yet.
         private void RefreshColor()
         {
             if (BuildingButtonBox == null) return;
 
             if (Data == null) { BuildingButtonBox.SetColor(UnavailableColor); return; }
+            if (BuildingPurchaseSystem.IsPermanentlyUnaffordable(Data.Name)) { BuildingButtonBox.SetColor(UnavailableColor); return; }
             if (!BuildingPurchaseSystem.CanBuild(Data.Name)) { BuildingButtonBox.SetColor(AvailableCantAffordColor); return; }
 
             BuildingButtonBox.SetColor(PointerOver ? AvailableMouseOverColor : AvailableColor);
@@ -170,10 +172,16 @@ namespace HypnicEmpire
             {
                 CostEntries[i].SetContent(changes[i].ResourceType, changes[i].ResourceValue);
 
-                //  Land is not held as a resource, so there is no amount to weigh its cost against. Free
-                //  land still gates the purchase; that shows on the button box instead.
-                if (changes[i].ResourceType != LandSystem.LandValueName)
-                    CostEntries[i].CheckCanChange();
+                //  Each line is coloured for what the player holds of that one resource. Whether the
+                //  purchase as a whole is out of reach is the button box's job, so the rows are left to
+                //  speak with their text alone.
+                //
+                //  Land is weighed against what the standing buildings leave free rather than against a
+                //  stock in the game state, so the entry cannot work it out for itself.
+                if (changes[i].ResourceType == LandSystem.LandValueName)
+                    CostEntries[i].ShowAffordability(BuildingPurchaseSystem.GetNextPurchaseLandCost(Data.Name) <= LandSystem.LandFree);
+                else
+                    CostEntries[i].CheckCanChange(overrideNoBG: true, greenEvenNegative: true);
             }
         }
 

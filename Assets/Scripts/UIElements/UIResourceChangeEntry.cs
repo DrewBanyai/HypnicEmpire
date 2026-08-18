@@ -48,9 +48,19 @@ namespace HypnicEmpire
             }
         }
 
+        //  Colours a line whose affordability is no question about a held resource, and so cannot be
+        //  weighed here: land is spent against what the buildings leave free rather than against a stock
+        //  in the game state, and only the caller knows that.
+        public void ShowAffordability(bool affordable)
+        {
+            Background?.SetActive(false);
+            ResourceNameText?.SetColor(affordable ? ResourceGainColor : ResourceLossColor);
+            ResourceChangeText?.SetColor(affordable ? ResourceGainColor : ResourceLossColor);
+        }
+
         public bool CheckCanChange(bool overrideNoBG = false, bool greenEvenNegative = false)
         {
-            Background?.SetActive(true);
+            Background?.SetActive(!overrideNoBG);
             if (ChangeResourceAmount.ResourceValue == 0) return true;
 
             ResourceValue currentResourceAmount = GameController.CurrentGameState.GetResourceAmount(ChangeResourceAmount.ResourceType);

@@ -31,6 +31,16 @@ namespace HypnicEmpire
             return true;
         }
 
+        //  A single resource asked for beyond what it can hold is enough to put the whole change out of
+        //  reach, however long the player saves towards the rest of it.
+        public static bool ExceedsResourceCapacityAny(this List<ResourceAmountData> amountList)
+        {
+            foreach (var ra in amountList)
+                if (ra.ExceedsResourceCapacity()) return true;
+
+            return false;
+        }
+
         public static void ExecuteChange(this List<ResourceAmountData> amountList)
         {
             foreach (ResourceAmountData ra in amountList)

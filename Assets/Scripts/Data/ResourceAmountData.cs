@@ -23,5 +23,15 @@ namespace HypnicEmpire
             ResourceValue maxResourceAmount = GameController.CurrentGameState.GetResourceMaxAmount(ResourceType);
             return allowPositivePartial ? (currentResourceAmount < maxResourceAmount) : (currentResourceAmount + ResourceValue <= maxResourceAmount);
         }
+
+        //  A cost no amount of saving can meet, because more is asked for than the resource is able to
+        //  hold at all. Raising that maximum is the only way through, so this is a different answer from
+        //  CheckCanChange refusing a cost the player has simply not yet stockpiled.
+        public bool ExceedsResourceCapacity()
+        {
+            if (ResourceValue >= 0) return false;
+
+            return ResourceValue.Abs() > GameController.CurrentGameState.GetResourceMaxAmount(ResourceType);
+        }
     }
 }
