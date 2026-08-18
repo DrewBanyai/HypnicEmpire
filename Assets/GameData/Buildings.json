@@ -2,7 +2,8 @@
     "GlobalEffects": [
         {
             "Trigger": "Unlock_Buy_Land_Parcel_25",
-            "Effect": "Provides 25 land immediately"
+            "Effect": "Provides 25 land immediately",
+            "LandGranted": 25
         },
         {
             "Trigger": "Unlock_Cheaper_Bulk_Land_Buys",
@@ -3459,7 +3460,19 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -10
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -1402
+                        },
+                        {
+                            "ResourceType": "Iron",
+                            "ResourceValue": -1402
+                        },
+                        {
+                            "ResourceType": "Fabric",
+                            "ResourceValue": -1402
                         }
                     ]
                 },
@@ -3468,7 +3481,19 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -10
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -1612
+                        },
+                        {
+                            "ResourceType": "Iron",
+                            "ResourceValue": -1612
+                        },
+                        {
+                            "ResourceType": "Fabric",
+                            "ResourceValue": -1612
                         }
                     ]
                 },
@@ -3477,7 +3502,19 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -10
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -1853
+                        },
+                        {
+                            "ResourceType": "Iron",
+                            "ResourceValue": -1853
+                        },
+                        {
+                            "ResourceType": "Fabric",
+                            "ResourceValue": -1853
                         }
                     ]
                 },
@@ -3486,7 +3523,19 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -10
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -2131
+                        },
+                        {
+                            "ResourceType": "Iron",
+                            "ResourceValue": -2131
+                        },
+                        {
+                            "ResourceType": "Fabric",
+                            "ResourceValue": -2131
                         }
                     ]
                 },
@@ -3495,7 +3544,19 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -10
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -2451
+                        },
+                        {
+                            "ResourceType": "Iron",
+                            "ResourceValue": -2451
+                        },
+                        {
+                            "ResourceType": "Fabric",
+                            "ResourceValue": -2451
                         }
                     ]
                 },
@@ -5734,7 +5795,8 @@
                 },
                 {
                     "ValueName": "MaxMoneyStorage",
-                    "Amount": 110
+                    "Amount": 110,
+                    "Trigger": "Unlock_Shops_Increase_Max_Money_Up_110"
                 },
                 {
                     "ValueName": "MaxPotionStorage",

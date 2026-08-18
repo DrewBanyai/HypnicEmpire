@@ -12,6 +12,10 @@ namespace HypnicEmpire
         public string EffectText;
         public List<string> Unlock;
         public List<ResourceAmountData> Cost;
+
+        //  What buying this actually changes. EffectText only describes the effect to the player; without
+        //  entries here a development does nothing but set its unlocks.
+        public List<AlteredValueData> AlteredValues;
     }
     
     [Serializable]

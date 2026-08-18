@@ -534,6 +534,11 @@ namespace HypnicEmpire.EditorTools
                     RefUnlockGrant(u?.ToString(), $"Developments.json > '{title}' > Unlock");
                 foreach (var cost in Arr(d["Cost"]))
                     RefResource(Str(cost, "ResourceType"), $"Developments.json > '{title}' > Cost");
+                foreach (var av in Arr(d["AlteredValues"]))
+                {
+                    RefValueName(Str(av, "ValueName"), $"Developments.json > '{title}' > AlteredValues");
+                    RefUnlockConsume(Str(av, "Trigger"), $"Developments.json > '{title}' > AlteredValues.Trigger"); // optional/nullable
+                }
                 i++;
             }
         }
@@ -567,7 +572,15 @@ namespace HypnicEmpire.EditorTools
             if (root == null) return;
 
             foreach (var g in Arr(root["GlobalEffects"]))
+            {
                 RefUnlockConsume(Str(g, "Trigger"), "Buildings.json > GlobalEffects");
+
+                //  A global effect only ever applies through its trigger, so a grant without one is
+                //  authored land the player can never receive.
+                if (g?["LandGranted"] != null && string.IsNullOrEmpty(Str(g, "Trigger")))
+                    Add(ValidationSeverity.Warning, "unreachable-effect",
+                        "Buildings.json > GlobalEffects grants land but has no Trigger, so it never applies.", "Buildings.json > GlobalEffects");
+            }
 
             foreach (var lc in Arr(root["LandCost"]))
             {

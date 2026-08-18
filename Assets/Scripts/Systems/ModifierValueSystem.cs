@@ -19,13 +19,15 @@ namespace HypnicEmpire
     // ModifierValueSystem
     //
     // Makes the "modifier" AlterableValues real (design doc: Building Effects & Modifier
-    // Values). Buildings and completed projects CONTRIBUTE to AlterableValues via their
-    // AlteredValues; those values, when Kind=="Modifier", carry Applications that say what
+    // Values). Buildings, bought developments and completed projects CONTRIBUTE to AlterableValues
+    // via their AlteredValues; those values, when Kind=="Modifier", carry Applications that say what
     // they modify (resource maxima, action speed/gain, job caps, or another tracked value).
     //
     // Flow:
     //   contribution:  value(M) = base(M)
     //                           + Σ_buildings count(b) × Σ(av.Amount for av in b.AlteredValues,
+    //                                                       av.ValueName==M, trigger active)
+    //                           + Σ_developments bought(d) × Σ(av.Amount for av in d.AlteredValues,
     //                                                       av.ValueName==M, trigger active)
     //                           + Σ_projects  completions(p) × Σ(c.Amount for c in p, c.ValueName==M)
     //   application:   AddValue ops fold one modifier's value into another AlterableValue;
@@ -110,6 +112,20 @@ namespace HypnicEmpire
                         if (!string.IsNullOrEmpty(av.Trigger)) triggers.Add(av.Trigger);
                     }
                 }
+
+            // Developments contribute the same way, but they are bought once instead of counted, so the
+            // unlocks a development grants double as its purchase record and must drive a recompute too.
+            foreach (var dev in DevelopmentSystem.DevelopmentEntries)
+            {
+                if (dev.AlteredValues == null) continue;
+                foreach (var av in dev.AlteredValues)
+                {
+                    _drivenNames.Add(av.ValueName);
+                    if (!string.IsNullOrEmpty(av.Trigger)) triggers.Add(av.Trigger);
+                }
+                if (dev.Unlock != null)
+                    foreach (var u in dev.Unlock) triggers.Add(u);
+            }
 
             // Recompute whenever a building's conditional trigger toggles.
             foreach (var t in triggers)
@@ -208,6 +224,17 @@ namespace HypnicEmpire
                         }
                     }
 
+                foreach (var dev in DevelopmentSystem.DevelopmentEntries)
+                {
+                    if (dev.AlteredValues == null || !IsDevelopmentBought(dev)) continue;
+                    foreach (var av in dev.AlteredValues)
+                    {
+                        if (!string.IsNullOrEmpty(av.Trigger) && !GameUnlockSystem.IsUnlocked(av.Trigger)) continue;
+                        if (!direct.ContainsKey(av.ValueName)) direct[av.ValueName] = _bases.TryGetValue(av.ValueName, out int bb) ? bb : 0;
+                        direct[av.ValueName] += av.Amount;
+                    }
+                }
+
                 foreach (var kv in _projectContribs)
                 {
                     int times = _projectCounts.TryGetValue(kv.Key, out int t) ? t : 0;
@@ -253,6 +280,19 @@ namespace HypnicEmpire
             // Announced outside the guard so a listener that ends up unlocking something is still able
             // to drive a further recompute.
             OnValuesRecomputed?.Invoke();
+        }
+
+        // A development is bought once and for good, and buying it is what sets the unlocks it grants, so
+        // those unlocks are already a saved record of the purchase — no separate tally needs keeping.
+        // A development that grants nothing can never be recognised as bought, so it contributes nothing.
+        private static bool IsDevelopmentBought(DevelopmentDataEntry development)
+        {
+            if (development.Unlock == null || development.Unlock.Count == 0) return false;
+
+            foreach (var unlock in development.Unlock)
+                if (!GameUnlockSystem.IsUnlocked(unlock)) return false;
+
+            return true;
         }
 
         // -- consumer queries (read the accumulated modifier values) ------------

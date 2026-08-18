@@ -11,7 +11,7 @@ namespace HypnicEmpire
         public string RevealUnlock;
         public BuildingStartingCount StartingCount;
         public List<BuildingCostTier> Costs;
-        public List<BuildingAlteredValue> AlteredValues;
+        public List<AlteredValueData> AlteredValues;
         public List<BuildingUpgrade> Upgrades;
     }
 
@@ -37,7 +37,9 @@ namespace HypnicEmpire
         public ResourceValue GetValue() { return ResourceValue ?? new ResourceValue(Amount); }
     }
 
-    public class BuildingAlteredValue
+    //  A flat contribution to a modifier AlterableValue, optionally gated behind an unlock. Shared by
+    //  everything that can raise a value: buildings pay it per building built, developments once each.
+    public class AlteredValueData
     {
         public string ValueName;
         public int Amount;
@@ -50,10 +52,15 @@ namespace HypnicEmpire
         public string Effect;
     }
 
+    //  A rule that applies once its Trigger is unlocked, rather than per building. Effect describes it
+    //  for readers; only the fields below it are acted on.
     public class BuildingGlobalEffect
     {
         public string Trigger;
         public string Effect;
+
+        //  Land handed over outright by the unlock, as opposed to land the player buys.
+        public int LandGranted;
     }
 
     public class BuildingsDataContainer

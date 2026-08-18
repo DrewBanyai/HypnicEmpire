@@ -19,9 +19,31 @@ namespace HypnicEmpire
         private static int UsedLand;
         private static bool Initialized;
 
-        public static int LandOwned => StartingLandOwned + GameController.CurrentGameState.LandAcquired;
+        public static int LandOwned => StartingLandOwned + GrantedLand + GameController.CurrentGameState.LandAcquired;
         public static int LandUsed => UsedLand;
         public static int LandFree => LandOwned - UsedLand;
+
+        //  Land given by an unlock rather than bought. Read back from the unlocks in play every time
+        //  instead of being folded into the acquired total, because loading a save replays its unlocks:
+        //  anything added on the way past would be handed out again on every load.
+        private static int GrantedLand
+        {
+            get
+            {
+                var globalEffects = BuildingDataSystem.Data?.GlobalEffects;
+                if (globalEffects == null) return 0;
+
+                int granted = 0;
+                foreach (var globalEffect in globalEffects)
+                    if (GrantsLand(globalEffect) && GameUnlockSystem.IsUnlocked(globalEffect.Trigger))
+                        granted += globalEffect.LandGranted;
+
+                return granted;
+            }
+        }
+
+        private static bool GrantsLand(BuildingGlobalEffect globalEffect)
+            => globalEffect.LandGranted != 0 && !string.IsNullOrEmpty(globalEffect.Trigger);
 
         public static void Initialize()
         {
@@ -33,6 +55,15 @@ namespace HypnicEmpire
 
                 //  Building counts are owned by the modifier system, so used land follows its recomputes.
                 ModifierValueSystem.OnValuesRecomputed += Refresh;
+
+                //  A granting unlock changes owned land the moment it lands, and nothing else would
+                //  notice: land grants are outside the modifier system that drives the recompute above.
+                var globalEffects = BuildingDataSystem.Data?.GlobalEffects;
+                if (globalEffects != null)
+                    foreach (var globalEffect in globalEffects)
+                        if (GrantsLand(globalEffect))
+                            GameUnlockSystem.AddGameUnlockAction(globalEffect.Trigger, false, _ => Refresh());
+
                 Initialized = true;
             }
 

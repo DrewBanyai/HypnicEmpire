@@ -186,7 +186,8 @@
             "Description": "You probably should not lug all your money around all the time. The jingling in your pockets starts getting on peoples nerves.",
             "EffectText": "Increases money storage by 300",
             "Unlock": [ "Unlock_Money_Storage_Up_300" ],
-            "Cost": [ { "ResourceType": "Money", "ResourceValue": -150 }, { "ResourceType": "Wood", "ResourceValue": -26 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -150 }, { "ResourceType": "Wood", "ResourceValue": -26 } ],
+            "AlteredValues": [ { "ValueName": "MaxMoneyStorage", "Amount": 300 } ]
         },
         {
             "Trigger": [ "Unlock_Building_Shed" ],
@@ -210,7 +211,8 @@
             "Description": "You have more money than you know what to do with. Time to build another chest to keep the pickpockets away.",
             "EffectText": "Increases money storage by 300",
             "Unlock": [ "Unlock_Money_Storage_Up_Another_300" ],
-            "Cost": [ { "ResourceType": "Money", "ResourceValue": -150 }, { "ResourceType": "Wood", "ResourceValue": -26 } ]
+            "Cost": [ { "ResourceType": "Money", "ResourceValue": -150 }, { "ResourceType": "Wood", "ResourceValue": -26 } ],
+            "AlteredValues": [ { "ValueName": "MaxMoneyStorage", "Amount": 300 } ]
         },
         {
             "Trigger": [ "Unlock_Money_Storage_Up_Another_300" ],
