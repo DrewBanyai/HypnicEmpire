@@ -37,7 +37,9 @@ namespace HypnicEmpire
     // ---------------------------------------------------------------------------
     public static class ModifierValueSystem
     {
-        public const int BaseJobCap = 10;   // prior hard-coded worker cap per task (TaskActionSystem)
+        // Job capacity is earned, not given: a section allows no workers until something authored to raise
+        // its MaxXJobs value is built. Sections share their cap between all of their actions.
+        public const int BaseJobCap = 0;
 
         // Raised after a recompute settles, for state derived from building/project counts (land usage).
         public static event Action OnValuesRecomputed;

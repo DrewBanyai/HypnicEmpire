@@ -271,6 +271,7 @@ namespace HypnicEmpire
                 GameState = CurrentGameState, 
                 GameUnlockList = GameUnlockSystem.GameUnlockList,
                 BuildingCounts = ModifierValueSystem.GetAllBuildingCounts(),
+                WorkerAssignments = TaskActionSystem.GetAllWorkersAssigned(),
                 UnlockedAchievements = AchievementsSystem.UnlockedAchievements
             };
             File.WriteAllText(SaveFilePath, JsonSerialization.Serialize(saveData));
@@ -311,6 +312,17 @@ namespace HypnicEmpire
                     foreach (var entry in saveData.BuildingCounts)
                         ModifierValueSystem.SetBuildingCount(entry.Key, entry.Value);
                 }
+
+                //  Workers are restored after the buildings, since the population housing them and the jobs
+                //  they fill are both derived from those counts. A save older than the schema has none, and
+                //  a save whose numbers no longer add up is clamped rather than refused.
+                TaskActionSystem.ClearAllWorkersAssigned();
+                if (saveData.WorkerAssignments != null)
+                {
+                    foreach (var entry in saveData.WorkerAssignments)
+                        TaskActionSystem.SetWorkersAssigned(entry.Key, entry.Value);
+                }
+                JobAssignmentSystem.ClampToAvailable();
 
                 PostLoadInitialState();
             }
@@ -363,6 +375,10 @@ namespace HypnicEmpire
             //  back to their starting counts alongside it: land used is derived from them and would otherwise
             //  outlive the acquired land that paid for it. The recompute this triggers refreshes land in turn.
             ModifierValueSystem.Reset();
+
+            //  Workers live on the task states rather than the game state, so a reset would otherwise leave
+            //  the previous run's villagers at work in a settlement that no longer houses them.
+            TaskActionSystem.ClearAllWorkersAssigned();
 
             SaveGame();
 

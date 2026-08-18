@@ -42,28 +42,39 @@ namespace HypnicEmpire
         public static SerializableDictionary<string, Action<int>> TaskUpdateCallbackMap = new();
         public static SerializableDictionary<string, Action> TaskFinishCallbackMap = new();
 
-        public static bool AddWorkerToTask(string taskName)
+        public static int GetWorkersAssigned(string taskName)
         {
-            if (!TaskActionMap.ContainsKey(taskName))
-                return false;
-
-            var taskAction = TaskActionMap[taskName];
-            taskAction.WorkersAssigned += 1;
-            UpdateTaskProgressSpeed(taskName);
-            // Worker cap = base cap + JobCap modifiers for this action's job section.
-            string jobSection = ModifierValueSystem.SectionForAction(taskAction.Name, taskAction.ActionSection);
-            return taskAction.WorkersAssigned < ModifierValueSystem.GetJobCap(jobSection);
+            return TaskActionMap.ContainsKey(taskName) ? TaskActionMap[taskName].WorkersAssigned : 0;
         }
 
-        public static bool RemoveWorkerFromTask(string taskName)
+        //  Whether a task is allowed the workers asked for is JobAssignmentSystem's to judge, weighing the
+        //  population and the section's shared jobs. All that is owed here is the count and the speed it
+        //  buys, so this stores what it is given and never refuses.
+        public static void SetWorkersAssigned(string taskName, int workers)
         {
-            if (!TaskActionMap.ContainsKey(taskName))
-                return false;
+            if (!TaskActionMap.ContainsKey(taskName)) return;
 
-            var taskAction = TaskActionMap[taskName];
-            taskAction.WorkersAssigned -= 1;
+            TaskActionMap[taskName].WorkersAssigned = Math.Max(0, workers);
             UpdateTaskProgressSpeed(taskName);
-            return taskAction.WorkersAssigned > 0;
+        }
+
+        public static SerializableDictionary<string, int> GetAllWorkersAssigned()
+        {
+            var assignments = new SerializableDictionary<string, int>();
+            foreach (var taskAction in TaskActionMap.Values)
+                if (taskAction.WorkersAssigned > 0)
+                    assignments[taskAction.Name] = taskAction.WorkersAssigned;
+
+            return assignments;
+        }
+
+        public static void ClearAllWorkersAssigned()
+        {
+            foreach (var taskAction in TaskActionMap.Values)
+                taskAction.WorkersAssigned = 0;
+
+            foreach (var taskAction in TaskActionMap.Values)
+                UpdateTaskProgressSpeed(taskAction.Name);
         }
 
         public static void SetPrimaryTask(string taskName)

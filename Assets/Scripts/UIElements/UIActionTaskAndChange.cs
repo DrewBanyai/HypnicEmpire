@@ -7,10 +7,6 @@ namespace HypnicEmpire
 {
     public class UIActionTaskAndChange : MonoBehaviour
     {
-        //  Assigning workers to an action is meaningless before the settlement has any
-        //  citizens, so the worker control's arrows stay hidden until the first one arrives.
-        private const string CitizensUnlock = "Unlock_One_Villager";
-
         [SerializeField] public GameObject ResourceChangeUIPrefab;
         [SerializeField] public UITaskProcessButton ProcessButton;
         [SerializeField] public Transform ResourceChangeEntriesLossParent;
@@ -28,7 +24,7 @@ namespace HypnicEmpire
         {
             ActionState = actionState;
 
-            InitializeWorkerControlVisibility();
+            InitializeWorkerControl();
 
             if (ResourceChangeUIPrefab == null) return;
             if (ResourceChangeEntriesLossParent == null) return;
@@ -63,7 +59,7 @@ namespace HypnicEmpire
         //  replaces it. Deliberately does not subscribe to anything — see SetContent.
         public void Refresh()
         {
-            ApplyWorkerControlVisibility();
+            RefreshWorkerControl();
 
             if (ActionState == null) return;
             if (ResourceChangeUIPrefab == null) return;
@@ -73,25 +69,58 @@ namespace HypnicEmpire
             RefreshUI(ActionState);
         }
 
-        private void InitializeWorkerControlVisibility()
+        private void InitializeWorkerControl()
         {
             if (WorkerControl == null) return;
 
-            ApplyWorkerControlVisibility();
-            GameUnlockSystem.AddGameUnlockAction(CitizensUnlock, true, SetWorkerControlVisible);
+            //  The arrows keep these two handlers for the life of the control. Only the numbers beside them
+            //  and whether either is allowed move as the game runs, which is RefreshWorkerControl's job.
+            WorkerControl.SetContent(string.Empty, string.Empty, AssignWorker, UnassignWorker);
+
+            //  Jobs are shared across a section, so an assignment made on any action can change what this
+            //  one is allowed; the population and the jobs themselves both follow from what has been built.
+            JobAssignmentSystem.OnAssignmentsChanged -= RefreshWorkerControl;
+            JobAssignmentSystem.OnAssignmentsChanged += RefreshWorkerControl;
+            ModifierValueSystem.OnValuesRecomputed -= RefreshWorkerControl;
+            ModifierValueSystem.OnValuesRecomputed += RefreshWorkerControl;
+
+            RefreshWorkerControl();
         }
 
-        private void ApplyWorkerControlVisibility()
+        private void OnDestroy()
         {
-            if (WorkerControl == null) return;
-
-            SetWorkerControlVisible(GameUnlockSystem.IsUnlocked(CitizensUnlock));
+            JobAssignmentSystem.OnAssignmentsChanged -= RefreshWorkerControl;
+            ModifierValueSystem.OnValuesRecomputed -= RefreshWorkerControl;
         }
 
-        private void SetWorkerControlVisible(bool visible)
+        //  A group whose action never resolved has no worker to move; the arrows are wired before that is
+        //  known, so the click is the place to check.
+        private void AssignWorker()
         {
-            if (WorkerControl == null) return;
-            WorkerControl.SetAdjustmentButtonsVisible(visible);
+            if (ActionState != null) JobAssignmentSystem.Assign(ActionState.Name);
+        }
+
+        private void UnassignWorker()
+        {
+            if (ActionState != null) JobAssignmentSystem.Unassign(ActionState.Name);
+        }
+
+        //  Shows what this action has against the cap it shares with its section, and greys an arrow that
+        //  has nothing left to do: no idle villager or no free job going up, nobody assigned coming down.
+        //
+        //  Job capacity is earned by building, so until the section has a single job to fill there is
+        //  nothing worth saying: the control hides entirely rather than offer a 0/0 nobody can act on.
+        private void RefreshWorkerControl()
+        {
+            if (WorkerControl == null || ActionState == null) return;
+
+            int assigned = JobAssignmentSystem.AssignedToAction(ActionState.Name);
+            int jobCap = JobAssignmentSystem.JobCapOfAction(ActionState.Name);
+
+            WorkerControl.SetDisplayDetails(string.Empty, Localization.DisplayText_WorkersAssigned(assigned, jobCap),
+                JobAssignmentSystem.CanAssign(ActionState.Name), JobAssignmentSystem.CanUnassign(ActionState.Name));
+
+            WorkerControl.SetVisible(jobCap > 0);
         }
 
         private void RefreshUI(TaskActionState actionState)

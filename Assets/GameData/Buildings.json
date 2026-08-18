@@ -1250,7 +1250,19 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -4
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -41
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -31
+                        },
+                        {
+                            "ResourceType": "Fabric",
+                            "ResourceValue": -21
                         }
                     ]
                 },
@@ -1259,7 +1271,19 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -4
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -47
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -35
+                        },
+                        {
+                            "ResourceType": "Fabric",
+                            "ResourceValue": -24
                         }
                     ]
                 },
@@ -1268,7 +1292,19 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -4
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -54
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -40
+                        },
+                        {
+                            "ResourceType": "Fabric",
+                            "ResourceValue": -27
                         }
                     ]
                 },
@@ -1277,7 +1313,19 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -4
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -62
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -46
+                        },
+                        {
+                            "ResourceType": "Fabric",
+                            "ResourceValue": -31
                         }
                     ]
                 },
@@ -1286,7 +1334,19 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -4
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -71
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -53
+                        },
+                        {
+                            "ResourceType": "Fabric",
+                            "ResourceValue": -36
                         }
                     ]
                 },
@@ -1295,7 +1355,19 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -4
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -81
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -61
+                        },
+                        {
+                            "ResourceType": "Fabric",
+                            "ResourceValue": -41
                         }
                     ]
                 },
@@ -1304,7 +1376,19 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -4
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -94
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -70
+                        },
+                        {
+                            "ResourceType": "Fabric",
+                            "ResourceValue": -47
                         }
                     ]
                 },
@@ -1313,7 +1397,19 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -4
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -108
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -81
+                        },
+                        {
+                            "ResourceType": "Fabric",
+                            "ResourceValue": -54
                         }
                     ]
                 },
@@ -1322,7 +1418,19 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -4
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -124
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -93
+                        },
+                        {
+                            "ResourceType": "Fabric",
+                            "ResourceValue": -62
                         }
                     ]
                 },
