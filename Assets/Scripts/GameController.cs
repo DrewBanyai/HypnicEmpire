@@ -106,10 +106,17 @@ namespace HypnicEmpire
 
             MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent.Value, CurrentGameState.LevelReached.Value, CurrentGameState.LevelCurrent.Value, CurrentLevelUp, CurrentLevelDown);
 
-            MainGameUIView.LevelExplorationBar?.SetProgress((float)CurrentGameState.LevelDelveCount.Value / (float)LevelDataSystem.GetLevelData(CurrentGameState.LevelCurrent.Value).DelveCount);
+            void UpdateLevelExplorationBar()
+            {
+                var levelData = LevelDataSystem.GetLevelData(CurrentGameState.LevelCurrent.Value);
+                if (levelData == null) return;
+                MainGameUIView.LevelExplorationBar?.SetProgress((float)CurrentGameState.LevelDelveCount.Value / (float)levelData.DelveCount);
+            }
+
+            UpdateLevelExplorationBar();
             CurrentGameState.LevelDelveCount.Subscribe((newValue) =>
             {
-                MainGameUIView.LevelExplorationBar?.SetProgress((float)CurrentGameState.LevelDelveCount.Value / (float)LevelDataSystem.GetLevelData(CurrentGameState.LevelCurrent.Value).DelveCount);
+                UpdateLevelExplorationBar();
             });
 
             CurrentGameState.LevelCurrent.Subscribe((newValue) =>
