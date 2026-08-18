@@ -18,6 +18,7 @@ namespace HypnicEmpire
         {
             if (string.IsNullOrEmpty(text)) return;
             ShownJournalEntries.Add(text);
+            GameController.CurrentGameState.JournalEntries.Add(text);
             OnJournalEntryAdded?.Invoke(text);
         }
 

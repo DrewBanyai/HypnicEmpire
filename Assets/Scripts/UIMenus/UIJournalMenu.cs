@@ -9,6 +9,18 @@ namespace HypnicEmpire
         [SerializeField] public GameObject JournalEntryDividerPrefab;
         [SerializeField] public Transform JournalDisplayParent;
 
+        public void ClearJournalEntries()
+        {
+            if (JournalDisplayParent == null) return;
+
+            for (int i = JournalDisplayParent.childCount - 1; i >= 0; i--)
+            {
+                Transform child = JournalDisplayParent.GetChild(i);
+                child.SetParent(null);
+                Destroy(child.gameObject);
+            }
+        }
+
         public void AddJournalEntry(string journalText)
         {
             if (JournalEntryPrefab != null && JournalEntryDividerPrefab != null && JournalDisplayParent != null)

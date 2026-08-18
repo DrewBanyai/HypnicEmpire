@@ -76,6 +76,7 @@ namespace HypnicEmpire
             LevelCurrent.SetValue(other.LevelCurrent.Value);
             LevelDelveCount.SetValue(other.LevelDelveCount.Value);
 
+            JournalEntries = other.JournalEntries == null ? new() : new(other.JournalEntries);
             LandAcquired = other.LandAcquired;
 
             CopyResourceValues(other);

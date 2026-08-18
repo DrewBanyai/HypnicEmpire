@@ -172,6 +172,14 @@ namespace HypnicEmpire
 
             MainGameUIView.ResetUI();
 
+            JournalEntrySystem.ShownJournalEntries.Clear();
+            MainGameUIView.JournalMenuControl?.ClearJournalEntries();
+            foreach (string journalEntry in CurrentGameState.JournalEntries)
+            {
+                JournalEntrySystem.ShownJournalEntries.Add(journalEntry);
+                MainGameUIView.JournalMenuControl?.AddJournalEntry(journalEntry);
+            }
+
             ActionsMenuController?.RefreshMenu();
             MainGameUIView.DelveTaskButton?.SetContents("Delve", 20f, 64f, CompleteDelve);
 
