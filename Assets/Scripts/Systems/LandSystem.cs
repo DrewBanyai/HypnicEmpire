@@ -143,9 +143,12 @@ namespace HypnicEmpire
             return used;
         }
 
-        private static int GetLandCostOfTier(BuildingCostTier tier)
+        //  The land one copy of a building occupies at a given cost tier. Land is authored as a cost
+        //  like any other resource, so reading it out of a tier belongs here rather than with whoever
+        //  is pricing the purchase.
+        public static int GetLandCostOfTier(BuildingCostTier tier)
         {
-            if (tier.Cost == null) return 0;
+            if (tier?.Cost == null) return 0;
 
             int land = 0;
             foreach (var cost in tier.Cost)

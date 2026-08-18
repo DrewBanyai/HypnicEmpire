@@ -218,7 +218,7 @@
             "Unlock": "Unlock_Finished_Streamline_Refugee_Intake",
             "AlteredValues": [
                 { "ValueName": "FinishedProjects", "Amount": 1 },
-                { "ValueName": "Population", "Amount": 15 },
+                { "ValueName": "People", "Amount": 15 },
                 { "ValueName": "Unrest", "Amount": 2 }
             ],
             "Text": "We finally have a grasp on the refugees coming from all over the known world to our safe haven. Now its only about figuring out the safest way to take them all in without causing unnecessary panic and shortages.",

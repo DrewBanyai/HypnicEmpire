@@ -26,7 +26,7 @@
         },
         {
             "Unlock": "Unlock_Resource_Population",
-            "ResourceType": "Population"
+            "ResourceType": "People"
         },
         {
             "Unlock": "Unlock_Resource_Potions",

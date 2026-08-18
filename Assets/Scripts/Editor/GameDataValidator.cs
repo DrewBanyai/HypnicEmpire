@@ -91,7 +91,7 @@ namespace HypnicEmpire.EditorTools
         private readonly GameDataIndex _index = new();
 
         // A couple of identifiers that legitimately live outside ResourceTypes:
-        // Land/Buildings/Population etc. are AlterableValues that are also spent as
+        // Land/Buildings/People etc. are AlterableValues that are also spent as
         // "resource" costs. We treat any AlterableValue name as a valid resource id.
         // The seed unlock is set true by the engine at game start.
         private const string SeedUnlock = "Unlock_Game_Start";

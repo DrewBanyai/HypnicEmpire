@@ -588,11 +588,16 @@
         "RemappingValues": []
     },
     {
-        "Name": "Population",
+        "Name": "People",
         "CurrentValue": 0,
         "MinimumValue": 0,
         "MaximumValue": 99999999,
         "ValueUnlocks": [
+            {
+                "Value": 1,
+                "Operator": ">=",
+                "Unlock": "Unlock_Resource_Population"
+            },
             {
                 "Value": 1,
                 "Operator": ">=",

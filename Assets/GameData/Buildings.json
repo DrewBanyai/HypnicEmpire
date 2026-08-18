@@ -536,7 +536,7 @@
             ],
             "AlteredValues": [
                 {
-                    "ValueName": "Population",
+                    "ValueName": "People",
                     "Amount": 1
                 }
             ],
@@ -1112,7 +1112,7 @@
             ],
             "AlteredValues": [
                 {
-                    "ValueName": "Population",
+                    "ValueName": "People",
                     "Amount": 2
                 }
             ],
@@ -2001,7 +2001,7 @@
             ],
             "AlteredValues": [
                 {
-                    "ValueName": "Population",
+                    "ValueName": "People",
                     "Amount": 4
                 },
                 {
@@ -2407,7 +2407,7 @@
             ],
             "AlteredValues": [
                 {
-                    "ValueName": "Population",
+                    "ValueName": "People",
                     "Amount": 3
                 },
                 {
@@ -3751,7 +3751,7 @@
             ],
             "AlteredValues": [
                 {
-                    "ValueName": "Population",
+                    "ValueName": "People",
                     "Amount": 6
                 },
                 {

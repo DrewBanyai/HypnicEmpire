@@ -1,18 +1,66 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using TMPro;
 
 namespace HypnicEmpire
 {
     public class UIBuildingsMenu : MonoBehaviour
     {
+        //  Section headers are authored with the count they start on ("Commercial (0)"), so the name a
+        //  header is rewritten from is whatever precedes that.
+        private static readonly Regex AuthoredSectionCount = new(@"\s*\(\d+\)\s*$");
+
+        //  A top level group of the scrollable list: its header and the building buttons below it. A
+        //  section with no revealed building would otherwise show as a lone header, and its count is the
+        //  buildings standing across the whole group.
+        private class BuildingSection
+        {
+            public GameObject Root { get; }
+            public List<UIBuildingButton> Buttons { get; } = new();
+
+            private readonly TextMeshProUGUI TitleText;
+            private readonly string TitleName;
+
+            public BuildingSection(GameObject root)
+            {
+                Root = root;
+                TitleText = FindTitleText(root);
+                TitleName = TitleText == null ? null : AuthoredSectionCount.Replace(TitleText.text, string.Empty);
+            }
+
+            public bool HasRevealedButton => Buttons.Exists(button => button != null && button.gameObject.activeSelf);
+
+            public void RefreshCount()
+            {
+                if (TitleText == null) return;
+
+                int count = 0;
+                foreach (var button in Buttons)
+                    if (button != null) count += ModifierValueSystem.GetBuildingCount(button.BuildingName);
+
+                TitleText.SetText(Localization.DisplayText_BuildingSectionTitle(TitleName, count));
+            }
+
+            //  The header is the only text in a section that is not part of a building button. Inactive
+            //  children are included so a section hidden for want of a revealed building still resolves.
+            private static TextMeshProUGUI FindTitleText(GameObject root)
+            {
+                foreach (var text in root.GetComponentsInChildren<TextMeshProUGUI>(true))
+                    if (text.GetComponentInParent<UIBuildingButton>(true) == null)
+                        return text;
+
+                return null;
+            }
+        }
+
         private readonly List<UIBuildingButton> BuildingButtons = new();
         private readonly Dictionary<UIBuildingButton, string> RevealUnlockOfButton = new();
 
-        //  Section root -> the building buttons below it. A section with no revealed building would
-        //  otherwise show as a lone header. Sections holding no building button at all (land
-        //  ownership) never enter this map and are left untouched.
-        private readonly Dictionary<GameObject, List<UIBuildingButton>> ButtonsOfSection = new();
+        //  Sections holding no building button at all (land ownership) never enter this map and are left
+        //  untouched.
+        private readonly Dictionary<GameObject, BuildingSection> SectionOfRoot = new();
 
         //  Buttons naming no known building. They have no cost, effect or reveal unlock to work from,
         //  so they are misconfigured rather than ungated and stay hidden.
@@ -24,7 +72,7 @@ namespace HypnicEmpire
             //  found on later passes.
             GetComponentsInChildren(true, BuildingButtons);
             RevealUnlockOfButton.Clear();
-            ButtonsOfSection.Clear();
+            SectionOfRoot.Clear();
             ButtonsMissingData.Clear();
 
             Transform content = GetComponent<ScrollRect>()?.content;
@@ -41,6 +89,7 @@ namespace HypnicEmpire
                 }
 
                 button.SetBuildingData(data);
+                button.InitializeRuntime();
                 MapButtonToSection(button, content);
 
                 string revealUnlock = data?.RevealUnlock;
@@ -54,7 +103,17 @@ namespace HypnicEmpire
                 });
             }
 
+            //  Section counts follow the buildings that stand, which the modifier system owns and
+            //  recomputes whenever one is built, a save is loaded or the game is reset.
+            ModifierValueSystem.OnValuesRecomputed -= RefreshSectionCounts;
+            ModifierValueSystem.OnValuesRecomputed += RefreshSectionCounts;
+
             ApplyRevealState();
+        }
+
+        private void OnDestroy()
+        {
+            ModifierValueSystem.OnValuesRecomputed -= RefreshSectionCounts;
         }
 
         //  Registered unlock actions never apply an initial state, and loading or resetting replaces
@@ -75,12 +134,19 @@ namespace HypnicEmpire
             }
 
             RefreshSectionVisibility();
+            RefreshSectionCounts();
         }
 
         private void RefreshSectionVisibility()
         {
-            foreach (var section in ButtonsOfSection)
-                section.Key.SetActive(section.Value.Exists(button => button != null && button.gameObject.activeSelf));
+            foreach (var section in SectionOfRoot.Values)
+                section.Root.SetActive(section.HasRevealedButton);
+        }
+
+        private void RefreshSectionCounts()
+        {
+            foreach (var section in SectionOfRoot.Values)
+                section.RefreshCount();
         }
 
         //  A section is a top level group of the scrollable list, so it is the ancestor of the button
@@ -94,12 +160,12 @@ namespace HypnicEmpire
                 section = section.parent;
             if (section == null) return;
 
-            if (!ButtonsOfSection.TryGetValue(section.gameObject, out var buttons))
+            if (!SectionOfRoot.TryGetValue(section.gameObject, out var buildingSection))
             {
-                buttons = new List<UIBuildingButton>();
-                ButtonsOfSection[section.gameObject] = buttons;
+                buildingSection = new BuildingSection(section.gameObject);
+                SectionOfRoot[section.gameObject] = buildingSection;
             }
-            buttons.Add(button);
+            buildingSection.Buttons.Add(button);
         }
     }
 }
