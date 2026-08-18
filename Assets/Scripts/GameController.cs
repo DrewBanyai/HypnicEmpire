@@ -188,7 +188,16 @@ namespace HypnicEmpire
 
         public void CheckDevelopments()
         {
+            foreach (var development in DevelopmentSystem.DevelopmentEntries)
+            {
+                if (development.Trigger.Any(t => !GameUnlockSystem.IsUnlocked(t)))
+                    continue;
 
+                if (development.Unlock.Any(u => GameUnlockSystem.IsUnlocked(u)))
+                    continue;
+
+                MainGameUIView.AddOpenDevelopment(development.Title, development.Description, development.EffectText, development.Cost, development.Unlock);
+            }
         }
 
         public void CurrentLevelUp()
