@@ -263,6 +263,7 @@ namespace HypnicEmpire
             GameSaveData saveData = new GameSaveData { 
                 GameState = CurrentGameState, 
                 GameUnlockList = GameUnlockSystem.GameUnlockList,
+                BuildingCounts = ModifierValueSystem.GetAllBuildingCounts(),
                 UnlockedAchievements = AchievementsSystem.UnlockedAchievements
             };
             File.WriteAllText(SaveFilePath, JsonSerialization.Serialize(saveData));
@@ -295,6 +296,15 @@ namespace HypnicEmpire
                 CurrentGameState.CopyGameState(saveData.GameState);
                 GameUnlockSystem.GameUnlockList = saveData.GameUnlockList;
                 AchievementsSystem.UnlockedAchievements = saveData.UnlockedAchievements ?? new();
+
+                // Building counts live outside GameState; restore them so Recompute refreshes
+                // land usage, modifier values, and resource maxima before PostLoadInitialState.
+                if (saveData.BuildingCounts != null)
+                {
+                    foreach (var entry in saveData.BuildingCounts)
+                        ModifierValueSystem.SetBuildingCount(entry.Key, entry.Value);
+                }
+
                 PostLoadInitialState();
             }
             catch (Exception e)

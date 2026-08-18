@@ -162,6 +162,9 @@ namespace HypnicEmpire
         public static int GetBuildingCount(string buildingName)
             => _buildingCounts.TryGetValue(buildingName, out int c) ? c : 0;
 
+        public static SerializableDictionary<string, int> GetAllBuildingCounts()
+            => new SerializableDictionary<string, int>(_buildingCounts);
+
         // Register a project's contributions once (e.g. at load), then CompleteProject on completion.
         public static void RegisterProject(string projectName, IEnumerable<ModifierContribution> contributions)
         {
