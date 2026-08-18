@@ -13,6 +13,10 @@ namespace HypnicEmpire
         private const string RedditURL = "";
         private const string ItchIoURL = "";
 
+        private const string BuildingsTabUnlock = "Unlock_Buying_Land";
+        private const string ProjectsTabUnlock = "Unlock_Project_Arcane_Streetlamps";
+        private const string WarfareTabUnlock = "Unlock_Warfare";
+
         [Header("Primary Menu UI Buttons")]
         [SerializeField] public Button ExitButton;
         [SerializeField] public Button OptionsButton;
@@ -104,25 +108,26 @@ namespace HypnicEmpire
 
             //  Define UI responses to game unlock events.
             //  Registered unlock actions fire only WHEN an unlock is set — they never apply an initial
-            //  state — so both tab groups must start HIDDEN explicitly, otherwise their scene-default
-            //  (active) leaves them visible at startup.
-            foreach (var obj in DevelopmentsTabGroup) obj?.SetActive(false);
-            foreach (var obj in BuildingsTabGroup)    obj?.SetActive(false);
-            if (ProjectsTabGroup != null) foreach (var obj in ProjectsTabGroup) obj?.SetActive(false);
-            if (WarfareTabGroup != null) foreach (var obj in WarfareTabGroup) obj?.SetActive(false);
+            //  state — so every tab group must start HIDDEN explicitly, otherwise their scene-default
+            //  (active) leaves them visible at startup. ApplyUnlockState then reveals whichever of them
+            //  the current unlock state calls for.
+            SetTabGroupActive(DevelopmentsTabGroup, false);
+            SetTabGroupActive(BuildingsTabGroup, false);
+            SetTabGroupActive(ProjectsTabGroup, false);
+            SetTabGroupActive(WarfareTabGroup, false);
 
             //  Developments tab: revealed once the first purchasable development is added to the menu
             //  (see AddOpenDevelopment). The earliest development triggers on Unlock_Empty_Belly, so the
             //  tab appears only AFTER Empty_Belly AND a development is actually available — never before.
 
             //  Buildings tab: revealed when "People have come to work for you" is bought (Unlock_Buying_Land).
-            GameUnlockSystem.AddGameUnlockAction("Unlock_Buying_Land", true, (bool shown) => { foreach (var obj in BuildingsTabGroup) obj?.SetActive(shown); });
+            GameUnlockSystem.AddGameUnlockAction(BuildingsTabUnlock, true, (bool shown) => { SetTabGroupActive(BuildingsTabGroup, shown); });
 
             //  Projects tab: revealed when the first project (Arcane Streetlamps) unlocks.
-            GameUnlockSystem.AddGameUnlockAction("Unlock_Project_Arcane_Streetlamps", true, (bool shown) => { if (ProjectsTabGroup != null) foreach (var obj in ProjectsTabGroup) obj?.SetActive(shown); });
+            GameUnlockSystem.AddGameUnlockAction(ProjectsTabUnlock, true, (bool shown) => { SetTabGroupActive(ProjectsTabGroup, shown); });
 
             //  Warfare tab: revealed when warfare unlocks (Unlock_Warfare).
-            GameUnlockSystem.AddGameUnlockAction("Unlock_Warfare", true, (bool shown) => { if (WarfareTabGroup != null) foreach (var obj in WarfareTabGroup) obj?.SetActive(shown); });
+            GameUnlockSystem.AddGameUnlockAction(WarfareTabUnlock, true, (bool shown) => { SetTabGroupActive(WarfareTabGroup, shown); });
 
             foreach (var gu in GameUnlockSystem.UnlockIDs)
             {
@@ -147,12 +152,36 @@ namespace HypnicEmpire
 
             ResetDevelopmentMenu();
             ResourceListControl?.ClearAllResourceEntries();
+            ApplyUnlockState();
             BuildingsMenuControl?.ApplyRevealState();
             LandOwnershipMenuControl?.ApplyRevealState();
             LandOwnershipMenuControl?.RefreshDisplay();
 
             SetResetButtonUnpacked(false);
             ShowCenterMenu(ActionsButton, ActionsMenu);
+        }
+
+        //  Unlock actions fire at the moment an unlock is set, but a load replaces the whole unlock list in
+        //  one assignment and a reset wipes it, so anything driven only by those actions would be left
+        //  showing the pre-load state. Everything reset here is therefore re-derived from the unlocks that
+        //  are currently set rather than from the actions that would have set them.
+        private void ApplyUnlockState()
+        {
+            SetTabGroupActive(BuildingsTabGroup, GameUnlockSystem.IsUnlocked(BuildingsTabUnlock));
+            SetTabGroupActive(ProjectsTabGroup, GameUnlockSystem.IsUnlocked(ProjectsTabUnlock));
+            SetTabGroupActive(WarfareTabGroup, GameUnlockSystem.IsUnlocked(WarfareTabUnlock));
+
+            foreach (var mapping in ResourceTypeSystem.UnlockToResourceTypes)
+                if (GameUnlockSystem.IsUnlocked(mapping.Unlock))
+                    ResourceListControl?.AddResourceEntry(mapping.ResourceType);
+        }
+
+        private static void SetTabGroupActive(GameObject[] tabGroup, bool active)
+        {
+            if (tabGroup == null) return;
+
+            foreach (var obj in tabGroup)
+                obj?.SetActive(active);
         }
 
         void ShowCenterMenu(Button button, GameObject menuToShow)

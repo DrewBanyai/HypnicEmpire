@@ -10,6 +10,13 @@ namespace HypnicEmpire
         public static List<string> ResourceTypes = new();
         public static ResourceData ResourceData = new();
 
+        private static readonly List<UnlockToResourceTypeData> NoUnlockToResourceTypes = new();
+
+        //  The whole mapping set, for callers that have to replay it (rebuilding the resource list from a
+        //  loaded unlock state) rather than resolve a single unlock. Empty until Resources.json loads.
+        public static IReadOnlyList<UnlockToResourceTypeData> UnlockToResourceTypes =>
+            ResourceData?.UnlockToResourceTypes ?? NoUnlockToResourceTypes;
+
         public static string GetResourceTypeFromUnlock(string unlock)
         {
             var foundEntry = ResourceData.UnlockToResourceTypes.Find(utrt => utrt.Unlock == unlock);
