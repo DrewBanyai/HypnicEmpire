@@ -86,6 +86,13 @@ namespace HypnicEmpire
             }
         }
 
+        //  Earned achievements are a projection of the unlock values, so they are dropped whenever those are:
+        //  left behind, they would outlive the unlocks that awarded them and show as earned in a fresh game.
+        public static void ClearUnlockedAchievements()
+        {
+            UnlockedAchievements.Clear();
+        }
+
         public static void ClearListeners()
         {
             foreach (var listener in UnlockListeners)

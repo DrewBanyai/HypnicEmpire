@@ -341,6 +341,14 @@ namespace HypnicEmpire
         {
             if (InitialGameState == null) return;
 
+            //  Unlocks and earned achievements live outside the game state and are only ever added to, so they
+            //  are emptied before the initial state is applied: Initialize adds the authored starter unlocks on
+            //  top of whatever is already there, and anything left would survive into the new game and keep its
+            //  progression-gated content visible. This runs before SaveGame so the file cannot capture the
+            //  previous run's progression alongside a reset game state.
+            GameUnlockSystem.ClearUnlockValues();
+            AchievementsSystem.ClearUnlockedAchievements();
+
             //  Set the game state to the Initial Game State, then immediately replace the existing save file with the new state
             CurrentGameState.Initialize(InitialGameState);
 

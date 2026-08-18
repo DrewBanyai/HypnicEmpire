@@ -57,6 +57,15 @@ namespace HypnicEmpire
             return GameUnlockList.ContainsKey(unlockID) ? GameUnlockList[unlockID] : false;
         }
 
+        //  Discards every recorded unlock value so a hard reset starts from nothing earned. Only the values are
+        //  dropped: the registered unlock actions are session-long and are left in place, exactly as they are
+        //  when a load replaces the whole list. Nothing is dispatched here, because there is no per-unlock
+        //  "relocked" state to announce - the caller is expected to rebuild the UI from the new values.
+        public static void ClearUnlockValues()
+        {
+            GameUnlockList = new();
+        }
+
         public static bool IsUnlockIDValid(string unlockID) { return UnlockIDs.Contains(unlockID); }
 
         public static void LoadAllUnlockIDs(string jsonFilePath)
