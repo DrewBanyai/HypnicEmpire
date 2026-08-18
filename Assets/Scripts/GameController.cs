@@ -316,6 +316,12 @@ namespace HypnicEmpire
 
             //  Set the game state to the Initial Game State, then immediately replace the existing save file with the new state
             CurrentGameState.Initialize(InitialGameState);
+
+            //  Building counts live in the modifier system rather than the game state, so they have to be put
+            //  back to their starting counts alongside it: land used is derived from them and would otherwise
+            //  outlive the acquired land that paid for it. The recompute this triggers refreshes land in turn.
+            ModifierValueSystem.Reset();
+
             SaveGame();
 
             PostLoadInitialState();

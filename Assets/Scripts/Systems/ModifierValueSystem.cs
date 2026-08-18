@@ -73,7 +73,7 @@ namespace HypnicEmpire
 
         public static void Initialize()
         {
-            _bases.Clear(); _buildingCounts.Clear(); _projectCounts.Clear();
+            _bases.Clear(); _projectCounts.Clear();
             _projectContribs.Clear(); _drivenNames.Clear(); _modifiers.Clear();
 
             // Snapshot authored bases BEFORE we ever write, so recompute is idempotent.
@@ -93,13 +93,14 @@ namespace HypnicEmpire
                 }
             }
 
-            // Seed building counts from starting counts and register their trigger unlocks.
+            SeedBuildingCounts();
+
+            // Collect the values buildings drive and register their trigger unlocks.
             var triggers = new HashSet<string>();
             var buildings = BuildingDataSystem.Data?.BuildingTypes;
             if (buildings != null)
                 foreach (var b in buildings)
                 {
-                    _buildingCounts[b.Name] = b.StartingCount?.Amount ?? 0;
                     if (b.AlteredValues == null) continue;
                     foreach (var av in b.AlteredValues)
                     {
@@ -115,6 +116,32 @@ namespace HypnicEmpire
             _initialized = true;
             Recompute();
             Debug.Log($"ModifierValueSystem initialized: {_modifiers.Count} modifier(s), driving {_drivenNames.Count} value(s).");
+        }
+
+        // What the player has built and completed is session state, not authored data, so a hard reset puts
+        // it back to the counts the game starts on. The authored bases, the collected modifiers and the
+        // trigger registrations live for the whole session and are deliberately left alone: rebuilding them
+        // would stack a second set of unlock actions and re-snapshot bases this system has already written to.
+        public static void Reset()
+        {
+            if (!_initialized) return;
+
+            _projectCounts.Clear();
+            SeedBuildingCounts();
+            Recompute();
+        }
+
+        // Building counts always come from the authored StartingCount, whether at startup or after a reset,
+        // so anything derived from them (land usage above all) can be recalculated rather than tracked.
+        private static void SeedBuildingCounts()
+        {
+            _buildingCounts.Clear();
+
+            var buildings = BuildingDataSystem.Data?.BuildingTypes;
+            if (buildings == null) return;
+
+            foreach (var b in buildings)
+                _buildingCounts[b.Name] = b.StartingCount?.Amount ?? 0;
         }
 
         // -- mutation API (call these from purchase / project-completion code) ---
