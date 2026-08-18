@@ -556,7 +556,15 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -2
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -8
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -5
                         }
                     ]
                 },
@@ -574,7 +582,15 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -2
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -11
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -7
                         }
                     ]
                 },
@@ -583,7 +599,15 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -2
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -12
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -8
                         }
                     ]
                 },
@@ -592,7 +616,15 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -2
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -14
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -9
                         }
                     ]
                 },
@@ -601,7 +633,15 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -2
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -16
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -10
                         }
                     ]
                 },
@@ -610,7 +650,15 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -2
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -18
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -11
                         }
                     ]
                 },
@@ -619,7 +667,15 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -2
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -21
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -13
                         }
                     ]
                 },
@@ -628,7 +684,15 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -2
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -23
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -15
                         }
                     ]
                 },
@@ -637,7 +701,15 @@
                     "Cost": [
                         {
                             "ResourceType": "Land",
-                            "ResourceValue": -9999999
+                            "ResourceValue": -2
+                        },
+                        {
+                            "ResourceType": "Wood",
+                            "ResourceValue": -27
+                        },
+                        {
+                            "ResourceType": "Stone",
+                            "ResourceValue": -17
                         }
                     ]
                 },
