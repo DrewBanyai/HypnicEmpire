@@ -15,6 +15,12 @@ namespace HypnicEmpire
         [SerializeField] public Image ProgressForeground;
         [SerializeField] public TextMeshProUGUI ButtonText;
 
+        //  The frame that marks this button as the one the player's own effort is going into. It is a graphic
+        //  of its own rather than an effect on the button's background, because the button's colour transition
+        //  tints everything drawn by that background and would drag the frame along with it. Only the chosen
+        //  action wears it, so it is authored disabled and switched on from here alone.
+        [SerializeField] public Image SelectionHighlight;
+
         private float ButtonWidth;
 
         private Action ProgressFinishAction;
@@ -29,6 +35,17 @@ namespace HypnicEmpire
                 else
                     TaskActionSystem.SetPrimaryTask(PlayerAction);
             });
+
+            //  Only one action can be the player's at a time, so a choice made on any button unmarks this one.
+            TaskActionSystem.OnPrimaryTaskChanged -= HandlePrimaryTaskChanged;
+            TaskActionSystem.OnPrimaryTaskChanged += HandlePrimaryTaskChanged;
+
+            RefreshSelectionHighlight();
+        }
+
+        private void OnDestroy()
+        {
+            TaskActionSystem.OnPrimaryTaskChanged -= HandlePrimaryTaskChanged;
         }
 
         public void SetContents(string actionType, float speed = 20f, float maximum = 100f, Action progressFinishAction = null)
@@ -38,6 +55,19 @@ namespace HypnicEmpire
 
             TaskActionSystem.SetTaskUpdateCallback(PlayerAction, (percent) => { UpdateProgressVisual(percent); });
             TaskActionSystem.SetTaskFinishCallback(PlayerAction, progressFinishAction);
+
+            RefreshSelectionHighlight();
+        }
+
+        private void HandlePrimaryTaskChanged(string primaryTask) { RefreshSelectionHighlight(); }
+
+        //  Which action this button stands for is settled by SetContents, which can land either side of
+        //  Start, so the mark is re-read at both rather than only once.
+        private void RefreshSelectionHighlight()
+        {
+            if (SelectionHighlight == null) return;
+
+            SelectionHighlight.enabled = !string.IsNullOrEmpty(PlayerAction) && TaskActionSystem.PrimaryTask == PlayerAction;
         }
 
         private void SetButtonText(string buttonText) { ButtonText?.SetText(buttonText); }
@@ -62,7 +92,8 @@ namespace HypnicEmpire
         {
             if (TaskActionSystem.PrimaryTask == PlayerAction)
                 TaskActionSystem.SetPrimaryTask("");
-                
+
+            RefreshSelectionHighlight();
             UpdateProgressVisual(0);
         }
     }

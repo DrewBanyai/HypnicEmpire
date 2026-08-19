@@ -77,8 +77,15 @@ namespace HypnicEmpire
                 UpdateTaskProgressSpeed(taskAction.Name);
         }
 
+        //  Raised once the task the player is putting their own effort into settles, carrying the new task's
+        //  name or an empty string when none is chosen. Choosing one action drops whatever was chosen
+        //  before, so anything marking the choice has to hear about tasks other than its own.
+        public static event Action<string> OnPrimaryTaskChanged;
+
         public static void SetPrimaryTask(string taskName)
         {
+            if (PrimaryTask == taskName) return;
+
             string currentPrimary = PrimaryTask;
             PrimaryTask = "";
             //if (!string.IsNullOrEmpty(currentPrimary) && TaskActionMap.ContainsKey(currentPrimary))
@@ -87,6 +94,8 @@ namespace HypnicEmpire
             PrimaryTask = taskName;
             //if (!string.IsNullOrEmpty(taskName) && TaskActionMap.ContainsKey(taskName))
             //    UpdateTaskProgressSpeed(taskName);
+
+            OnPrimaryTaskChanged?.Invoke(PrimaryTask);
         }
 
         public static void UpdateTaskProgressSpeed(string taskName)
