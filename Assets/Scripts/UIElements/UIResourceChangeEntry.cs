@@ -12,6 +12,7 @@ namespace HypnicEmpire
         public static Color ResourceLossColorDisabledBG => new Color32(53, 53, 64, 255);
         public static Color ResourceLossColorDisabled => new Color32(237, 228, 218, 255);
         public static Color ResourceGainColor = new Color32(62, 85, 76, 255);
+        public static Color ResourceStorageFullColor => new Color32(148, 122, 157, 255);
 
         [SerializeField] public GameObject Background;
         [SerializeField] public Image ResourceIconImage;
@@ -56,6 +57,22 @@ namespace HypnicEmpire
             Background?.SetActive(false);
             ResourceNameText?.SetColor(affordable ? ResourceGainColor : ResourceLossColor);
             ResourceChangeText?.SetColor(affordable ? ResourceGainColor : ResourceLossColor);
+        }
+
+        //  A reward line stands for something the player is about to receive, so once its store is full the
+        //  number would be a promise the game cannot keep: the mark replaces it until there is room again.
+        //  Cost lines are left alone, as a full store says nothing about whether a cost can be paid.
+        public void ShowRewardStorageState()
+        {
+            if (ChangeResourceAmount == null || ChangeResourceAmount.ResourceValue <= 0) return;
+
+            bool storageFull = ChangeResourceAmount.RewardStorageIsFull();
+
+            ResourceNameText?.SetColor(storageFull ? ResourceStorageFullColor : ResourceGainColor);
+
+            ResourceChangeText?.SetColor(storageFull ? ResourceStorageFullColor : ResourceGainColor);
+            ResourceChangeText?.SetText(storageFull ? Localization.DisplayText_ResourceStorageFull()
+                : Localization.DisplayText_ResourceChangeDisplayAmount(ChangeResourceAmount.ResourceValue));
         }
 
         public bool CheckCanChange(bool overrideNoBG = false, bool greenEvenNegative = false)

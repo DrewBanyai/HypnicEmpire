@@ -15,6 +15,10 @@ namespace HypnicEmpire
 
         private List<ResourceAmountData> ResourceChange = new();
 
+        //  The reward rows currently on screen. They outlive a refresh that finds the same change set, so
+        //  the full-storage mark has to be re-applied to them rather than left to their initial setup.
+        private readonly List<UIResourceChangeEntry> GainEntries = new();
+
         //  The task this group displays, kept so Refresh can re-render it without re-subscribing.
         private TaskActionState ActionState;
 
@@ -46,6 +50,12 @@ namespace HypnicEmpire
 
             // Subscribe to resource amount changes to update button enabled state
             GameSubscriptionSystem.SubscribeToGenericResourceAmountChange((string resourceType, ResourceValue amount, ResourceValue maxAmount) => {
+                RefreshUI(actionState);
+            });
+
+            //  Raising a store's ceiling makes room without the amount held moving, so a reward marked as
+            //  having nowhere to go has to be reconsidered on that too.
+            GameSubscriptionSystem.SubscribeToGenericResourceMaximumChange((ResourceValue amount, ResourceValue maxAmount) => {
                 RefreshUI(actionState);
             });
 
@@ -128,6 +138,9 @@ namespace HypnicEmpire
             var actionResourceChange = actionState.GetResourceChange();
             SetResourceChangeUI(actionResourceChange);
 
+            foreach (var entry in GainEntries)
+                if (entry != null) entry.ShowRewardStorageState();
+
             List<ResourceAmountData> gainChange = actionResourceChange.Where(rc => rc.ResourceValue > 0).ToList();
             List<ResourceAmountData> lossChange = actionResourceChange.Where(rc => rc.ResourceValue < 0).ToList();
             ProcessButton?.SetEnabled(gainChange.CheckCanChangeAny(true) && lossChange.CheckCanChangeAll());
@@ -148,6 +161,8 @@ namespace HypnicEmpire
 
         private void ClearResourceChangeUI()
         {
+            GainEntries.Clear();
+
             foreach (Transform child in ResourceChangeEntriesLossParent)
                 Destroy(child.gameObject);
 
@@ -160,9 +175,12 @@ namespace HypnicEmpire
             for (int i = 0; i < resourceChange.Count; ++i)
             {
                 var ra = resourceChange[i];
-                var entryObject = Instantiate(ResourceChangeUIPrefab, (ra.ResourceValue >= 0) ? ResourceChangeEntriesGainParent : ResourceChangeEntriesLossParent);
+                bool isGain = ra.ResourceValue >= 0;
+                var entryObject = Instantiate(ResourceChangeUIPrefab, isGain ? ResourceChangeEntriesGainParent : ResourceChangeEntriesLossParent);
                 var entryComponent = entryObject.GetComponent<UIResourceChangeEntry>();
                 entryComponent.SetContent(ra.ResourceType, ra.ResourceValue);
+
+                if (isGain) GainEntries.Add(entryComponent);
             }
         }
     }
