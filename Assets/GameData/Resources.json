@@ -63,17 +63,63 @@
     ],
     "ResourceGroups": [
         "Population",
-        "Commerce",
-        "Primary",
+        "Currency",
+        "Consumables",
         "Basic",
         "Advanced"
     ],
+    "DerivedValueTypes": [
+        {
+            "Name": "People",
+            "ResourceGroup": "Population"
+        }
+    ],
     "ResourceTypes": [
+        {
+            "Name": "Money",
+            "InitialValue": 0,
+            "InitialMaximum": 100,
+            "ResourceGroup": "Currency",
+            "Upgrades": [],
+            "Unlocks": [
+                {
+                    "Value": 1,
+                    "Operator": "MAX",
+                    "Unlock": "Unlock_Max_Out_Money"
+                }
+            ],
+            "UnlockAlterations": {
+                "Unlock_Double_Max_Storage_Space": {
+                    "MaxAdditive": 0.0,
+                    "MaxMultiplier": 2.0
+                }
+            }
+        },
+        {
+            "Name": "Treasure",
+            "InitialValue": 0,
+            "InitialMaximum": 10,
+            "ResourceGroup": "Currency",
+            "Upgrades": [],
+            "Unlocks": [
+                {
+                    "Value": 0,
+                    "Operator": "MAX",
+                    "Unlock": "Unlock_Max_Out_Treasure"
+                }
+            ],
+            "UnlockAlterations": {
+                "Unlock_Double_Max_Storage_Space": {
+                    "MaxAdditive": 0.0,
+                    "MaxMultiplier": 2.0
+                }
+            }
+        },
         {
             "Name": "Food",
             "InitialValue": 3,
             "InitialMaximum": 15,
-            "ResourceGroup": "Primary",
+            "ResourceGroup": "Consumables",
             "Upgrades": [],
             "Unlocks": [
                 {
@@ -95,6 +141,26 @@
             }
         },
         {
+            "Name": "Potions",
+            "InitialValue": 0,
+            "InitialMaximum": 10,
+            "ResourceGroup": "Consumables",
+            "Upgrades": [],
+            "Unlocks": [
+                {
+                    "Value": 1,
+                    "Operator": "MAX",
+                    "Unlock": "Unlock_Max_Out_Potions"
+                }
+            ],
+            "UnlockAlterations": {
+                "Unlock_Double_Max_Storage_Space": {
+                    "MaxAdditive": 0.0,
+                    "MaxMultiplier": 2.0
+                }
+            }
+        },
+        {
             "Name": "Herbs",
             "InitialValue": 0,
             "InitialMaximum": 15,
@@ -105,46 +171,6 @@
                     "Value": 0,
                     "Operator": "MAX",
                     "Unlock": "Unlock_Max_Out_Herbs"
-                }
-            ],
-            "UnlockAlterations": {
-                "Unlock_Double_Max_Storage_Space": {
-                    "MaxAdditive": 0.0,
-                    "MaxMultiplier": 2.0
-                }
-            }
-        },
-        {
-            "Name": "Treasure",
-            "InitialValue": 0,
-            "InitialMaximum": 10,
-            "ResourceGroup": "Commerce",
-            "Upgrades": [],
-            "Unlocks": [
-                {
-                    "Value": 0,
-                    "Operator": "MAX",
-                    "Unlock": "Unlock_Max_Out_Treasure"
-                }
-            ],
-            "UnlockAlterations": {
-                "Unlock_Double_Max_Storage_Space": {
-                    "MaxAdditive": 0.0,
-                    "MaxMultiplier": 2.0
-                }
-            }
-        },
-        {
-            "Name": "Money",
-            "InitialValue": 0,
-            "InitialMaximum": 100,
-            "ResourceGroup": "Commerce",
-            "Upgrades": [],
-            "Unlocks": [
-                {
-                    "Value": 1,
-                    "Operator": "MAX",
-                    "Unlock": "Unlock_Max_Out_Money"
                 }
             ],
             "UnlockAlterations": {
@@ -195,26 +221,6 @@
             }
         },
         {
-            "Name": "Potions",
-            "InitialValue": 0,
-            "InitialMaximum": 10,
-            "ResourceGroup": "Primary",
-            "Upgrades": [],
-            "Unlocks": [
-                {
-                    "Value": 1,
-                    "Operator": "MAX",
-                    "Unlock": "Unlock_Max_Out_Potions"
-                }
-            ],
-            "UnlockAlterations": {
-                "Unlock_Double_Max_Storage_Space": {
-                    "MaxAdditive": 0.0,
-                    "MaxMultiplier": 2.0
-                }
-            }
-        },
-        {
             "Name": "Fabric",
             "InitialValue": 0,
             "InitialMaximum": 10,
@@ -238,7 +244,7 @@
             "Name": "Iron",
             "InitialValue": 0,
             "InitialMaximum": 10,
-            "ResourceGroup": "Basic",
+            "ResourceGroup": "Advanced",
             "Upgrades": [],
             "Unlocks": [
                 {
@@ -258,7 +264,7 @@
             "Name": "Weaponry",
             "InitialValue": 0,
             "InitialMaximum": 10,
-            "ResourceGroup": "Primary",
+            "ResourceGroup": "Advanced",
             "Upgrades": [],
             "Unlocks": [
                 {

@@ -5,12 +5,31 @@ using System.IO;
 
 namespace HypnicEmpire
 {
+    //  Where a name shown in the resource list sits: which section it belongs to, by the authored order of
+    //  the resource groups, and its place within that section.
+    public readonly struct ResourceDisplayPosition
+    {
+        public readonly int SectionIndex;
+        public readonly int MemberIndex;
+
+        public ResourceDisplayPosition(int sectionIndex, int memberIndex)
+        {
+            SectionIndex = sectionIndex;
+            MemberIndex = memberIndex;
+        }
+    }
+
     public static class ResourceTypeSystem
     {
         public static List<string> ResourceTypes = new();
         public static ResourceData ResourceData = new();
 
         private static readonly List<UnlockToResourceTypeData> NoUnlockToResourceTypes = new();
+
+        //  Worked out once as the data loads, so ordering the list costs nothing but a lookup per row: a
+        //  name's section is where its resource group appears in ResourceGroups, and its place within that
+        //  section is the order the name itself is authored in.
+        private static readonly Dictionary<string, ResourceDisplayPosition> DisplayPositions = new();
 
         //  The whole mapping set, for callers that have to replay it (rebuilding the resource list from a
         //  loaded unlock state) rather than resolve a single unlock. Empty until Resources.json loads.
@@ -29,6 +48,47 @@ namespace HypnicEmpire
             return foundEntry?.Unlock;
         }
 
+        public static bool TryGetDisplayPosition(string name, out ResourceDisplayPosition position)
+        {
+            return DisplayPositions.TryGetValue(name ?? "", out position);
+        }
+
+        public static string GetResourceGroupName(int sectionIndex)
+        {
+            var groups = ResourceData?.ResourceGroups;
+            return groups != null && sectionIndex >= 0 && sectionIndex < groups.Count ? groups[sectionIndex] : "";
+        }
+
+        //  Resources first and then the derived values, each in the order it is authored, so a section that
+        //  holds both reads down the file. A name whose group is not declared is left unplaced rather than
+        //  guessed at: the list shows it after the authored sections instead of dropping it.
+        private static void BuildDisplayPositions()
+        {
+            DisplayPositions.Clear();
+
+            var groups = ResourceData?.ResourceGroups;
+            if (groups == null) return;
+
+            var nextMemberIndex = new int[groups.Count];
+
+            void Place(string name, string resourceGroup)
+            {
+                int sectionIndex = groups.IndexOf(resourceGroup);
+                if (string.IsNullOrEmpty(name) || sectionIndex < 0) return;
+
+                DisplayPositions[name] = new ResourceDisplayPosition(sectionIndex, nextMemberIndex[sectionIndex]);
+                nextMemberIndex[sectionIndex]++;
+            }
+
+            if (ResourceData.ResourceTypes != null)
+                foreach (var rt in ResourceData.ResourceTypes)
+                    Place(rt.Name, rt.ResourceGroup);
+
+            if (ResourceData.DerivedValueTypes != null)
+                foreach (var dv in ResourceData.DerivedValueTypes)
+                    Place(dv.Name, dv.ResourceGroup);
+        }
+
         public static void LoadAllResourceTypes(string jsonFilePath)
         {
             if (File.Exists(jsonFilePath))
@@ -45,6 +105,13 @@ namespace HypnicEmpire
                             Debug.Log($"Resource {rt.Name} loaded with resource group listed as '{rt.ResourceGroup} which does not exist in ResourceGroups list");
                         ResourceTypes.Add(rt.Name);
                     }
+
+                    if (ResourceData.DerivedValueTypes != null)
+                        foreach (var dv in ResourceData.DerivedValueTypes)
+                            if (!ResourceData.ResourceGroups.Contains(dv.ResourceGroup))
+                                Debug.Log($"Derived value {dv.Name} loaded with resource group listed as '{dv.ResourceGroup}' which does not exist in ResourceGroups list");
+
+                    BuildDisplayPositions();
 
                     GameSubscriptionSystem.CreateResourceTypeSubscriptionMaps();
                     SubscribeToResourceUnlocks();

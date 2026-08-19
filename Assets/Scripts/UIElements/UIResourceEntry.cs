@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -16,14 +17,24 @@ namespace HypnicEmpire
         //  Set for a derived row, so its total can be re-read whenever the buildings behind it change.
         private string DerivedValueName;
 
+        //  Kept for a resource row so it can drop its subscriptions when the row goes: a load or a reset
+        //  empties the list, and a row left subscribed would be asked to redraw text it no longer has.
+        private string SubscribedResourceType;
+        private Action<ResourceValue, ResourceValue> AmountChangedCallback;
+        private Action<ResourceValue, ResourceValue> MaximumChangedCallback;
+
         public void SetContent(string resourceType)
         {
             SetResourceIconImage(resourceType);
             SetResourceNameText(resourceType);
             SetResourceAmountText(resourceType);
-            
-            GameSubscriptionSystem.SubscribeToResourceAmount(resourceType, (amountChange, newAmount) => { SetResourceAmountText(resourceType); });
-            GameSubscriptionSystem.SubscribeToResourceMaximum(resourceType, (maxChange, newMax) => { SetResourceAmountText(resourceType); });
+
+            SubscribedResourceType = resourceType;
+            AmountChangedCallback = (amountChange, newAmount) => { SetResourceAmountText(resourceType); };
+            MaximumChangedCallback = (maxChange, newMax) => { SetResourceAmountText(resourceType); };
+
+            GameSubscriptionSystem.SubscribeToResourceAmount(resourceType, AmountChangedCallback);
+            GameSubscriptionSystem.SubscribeToResourceMaximum(resourceType, MaximumChangedCallback);
         }
 
         //  A tracked value the player never holds or spends: "People" and the like are accumulated from
@@ -44,6 +55,11 @@ namespace HypnicEmpire
         private void OnDestroy()
         {
             ModifierValueSystem.OnValuesRecomputed -= SetDerivedValueAmountText;
+
+            if (SubscribedResourceType == null) return;
+
+            GameSubscriptionSystem.UnsubscribeToResourceAmount(SubscribedResourceType, AmountChangedCallback);
+            GameSubscriptionSystem.UnsubscribeToResourceMaximum(SubscribedResourceType, MaximumChangedCallback);
         }
 
         private void SetResourceIconImage(string resourceType)

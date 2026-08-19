@@ -43,13 +43,19 @@ namespace HypnicEmpire
         public static void SubscribeToGenericResourceAmountChange(Action<string, ResourceValue, ResourceValue> callback) { GenericResourceAmountSubscriptions.Add(callback); }
         public static void SubscribeToGenericResourceMaximumChange(Action<ResourceValue, ResourceValue> callback) { GenericResourceMaximumSubscriptions.Add(callback); }
         public static void SubscribeToResourceAmount(string resourceType, Action<ResourceValue, ResourceValue> callback) { ResourceAmountSubscriptionsToAdd[resourceType].Add(callback); }
+
+        //  A subscription that has not been taken up yet is dropped outright: it is only pending because the
+        //  resource has not changed since it was made, and leaving it queued would subscribe a caller that
+        //  has already asked to be let go.
         public static void UnsubscribeToResourceAmount(string resourceType, Action<ResourceValue, ResourceValue> callback)
         {
+            ResourceAmountSubscriptionsToAdd[resourceType].Remove(callback);
             if (ResourceAmountSubscriptions[resourceType].Contains(callback)) ResourceAmountSubscriptionsToRemove[resourceType].Add(callback);
         }
         public static void SubscribeToResourceMaximum(string resourceType, Action<ResourceValue, ResourceValue> callback) { ResourceMaximumSubscriptionsToAdd[resourceType].Add(callback); }
         public static void UnsubscribeToResourceMaximum(string resourceType, Action<ResourceValue, ResourceValue> callback)
         {
+            ResourceMaximumSubscriptionsToAdd[resourceType].Remove(callback);
             if (ResourceMaximumSubscriptions[resourceType].Contains(callback)) ResourceMaximumSubscriptionsToRemove[resourceType].Add(callback);
         }
 

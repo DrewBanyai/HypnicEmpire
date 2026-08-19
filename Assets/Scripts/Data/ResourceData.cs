@@ -22,6 +22,15 @@ namespace HypnicEmpire
         public double MaxMultiplier = 1.0;
     }
 
+    //  A value the player never holds or spends but which the resource list shows anyway ("People" above
+    //  all): it is accumulated elsewhere, as an AlterableValue, and is named here only so the list knows
+    //  which section it belongs to and where it sits in that section.
+    public class DerivedValueTypeData
+    {
+        public string Name;
+        public string ResourceGroup;
+    }
+
     public class ResourceTypeData
     {
         public string Name;
@@ -54,7 +63,11 @@ namespace HypnicEmpire
     public class ResourceData
     {
         public List<UnlockToResourceTypeData> UnlockToResourceTypes;
+
+        //  Doubles as the order the resource list shows its sections in.
         public List<string> ResourceGroups;
+
+        public List<DerivedValueTypeData> DerivedValueTypes;
         public List<ResourceTypeData> ResourceTypes;
     }
 }
