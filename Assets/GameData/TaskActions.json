@@ -282,16 +282,7 @@
                     "GlobalActionSpeedPercent"
                 ]
             },
-            "ResourceChange": [
-                {
-                    "ResourceType": "Food",
-                    "ResourceValue": -1
-                },
-                {
-                    "ResourceType": "Treasure",
-                    "ResourceValue": 1
-                }
-            ]
+            "ResourceChange": []
         },
         {
             "Name": "Sell_Food",

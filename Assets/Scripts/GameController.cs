@@ -13,6 +13,8 @@ namespace HypnicEmpire
         private static GameController Instance;
         private static string SaveFilePath => Application.persistentDataPath + "/saveGame.dat";
 
+        private const string DelveActionName = "Delve";
+
         [SerializeField, Min(0f)]
         [Tooltip("Multiplies positive resource rewards. Resource costs are unaffected.")]
         private float resourceRewardMultiplier = 1f;
@@ -122,12 +124,17 @@ namespace HypnicEmpire
             CurrentGameState.LevelCurrent.Subscribe((newValue) =>
             {
                 MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent.Value, CurrentGameState.LevelReached.Value, CurrentGameState.LevelCurrent.Value, CurrentLevelUp, CurrentLevelDown);
+                RefreshDelveResourceChange();
             });
 
             CurrentGameState.LevelReached.Subscribe((newValue) =>
             {
                 MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent.Value, CurrentGameState.LevelReached.Value, CurrentGameState.LevelCurrent.Value, CurrentLevelUp, CurrentLevelDown);
             });
+
+            //  The state the game starts on was set before anything was listening for it, so the opening
+            //  price is taken directly rather than waited on.
+            RefreshDelveResourceChange();
 
             foreach (var development in DevelopmentSystem.DevelopmentEntries)
             {
@@ -390,12 +397,33 @@ namespace HypnicEmpire
             BasicAppUtilities.SetWindowFullscreen(CurrentGameState.Fullscreen = !CurrentGameState.Fullscreen);
         }
 
+        //  The Delve action carries whatever the current level's section asks and gives, so what a delve costs
+        //  and rewards is read back from there rather than from the level data a second time. That is what
+        //  keeps the resources a delve moves identical to the ones shown beside the button, and earns both of
+        //  them the unlock alterations and modifiers the player has bought.
         public List<ResourceAmountData> GetCurrentDelveResourceChanges()
         {
-            if (CurrentGameState.LevelCurrent.Value >= LevelDataSystem.GetLevelCount() || CurrentGameState.LevelCurrent.Value < 0) return new List<ResourceAmountData>();
+            return TaskActionSystem.TaskActionMap.ContainsKey(DelveActionName)
+                ? TaskActionSystem.TaskActionMap[DelveActionName].GetResourceChange()
+                : new List<ResourceAmountData>();
+        }
 
-            var grouping = LevelDataSystem.GetGroupingByLevel(CurrentGameState.LevelCurrent.Value);
-            if (grouping == null) return new List<ResourceAmountData>();
+        //  A delve is priced by the section its level belongs to, so every level within one costs and gives
+        //  the same and only crossing into the next changes either. Pushing that price onto the action, rather
+        //  than reading it at the moment of the delve, leaves the cost and reward rows, the check on whether
+        //  the delve can be afforded, and the resources actually moved all drawing on one figure.
+        private void RefreshDelveResourceChange()
+        {
+            TaskActionSystem.SetActionResourceChange(DelveActionName, GetLevelSectionResourceChange());
+        }
+
+        private static List<ResourceAmountData> GetLevelSectionResourceChange()
+        {
+            int level = CurrentGameState.LevelCurrent.Value;
+            if (level < 0 || level >= LevelDataSystem.GetLevelCount()) return new List<ResourceAmountData>();
+
+            var grouping = LevelDataSystem.GetGroupingByLevel(level);
+            if (grouping?.LevelResourceChange == null) return new List<ResourceAmountData>();
 
             List<ResourceAmountData> amountsList = new();
             foreach (var rc in grouping.LevelResourceChange)

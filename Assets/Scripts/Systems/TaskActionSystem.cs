@@ -77,6 +77,22 @@ namespace HypnicEmpire
                 UpdateTaskProgressSpeed(taskAction.Name);
         }
 
+        //  Raised once an action's cost and reward have been replaced, carrying that action's name. Most
+        //  actions are priced by their own authored data and never raise this; delving is priced by the level
+        //  being delved and so is repriced as the player descends.
+        public static event Action<string> OnActionResourceChangeReplaced;
+
+        //  The authored ResourceChange is a starting price rather than a fixed one, so an action priced by
+        //  something outside its own data can hand that price over here. Unlock alterations and modifiers are
+        //  applied on top of whatever is set, exactly as they are for authored values.
+        public static void SetActionResourceChange(string taskName, List<ResourceAmountData> resourceChange)
+        {
+            if (!TaskActionMap.ContainsKey(taskName)) return;
+
+            TaskActionMap[taskName].ResourceChange = resourceChange ?? new List<ResourceAmountData>();
+            OnActionResourceChangeReplaced?.Invoke(taskName);
+        }
+
         //  Raised once the task the player is putting their own effort into settles, carrying the new task's
         //  name or an empty string when none is chosen. Choosing one action drops whatever was chosen
         //  before, so anything marking the choice has to hear about tasks other than its own.

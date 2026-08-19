@@ -59,6 +59,11 @@ namespace HypnicEmpire
                 RefreshUI(actionState);
             });
 
+            //  Delving is priced by the level being delved rather than by the action's own data, so its rows
+            //  have to be redrawn when the player moves to a level whose section asks and gives something else.
+            TaskActionSystem.OnActionResourceChangeReplaced -= HandleActionResourceChangeReplaced;
+            TaskActionSystem.OnActionResourceChangeReplaced += HandleActionResourceChangeReplaced;
+
             ProcessButton?.SetContents(actionType, 20f, 100f, () =>
             {
                 GameController.CurrentGameState.AddToResources(actionState.GetResourceChange());
@@ -101,6 +106,15 @@ namespace HypnicEmpire
         {
             JobAssignmentSystem.OnAssignmentsChanged -= RefreshWorkerControl;
             ModifierValueSystem.OnValuesRecomputed -= RefreshWorkerControl;
+            TaskActionSystem.OnActionResourceChangeReplaced -= HandleActionResourceChangeReplaced;
+        }
+
+        //  Every group hears every repricing, so each has to pick out its own.
+        private void HandleActionResourceChangeReplaced(string actionName)
+        {
+            if (ActionState == null || actionName != ActionState.Name) return;
+
+            RefreshUI(ActionState);
         }
 
         //  A group whose action never resolved has no worker to move; the arrows are wired before that is
