@@ -232,6 +232,8 @@ namespace HypnicEmpire
         public string Text()
         {
             string sign = _totalHundredths < 0 && WholeValue == 0 ? "-" : "";
+            if (Math.Abs(WholeValue) >= 10)
+                return $"{sign}{WholeValue}";
             if (Hundredths != 0 && SHOW_HUNDREDTHS)
                 return $"{sign}{WholeValue}.{Tenths}{Hundredths}";
             if (Tenths != 0)
