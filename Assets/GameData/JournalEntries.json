@@ -44,7 +44,7 @@
         "Text": [ "The talk with the baron was indeed very productive.\n\nWhile mostly making small talk about the increased animal attacks on the outskirts of the western jungle of Itari, they also agreed to directly buy those treasures from you for an increased profit on your side." ]
     },
     {
-        "Trigger": "Unlock_Commercial_Action_Speed_Up_2_5",
+        "Trigger": "Unlock_Commercial_Action_Speed_Up",
         "Text": [ "Every so often now a merchant visits your small place. They scrunch up their noses and wash their hands constantly, but still buy your stuff no matter what." ]
     },
     {

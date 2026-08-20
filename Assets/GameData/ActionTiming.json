@@ -8,7 +8,7 @@
             "BaseProgressPerSecond": 300.0,
             "ProgressPerWorkerPerSecond": 10.0,
             "UnlockSpeedMultipliers": {
-                "Unlock_Delving_Speed_Up_2_2_5": 2.25,
+                "Unlock_Delving_Speed_Up_2_2_5": 2.20,
                 "Unlock_Elected_As_Mayor": 1.25,
                 "Unlock_Delving_Speed_Up_1_5": 1.5,
                 "Unlock_Auto_Project_Cost_Removal": 0.25,
@@ -28,7 +28,7 @@
             "BaseProgressPerSecond": 600.0,
             "ProgressPerWorkerPerSecond": 10.0,
             "UnlockSpeedMultipliers": {
-                "Unlock_Commercial_Action_Speed_Up_2_5": 2.5,
+                "Unlock_Commercial_Action_Speed_Up": 2.25,
                 "Unlock_Elected_As_Mayor": 1.25,
                 "Unlock_Auto_Project_Cost_Removal": 0.25,
                 "Unlock_Establish_Council_Of_Guilds": 1.1,
@@ -43,7 +43,7 @@
             "BaseProgressPerSecond": 600.0,
             "ProgressPerWorkerPerSecond": 10.0,
             "UnlockSpeedMultipliers": {
-                "Unlock_Commercial_Action_Speed_Up_2_5": 2.5,
+                "Unlock_Commercial_Action_Speed_Up": 2.25,
                 "Unlock_Elected_As_Mayor": 1.25,
                 "Unlock_Auto_Project_Cost_Removal": 0.25,
                 "Unlock_Establish_Council_Of_Guilds": 1.1,
@@ -58,7 +58,7 @@
             "BaseProgressPerSecond": 600.0,
             "ProgressPerWorkerPerSecond": 10.0,
             "UnlockSpeedMultipliers": {
-                "Unlock_Commercial_Action_Speed_Up_2_5": 2.5,
+                "Unlock_Commercial_Action_Speed_Up": 2.25,
                 "Unlock_Auto_Project_Cost_Removal": 0.25,
                 "Unlock_Elected_As_Mayor": 1.25,
                 "Unlock_Build_River_Port": 0.5,
@@ -73,7 +73,7 @@
             "BaseProgressPerSecond": 600.0,
             "ProgressPerWorkerPerSecond": 10.0,
             "UnlockSpeedMultipliers": {
-                "Unlock_Commercial_Action_Speed_Up_2_5": 2.5,
+                "Unlock_Commercial_Action_Speed_Up": 2.25,
                 "Unlock_Auto_Project_Cost_Removal": 0.25,
                 "Unlock_Elected_As_Mayor": 1.25,
                 "Unlock_Establish_Council_Of_Guilds": 1.1,
@@ -88,7 +88,7 @@
             "BaseProgressPerSecond": 600.0,
             "ProgressPerWorkerPerSecond": 10.0,
             "UnlockSpeedMultipliers": {
-                "Unlock_Commercial_Action_Speed_Up_2_5": 2.5,
+                "Unlock_Commercial_Action_Speed_Up": 2.25,
                 "Unlock_Auto_Project_Cost_Removal": 0.25,
                 "Unlock_Elected_As_Mayor": 1.25,
                 "Unlock_Establish_Council_Of_Guilds": 1.1,
@@ -103,7 +103,7 @@
             "BaseProgressPerSecond": 300.0,
             "ProgressPerWorkerPerSecond": 10.0,
             "UnlockSpeedMultipliers": {
-                "Unlock_Commercial_Action_Speed_Up_2_5": 2.5,
+                "Unlock_Commercial_Action_Speed_Up": 2.25,
                 "Unlock_Auto_Project_Cost_Removal": 0.25,
                 "Unlock_Elected_As_Mayor": 1.25,
                 "Unlock_Establish_Council_Of_Guilds": 1.1,
@@ -129,10 +129,10 @@
         {
             "Name": "Trade_Herbs",
             "ProgressMaximum": 1000.0,
-            "BaseProgressPerSecond": 500.0,
+            "BaseProgressPerSecond": 550.0,
             "ProgressPerWorkerPerSecond": 10.0,
             "UnlockSpeedMultipliers": {
-                "Unlock_Commercial_Action_Speed_Up_2_5": 2.5,
+                "Unlock_Commercial_Action_Speed_Up": 2.25,
                 "Unlock_Elected_As_Mayor": 1.25,
                 "Unlock_Auto_Project_Cost_Removal": 0.25,
                 "Unlock_Establish_Council_Of_Guilds": 1.1,
