@@ -187,6 +187,10 @@ namespace HypnicEmpire
             //  before the UI reads it.
             LandSystem.Refresh();
 
+            //  Likewise the lifetime resource totals: the state they were earned under has just been swapped
+            //  out from under the values that carry their unlock thresholds.
+            CurrentGameState.PublishResourceGainedTotals();
+
             MainGameUIView.ResetUI();
 
             JournalEntrySystem.ShownJournalEntries.Clear();

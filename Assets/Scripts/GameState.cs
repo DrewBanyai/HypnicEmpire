@@ -22,6 +22,12 @@ namespace HypnicEmpire
 
         public SerializableDictionary<string, ResourceValue> CurrentResourceCounts = new();
         public SerializableDictionary<string, ResourceValue> CurrentResourceMaximum = new();
+
+        //  Everything a resource has ever earned, which only ever climbs. Held apart from the current count so
+        //  that spending what was earned cannot take back a threshold the player has already passed, and saved
+        //  alongside it so a reload does not ask them to earn it a second time.
+        public SerializableDictionary<string, ResourceValue> TotalResourceGained = new();
+
         
         public int ClickCount = 0;
 
@@ -48,10 +54,12 @@ namespace HypnicEmpire
         {
             CurrentResourceCounts = new();
             CurrentResourceMaximum = new();
+            TotalResourceGained = new();
             foreach (var rt in ResourceTypeSystem.ResourceTypes)
             {
                 CurrentResourceCounts[rt] = 0;
                 CurrentResourceMaximum[rt] = 999;
+                TotalResourceGained[rt] = 0;
             }
         }
 
@@ -100,6 +108,14 @@ namespace HypnicEmpire
                 foreach (var entry in other.CurrentResourceMaximum)
                     if (entry.Value is not null && CurrentResourceMaximum.ContainsKey(entry.Key))
                         CurrentResourceMaximum[entry.Key] = entry.Value;
+
+            //  A save written before the earned totals were kept carries none, and starts them from nothing
+            //  rather than from what it happens to be holding: the unlocks those totals drive are saved in
+            //  their own right, so nothing already earned is lost by counting again from zero.
+            if (other.TotalResourceGained != null)
+                foreach (var entry in other.TotalResourceGained)
+                    if (entry.Value is not null && TotalResourceGained.ContainsKey(entry.Key))
+                        TotalResourceGained[entry.Key] = entry.Value;
         }
 
         public void CopyGameUnlocks(SerializableDictionary<string, bool> gameUnlocks)
@@ -134,6 +150,11 @@ namespace HypnicEmpire
 
             if (CurrentResourceCounts[resourceType] != previousAmount)
             {
+                //  What the pool actually took, not what was offered: a reward that overflows a full store was
+                //  never earned, and counting the offer would let a capped resource run its lifetime total up
+                //  on gains the player never received.
+                RecordResourceGained(resourceType, CurrentResourceCounts[resourceType] - previousAmount);
+
                 foreach (var callback in GameSubscriptionSystem.ResourceAmountSubscriptions[resourceType])
                     callback(resourceValue, CurrentResourceCounts[resourceType]);
 
@@ -141,6 +162,20 @@ namespace HypnicEmpire
                     callback(resourceType, resourceValue, CurrentResourceCounts[resourceType]);
             }
         }
+
+        private void RecordResourceGained(string resourceType, ResourceValue gained)
+        {
+            if (!gained.Positive) return;
+
+            TotalResourceGained[resourceType] = GetTotalResourceGained(resourceType) + gained;
+            ResourceGainedSystem.Publish(resourceType, TotalResourceGained[resourceType]);
+        }
+
+        public ResourceValue GetTotalResourceGained(string resourceType) { return TotalResourceGained.ContainsKey(resourceType) ? TotalResourceGained[resourceType] : 0; }
+
+        //  Brings the "ResourceGained_" values back in line with the totals after a load or a reset has
+        //  replaced them wholesale, since nothing gained during the previous run wrote to them.
+        public void PublishResourceGainedTotals() { ResourceGainedSystem.PublishAll(TotalResourceGained); }
 
         public void SetResourceMaximum(string resourceType, ResourceValue maxAmount) { AddToResourceMaximum(resourceType, maxAmount - GetResourceMaxAmount(resourceType)); }
         private void AddToResourceMaximum(string resourceType, ResourceValue maxAmount)

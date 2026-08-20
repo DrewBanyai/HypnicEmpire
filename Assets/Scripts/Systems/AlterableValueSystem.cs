@@ -14,6 +14,14 @@ namespace HypnicEmpire
             return ValueMap.ContainsKey(name) ? ValueMap[name] : new AlterableValue() { Name = "UNKNOWN" };
         }
 
+        //  For callers that write to a value rather than read one: the placeholder GetAlterableValue hands back
+        //  for an unknown name swallows the write silently, which hides a name that no longer matches anything
+        //  authored. Answering whether the value exists lets the caller pass over the ones that do not.
+        public static bool TryGetAlterableValue(string name, out AlterableValue alterableValue)
+        {
+            return ValueMap.TryGetValue(name ?? "", out alterableValue);
+        }
+
         public static int GetAlterableValueCurrentVal(string name)
         {
             return ValueMap.ContainsKey(name) ? ValueMap[name].CurrentValue : 0;
