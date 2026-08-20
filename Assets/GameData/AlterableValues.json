@@ -656,6 +656,55 @@
         "RemappingValues": []
     },
     {
+        "Name": "Delves",
+        "CurrentValue": 0,
+        "MinimumValue": 0,
+        "MaximumValue": 99999999,
+        "ValueUnlocks": [
+            {
+                "Value": 50,
+                "Operator": ">=",
+                "Unlock": "Unlock_Delve_Fifty"
+            },
+            {
+                "Value": 200,
+                "Operator": ">=",
+                "Unlock": "Unlock_Delve_Two_Hundred"
+            },
+            {
+                "Value": 500,
+                "Operator": ">=",
+                "Unlock": "Unlock_Delve_Five_Hundred"
+            },
+            {
+                "Value": 2000,
+                "Operator": ">=",
+                "Unlock": "Unlock_Delve_Two_Thousand"
+            },
+            {
+                "Value": 5000,
+                "Operator": ">=",
+                "Unlock": "Unlock_Delve_Five_Thousand"
+            },
+            {
+                "Value": 20000,
+                "Operator": ">=",
+                "Unlock": "Unlock_Delve_Twenty_Thousand"
+            },
+            {
+                "Value": 50000,
+                "Operator": ">=",
+                "Unlock": "Unlock_Delve_Fifty_Thousand"
+            },
+            {
+                "Value": 200000,
+                "Operator": ">=",
+                "Unlock": "Unlock_Delve_Two_Hundred_Thousand"
+            }
+        ],
+        "RemappingValues": []
+    },
+    {
         "Name": "ArmyStrength",
         "CurrentValue": 0,
         "MinimumValue": 0,

@@ -17,6 +17,11 @@ namespace HypnicEmpire
         //  How many "delves" into the farthest level reached we have done
         public SubscribableInt LevelDelveCount = new SubscribableInt(0);
 
+        //  How many delves have ever completed successfully. LevelDelveCount is only the current
+        //  level's progress and is reset when that level is cleared, so the achievement thresholds
+        //  (Unlock_Delve_Fifty and the rest) have to watch this lifetime total instead.
+        public int TotalDelves = 0;
+
         public List<string> JournalEntries = new();
 
 
@@ -88,6 +93,7 @@ namespace HypnicEmpire
             LevelReached.SetValue(other.LevelReached.Value);
             LevelCurrent.SetValue(other.LevelCurrent.Value);
             LevelDelveCount.SetValue(other.LevelDelveCount.Value);
+            TotalDelves = other.TotalDelves;
 
             JournalEntries = other.JournalEntries == null ? new() : new(other.JournalEntries);
             LandAcquired = other.LandAcquired;
@@ -207,6 +213,37 @@ namespace HypnicEmpire
         {
             ResourceGainedSystem.PublishAll(TotalResourceGained);
             ResourceProducedSystem.PublishAll(TotalResourceProduced);
+        }
+
+        public void RecordSuccessfulDelve()
+        {
+            TotalDelves += 1;
+            PublishDelveTotal();
+        }
+
+        //  Saves from before the lifetime total was kept have none. Depth already cleared is a lower
+        //  bound on how many successful delves must have happened, so it can fill that gap without
+        //  asking the player to earn Unlock_Delve_Fifty a second time.
+        public void CatchUpTotalDelvesFromLevelProgress()
+        {
+            int reconstructed = 0;
+            int reached = LevelReached.Value;
+            for (int level = 0; level < reached; level++)
+                reconstructed += LevelDataSystem.GetLevelData(level)?.DelveCount ?? 0;
+
+            if (LevelCurrent.Value == reached)
+                reconstructed += LevelDelveCount.Value;
+
+            if (reconstructed > TotalDelves)
+                TotalDelves = reconstructed;
+
+            PublishDelveTotal();
+        }
+
+        public void PublishDelveTotal()
+        {
+            if (!AlterableValueSystem.TryGetAlterableValue("Delves", out var delvesValue)) return;
+            delvesValue.SetValue(TotalDelves);
         }
 
         public void SetResourceMaximum(string resourceType, ResourceValue maxAmount) { AddToResourceMaximum(resourceType, maxAmount - GetResourceMaxAmount(resourceType)); }

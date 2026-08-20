@@ -190,6 +190,7 @@ namespace HypnicEmpire
             //  Likewise the lifetime resource totals: the state they were earned under has just been swapped
             //  out from under the values that carry their unlock thresholds.
             CurrentGameState.PublishResourceGainedTotals();
+            CurrentGameState.CatchUpTotalDelvesFromLevelProgress();
 
             MainGameUIView.ResetUI();
 
@@ -255,6 +256,7 @@ namespace HypnicEmpire
             bool produced = TaskActionSystem.TaskActionMap.ContainsKey(DelveActionName)
                 && TaskActionSystem.TaskActionMap[DelveActionName].ProducesResources;
             CurrentGameState.AddToResources(changes, produced);
+            CurrentGameState.RecordSuccessfulDelve();
 
             if (CurrentGameState.LevelCurrent.Value + 1 >= LevelDataSystem.GetLevelCount())
             {
