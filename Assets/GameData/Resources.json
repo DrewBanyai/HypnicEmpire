@@ -163,7 +163,7 @@
         {
             "Name": "Herbs",
             "InitialValue": 0,
-            "InitialMaximum": 15,
+            "InitialMaximum": 10,
             "ResourceGroup": "Basic",
             "Upgrades": [],
             "Unlocks": [
