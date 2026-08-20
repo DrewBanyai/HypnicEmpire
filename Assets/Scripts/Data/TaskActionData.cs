@@ -41,8 +41,10 @@ namespace HypnicEmpire
                                 rcAmount.ResourceValue *= rChange.Multiplier;
                             }
                 }
-                else if (rcAmount.ResourceValue > 0.0)
+                else
                 {
+                    //  A 0 reward is a placeholder for a later additive (Hunting potions, Fishing
+                    //  luxuries). RewardChanges have to reach those entries or they stay 0 forever.
                     foreach (var ura in unlockedRewardAlterations)
                         foreach (var rChange in ura.RewardChanges)
                             if (rChange != null && rChange.ResourceType == rcAmount.ResourceType)

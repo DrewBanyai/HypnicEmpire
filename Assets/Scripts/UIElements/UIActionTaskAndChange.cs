@@ -162,15 +162,23 @@ namespace HypnicEmpire
 
         public void SetResourceChangeUI(List<ResourceAmountData> resourceChange)
         {
-            if (resourceChange.IsIdentical(ResourceChange)) return;
+            //  An authored 0 is a slot for a gain or cost that is not happening yet (Hunting's potions
+            //  before Silent Hunter, Fishing's luxuries before the river). Those rows stay off until
+            //  the amount is actually produced or taken.
+            var visibleChange = new List<ResourceAmountData>();
+            if (resourceChange != null)
+                foreach (var entry in resourceChange)
+                    if (entry != null && entry.ResourceValue != 0)
+                        visibleChange.Add(new ResourceAmountData(entry.ResourceType, entry.ResourceValue));
+
+            if (visibleChange.IsIdentical(ResourceChange)) return;
 
             ResourceChange.Clear();
-            foreach (var entry in resourceChange)
-                if (entry.ResourceValue != 0.0)
-                    ResourceChange.Add(new ResourceAmountData(entry.ResourceType, entry.ResourceValue));
+            foreach (var entry in visibleChange)
+                ResourceChange.Add(entry);
 
             ClearResourceChangeUI();
-            AddResourceChangeUI(resourceChange);
+            AddResourceChangeUI(ResourceChange);
         }
 
         private void ClearResourceChangeUI()
