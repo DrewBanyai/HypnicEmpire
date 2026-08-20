@@ -66,7 +66,7 @@ namespace HypnicEmpire
 
             ProcessButton?.SetContents(actionType, () =>
             {
-                GameController.CurrentGameState.AddToResources(actionState.GetResourceChange());
+                GameController.CurrentGameState.AddToResources(actionState.GetResourceChange(), actionState.ProducesResources);
             });
         }
 

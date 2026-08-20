@@ -129,7 +129,7 @@
         {
             "Name": "Trade_Herbs",
             "ProgressMaximum": 1000.0,
-            "BaseProgressPerSecond": 600.0,
+            "BaseProgressPerSecond": 500.0,
             "ProgressPerWorkerPerSecond": 10.0,
             "UnlockSpeedMultipliers": {
                 "Unlock_Commercial_Action_Speed_Up_2_5": 2.5,

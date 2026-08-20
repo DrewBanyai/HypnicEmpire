@@ -75,6 +75,10 @@ namespace HypnicEmpire
         public string ActionSection;
         public TaskActionValueDeterminant ValueDeterminant;
         public List<ResourceAmountData> ResourceChange;
+
+        //  Positive rewards from this action count as produced, not merely acquired. Delve is the exception:
+        //  finds handed over there are acquired without being produced. Omitted in JSON, this stays true.
+        public bool ProducesResources = true;
     }
 
     public class TaskUnlockAndActionData

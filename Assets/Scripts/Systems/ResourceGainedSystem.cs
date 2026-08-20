@@ -2,11 +2,12 @@ using System.Collections.Generic;
 
 namespace HypnicEmpire
 {
-    //  How much of a resource the player has ever earned, as opposed to how much is held right now. Spending
-    //  or capping out must never walk a lifetime threshold back, so the two are counted apart: the held amount
-    //  drives ResourceTypeData.Unlocks, and the earned total drives the "ResourceGained_<Resource>"
-    //  AlterableValue, where the thresholds that unlock on it are authored. A resource with no such value
-    //  authored has nothing to announce and is simply passed over.
+    //  How much of a resource the player has ever acquired from any source, as opposed to how much is held
+    //  right now. Spending or capping out must never walk a lifetime threshold back, so the two are counted
+    //  apart: the held amount drives ResourceTypeData.Unlocks, and the acquired total drives the
+    //  "ResourceGained_<Resource>" AlterableValue, where the thresholds that unlock on it are authored.
+    //  Production is counted separately (ResourceProducedSystem): a delve can acquire wood without producing
+    //  it. A resource with no such value authored has nothing to announce and is simply passed over.
     public static class ResourceGainedSystem
     {
         private const string ValueNamePrefix = "ResourceGained_";

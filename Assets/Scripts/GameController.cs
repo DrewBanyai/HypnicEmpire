@@ -252,7 +252,9 @@ namespace HypnicEmpire
         {
             //  Lose and gain all resources assigned to this level of the game, unlocking resources as needed
             var changes = GetCurrentDelveResourceChanges();
-            CurrentGameState.AddToResources(changes);
+            bool produced = TaskActionSystem.TaskActionMap.ContainsKey(DelveActionName)
+                && TaskActionSystem.TaskActionMap[DelveActionName].ProducesResources;
+            CurrentGameState.AddToResources(changes, produced);
 
             if (CurrentGameState.LevelCurrent.Value + 1 >= LevelDataSystem.GetLevelCount())
             {

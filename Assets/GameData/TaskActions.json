@@ -29,6 +29,7 @@
             "Name": "Delve",
             "DisplayName": "Delve",
             "ActionSection": "Unaffiliated",
+            "ProducesResources": false,
             "ValueDeterminant": {
                 "UnlockAlterations": {
                     "Unlock_Delving_Speed_Up_2_2_5": {
