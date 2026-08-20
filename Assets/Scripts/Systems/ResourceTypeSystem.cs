@@ -53,6 +53,10 @@ namespace HypnicEmpire
             return DisplayPositions.TryGetValue(name ?? "", out position);
         }
 
+        //  How many sections the resource list has to hold, whether or not anything is unlocked to show in
+        //  them: the list keeps a place for every group so a row never moves once it has appeared.
+        public static int ResourceGroupCount => ResourceData?.ResourceGroups?.Count ?? 0;
+
         public static string GetResourceGroupName(int sectionIndex)
         {
             var groups = ResourceData?.ResourceGroups;

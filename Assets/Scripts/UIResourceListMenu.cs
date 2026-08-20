@@ -118,14 +118,14 @@ namespace HypnicEmpire
 
             AlignRowsToBackingLines();
 
-            //  An emptied list is still a list: the reserved lines and the fewest lines it is ever drawn with
-            //  are laid straight back, so it never appears as a bare gap between loads.
+            //  An emptied list is still a list: the reserved line and the section lines beneath it are laid
+            //  straight back, so it never appears as a bare gap between loads.
             ApplyLineOrder();
         }
 
-        //  Lines are laid from the top down: the reserved line, then each section's opening line with its
-        //  rows beneath it. The backing is told how many lines that came to, including the reserved line at
-        //  the bottom that holds no row of its own.
+        //  Lines are laid from the top down: the reserved line, then each section with its rows, opening on an
+        //  empty line wherever the layout parts it from the section above. The backing is told how many lines
+        //  that came to, so it stripes those and no more.
         private void ApplyLineOrder()
         {
             if (ResourceDisplayParent == null) return;
@@ -138,10 +138,8 @@ namespace HypnicEmpire
 
             foreach (var section in sections)
             {
-                if (!SectionLinesShown.TryGetValue(section.Group, out var sectionLine))
-                    SectionLinesShown[section.Group] = sectionLine = CreateEmptyLine();
-
-                PlaceLine(sectionLine, ref lineIndex);
+                if (ResourceListLayout.OpensWithEmptyLine(section))
+                    PlaceLine(TakeSectionLine(section.Group), ref lineIndex);
 
                 foreach (string member in section.Members)
                     if (RowsShown.TryGetValue(member, out var row))
@@ -149,6 +147,14 @@ namespace HypnicEmpire
             }
 
             BackingLines?.EnsureLineCount(ResourceListLayout.CountLines(sections));
+        }
+
+        private Transform TakeSectionLine(string group)
+        {
+            if (!SectionLinesShown.TryGetValue(group, out var sectionLine))
+                SectionLinesShown[group] = sectionLine = CreateEmptyLine();
+
+            return sectionLine;
         }
 
         //  A line the list leaves blank: the reserved line at the top and the line each section opens with.
