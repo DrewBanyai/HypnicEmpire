@@ -274,7 +274,7 @@
             "ActionSection": "Commercial",
             "ValueDeterminant": {
                 "UnlockAlterations": {
-                    "Unlock_Commercial_Action_Speed_Up_2": {
+                    "Unlock_Commercial_Action_Speed_Up_2_5": {
                         "CostChanges": [],
                         "RewardChanges": []
                     },
@@ -383,7 +383,7 @@
                             }
                         ]
                     },
-                    "Unlock_Commercial_Action_Speed_Up_2": {
+                    "Unlock_Commercial_Action_Speed_Up_2_5": {
                         "CostChanges": [],
                         "RewardChanges": []
                     },
@@ -466,7 +466,7 @@
             "ActionSection": "Commercial",
             "ValueDeterminant": {
                 "UnlockAlterations": {
-                    "Unlock_Commercial_Action_Speed_Up_2": {
+                    "Unlock_Commercial_Action_Speed_Up_2_5": {
                         "CostChanges": [],
                         "RewardChanges": []
                     },
@@ -543,7 +543,7 @@
             "ActionSection": "Commercial",
             "ValueDeterminant": {
                 "UnlockAlterations": {
-                    "Unlock_Commercial_Action_Speed_Up_2": {
+                    "Unlock_Commercial_Action_Speed_Up_2_5": {
                         "CostChanges": [],
                         "RewardChanges": []
                     },
@@ -626,7 +626,7 @@
             "ActionSection": "Commercial",
             "ValueDeterminant": {
                 "UnlockAlterations": {
-                    "Unlock_Commercial_Action_Speed_Up_2": {
+                    "Unlock_Commercial_Action_Speed_Up_2_5": {
                         "CostChanges": [],
                         "RewardChanges": []
                     },
@@ -703,7 +703,7 @@
             "ActionSection": "Commercial",
             "ValueDeterminant": {
                 "UnlockAlterations": {
-                    "Unlock_Commercial_Action_Speed_Up_2": {
+                    "Unlock_Commercial_Action_Speed_Up_2_5": {
                         "CostChanges": [],
                         "RewardChanges": []
                     },
@@ -885,7 +885,7 @@
             "ActionSection": "Commercial",
             "ValueDeterminant": {
                 "UnlockAlterations": {
-                    "Unlock_Commercial_Action_Speed_Up_2": {
+                    "Unlock_Commercial_Action_Speed_Up_2_5": {
                         "CostChanges": [],
                         "RewardChanges": []
                     },
@@ -944,11 +944,11 @@
             "ResourceChange": [
                 {
                     "ResourceType": "Herbs",
-                    "ResourceValue": -0.1
+                    "ResourceValue": -1
                 },
                 {
                     "ResourceType": "Food",
-                    "ResourceValue": 0.2
+                    "ResourceValue": 1
                 }
             ]
         },

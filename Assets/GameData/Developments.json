@@ -89,7 +89,7 @@
             "Title": "Attract traveling merchants",
             "Description": "Driving back and forth to the Baron's estate again and again is somewhat tedious. If you invest a few treasures, you could certainly attract more travelling merchants to the region and increase your trading throughput.",
             "EffectText": "Increase the speed of all commercial actions",
-            "Unlock": [ "Unlock_Commercial_Action_Speed_Up_2" ],
+            "Unlock": [ "Unlock_Commercial_Action_Speed_Up_2_5" ],
             "Cost": [ { "ResourceType": "Treasure", "ResourceValue": -8 } ]
         },
         {
