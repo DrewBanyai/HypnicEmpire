@@ -30,7 +30,7 @@ namespace HypnicEmpire
         {
             if (ResourceValue <= 0) return false;
 
-            return GameController.CurrentGameState.GetResourceAmount(ResourceType) >= GameController.CurrentGameState.GetResourceMaxAmount(ResourceType);
+            return GameController.CurrentGameState.ResourceStorageIsFull(ResourceType);
         }
 
         //  A cost no amount of saving can meet, because more is asked for than the resource is able to

@@ -112,6 +112,10 @@ namespace HypnicEmpire
         public ResourceValue GetResourceMaxAmount(string resourceType) { return CurrentResourceMaximum.ContainsKey(resourceType) ? CurrentResourceMaximum[resourceType] : 0; }
         public void SetResourceAmount(string resourceType, ResourceValue resourceValue) { AddToResource(resourceType, resourceValue - GetResourceAmount(resourceType)); }
 
+        //  A stockpile with no room left in it. Gains are clamped to the maximum as they are taken, so a
+        //  resource sitting at its maximum has nowhere further to go until that maximum is raised.
+        public bool ResourceStorageIsFull(string resourceType) { return GetResourceAmount(resourceType) >= GetResourceMaxAmount(resourceType); }
+
         public void AddToResources(List<ResourceAmountData> resourceChange)
         {
             foreach (var ra in resourceChange)

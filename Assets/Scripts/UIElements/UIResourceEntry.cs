@@ -23,6 +23,10 @@ namespace HypnicEmpire
         private Action<ResourceValue, ResourceValue> AmountChangedCallback;
         private Action<ResourceValue, ResourceValue> MaximumChangedCallback;
 
+        //  The colour the total is authored in, taken from the row before anything is done to it so a row
+        //  with room again can be put back the way it was drawn rather than to a colour named here.
+        private Color? AuthoredAmountColor;
+
         public void SetContent(string resourceType)
         {
             SetResourceIconImage(resourceType);
@@ -76,6 +80,20 @@ namespace HypnicEmpire
         private void SetResourceAmountText(string resourceType)
         {
             ResourceAmountText?.SetText(Localization.DisplayText_ResourceCountDivide(GameController.CurrentGameState.GetResourceAmount(resourceType), GameController.CurrentGameState.GetResourceMaxAmount(resourceType)));
+            SetResourceAmountColor(resourceType);
+        }
+
+        //  A full store is saying the same thing here as it does on a reward line whose gain cannot land, so
+        //  it is greyed in the same colour: the row still reads, but no longer as a total on its way up.
+        private void SetResourceAmountColor(string resourceType)
+        {
+            if (ResourceAmountText == null) return;
+
+            AuthoredAmountColor ??= ResourceAmountText.color;
+
+            ResourceAmountText.SetOverrideColorTags(true);
+            ResourceAmountText.SetColor(GameController.CurrentGameState.ResourceStorageIsFull(resourceType)
+                ? UIResourceColors.StorageFull : AuthoredAmountColor.Value);
         }
 
         private void SetDerivedValueAmountText()

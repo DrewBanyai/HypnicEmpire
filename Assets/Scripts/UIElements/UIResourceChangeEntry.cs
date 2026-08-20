@@ -7,13 +7,6 @@ namespace HypnicEmpire
 {
     public class UIResourceChangeEntry : MonoBehaviour
     {
-        //  Static colors for use with the UI
-        public static Color ResourceLossColor => new Color32(169, 73, 73, 255);
-        public static Color ResourceLossColorDisabledBG => new Color32(53, 53, 64, 255);
-        public static Color ResourceLossColorDisabled => new Color32(237, 228, 218, 255);
-        public static Color ResourceGainColor = new Color32(62, 85, 76, 255);
-        public static Color ResourceStorageFullColor => new Color32(148, 122, 157, 255);
-
         [SerializeField] public GameObject Background;
         [SerializeField] public Image ResourceIconImage;
         [SerializeField] public TextMeshProUGUI ResourceNameText;
@@ -33,11 +26,11 @@ namespace HypnicEmpire
 
                 ResourceNameText?.SetText(Localization.DisplayText_ResourceChangeDisplayName(resourceType));
                 ResourceNameText?.SetOverrideColorTags(true);
-                ResourceNameText?.SetColor((changeAmount < 0) ? ResourceLossColor : ResourceGainColor);
+                ResourceNameText?.SetColor((changeAmount < 0) ? UIResourceColors.Loss : UIResourceColors.Gain);
 
                 ResourceChangeText?.SetText(Localization.DisplayText_ResourceChangeDisplayAmount(changeAmount));
                 ResourceChangeText?.SetOverrideColorTags(true);
-                ResourceChangeText?.SetColor((changeAmount < 0) ? ResourceLossColor : ResourceGainColor);
+                ResourceChangeText?.SetColor((changeAmount < 0) ? UIResourceColors.Loss : UIResourceColors.Gain);
             }
             catch (ArgumentException)
             {
@@ -55,8 +48,8 @@ namespace HypnicEmpire
         public void ShowAffordability(bool affordable)
         {
             Background?.SetActive(false);
-            ResourceNameText?.SetColor(affordable ? ResourceGainColor : ResourceLossColor);
-            ResourceChangeText?.SetColor(affordable ? ResourceGainColor : ResourceLossColor);
+            ResourceNameText?.SetColor(affordable ? UIResourceColors.Gain : UIResourceColors.Loss);
+            ResourceChangeText?.SetColor(affordable ? UIResourceColors.Gain : UIResourceColors.Loss);
         }
 
         //  A reward line stands for something the player is about to receive, so once its store is full the
@@ -68,9 +61,9 @@ namespace HypnicEmpire
 
             bool storageFull = ChangeResourceAmount.RewardStorageIsFull();
 
-            ResourceNameText?.SetColor(storageFull ? ResourceStorageFullColor : ResourceGainColor);
+            ResourceNameText?.SetColor(storageFull ? UIResourceColors.StorageFull : UIResourceColors.Gain);
 
-            ResourceChangeText?.SetColor(storageFull ? ResourceStorageFullColor : ResourceGainColor);
+            ResourceChangeText?.SetColor(storageFull ? UIResourceColors.StorageFull : UIResourceColors.Gain);
             ResourceChangeText?.SetText(storageFull ? Localization.DisplayText_ResourceStorageFull()
                 : Localization.DisplayText_ResourceChangeDisplayAmount(ChangeResourceAmount.ResourceValue));
         }
@@ -87,8 +80,8 @@ namespace HypnicEmpire
             {
                 if (currentResourceAmount >= ChangeResourceAmount.ResourceValue.Abs())
                 {
-                    ResourceNameText?.SetColor(greenEvenNegative ? ResourceGainColor : ResourceLossColor);
-                    ResourceChangeText?.SetColor(greenEvenNegative ? ResourceGainColor : ResourceLossColor);
+                    ResourceNameText?.SetColor(greenEvenNegative ? UIResourceColors.Gain : UIResourceColors.Loss);
+                    ResourceChangeText?.SetColor(greenEvenNegative ? UIResourceColors.Gain : UIResourceColors.Loss);
                     Background?.SetActive(false);
                     return true;
                 }
@@ -97,15 +90,15 @@ namespace HypnicEmpire
             {
                 if (maxResourceAmount - currentResourceAmount <= ChangeResourceAmount.ResourceValue)
                 {
-                    ResourceNameText?.SetColor(ResourceGainColor);
-                    ResourceChangeText?.SetColor(ResourceGainColor);
+                    ResourceNameText?.SetColor(UIResourceColors.Gain);
+                    ResourceChangeText?.SetColor(UIResourceColors.Gain);
                     Background?.SetActive(false);
                     return true;
                 }
             }
 
-            ResourceNameText?.SetColor(ResourceLossColor);
-            ResourceChangeText?.SetColor(ResourceLossColor);
+            ResourceNameText?.SetColor(UIResourceColors.Loss);
+            ResourceChangeText?.SetColor(UIResourceColors.Loss);
             Background?.SetActive(overrideNoBG ? false : true);
             return false;
         }
