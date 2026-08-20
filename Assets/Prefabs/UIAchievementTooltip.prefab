@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 4087579274248710895}
   - component: {fileID: 84539619535786849}
   - component: {fileID: 4902641477365093897}
+  - component: {fileID: 1121993482930012345}
   m_Layer: 0
   m_Name: UIAchievementTooltip
   m_TagString: Untagged
@@ -240,6 +241,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!225 &1121993482930012345
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7592063089199875173}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &7973346252251606459
 GameObject:
   m_ObjectHideFlags: 0
