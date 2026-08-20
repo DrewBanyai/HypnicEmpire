@@ -18,7 +18,6 @@ namespace HypnicEmpire
         public int ProgressPercent = 0;
         public List<ResourceAmountData> ResourceChange = new();
         public int WorkersAssigned = 0;
-        public bool ProducesResources = true;
 
         public double ProgressMaximum => Timing?.ProgressMaximum ?? 1.0;
 
@@ -226,8 +225,7 @@ namespace HypnicEmpire
                             ActionSection = tad.ActionSection,
                             ValueDeterminant = tad.ValueDeterminant,
                             Timing = timing,
-                            ResourceChange = tad.ResourceChange ?? new List<ResourceAmountData>(),
-                            ProducesResources = tad.ProducesResources
+                            ResourceChange = tad.ResourceChange ?? new List<ResourceAmountData>()
                         };
                     }
 

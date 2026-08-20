@@ -816,30 +816,6 @@
         "CurrentValue": 0,
         "MinimumValue": 0,
         "MaximumValue": 100000,
-        "ValueUnlocks": [],
-        "RemappingValues": []
-    },
-    {
-        "Name": "ResourceGained_Stone",
-        "CurrentValue": 0,
-        "MinimumValue": 0,
-        "MaximumValue": 100000,
-        "ValueUnlocks": [],
-        "RemappingValues": []
-    },
-    {
-        "Name": "ResourceGained_Potions",
-        "CurrentValue": 0,
-        "MinimumValue": 0,
-        "MaximumValue": 100000,
-        "ValueUnlocks": [],
-        "RemappingValues": []
-    },
-    {
-        "Name": "ResourceProduced_Wood",
-        "CurrentValue": 0,
-        "MinimumValue": 0,
-        "MaximumValue": 100000,
         "ValueUnlocks": [
             {
                 "Value": 1,
@@ -870,7 +846,7 @@
         "RemappingValues": []
     },
     {
-        "Name": "ResourceProduced_Stone",
+        "Name": "ResourceGained_Stone",
         "CurrentValue": 0,
         "MinimumValue": 0,
         "MaximumValue": 100000,
@@ -904,7 +880,7 @@
         "RemappingValues": []
     },
     {
-        "Name": "ResourceProduced_Potions",
+        "Name": "ResourceGained_Potions",
         "CurrentValue": 0,
         "MinimumValue": 0,
         "MaximumValue": 100000,

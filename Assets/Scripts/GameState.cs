@@ -33,9 +33,6 @@ namespace HypnicEmpire
         //  and saved alongside it so a reload does not ask them to earn it a second time.
         public SerializableDictionary<string, ResourceValue> TotalResourceGained = new();
 
-        //  Everything a resource has ever been produced by an action (not merely found, as on a delve).
-        public SerializableDictionary<string, ResourceValue> TotalResourceProduced = new();
-
         
         public int ClickCount = 0;
 
@@ -63,13 +60,11 @@ namespace HypnicEmpire
             CurrentResourceCounts = new();
             CurrentResourceMaximum = new();
             TotalResourceGained = new();
-            TotalResourceProduced = new();
             foreach (var rt in ResourceTypeSystem.ResourceTypes)
             {
                 CurrentResourceCounts[rt] = 0;
                 CurrentResourceMaximum[rt] = 999;
                 TotalResourceGained[rt] = 0;
-                TotalResourceProduced[rt] = 0;
             }
         }
 
@@ -127,11 +122,6 @@ namespace HypnicEmpire
                 foreach (var entry in other.TotalResourceGained)
                     if (entry.Value is not null && TotalResourceGained.ContainsKey(entry.Key))
                         TotalResourceGained[entry.Key] = entry.Value;
-
-            if (other.TotalResourceProduced != null)
-                foreach (var entry in other.TotalResourceProduced)
-                    if (entry.Value is not null && TotalResourceProduced.ContainsKey(entry.Key))
-                        TotalResourceProduced[entry.Key] = entry.Value;
         }
 
         public void CopyGameUnlocks(SerializableDictionary<string, bool> gameUnlocks)
@@ -148,13 +138,13 @@ namespace HypnicEmpire
         //  resource sitting at its maximum has nowhere further to go until that maximum is raised.
         public bool ResourceStorageIsFull(string resourceType) { return GetResourceAmount(resourceType) >= GetResourceMaxAmount(resourceType); }
 
-        public void AddToResources(List<ResourceAmountData> resourceChange, bool produced = false)
+        public void AddToResources(List<ResourceAmountData> resourceChange)
         {
             foreach (var ra in resourceChange)
-                AddToResource(ra.ResourceType, ra.ResourceValue, produced);
+                AddToResource(ra.ResourceType, ra.ResourceValue);
         }
         
-        public void AddToResource(string resourceType, ResourceValue resourceValue, bool produced = false)
+        public void AddToResource(string resourceType, ResourceValue resourceValue)
         {
             GameSubscriptionSystem.ProcessSubscriptionsToAddAndRemove(resourceType);
 
@@ -171,8 +161,6 @@ namespace HypnicEmpire
                 //  on gains the player never received.
                 ResourceValue actualGain = CurrentResourceCounts[resourceType] - previousAmount;
                 RecordResourceGained(resourceType, actualGain);
-                if (produced)
-                    RecordResourceProduced(resourceType, actualGain);
 
                 foreach (var callback in GameSubscriptionSystem.ResourceAmountSubscriptions[resourceType])
                     callback(resourceValue, CurrentResourceCounts[resourceType]);
@@ -190,29 +178,17 @@ namespace HypnicEmpire
             TotalResourceGained[resourceType] = GetTotalResourceGained(resourceType) + gained;
             ResourceGainedSystem.Publish(resourceType, TotalResourceGained[resourceType]);
 
-            //  Revealing a resource is an acquire, not a produce: wood found on a delve still shows up.
             if (firstAcquire)
                 SetResourceUnlocked(resourceType, true);
         }
 
-        private void RecordResourceProduced(string resourceType, ResourceValue produced)
-        {
-            if (!produced.Positive) return;
-
-            TotalResourceProduced[resourceType] = GetTotalResourceProduced(resourceType) + produced;
-            ResourceProducedSystem.Publish(resourceType, TotalResourceProduced[resourceType]);
-        }
-
         public ResourceValue GetTotalResourceGained(string resourceType) { return TotalResourceGained.ContainsKey(resourceType) ? TotalResourceGained[resourceType] : 0; }
-
-        public ResourceValue GetTotalResourceProduced(string resourceType) { return TotalResourceProduced.ContainsKey(resourceType) ? TotalResourceProduced[resourceType] : 0; }
 
         //  Brings the lifetime values back in line with the totals after a load or a reset has replaced them
         //  wholesale, since nothing gained during the previous run wrote to them.
         public void PublishResourceGainedTotals()
         {
             ResourceGainedSystem.PublishAll(TotalResourceGained);
-            ResourceProducedSystem.PublishAll(TotalResourceProduced);
         }
 
         public void RecordSuccessfulDelve()

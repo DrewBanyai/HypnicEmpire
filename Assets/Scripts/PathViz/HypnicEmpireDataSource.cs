@@ -70,7 +70,7 @@ namespace HypnicEmpire.PathViz
         private readonly Dictionary<string, string> _reveal = new();
 
         // threshold unlock -> the resource whose availability gates it
-        // (Resources.ResourceType.Unlocks and AlterableValues "ResourceGained_X" / "ResourceProduced_X".ValueUnlocks)
+        // (Resources.ResourceType.Unlocks and AlterableValues "ResourceGained_X".ValueUnlocks)
         private readonly Dictionary<string, string> _thresholdResource = new();
 
         // Grouping name -> reach unlock. Lives here only because LevelData carries no
@@ -404,13 +404,9 @@ namespace HypnicEmpire.PathViz
                 if (string.IsNullOrEmpty(name)) continue;
                 model.AlterableValues.Add(name);
                 // Lifetime-total thresholds are gated by resource X being available.
-                if (name.StartsWith("ResourceGained_", StringComparison.Ordinal)
-                    || name.StartsWith("ResourceProduced_", StringComparison.Ordinal))
+                if (name.StartsWith("ResourceGained_", StringComparison.Ordinal))
                 {
-                    var prefixLength = name.StartsWith("ResourceGained_", StringComparison.Ordinal)
-                        ? "ResourceGained_".Length
-                        : "ResourceProduced_".Length;
-                    var resource = name.Substring(prefixLength);
+                    var resource = name.Substring("ResourceGained_".Length);
                     foreach (var u in Arr(v["ValueUnlocks"]))
                     {
                         var un = Str(u, "Unlock");
