@@ -12,12 +12,14 @@ namespace HypnicEmpire
         public string DisplayName;
         public string ActionSection;
         public TaskActionValueDeterminant ValueDeterminant = null;
+        public ActionTimingData Timing;
         public double ProgressSpeed = 0.0;
         public double ProgressCurrent = 0.0;
-        public double ProgressMaximum = 1000.0;
         public int ProgressPercent = 0;
         public List<ResourceAmountData> ResourceChange = new();
         public int WorkersAssigned = 0;
+
+        public double ProgressMaximum => Timing?.ProgressMaximum ?? 1.0;
 
         public List<ResourceAmountData> GetResourceChange()
         {
@@ -30,7 +32,12 @@ namespace HypnicEmpire
             return ModifierValueSystem.ApplyGain(Name, ActionSection, baseChange);
         }
 
-        public double GetSpeed() { return ValueDeterminant != null ? ValueDeterminant.GetSpeed() : 0.0; }
+        public double GetSpeed()
+        {
+            return Timing?.CalculatePlayerProgressPerSecond(
+                GameUnlockSystem.IsUnlocked,
+                valueName => AlterableValueSystem.GetAlterableValueCurrentVal(valueName)) ?? 0.0;
+        }
     }
 
     public static class TaskActionSystem
@@ -121,7 +128,7 @@ namespace HypnicEmpire
             taskAction.ProgressSpeed = 0.0;
             if (taskName == PrimaryTask)
                 taskAction.ProgressSpeed = taskAction.GetSpeed();
-            taskAction.ProgressSpeed += ((double)taskAction.WorkersAssigned * 10.0);
+            taskAction.ProgressSpeed += taskAction.WorkersAssigned * taskAction.Timing.ProgressPerWorkerPerSecond;
             // Apply SpeedPct modifiers (building/project effects) to the whole task speed.
             taskAction.ProgressSpeed *= ModifierValueSystem.GetActionSpeedMultiplier(taskAction.Name, taskAction.ActionSection);
         }
@@ -132,13 +139,17 @@ namespace HypnicEmpire
 
         public static void Update()
         {
+            if (ActionTimingSystem.Configuration == null) return;
+
+            double deltaTime = Time.deltaTime * ActionTimingSystem.Configuration.TimeScale;
+
             foreach (var taskAction in TaskActionMap.Values)
             {
                 UpdateTaskProgressSpeed(taskAction.Name);
                 if (taskAction.ProgressSpeed == 0.0 && taskAction.ProgressCurrent == 0.0)
                     continue;
 
-                taskAction.ProgressCurrent = Math.Clamp(taskAction.ProgressCurrent + taskAction.ProgressSpeed * Time.deltaTime, 0, taskAction.ProgressMaximum);
+                taskAction.ProgressCurrent = Math.Clamp(taskAction.ProgressCurrent + taskAction.ProgressSpeed * deltaTime, 0, taskAction.ProgressMaximum);
                 int percent = (int)(taskAction.ProgressCurrent / taskAction.ProgressMaximum * 100f);
 
                 var actionResourceChange = taskAction.GetResourceChange();
@@ -168,6 +179,12 @@ namespace HypnicEmpire
 
         public static void LoadAllTaskActions(string jsonFilePath)
         {
+            if (ActionTimingSystem.Configuration == null)
+            {
+                Debug.LogError("Cannot load task actions before the action timing configuration");
+                return;
+            }
+
             if (File.Exists(jsonFilePath))
             {
                 try
@@ -194,6 +211,12 @@ namespace HypnicEmpire
                             continue;
                         }
 
+                        if (!ActionTimingSystem.TryGetAction(tad.Name, out ActionTimingData timing))
+                        {
+                            Debug.LogError($"Skipping task action '{tad.Name}' because it has no timing configuration");
+                            continue;
+                        }
+
                         ActionsList.Add(tad.Name);
                         TaskActionMap[tad.Name] = new TaskActionState()
                         {
@@ -201,9 +224,15 @@ namespace HypnicEmpire
                             DisplayName = tad.DisplayName,
                             ActionSection = tad.ActionSection,
                             ValueDeterminant = tad.ValueDeterminant,
+                            Timing = timing,
                             ResourceChange = tad.ResourceChange ?? new List<ResourceAmountData>()
                         };
                     }
+
+                    if (TaskActionMap.Count != ActionTimingSystem.Configuration.Actions.Count)
+                        Debug.LogWarning(
+                            $"Loaded {TaskActionMap.Count} task actions but found " +
+                            $"{ActionTimingSystem.Configuration.Actions.Count} action timing entries");
 
                     Debug.Log($"Successfully loaded {TaskActionMap.Count} TaskActionStates from {jsonFilePath}");
                 }

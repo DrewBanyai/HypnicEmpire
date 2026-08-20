@@ -111,8 +111,10 @@ namespace HypnicEmpire.EditorTools
                                            .OrderBy(o => ann.ReachLevel.TryGetValue(o.Id, out var l) ? l : 0))
             {
                 if (!ann.ReachGrind.TryGetValue(o.Id, out var g)) continue;
-                double hrs = PathEconomy.SecondsFor(g, 10, 5.0) / 3600.0; // 10 workers, timeScale 5 (very rough)
-                sb.AppendLine($"  {o.Display,-24} {g}   ~{hrs:0.0}h @10w×5");
+                int workers = econ.Timing.PathVisualizationWorkers;
+                double timeScale = econ.Timing.TimeScale;
+                double hrs = PathEconomy.SecondsFor(g, workers, timeScale) / 3600.0;
+                sb.AppendLine($"  {o.Display,-24} {g}   ~{hrs:0.0}h @{workers}w×{timeScale:0.##}");
             }
             Debug.Log(sb.ToString());
         }

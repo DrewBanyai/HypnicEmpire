@@ -46,7 +46,7 @@ namespace HypnicEmpire.PathViz
     {
         public string Id;
         public string RevealUnlock;                               // null/empty => available from the start (e.g. Delve)
-        public double DefaultSpeed = 300;                         // ValueDeterminant.DefaultSpeed; period ≈ ProgressMax/speed
+        public ActionTimingData Timing;
         public readonly Dictionary<string, double> Changes = new(); // resource -> delta per completion (>0 produce, <0 consume)
     }
 
@@ -88,6 +88,7 @@ namespace HypnicEmpire.PathViz
         public readonly List<EconomyBuilding> Buildings = new();
         public readonly Dictionary<string, int> ReachLevelByUnlock = new(); // reach unlock -> the level (grouping Min) it reaches
         public string SeedUnlock = "Unlock_Game_Start";
+        public ActionTimingConfiguration Timing;
         public string LandBuyUnlock;                             // the unlock that makes Land (hence buildings) unbounded
 
         // ---- warfare spine (the second end-game track; terminal = defeating the Beast) ----
@@ -147,8 +148,6 @@ namespace HypnicEmpire.PathViz
 
     public static class PathEconomy
     {
-        public const double ProgressMax = 1000.0;
-
         // ============================ core depth ============================
 
         /// <summary>Deepest delve level given granted unlocks, per-resource spend, a depth used for the
@@ -475,14 +474,15 @@ namespace HypnicEmpire.PathViz
             var bestPeriod = new Dictionary<string, double>();
             foreach (var a in acts)
             {
-                double period = ProgressMax / (a.DefaultSpeed > 0 ? a.DefaultSpeed : 300);
+                double period = a.Timing.ProgressMaximum / a.Timing.BaseProgressPerSecond;
                 foreach (var kv in a.Changes)
                     if (kv.Value > 0 && (!bestYield.TryGetValue(kv.Key, out var y) || kv.Value > y))
                     { bestYield[kv.Key] = kv.Value; bestPeriod[kv.Key] = period; }
             }
-            double delveSpeed = acts.Where(a => a.Id == "Delve").Select(a => a.DefaultSpeed).FirstOrDefault();
-            if (delveSpeed <= 0) delveSpeed = 300;
-            double delvePeriod = ProgressMax / delveSpeed;
+            ActionTimingData delveTiming = acts.Where(a => a.Id == "Delve").Select(a => a.Timing).FirstOrDefault();
+            if (delveTiming == null)
+                throw new InvalidOperationException("Delve timing is required for grind estimates");
+            double delvePeriod = delveTiming.ProgressMaximum / delveTiming.BaseProgressPerSecond;
 
             long delveActions = 0;
             var consumed = new Dictionary<string, double>();

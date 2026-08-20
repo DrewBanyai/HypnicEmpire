@@ -12,39 +12,13 @@ namespace HypnicEmpire
 
     public class TaskActionAlteration
     {
-        public double SpeedMultiplier;
         public List<ResourceChangeAlteration> CostChanges;
         public List<ResourceChangeAlteration> RewardChanges;
     }
 
     public class TaskActionValueDeterminant
     {
-        public double Efficiency;
-        public double DefaultSpeed;
         public SerializableDictionary<string, TaskActionAlteration> UnlockAlterations;
-        public List<string> AlterableValuePercentAdditions;
-
-        public double GetSpeed()
-        {
-            double speed = DefaultSpeed;
-            if (UnlockAlterations != null)
-            {
-                var unlockedSpeedAlterations = UnlockAlterations.Where(ua => ua.Value != null && GameUnlockSystem.IsUnlocked(ua.Key) && ua.Value.SpeedMultiplier != 1.0);
-                foreach (var entry in unlockedSpeedAlterations)
-                    speed *= entry.Value.SpeedMultiplier;
-            }
-
-            double percentageMultiplier = 1.0;
-            if (AlterableValuePercentAdditions != null)
-            {
-                foreach (string valName in AlterableValuePercentAdditions)
-                    if (!string.IsNullOrEmpty(valName))
-                        percentageMultiplier += AlterableValueSystem.GetAlterableValueCurrentVal(valName) * 0.01;
-            }
-            speed *= percentageMultiplier;
-
-            return speed;
-        }
 
         public List<ResourceAmountData> GetResourceChange(List<ResourceAmountData> originalChange)
         {

@@ -166,6 +166,7 @@ namespace HypnicEmpire.EditorTools
             LoadResources();
             LoadAlterableValues();
             LoadTaskActions();
+            LoadActionTiming();
             LoadDevelopments();
             LoadProjects();
             LoadBuildings();
@@ -509,11 +510,62 @@ namespace HypnicEmpire.EditorTools
                         foreach (var c in Arr(p.Value["RewardChanges"]))
                             RefResource(Str(c, "ResourceType"), $"TaskActions.json > {name} > {p.Name} > RewardChanges");
                     }
-
-                // AlterableValuePercentAdditions is an array of value-name strings.
-                foreach (var pa in Arr(vd?["AlterableValuePercentAdditions"]))
-                    RefValueName(pa?.ToString(), $"TaskActions.json > {name} > AlterableValuePercentAdditions");
             }
+        }
+
+        private void LoadActionTiming()
+        {
+            var root = LoadFile("ActionTiming.json");
+            if (root == null) return;
+
+            if ((root["TimeScale"]?.Value<double>() ?? 0.0) <= 0.0)
+                Add(ValidationSeverity.Error, "invalid-action-timing",
+                    "TimeScale must be greater than zero.", "ActionTiming.json > TimeScale");
+
+            if ((root["PathVisualizationWorkers"]?.Value<int>() ?? -1) < 0)
+                Add(ValidationSeverity.Error, "invalid-action-timing",
+                    "PathVisualizationWorkers cannot be negative.", "ActionTiming.json > PathVisualizationWorkers");
+
+            var timingActions = new HashSet<string>();
+            foreach (var timing in Arr(root["Actions"]))
+            {
+                string name = Str(timing, "Name");
+                DeclareUnique(timingActions, name, "duplicate-action-timing", "ActionTiming.json");
+
+                if (!_index.Actions.Contains(name))
+                    Add(ValidationSeverity.Error, "unknown-action-timing",
+                        $"Timing is configured for unknown action '{name}'.", $"ActionTiming.json > {name}");
+
+                if ((timing["ProgressMaximum"]?.Value<double>() ?? 0.0) <= 0.0)
+                    Add(ValidationSeverity.Error, "invalid-action-timing",
+                        $"{name}.ProgressMaximum must be greater than zero.", $"ActionTiming.json > {name}");
+
+                if ((timing["BaseProgressPerSecond"]?.Value<double>() ?? 0.0) <= 0.0)
+                    Add(ValidationSeverity.Error, "invalid-action-timing",
+                        $"{name}.BaseProgressPerSecond must be greater than zero.", $"ActionTiming.json > {name}");
+
+                if ((timing["ProgressPerWorkerPerSecond"]?.Value<double>() ?? -1.0) < 0.0)
+                    Add(ValidationSeverity.Error, "invalid-action-timing",
+                        $"{name}.ProgressPerWorkerPerSecond cannot be negative.", $"ActionTiming.json > {name}");
+
+                if (timing["UnlockSpeedMultipliers"] is JObject multipliers)
+                    foreach (var multiplier in multipliers.Properties())
+                    {
+                        RefUnlockConsume(multiplier.Name, $"ActionTiming.json > {name} > UnlockSpeedMultipliers");
+                        if (multiplier.Value.Value<double>() <= 0.0)
+                            Add(ValidationSeverity.Error, "invalid-action-timing",
+                                $"{name} has a non-positive unlock speed multiplier for '{multiplier.Name}'.",
+                                $"ActionTiming.json > {name} > UnlockSpeedMultipliers");
+                    }
+
+                foreach (var valueName in Arr(timing["AlterableValuePercentAdditions"]))
+                    RefValueName(valueName?.ToString(), $"ActionTiming.json > {name} > AlterableValuePercentAdditions");
+            }
+
+            foreach (string action in _index.Actions)
+                if (!timingActions.Contains(action))
+                    Add(ValidationSeverity.Error, "missing-action-timing",
+                        $"Action '{action}' has no timing configuration.", "ActionTiming.json");
         }
 
         private void LoadDevelopments()

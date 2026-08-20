@@ -48,7 +48,7 @@ namespace HypnicEmpire
             TaskActionSystem.OnPrimaryTaskChanged -= HandlePrimaryTaskChanged;
         }
 
-        public void SetContents(string actionType, float speed = 20f, float maximum = 100f, Action progressFinishAction = null)
+        public void SetContents(string actionType, Action progressFinishAction = null)
         {
             PlayerAction = actionType;
             SetButtonText(Localization.DisplayText_ActionName(actionType));

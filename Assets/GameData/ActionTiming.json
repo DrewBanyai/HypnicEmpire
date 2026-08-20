@@ -1,0 +1,327 @@
+{
+    "TimeScale": 1.0,
+    "PathVisualizationWorkers": 10,
+    "Actions": [
+        {
+            "Name": "Delve",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 300.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Delving_Speed_Up_2": 2.0,
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Delving_Speed_Up_1_5": 1.5,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Designate_A_Graveyard": 1.5,
+                "Unlock_Grand_Speech": 0.5,
+                "Unlock_Mausoleum_For_The_Dead": 0.5
+            },
+            "AlterableValuePercentAdditions": [
+                "DelveTaskSpeedPercent",
+                "GlobalActionSpeedPercent"
+            ]
+        },
+        {
+            "Name": "Sell_Food",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 600.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Commercial_Action_Speed_Up_2": 2.0,
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Build_River_Port": 0.5,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Market",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 600.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Commercial_Action_Speed_Up_2": 2.0,
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Build_River_Port": 0.5,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Buy_Potion",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 600.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Commercial_Action_Speed_Up_2": 2.0,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Build_River_Port": 0.5,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Sell_Fabric",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 600.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Commercial_Action_Speed_Up_2": 2.0,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Build_River_Port": 0.5,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Buy_Weaponry",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 600.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Commercial_Action_Speed_Up_2": 2.0,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Build_River_Port": 0.5,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Polish",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 300.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Commercial_Action_Speed_Up_2": 2.0,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Build_River_Port": 0.5,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Forage",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 300.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Foraging_Speed_Up": 2.0,
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Trade_Herbs",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 600.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Commercial_Action_Speed_Up_2": 2.0,
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Chop_Wood",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 660.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Hunting",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 660.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Fishing",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 660.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Grand_Speech": 0.25
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Farming",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 660.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Cut_Stone",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 360.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Cultivate",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 400.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Brew_Potion",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 300.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Weaving",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 160.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Grand_Speech": 0.5,
+                "Unlock_Burn_Tar_Generate_Steam": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Mining",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 160.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Forging",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 160.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Refine",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 300.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Manufacture",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 300.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Purify",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 300.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        },
+        {
+            "Name": "Pump",
+            "ProgressMaximum": 1000.0,
+            "BaseProgressPerSecond": 300.0,
+            "ProgressPerWorkerPerSecond": 10.0,
+            "UnlockSpeedMultipliers": {
+                "Unlock_Elected_As_Mayor": 1.25,
+                "Unlock_Auto_Project_Cost_Removal": 0.25,
+                "Unlock_Establish_Council_Of_Guilds": 1.1,
+                "Unlock_Grand_Speech": 0.5
+            },
+            "AlterableValuePercentAdditions": []
+        }
+    ]
+}

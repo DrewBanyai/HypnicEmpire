@@ -64,7 +64,7 @@ namespace HypnicEmpire
             TaskActionSystem.OnActionResourceChangeReplaced -= HandleActionResourceChangeReplaced;
             TaskActionSystem.OnActionResourceChangeReplaced += HandleActionResourceChangeReplaced;
 
-            ProcessButton?.SetContents(actionType, 20f, 100f, () =>
+            ProcessButton?.SetContents(actionType, () =>
             {
                 GameController.CurrentGameState.AddToResources(actionState.GetResourceChange());
             });

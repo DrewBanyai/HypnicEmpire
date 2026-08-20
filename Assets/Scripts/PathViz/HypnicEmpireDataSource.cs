@@ -113,7 +113,18 @@ namespace HypnicEmpire.PathViz
             // this unlock is granted ("People have come to work for you"). Before it, the loot economy has
             // no unbounded sink and the delve stalls. DATA GAP: there's no field linking the Land-purchase
             // transaction to its unlock, so it's named here (like the reach / building-reveal maps).
-            var econ = new EconomyModel { SeedUnlock = SeedUnlock, LandBuyUnlock = "Unlock_Buying_Land" };
+            string timingPath = Path.Combine(_dir, "ActionTiming.json");
+            var timing = JsonSerialization.Deserialize<ActionTimingConfiguration>(File.ReadAllText(timingPath));
+            if (timing?.Actions == null)
+                throw new InvalidDataException($"Invalid action timing configuration at {timingPath}");
+
+            var timingByAction = timing.Actions.ToDictionary(action => action.Name);
+            var econ = new EconomyModel
+            {
+                SeedUnlock = SeedUnlock,
+                LandBuyUnlock = "Unlock_Buying_Land",
+                Timing = timing
+            };
 
             var res = Load("Resources.json");
             foreach (var r in Arr(res?["ResourceTypes"]))
@@ -149,9 +160,15 @@ namespace HypnicEmpire.PathViz
             {
                 var name = Str(a, "Name");
                 if (string.IsNullOrEmpty(name)) continue;
-                var ea = new EconomyAction { Id = name, RevealUnlock = revealOf.TryGetValue(name, out var u) ? u : null };
-                var vd = (a as JObject)?["ValueDeterminant"];
-                if (vd != null) { double sp = Dbl(vd, "DefaultSpeed"); if (sp > 0) ea.DefaultSpeed = sp; }
+                if (!timingByAction.TryGetValue(name, out ActionTimingData actionTiming))
+                    throw new InvalidDataException($"Action '{name}' has no entry in ActionTiming.json");
+
+                var ea = new EconomyAction
+                {
+                    Id = name,
+                    RevealUnlock = revealOf.TryGetValue(name, out var u) ? u : null,
+                    Timing = actionTiming
+                };
                 foreach (var c in Arr(a["ResourceChange"]))
                 {
                     var rt = Str(c, "ResourceType");
