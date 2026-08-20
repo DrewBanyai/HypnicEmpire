@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System;
-using System.Linq;
 
 namespace HypnicEmpire
 {
@@ -61,8 +60,13 @@ namespace HypnicEmpire
 
             //  Delving is priced by the level being delved rather than by the action's own data, so its rows
             //  have to be redrawn when the player moves to a level whose section asks and gives something else.
-            TaskActionSystem.OnActionResourceChangeReplaced -= HandleActionResourceChangeReplaced;
-            TaskActionSystem.OnActionResourceChangeReplaced += HandleActionResourceChangeReplaced;
+            TaskActionSystem.OnActionResourceChangeReplaced -= HandleActionChanged;
+            TaskActionSystem.OnActionResourceChangeReplaced += HandleActionChanged;
+
+            //  An action can also be closed off by something other than what the stores hold — delving is,
+            //  once a level has nothing left to find — and nothing about the resources moves to announce it.
+            TaskActionSystem.OnActionAvailabilityChanged -= HandleActionChanged;
+            TaskActionSystem.OnActionAvailabilityChanged += HandleActionChanged;
 
             ProcessButton?.SetContents(actionType, () =>
             {
@@ -106,11 +110,12 @@ namespace HypnicEmpire
         {
             JobAssignmentSystem.OnAssignmentsChanged -= RefreshWorkerControl;
             ModifierValueSystem.OnValuesRecomputed -= RefreshWorkerControl;
-            TaskActionSystem.OnActionResourceChangeReplaced -= HandleActionResourceChangeReplaced;
+            TaskActionSystem.OnActionResourceChangeReplaced -= HandleActionChanged;
+            TaskActionSystem.OnActionAvailabilityChanged -= HandleActionChanged;
         }
 
-        //  Every group hears every repricing, so each has to pick out its own.
-        private void HandleActionResourceChangeReplaced(string actionName)
+        //  Every group hears about every action, so each has to pick out its own.
+        private void HandleActionChanged(string actionName)
         {
             if (ActionState == null || actionName != ActionState.Name) return;
 
@@ -155,9 +160,7 @@ namespace HypnicEmpire
             foreach (var entry in GainEntries)
                 if (entry != null) entry.ShowRewardStorageState();
 
-            List<ResourceAmountData> gainChange = actionResourceChange.Where(rc => rc.ResourceValue > 0).ToList();
-            List<ResourceAmountData> lossChange = actionResourceChange.Where(rc => rc.ResourceValue < 0).ToList();
-            ProcessButton?.SetEnabled(gainChange.CheckCanChangeAny(true) && lossChange.CheckCanChangeAll());
+            ProcessButton?.SetEnabled(actionState.CanPerform());
         }
 
         public void SetResourceChangeUI(List<ResourceAmountData> resourceChange)

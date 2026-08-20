@@ -19,7 +19,25 @@ namespace HypnicEmpire
         public List<ResourceAmountData> ResourceChange = new();
         public int WorkersAssigned = 0;
 
+        //  A condition beyond affording the action's own cost. Delving is held at a level whose exploration
+        //  is finished until the player asks to be carried on, so it is the one action that answers to
+        //  anything else; an action without a gate is judged on affordability alone.
+        public Func<bool> Availability;
+
         public double ProgressMaximum => Timing?.ProgressMaximum ?? 1.0;
+
+        //  Whether the action can run as things stand: what it gives has somewhere to go, what it costs can
+        //  be paid, and whatever else it answers to allows it. The progress it earns and the button offering
+        //  it are both judged on this, so the two cannot disagree over whether it is available.
+        public bool CanPerform()
+        {
+            if (Availability != null && !Availability()) return false;
+
+            var resourceChange = GetResourceChange();
+            List<ResourceAmountData> gainChange = resourceChange.Where(rc => rc.ResourceValue > 0).ToList();
+            List<ResourceAmountData> lossChange = resourceChange.Where(rc => rc.ResourceValue < 0).ToList();
+            return gainChange.CheckCanChangeAny(true) && lossChange.CheckCanChangeAll();
+        }
 
         public List<ResourceAmountData> GetResourceChange()
         {
@@ -100,6 +118,26 @@ namespace HypnicEmpire
             OnActionResourceChangeReplaced?.Invoke(taskName);
         }
 
+        //  Raised once something other than the player's stores has changed whether an action may be
+        //  performed, carrying that action's name. What the stores hold announces itself through the resource
+        //  subscriptions; a gate answering to anything else has to say so here.
+        public static event Action<string> OnActionAvailabilityChanged;
+
+        public static void SetActionAvailability(string taskName, Func<bool> availability)
+        {
+            if (!TaskActionMap.ContainsKey(taskName)) return;
+
+            TaskActionMap[taskName].Availability = availability;
+            OnActionAvailabilityChanged?.Invoke(taskName);
+        }
+
+        public static void NotifyActionAvailabilityChanged(string taskName)
+        {
+            if (!TaskActionMap.ContainsKey(taskName)) return;
+
+            OnActionAvailabilityChanged?.Invoke(taskName);
+        }
+
         //  Raised once the task the player is putting their own effort into settles, carrying the new task's
         //  name or an empty string when none is chosen. Choosing one action drops whatever was chosen
         //  before, so anything marking the choice has to hear about tasks other than its own.
@@ -152,11 +190,7 @@ namespace HypnicEmpire
                 taskAction.ProgressCurrent = Math.Clamp(taskAction.ProgressCurrent + taskAction.ProgressSpeed * deltaTime, 0, taskAction.ProgressMaximum);
                 int percent = (int)(taskAction.ProgressCurrent / taskAction.ProgressMaximum * 100f);
 
-                var actionResourceChange = taskAction.GetResourceChange();
-                List<ResourceAmountData> gainChange = actionResourceChange.Where(rc => rc.ResourceValue > 0).ToList();
-                List<ResourceAmountData> lossChange = actionResourceChange.Where(rc => rc.ResourceValue < 0).ToList();
-                bool canChange = gainChange.CheckCanChangeAny(true) && lossChange.CheckCanChangeAll();
-                if (!canChange)
+                if (!taskAction.CanPerform())
                 {
                     taskAction.ProgressCurrent = 0.0;
                     percent = 0;

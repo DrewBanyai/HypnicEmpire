@@ -102,32 +102,35 @@ namespace HypnicEmpire
             MainGameUIView.LoadButtonAction = LoadGame;
             MainGameUIView.HardResetButtonAction = ResetGame;
             MainGameUIView.ToggleFullscreenButtonAction = ToggleFullscreen;
+            MainGameUIView.DelveDeeperButtonAction = DescendToNextLevel;
 
             //  Define out the sound volume control entries
             MainGameUIView.MasterVolumeControlEntry?.SetContent("Master", CurrentGameState.MasterVolume.ToString(), () => ChangeMasterVolume(5), () => ChangeMasterVolume(-5));
             MainGameUIView.SFXVolumeControlEntry?.SetContent("Soundeffects", CurrentGameState.SFXVolume.ToString(), () => ChangeSFXVolume(5), () => ChangeSFXVolume(-5));
             MainGameUIView.MusicVolumeControlEntry?.SetContent("Music", CurrentGameState.MusicVolume.ToString(), () => ChangeMusicVolume(5), () => ChangeMusicVolume(-5));
             MainGameUIView.ActionSoundExcessControlEntry?.AddListener(CurrentGameState.ToggleActionSoundExcess);
+            MainGameUIView.AutoAdvanceLevelControlEntry?.AddListener(ToggleAutoAdvanceLevel);
 
             MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent.Value, CurrentGameState.LevelReached.Value, CurrentGameState.LevelCurrent.Value, CurrentLevelUp, CurrentLevelDown);
 
-            void UpdateLevelExplorationBar()
-            {
-                var levelData = LevelDataSystem.GetLevelData(CurrentGameState.LevelCurrent.Value);
-                if (levelData == null) return;
-                MainGameUIView.LevelExplorationBar?.SetProgress((float)CurrentGameState.LevelDelveCount.Value / (float)levelData.DelveCount);
-            }
+            //  Delving answers to the level's exploration as well as to what it costs: a level with nothing
+            //  left to find closes the action off until the player asks to be taken on to the next one.
+            TaskActionSystem.SetActionAvailability(DelveActionName, () => !ExplorationIsHeldAtLevelEnd());
 
-            UpdateLevelExplorationBar();
+            RefreshExplorationDisplay();
             CurrentGameState.LevelDelveCount.Subscribe((newValue) =>
             {
-                UpdateLevelExplorationBar();
+                RefreshExplorationDisplay();
             });
 
             CurrentGameState.LevelCurrent.Subscribe((newValue) =>
             {
                 MainGameUIView.MissionDataDisplay?.SetContent(CurrentGameState.LevelCurrent.Value, CurrentGameState.LevelReached.Value, CurrentGameState.LevelCurrent.Value, CurrentLevelUp, CurrentLevelDown);
                 RefreshDelveResourceChange();
+
+                //  Levels are not all explored in the same number of delves, so moving between them can
+                //  settle or lift the hold without the count of delves made having moved at all.
+                RefreshExplorationDisplay();
             });
 
             CurrentGameState.LevelReached.Subscribe((newValue) =>
@@ -205,6 +208,10 @@ namespace HypnicEmpire
             ActionsMenuController?.RefreshMenu();
             MainGameUIView.DelveTaskButton?.SetContents("Delve", CompleteDelve);
 
+            //  A load or a reset replaces the level and the delves made into it, and the button was rebuilt
+            //  above, so what the exploration is standing at has to be said again for both.
+            RefreshExplorationDisplay();
+
             CheckDevelopments();
 
             //  If we haven't loaded a game state with the very first unlock, unlock it now
@@ -259,20 +266,81 @@ namespace HypnicEmpire
             if (CurrentGameState.LevelCurrent.Value + 1 >= LevelDataSystem.GetLevelCount())
             {
                 MainGameUIView?.DelveTaskButton.SetEnabled(false);
+                return;
             }
-            else
-            {
-                if (CurrentGameState.LevelDelveCount.Value + 1 >= LevelDataSystem.GetLevelData(CurrentGameState.LevelCurrent.Value)?.DelveCount)
-                {
-                    CurrentGameState.LevelReached.SetValue(CurrentGameState.LevelReached.Value + 1);
-                    CurrentGameState.LevelDelveCount.SetValue(0);
-                    CurrentGameState.LevelCurrent.SetValue(CurrentGameState.LevelReached.Value);
-                }
-                else
-                {
-                    CurrentGameState.LevelDelveCount.SetValue(CurrentGameState.LevelDelveCount.Value + 1);
-                }
-            }
+
+            //  The delve is counted before the level is judged finished, so a level's last delve leaves the
+            //  bar standing at full rather than emptying it on the way to the next level. Whether the player
+            //  is carried on from there is theirs to say.
+            CurrentGameState.LevelDelveCount.SetValue(CurrentGameState.LevelDelveCount.Value + 1);
+            DescendIfAutomatic();
+        }
+
+        //  Every delve of a level has been made, so there is nothing further to find on it.
+        private static bool IsCurrentLevelFullyExplored()
+        {
+            var levelData = LevelDataSystem.GetLevelData(CurrentGameState.LevelCurrent.Value);
+            if (levelData == null) return false;
+
+            return CurrentGameState.LevelDelveCount.Value >= levelData.DelveCount;
+        }
+
+        //  There is a level below this one and nothing left to find on this one, which is the only moment the
+        //  descent can be made — whether it is the player or their standing instruction that makes it.
+        private static bool CanDescendToNextLevel()
+        {
+            return IsCurrentLevelFullyExplored() && CurrentGameState.LevelCurrent.Value + 1 < LevelDataSystem.GetLevelCount();
+        }
+
+        //  A finished level holds the player where they are unless they have asked to be taken onward, and
+        //  while it holds them delving is closed off: there is nothing left on the level to spend it on.
+        private static bool ExplorationIsHeldAtLevelEnd()
+        {
+            return !CurrentGameState.AutoAdvanceLevel && IsCurrentLevelFullyExplored();
+        }
+
+        //  Descending is what clears the exploration made of the level left behind, so the count of delves is
+        //  only put back to nothing here. Called both by the player pressing to go deeper and by the standing
+        //  instruction to be carried on, and it is this that judges whether the descent may be made at all.
+        public void DescendToNextLevel()
+        {
+            if (!CanDescendToNextLevel()) return;
+
+            CurrentGameState.LevelReached.SetValue(CurrentGameState.LevelReached.Value + 1);
+            CurrentGameState.LevelDelveCount.SetValue(0);
+            CurrentGameState.LevelCurrent.SetValue(CurrentGameState.LevelReached.Value);
+        }
+
+        private void DescendIfAutomatic()
+        {
+            if (!CurrentGameState.AutoAdvanceLevel) return;
+
+            DescendToNextLevel();
+        }
+
+        //  Asking to be carried on while already standing at the end of a level is a request to go now, so the
+        //  descent that was held back is made at once rather than waiting on a delve that cannot happen.
+        private void ToggleAutoAdvanceLevel()
+        {
+            CurrentGameState.ToggleAutoAdvanceLevel();
+
+            DescendIfAutomatic();
+            RefreshExplorationDisplay();
+        }
+
+        //  The bar, the delve action and the button offering the descent are all answering to the same
+        //  exploration, so they are brought back in line together rather than each on its own account.
+        private void RefreshExplorationDisplay()
+        {
+            var levelData = LevelDataSystem.GetLevelData(CurrentGameState.LevelCurrent.Value);
+            if (levelData != null)
+                MainGameUIView?.LevelExplorationBar?.SetProgress(
+                    (float)CurrentGameState.LevelDelveCount.Value / (float)levelData.DelveCount,
+                    ExplorationIsHeldAtLevelEnd());
+
+            MainGameUIView?.DelveDeeperButton?.SetInteractable(CanDescendToNextLevel());
+
+            TaskActionSystem.NotifyActionAvailabilityChanged(DelveActionName);
         }
 
         public void SaveAndExitGame()

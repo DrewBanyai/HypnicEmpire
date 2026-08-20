@@ -63,6 +63,8 @@ namespace HypnicEmpire
         [SerializeField] public UITaskProcessButton DelveTaskButton;
         [SerializeField] public UIMissionDataDisplay MissionDataDisplay;
         [SerializeField] public UILevelExplorationBar LevelExplorationBar;
+        [SerializeField] public UIRadioButtonControlEntry AutoAdvanceLevelControlEntry;
+        [SerializeField] public Button DelveDeeperButton;
 
         [Header("Secondary Game Related UI Elements")]
         [SerializeField] public GameObject[] DevelopmentsTabGroup;
@@ -80,6 +82,7 @@ namespace HypnicEmpire
         public Action LoadButtonAction;
         public Action HardResetButtonAction;
         public Action ToggleFullscreenButtonAction;
+        public Action DelveDeeperButtonAction;
 
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -102,6 +105,7 @@ namespace HypnicEmpire
             LoadButton?.onClick.AddListener(() => { LoadButtonAction?.Invoke(); });
             HardResetConfirmButton?.onClick.AddListener(() => { HardResetButtonAction?.Invoke(); });
             FullscreenControlEntry?.AddListener(() => { ToggleFullscreenButtonAction?.Invoke(); });
+            DelveDeeperButton?.onClick.AddListener(() => { DelveDeeperButtonAction?.Invoke(); });
 
             HardResetButton?.onClick.AddListener(() => { SetResetButtonUnpacked(true); });
             HardResetCancelButton?.onClick.AddListener(() => { SetResetButtonUnpacked(false); });

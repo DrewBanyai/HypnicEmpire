@@ -47,6 +47,10 @@ namespace HypnicEmpire
         public bool Fullscreen = false;
         public bool WindowBorder = true;
 
+        //  Whether finishing a level's exploration carries the player on to the next level by itself. With it
+        //  off they are left standing on the level they have finished until they ask to be taken further.
+        public bool AutoAdvanceLevel = false;
+
         public void Initialize(GameStateScriptableObject gameState)
         {
             if (gameState == null) return;
@@ -254,6 +258,11 @@ namespace HypnicEmpire
         public void ToggleActionSoundExcess()
         {
             ActionSoundExcess = !ActionSoundExcess;
+        }
+
+        public void ToggleAutoAdvanceLevel()
+        {
+            AutoAdvanceLevel = !AutoAdvanceLevel;
         }
     }
 }
