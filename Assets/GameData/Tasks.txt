@@ -25,7 +25,7 @@ Delve:
         - Level 146 - 150 (100, -47.5 Food, -8 Potions, -8 Weaponry, +3 Treasure) * **
         - Level 151 - 151 (100, -79 Food, +0 Treasure) * **
     - Upgrades:
-                Unlock_Delving_Speed_Up_2: Task Speed x 2 ~ 60 / 100 (1.66s to finish)
+                Unlock_Delving_Speed_Up_2_2_5: Task Speed x 2.25 ~ 60 / 100 (1.66s to finish)
                 Unlock_Half_Food_Cost_Of_Delving: Food Cost * 0.5 [*]
                 Unlock_Stone_Wall_Supply_Stashes: Food Cost * 0.8 [**]
                 Unlock_Delving_Speed_Up_1_5: Task Speed x 1.5 90 / 100 (1.11s to finish)

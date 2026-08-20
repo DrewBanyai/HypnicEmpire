@@ -65,7 +65,7 @@
             "Title": "Buy some adventuring gear",
             "Description": "One of your neighbors must have once been a passable adventurer. Too bad he got crushed by a troll on his last trip. His wife would love to sell you his stuff, though.",
             "EffectText": "Increase delving speed",
-            "Unlock": [ "Unlock_Delving_Speed_Up_2" ],
+            "Unlock": [ "Unlock_Delving_Speed_Up_2_2_5" ],
             "Cost": [ { "ResourceType": "Money", "ResourceValue": -30 } ]
         },
         {
@@ -77,7 +77,7 @@
             "Cost": [ { "ResourceType": "Food", "ResourceValue": -15 } ]
         },
         {
-            "Trigger": [ "Unlock_Delving_Speed_Up_2" ],
+            "Trigger": [ "Unlock_Delving_Speed_Up_2_2_5" ],
             "Title": "Visit the barony",
             "Description": "You won't get very far, only talking to the dreary village elders. The next higher instance would be the local baron of the east kingdom who oversees the whole glum region.",
             "EffectText": "Increases treasure money gain by *2",

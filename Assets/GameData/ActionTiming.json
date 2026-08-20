@@ -8,7 +8,7 @@
             "BaseProgressPerSecond": 300.0,
             "ProgressPerWorkerPerSecond": 10.0,
             "UnlockSpeedMultipliers": {
-                "Unlock_Delving_Speed_Up_2": 2.0,
+                "Unlock_Delving_Speed_Up_2_2_5": 2.25,
                 "Unlock_Elected_As_Mayor": 1.25,
                 "Unlock_Delving_Speed_Up_1_5": 1.5,
                 "Unlock_Auto_Project_Cost_Removal": 0.25,
