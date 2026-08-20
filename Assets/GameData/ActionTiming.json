@@ -118,7 +118,7 @@
             "BaseProgressPerSecond": 300.0,
             "ProgressPerWorkerPerSecond": 10.0,
             "UnlockSpeedMultipliers": {
-                "Unlock_Foraging_Speed_Up": 2.0,
+                "Unlock_Foraging_Speed_Up": 2.5,
                 "Unlock_Elected_As_Mayor": 1.25,
                 "Unlock_Auto_Project_Cost_Removal": 0.25,
                 "Unlock_Establish_Council_Of_Guilds": 1.1,

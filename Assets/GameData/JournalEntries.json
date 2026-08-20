@@ -89,7 +89,7 @@
     },
     {
         "Trigger": "Unlock_Building_Busy_Workshop",
-        "Text": [ "Turns out they also have a doible for buttered scones and women's clothing, but who are you to judge.\nThey agreed to work for you, but only if you put some stocked bars in their workshops." ]
+        "Text": [ "Turns out they also have a foible for buttered scones and women's clothing, but who are you to judge.\nThey agreed to work for you, but only if you put some stocked bars in their workshops." ]
     },
     {
         "Trigger": "Unlock_Money_Storage_Up_300",
