@@ -1,7 +1,7 @@
 {
     "LevelGroupings": [
         { "Min": 1, "Max": 7, "Name": "Animal Burrow", "Image": "GameLevel_001.png", "Difficulty": 100, "LevelResourceChange": [ { "ResourceType": "Food", "ResourceValue": -1 }, { "ResourceType": "Treasure", "ResourceValue": 1 } ] },
-        { "Min": 8, "Max": 14, "Name": "Petrified Forest", "Image": "GameLevel_008.png", "Difficulty": 100, "LevelResourceChange": [ { "ResourceType": "Food", "ResourceValue": -2 }, { "ResourceType": "Treasure", "ResourceValue": 1 }, { "ResourceType": "Wood", "ResourceValue": 0.1 } ] },
+        { "Min": 8, "Max": 14, "Name": "Petrified Forest", "Image": "GameLevel_008.png", "Difficulty": 100, "LevelResourceChange": [ { "ResourceType": "Food", "ResourceValue": -2 }, { "ResourceType": "Treasure", "ResourceValue": 1, "RequiresStorageSpace": true }, { "ResourceType": "Wood", "ResourceValue": 0.1 } ] },
         { "Min": 15, "Max": 20, "Name": "Abandoned Mineshaft", "Image": "GameLevel_015.png", "Difficulty": 100, "LevelResourceChange": [ { "ResourceType": "Food", "ResourceValue": -3 }, { "ResourceType": "Treasure", "ResourceValue": 1 } ] },
         { "Min": 21, "Max": 26, "Name": "Crystal Caverns", "Image": "GameLevel_021.png", "Difficulty": 100, "LevelResourceChange": [ { "ResourceType": "Food", "ResourceValue": -4 }, { "ResourceType": "Treasure", "ResourceValue": 1 }, { "ResourceType": "Stone", "ResourceValue": 1 } ] },
         { "Min": 27, "Max": 34, "Name": "Subsurface Bog", "Image": "GameLevel_027.png", "Difficulty": 100, "LevelResourceChange": [ { "ResourceType": "Food", "ResourceValue": -4 }, { "ResourceType": "Potions", "ResourceValue": -5 }, { "ResourceType": "Treasure", "ResourceValue": 1 }, { "ResourceType": "Herbs", "ResourceValue": 3 } ] },

@@ -504,7 +504,7 @@ namespace HypnicEmpire
 
             List<ResourceAmountData> amountsList = new();
             foreach (var rc in grouping.LevelResourceChange)
-                amountsList.AddResourceAmount(new ResourceAmountData(rc.ResourceType, rc.ResourceValue));
+                amountsList.AddResourceAmount(rc);
 
             return amountsList;
         }

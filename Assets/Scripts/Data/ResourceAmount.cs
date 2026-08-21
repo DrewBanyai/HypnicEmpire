@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 
 namespace HypnicEmpire
 {
@@ -7,12 +6,17 @@ namespace HypnicEmpire
     {
         public static void AddResourceAmount(this List<ResourceAmountData> amountList, ResourceAmountData add)
         {
-            //  If no entry for the resource type exists in the list, add one with a value of 0
-            if (!amountList.Any(ra => ra.ResourceType == add.ResourceType))
-                amountList.Add(new ResourceAmountData(add.ResourceType, 0));
+            //  Merging into an existing entry keeps the stricter of the two demands for room: one contribution
+            //  insisting the reward not be thrown away speaks for the merged line as well.
+            ResourceAmountData existing = amountList.Find(ra => ra.ResourceType == add.ResourceType);
+            if (existing == null)
+            {
+                amountList.Add(add.Copy());
+                return;
+            }
 
-            //  Find the entry for the given resource type and add the amount
-            amountList.Find(ra => ra.ResourceType == add.ResourceType).ResourceValue += add.ResourceValue;
+            existing.ResourceValue += add.ResourceValue;
+            existing.RequiresStorageSpace |= add.RequiresStorageSpace;
         }
 
         public static bool CheckCanChangeAny(this List<ResourceAmountData> amountList, bool allowPositivePartial = false)
@@ -27,6 +31,16 @@ namespace HypnicEmpire
         {
             foreach (var ra in amountList)
                 if (!ra.CheckCanChange(allowPositivePartial)) return false;
+
+            return true;
+        }
+
+        //  A single reward that insists on room and has none is enough to hold the whole change back, whatever
+        //  room the rest of the rewards have. Rewards that make no such demand say nothing either way here.
+        public static bool CheckRequiredStorageSpaceAll(this List<ResourceAmountData> amountList)
+        {
+            foreach (var ra in amountList)
+                if (!ra.HasRequiredStorageSpace()) return false;
 
             return true;
         }

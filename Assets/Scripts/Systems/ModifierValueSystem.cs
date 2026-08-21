@@ -349,7 +349,7 @@ namespace HypnicEmpire
                 if (mult != 1.0)
                 {
                     if (result == null) result = new List<ResourceAmountData>(changes);
-                    result[i] = new ResourceAmountData(rc.ResourceType, rc.ResourceValue * mult);
+                    result[i] = rc.CopyWithValue(rc.ResourceValue * mult);
                 }
             }
             return result ?? changes;

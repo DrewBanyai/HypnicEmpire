@@ -65,7 +65,7 @@ namespace HypnicEmpire
             if (originalChange == null) return resourceChange;
             foreach (var c in originalChange)
                 if (c != null)
-                    resourceChange.Add(new ResourceAmountData(c.ResourceType, c.ResourceValue));
+                    resourceChange.Add(c.Copy());
             return resourceChange;
         }
     }

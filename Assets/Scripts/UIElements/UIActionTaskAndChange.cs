@@ -172,7 +172,7 @@ namespace HypnicEmpire
             if (resourceChange != null)
                 foreach (var entry in resourceChange)
                     if (entry != null && entry.ResourceValue != 0)
-                        visibleChange.Add(new ResourceAmountData(entry.ResourceType, entry.ResourceValue));
+                        visibleChange.Add(entry.Copy());
 
             if (visibleChange.IsIdentical(ResourceChange)) return;
 

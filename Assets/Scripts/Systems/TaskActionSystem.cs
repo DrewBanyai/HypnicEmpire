@@ -29,6 +29,11 @@ namespace HypnicEmpire
         //  Whether the action can run as things stand: what it gives has somewhere to go, what it costs can
         //  be paid, and whatever else it answers to allows it. The progress it earns and the button offering
         //  it are both judged on this, so the two cannot disagree over whether it is available.
+        //
+        //  One reward with room left is enough for the action to be worth running, since the rest overflowing
+        //  costs the player nothing they were not already wasting. A reward the data marks as needing room is
+        //  the exception: the action is what earns it, so running with its store full would spend the cost
+        //  and throw the reward away, and that closes the action off however much room the others have.
         public bool CanPerform()
         {
             if (Availability != null && !Availability()) return false;
@@ -36,7 +41,7 @@ namespace HypnicEmpire
             var resourceChange = GetResourceChange();
             List<ResourceAmountData> gainChange = resourceChange.Where(rc => rc.ResourceValue > 0).ToList();
             List<ResourceAmountData> lossChange = resourceChange.Where(rc => rc.ResourceValue < 0).ToList();
-            return gainChange.CheckCanChangeAny(true) && lossChange.CheckCanChangeAll();
+            return gainChange.CheckRequiredStorageSpaceAll() && gainChange.CheckCanChangeAny(true) && lossChange.CheckCanChangeAll();
         }
 
         public List<ResourceAmountData> GetResourceChange()
