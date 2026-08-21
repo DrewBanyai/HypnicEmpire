@@ -167,5 +167,14 @@ namespace HypnicEmpire
             }
             buildingSection.Buttons.Add(button);
         }
+
+        public UIBuildingButton FindBuildingButton(string buildingName)
+        {
+            foreach (var button in BuildingButtons)
+                if (button != null && button.BuildingName == buildingName)
+                    return button;
+
+            return null;
+        }
     }
 }

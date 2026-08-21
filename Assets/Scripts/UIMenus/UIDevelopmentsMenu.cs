@@ -34,6 +34,28 @@ namespace HypnicEmpire
             }
         }
         
+        //  Entries are made as their developments are offered and moved between the two lists as they are
+        //  bought, so the one asked for is looked for in both and may not be there at all.
+        public Button FindPurchaseButton(string developmentTitle)
+        {
+            return FindPurchaseButtonIn(OpenDevelopmentsListParent, developmentTitle)
+                ?? FindPurchaseButtonIn(FinishedDevelopmentsListParent, developmentTitle);
+        }
+
+        private static Button FindPurchaseButtonIn(Transform listParent, string developmentTitle)
+        {
+            if (listParent == null) return null;
+
+            foreach (Transform child in listParent)
+            {
+                var entry = child.GetComponent<UIDevelopmentEntry>();
+                if (entry != null && entry.DevelopmentTitle == developmentTitle)
+                    return entry.PurchaseButton;
+            }
+
+            return null;
+        }
+
         private void TransferDevelopmentToFinished(GameObject entryObject)
         {
             FinishedDevelopmentsSection?.gameObject.SetActive(true);

@@ -26,8 +26,13 @@ namespace HypnicEmpire
         private List<UIResourceChangeEntry> ResourceChangeEntries = new();
         private List<string> Unlock;
 
+        //  The development this entry stands for, kept as the authored title rather than read back from the
+        //  displayed text, which is free to be shortened or translated without the entry losing its name.
+        public string DevelopmentTitle { get; private set; }
+
         public void SetContent(string title, string description, string extraInfo, List<ResourceAmountData> cost, List<string> unlock)
         {
+            DevelopmentTitle = title;
             SetTitleText(title);
             SetDescriptionText(description);
             SetExtraInfoText(extraInfo);

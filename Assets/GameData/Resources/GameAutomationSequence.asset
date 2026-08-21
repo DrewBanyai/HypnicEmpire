@@ -1,0 +1,865 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2d906cd8ce4f34a09d7d97c48f34a1, type: 3}
+  m_Name: GameAutomationSequence
+  m_EditorClassIdentifier: Assembly-CSharp::HypnicEmpire.GameAutomationSequence
+  active: 1
+  stepAttemptInterval: 1
+  steps:
+  - buttonId: Auto
+    prerequisites: []
+  - buttonId: Delve
+    prerequisites: []
+  - buttonId: Developments
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 3
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 0
+  - buttonId: Look around for food
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 3
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 0
+  - buttonId: Actions
+    prerequisites: []
+  - buttonId: Forage
+    prerequisites: []
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 15
+    - type: 0
+      resourceId: Herbs
+      comparison: 2
+      targetValue: 10
+  - buttonId: Developments
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 10
+  - buttonId: Get some more practice
+    prerequisites: []
+  - buttonId: Visit a nearby village
+    prerequisites: []
+  - buttonId: Replant seeds
+    prerequisites: []
+  - buttonId: Sample the herbs
+    prerequisites: []
+  - buttonId: Actions
+    prerequisites: []
+  - buttonId: Forage
+    prerequisites: []
+  - buttonId: Developments
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 15
+    - type: 0
+      resourceId: Herbs
+      comparison: 2
+      targetValue: 10
+  - buttonId: Convince your neighbors
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 15
+    - type: 0
+      resourceId: Herbs
+      comparison: 2
+      targetValue: 10
+  - buttonId: Find some herb hotspots
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 15
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 0
+      targetValue: 15
+  - buttonId: Actions
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 10
+  - buttonId: Forage
+    prerequisites: []
+  - buttonId: Market
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 10
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 15
+    - type: 0
+      resourceId: Herbs
+      comparison: 2
+      targetValue: 10
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 2
+      targetValue: 50
+  - buttonId: Market
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 0
+      targetValue: 10
+  - buttonId: Forage
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 0
+      targetValue: 100
+  - buttonId: Developments
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 15
+    - type: 0
+      resourceId: Herbs
+      comparison: 2
+      targetValue: 10
+  - buttonId: Get some foraging tips from the locals
+    prerequisites:
+    - type: 0
+      resourceId: Herbs
+      comparison: 0
+      targetValue: 5
+    - type: 0
+      resourceId: Money
+      comparison: 0
+      targetValue: 20
+  - buttonId: Buy some adventuring gear
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 0
+      targetValue: 30
+  - buttonId: Visit the barony
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 0
+      targetValue: 10
+    - type: 0
+      resourceId: Money
+      comparison: 0
+      targetValue: 30
+  - buttonId: Actions
+    prerequisites: []
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 0
+      targetValue: 15
+    - type: 0
+      resourceId: Herbs
+      comparison: 0
+      targetValue: 10
+  - buttonId: Market
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 0
+      targetValue: 10
+  - buttonId: Forage
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 0
+      targetValue: 100
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 0
+      targetValue: 15
+  - buttonId: Forage
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 0
+      targetValue: 10
+  - buttonId: Developments
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 0
+      targetValue: 15
+    - type: 0
+      resourceId: Herbs
+      comparison: 0
+      targetValue: 10
+    - type: 0
+      resourceId: Treasure
+      comparison: 0
+      targetValue: 10
+    - type: 0
+      resourceId: Money
+      comparison: 0
+      targetValue: 100
+  - buttonId: Attract traveling merchants
+    prerequisites: []
+  - buttonId: Buy a plot of land
+    prerequisites: []
+  - buttonId: Actions
+    prerequisites: []
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 0
+      targetValue: 15
+    - type: 0
+      resourceId: Herbs
+      comparison: 0
+      targetValue: 10
+  - buttonId: Forage
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 0
+      targetValue: 10
+  - buttonId: Market
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 0
+      targetValue: 15
+    - type: 0
+      resourceId: Herbs
+      comparison: 0
+      targetValue: 10
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 0
+      targetValue: 100
+  - buttonId: Forage
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 0
+      targetValue: 10
+  - buttonId: Developments
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 0
+      targetValue: 15
+    - type: 0
+      resourceId: Herbs
+      comparison: 0
+      targetValue: 10
+  - buttonId: Buy an axe
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 0
+      targetValue: 50
+  - buttonId: Actions
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 2
+      targetValue: 50
+  - buttonId: Chop Wood
+    prerequisites: []
+  - buttonId: Market
+    prerequisites:
+    - type: 0
+      resourceId: Wood
+      comparison: 0
+      targetValue: 10
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 0
+      targetValue: 100
+  - buttonId: Forage
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 0
+      targetValue: 10
+  - buttonId: Developments
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 0
+      targetValue: 15
+    - type: 0
+      resourceId: Herbs
+      comparison: 0
+      targetValue: 10
+  - buttonId: Building a shack
+    prerequisites: []
+  - buttonId: Setup a chopping block
+    prerequisites: []
+  - buttonId: Actions
+    prerequisites: []
+  - buttonId: Chop Wood
+    prerequisites: []
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Wood
+      comparison: 0
+      targetValue: 20
+  - buttonId: Forage
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 0
+      targetValue: 20
+  - buttonId: Market
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 0
+      targetValue: 30
+    - type: 0
+      resourceId: Herbs
+      comparison: 0
+      targetValue: 20
+  - buttonId: Developments
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 0
+      targetValue: 200
+  - buttonId: Build a deer stand
+    prerequisites: []
+  - buttonId: Build a house for yourself
+    prerequisites: []
+  - buttonId: Actions
+    prerequisites: []
+  - buttonId: Delve
+    prerequisites: []
+  - buttonId: Market
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 0
+      targetValue: 20
+  - buttonId: Developments
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 0
+      targetValue: 200
+  - buttonId: People have come to work for you
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 0
+      targetValue: 150
+  - buttonId: Meet the people in formal attire
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 2
+      targetValue: 180
+  - buttonId: Convince the woodcutters
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 2
+      targetValue: 150
+  - buttonId: Actions
+    prerequisites: []
+  - buttonId: Hunting
+    prerequisites: []
+  - buttonId: Chop Wood
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 0
+      targetValue: 30
+    - type: 0
+      resourceId: Herbs
+      comparison: 0
+      targetValue: 20
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Wood
+      comparison: 0
+      targetValue: 20
+  - buttonId: Market
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 0
+      targetValue: 20
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 0
+      targetValue: 200
+  - buttonId: Hunting
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 0
+      targetValue: 20
+  - buttonId: Developments
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 0
+      targetValue: 30
+  - buttonId: Converse with the hunters
+    prerequisites: []
+  - buttonId: Recruit the bravest to scour the depths
+    prerequisites: []
+  - buttonId: Talk shop with the shopowners
+    prerequisites: []
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 0
+      targetValue: 30
+  - buttonId: Actions
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 0
+      targetValue: 20
+  - buttonId: Forage
+    prerequisites: []
+  - buttonId: Market
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 30
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 20
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 30
+    - type: 0
+      resourceId: Money
+      comparison: 2
+      targetValue: 200
+  - buttonId: Hunting
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 20
+  - buttonId: Buildings
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 20
+    - type: 0
+      resourceId: Money
+      comparison: 2
+      targetValue: 200
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 30
+    - type: 0
+      resourceId: Herbs
+      comparison: 2
+      targetValue: 20
+  - buttonId: Small Shed
+    prerequisites:
+    - type: 0
+      resourceId: Land
+      comparison: 0
+      targetValue: 1
+    - type: 0
+      resourceId: Wood
+      comparison: 0
+      targetValue: 5
+    - type: 0
+      resourceId: Money
+      comparison: 0
+      targetValue: 20
+  - buttonId: Small Shed
+    prerequisites:
+    - type: 0
+      resourceId: Land
+      comparison: 0
+      targetValue: 1
+    - type: 0
+      resourceId: Wood
+      comparison: 0
+      targetValue: 7
+    - type: 0
+      resourceId: Money
+      comparison: 0
+      targetValue: 27
+  - buttonId: Actions
+    prerequisites: []
+  - buttonId: Chop Wood
+    prerequisites: []
+  - buttonId: Forage
+    prerequisites:
+    - type: 0
+      resourceId: Wood
+      comparison: 2
+      targetValue: 30
+  - buttonId: Market
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 40
+    - type: 0
+      resourceId: Herbs
+      comparison: 2
+      targetValue: 30
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 2
+      targetValue: 200
+  - buttonId: Hunting
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 20
+  - buttonId: Developments
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 40
+  - buttonId: Build a lockable chest
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 0
+      targetValue: 150
+    - type: 0
+      resourceId: Wood
+      comparison: 0
+      targetValue: 26
+  - buttonId: Buildings
+    prerequisites: []
+  - buttonId: Simple Hut
+    prerequisites:
+    - type: 0
+      resourceId: Land
+      comparison: 0
+      targetValue: 1
+    - type: 0
+      resourceId: Wood
+      comparison: 0
+      targetValue: 3
+  - buttonId: Actions
+    prerequisites: []
+  - buttonId: Chop Wood
+    prerequisites: []
+  - buttonId: Market
+    prerequisites:
+    - type: 0
+      resourceId: Wood
+      comparison: 2
+      targetValue: 30
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 2
+      targetValue: 250
+  - buttonId: Market
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 20
+  - buttonId: Hunting
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 2
+      targetValue: 450
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 40
+  - buttonId: Market
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 20
+  - buttonId: Hunting
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 2
+      targetValue: 500
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 40
+  - buttonId: Hunting
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 20
+  - buttonId: Developments
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 40
+    - type: 0
+      resourceId: Herbs
+      comparison: 2
+      targetValue: 30
+  - buttonId: Geological investigations
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 0
+      targetValue: 350
+    - type: 0
+      resourceId: Food
+      comparison: 0
+      targetValue: 20
+  - buttonId: Build another lockable chest
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 0
+      targetValue: 150
+    - type: 0
+      resourceId: Wood
+      comparison: 0
+      targetValue: 26
+  - buttonId: Actions
+    prerequisites: []
+  - buttonId: Chop Wood
+    prerequisites: []
+  - buttonId: Cut Stone
+    prerequisites:
+    - type: 0
+      resourceId: Wood
+      comparison: 2
+      targetValue: 30
+  - buttonId: Chop Wood
+    prerequisites:
+    - type: 0
+      resourceId: Wood
+      comparison: 2
+      targetValue: 0
+  - buttonId: Cut Stone
+    prerequisites:
+    - type: 0
+      resourceId: Wood
+      comparison: 2
+      targetValue: 30
+  - buttonId: Chop Wood
+    prerequisites:
+    - type: 0
+      resourceId: Wood
+      comparison: 2
+      targetValue: 0
+  - buttonId: Cut Stone
+    prerequisites:
+    - type: 0
+      resourceId: Wood
+      comparison: 2
+      targetValue: 30
+  - buttonId: Chop Wood
+    prerequisites:
+    - type: 0
+      resourceId: Wood
+      comparison: 2
+      targetValue: 0
+  - buttonId: Cut Stone
+    prerequisites:
+    - type: 0
+      resourceId: Wood
+      comparison: 2
+      targetValue: 30
+  - buttonId: Chop Wood
+    prerequisites:
+    - type: 0
+      resourceId: Wood
+      comparison: 2
+      targetValue: 0
+  - buttonId: Market
+    prerequisites:
+    - type: 0
+      resourceId: Wood
+      comparison: 2
+      targetValue: 30
+    - type: 0
+      resourceId: Stone
+      comparison: 2
+      targetValue: 30
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 0
+  - buttonId: Market
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 20
+  - buttonId: Hunting
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 0
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 40
+  - buttonId: Market
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 20
+  - buttonId: Hunting
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 0
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 40
+  - buttonId: Market
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 20
+  - buttonId: Hunting
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 2
+      targetValue: 800
+  - buttonId: Delve
+    prerequisites:
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 40
+  - buttonId: Hunting
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 20
+  - buttonId: Developments
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 2
+      targetValue: 800
+    - type: 0
+      resourceId: Treasure
+      comparison: 2
+      targetValue: 20
+    - type: 0
+      resourceId: Food
+      comparison: 2
+      targetValue: 40
+    - type: 0
+      resourceId: Herbs
+      comparison: 2
+      targetValue: 30
+    - type: 0
+      resourceId: Wood
+      comparison: 2
+      targetValue: 30
+    - type: 0
+      resourceId: Stone
+      comparison: 2
+      targetValue: 30
+  - buttonId: A pretty good deal
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 0
+      targetValue: 300
+  - buttonId: Install a safe in all shops
+    prerequisites:
+    - type: 0
+      resourceId: Money
+      comparison: 2
+      targetValue: 500
+    - type: 0
+      resourceId: Stone
+      comparison: 2
+      targetValue: 30
+  - buttonId: Establish a bulk trade route
+    prerequisites:
+    - type: 0
+      resourceId: Treasure
+      comparison: 0
+      targetValue: 16

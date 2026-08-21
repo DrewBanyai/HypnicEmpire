@@ -197,6 +197,26 @@ namespace HypnicEmpire
                 menu.SetScaleY(menu == menuToShow ? 1f : 0f);
         }
 
+        public bool TryGetAutomationButton(string buttonId, out Button button)
+        {
+            switch (buttonId)
+            {
+                case "Exit": button = ExitButton; return true;
+                case "Options": button = OptionsButton; return true;
+                case "Achievements": button = AchievementsButton; return true;
+                case "Actions": button = ActionsButton; return true;
+                case "Developments": button = DevelopmentsButton; return true;
+                case "Buildings": button = BuildingsButton; return true;
+                case "Warfare": button = WarfareButton; return true;
+                case "Delve": button = DelveTaskButton?.Button; return true;
+                case "DelveDeeper": button = DelveDeeperButton; return true;
+                case "Auto": button = AutoAdvanceLevelControlEntry?.Button; return true;
+                default:
+                    button = null;
+                    return false;
+            }
+        }
+
         public void SetResetButtonUnpacked(bool unpacked)
         {
             HardResetButton?.SetInteractable(!unpacked);

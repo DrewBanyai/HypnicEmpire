@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.UI;
 
 namespace HypnicEmpire
 {
@@ -74,6 +75,29 @@ namespace HypnicEmpire
             TaskActionState actionState = TaskActionSystem.TaskActionMap[actionType];
             if (active && ActionSectionAreaMap.ContainsKey(actionState.ActionSection))
                 ActionSectionAreaMap[actionState.ActionSection].gameObject.SetActive(true);
+        }
+
+        public bool TryGetAutomationActionButton(string actionId, out Button button)
+        {
+            if (ActionButtonGroupings.TryGetValue(actionId, out UIActionTaskAndChange grouping))
+            {
+                button = grouping?.ProcessButton?.Button;
+                return true;
+            }
+
+            //  An action is named one way in the data and read another way on its button, so the words the
+            //  player is shown name it here just as well as the name it is filed under.
+            foreach (var actionState in TaskActionSystem.TaskActionMap.Values)
+            {
+                if (actionState == null || actionState.DisplayName != actionId) continue;
+                if (!ActionButtonGroupings.TryGetValue(actionState.Name, out grouping)) continue;
+
+                button = grouping?.ProcessButton?.Button;
+                return true;
+            }
+
+            button = null;
+            return false;
         }
     }
 }

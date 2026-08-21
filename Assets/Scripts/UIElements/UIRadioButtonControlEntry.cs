@@ -9,6 +9,8 @@ namespace HypnicEmpire
         [SerializeField] public UIRadioButton RadioButton;
         [SerializeField] public TextMeshProUGUI OptionNameText;
 
+        public Button Button => RadioButton != null ? RadioButton.GetComponent<Button>() : null;
+
         void Start()
         {
             RadioButton?.GetComponent<Button>().onClick.AddListener(() =>

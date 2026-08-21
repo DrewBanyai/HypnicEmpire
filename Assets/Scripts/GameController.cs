@@ -14,6 +14,7 @@ namespace HypnicEmpire
         private static string SaveFilePath => Application.persistentDataPath + "/saveGame.dat";
 
         private const string DelveActionName = "Delve";
+        private const string DefaultAutomationSequenceResource = "GameAutomationSequence";
 
         [SerializeField, Min(0f)]
         [Tooltip("Multiplies positive resource rewards. Resource costs are unaffected.")]
@@ -23,9 +24,11 @@ namespace HypnicEmpire
             Instance == null ? 1d : Mathf.Max(0f, Instance.resourceRewardMultiplier);
 
         [SerializeField] public GameStateScriptableObject InitialGameState;
+        [SerializeField] private GameAutomationSequence gameAutomationSequence;
 
         public static GameState CurrentGameState = new();
         public UIView_MainGame MainGameUIView;
+        private GameAutomationSequenceRunner gameAutomationRunner;
 
         private UIActionMenuController ActionsMenuController =>
             MainGameUIView?.ActionsMenu?.GetComponent<UIActionMenuController>();
@@ -67,12 +70,34 @@ namespace HypnicEmpire
             JournalEntrySystem.OnJournalEntryAdded += (string text) => MainGameUIView?.JournalMenuControl?.AddJournalEntry(text);
 
             SetupMainGameUI();
+            InitializeGameAutomation();
         }
 
         public void Update()
         {
             SaveUtility.Update();
             TaskActionSystem.Update();
+            gameAutomationRunner?.Tick(Time.unscaledDeltaTime);
+        }
+
+        private void InitializeGameAutomation()
+        {
+            GameAutomationSequence sequence = gameAutomationSequence != null
+                ? gameAutomationSequence
+                : Resources.Load<GameAutomationSequence>(DefaultAutomationSequenceResource);
+
+            if (sequence == null || !sequence.Active)
+                return;
+
+            gameAutomationRunner = new GameAutomationSequenceRunner(
+                sequence.Steps,
+                new GameAutomationPrerequisiteEvaluator(),
+                new GameAutomationButtonRouter(
+                    MainGameUIView,
+                    ActionsMenuController,
+                    MainGameUIView?.DevelopmentsMenuControl,
+                    MainGameUIView?.BuildingsMenuControl),
+                sequence.StepAttemptInterval);
         }
 
         private void ChangeMasterVolume(int delta) {
