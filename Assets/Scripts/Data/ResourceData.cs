@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 
 namespace HypnicEmpire
 {
@@ -20,6 +19,12 @@ namespace HypnicEmpire
     {
         public double MaxAdditive;
         public double MaxMultiplier = 1.0;
+
+        //  Whether this alteration counts once, against the storage the resource was authored with, rather
+        //  than continuously against whatever it currently holds. A continuous multiplier is re-applied every
+        //  time the maximum is worked out, so it goes on scaling every storage increase earned after it too;
+        //  a one-off one lifts the authored base and leaves everything won later untouched.
+        public bool AppliesOnce;
     }
 
     //  A value the player never holds or spends but which the resource list shows anyway ("People" above
@@ -41,22 +46,30 @@ namespace HypnicEmpire
         public List<ResourceUnlockTrigger> Unlocks;
         public SerializableDictionary<string, ResourceAlteration> UnlockAlterations;
 
+        // The order storage is built up in is what decides which increases each alteration catches.
+        // One-off alterations fold onto the authored base alone; the additive "AddMax" storage that
+        // buildings and projects grant is laid on after them, out of their reach; continuous
+        // alterations fold over that whole total, so they keep scaling with it.
         public int GetMaximum()
         {
-            // Base storage + additive "AddMax" storage modifiers (building/project driven),
-            // then the resource's own unlock alterations. Modifier storage is folded in before
-            // the unlock multipliers so a storage-doubling unlock also scales building storage.
-            double max = InitialMaximum + ModifierValueSystem.GetResourceMaxAdditive(Name, ResourceGroup);
-            if (UnlockAlterations != null)
+            double max = ApplyAlterations(InitialMaximum, appliesOnce: true)
+                       + ModifierValueSystem.GetResourceMaxAdditive(Name, ResourceGroup);
+            return (int)ApplyAlterations(max, appliesOnce: false);
+        }
+
+        private double ApplyAlterations(double max, bool appliesOnce)
+        {
+            if (UnlockAlterations == null) return max;
+
+            foreach (var entry in UnlockAlterations)
             {
-                var unlockedAlterations = UnlockAlterations.Where(ua => GameUnlockSystem.IsUnlocked(ua.Key));
-                foreach (var entry in unlockedAlterations)
-                {
-                    max += entry.Value.MaxAdditive;
-                    max *= entry.Value.MaxMultiplier;
-                }
+                if (entry.Value == null || entry.Value.AppliesOnce != appliesOnce) continue;
+                if (!GameUnlockSystem.IsUnlocked(entry.Key)) continue;
+
+                max += entry.Value.MaxAdditive;
+                max *= entry.Value.MaxMultiplier;
             }
-            return (int)max;
+            return max;
         }
     }
 

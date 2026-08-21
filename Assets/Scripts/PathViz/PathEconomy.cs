@@ -29,7 +29,7 @@ using System.Linq;
 
 namespace HypnicEmpire.PathViz
 {
-    public struct ResourceAlteration { public double MaxAdditive; public double MaxMultiplier; }
+    public struct ResourceAlteration { public double MaxAdditive; public double MaxMultiplier; public bool AppliesOnce; }
 
     /// <summary>A resource's starting amount, authored cap, and unlock-driven cap alterations.</summary>
     public sealed class EconomyResource
@@ -341,18 +341,29 @@ namespace HypnicEmpire.PathViz
             return result;
         }
 
-        /// <summary>Effective cap = InitialMaximum, then active unlock alterations (add then mult), + building AddMax.</summary>
+        /// <summary>Effective cap = InitialMaximum, then active ONE-OFF unlock alterations (add then mult),
+        /// + building AddMax, then active CONTINUOUS ones. Same order the game folds them in
+        /// (ResourceTypeData.GetMaximum), so a one-off alteration never scales building storage.</summary>
         public static int EffectiveCap(EconomyResource r, ISet<string> granted,
                                        IReadOnlyDictionary<string, int> buildingCounts, EconomyModel econ)
         {
-            double m = r.InitialMaximum;
-            foreach (var ua in r.UnlockAlterations)
-                if (granted.Contains(ua.Key)) { m += ua.Value.MaxAdditive; m *= ua.Value.MaxMultiplier == 0 ? 1 : ua.Value.MaxMultiplier; }
+            double m = Alter(r.InitialMaximum, r, granted, appliesOnce: true);
             if (buildingCounts != null)
                 foreach (var b in econ.Buildings)
                     if (buildingCounts.TryGetValue(b.Id, out var c) && c > 0 && b.CapRaisePerCopy.TryGetValue(r.Id, out var cr))
                         m += cr * c;
-            return (int)m;
+            return (int)Alter(m, r, granted, appliesOnce: false);
+        }
+
+        private static double Alter(double cap, EconomyResource r, ISet<string> granted, bool appliesOnce)
+        {
+            foreach (var ua in r.UnlockAlterations)
+                if (ua.Value.AppliesOnce == appliesOnce && granted.Contains(ua.Key))
+                {
+                    cap += ua.Value.MaxAdditive;
+                    cap *= ua.Value.MaxMultiplier == 0 ? 1 : ua.Value.MaxMultiplier;
+                }
+            return cap;
         }
 
         // ==================== annotation & chokepoints ====================

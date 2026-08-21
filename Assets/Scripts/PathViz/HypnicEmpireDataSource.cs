@@ -144,6 +144,7 @@ namespace HypnicEmpire.PathViz
                         {
                             MaxAdditive = Dbl(p.Value, "MaxAdditive"),
                             MaxMultiplier = Dbl(p.Value, "MaxMultiplier"),
+                            AppliesOnce = Bool(p.Value, "AppliesOnce"),
                         };
                 econ.Resources.Add(er);
             }
@@ -217,7 +218,7 @@ namespace HypnicEmpire.PathViz
             // name a Modifier whose Applications AddMax a resource / resource-group). This is the
             // ModifierValueSystem AddMax mechanic resolved statically for the economy pass.
             var avRoot = Load("AlterableValues.json");
-            var addMaxOf = new Dictionary<string, List<(string kind, string name)>>();
+            var addMaxTargets = new Dictionary<string, List<(string kind, string name)>>();
             foreach (var v in Arr(avRoot))
             {
                 var vn = Str(v, "Name");
@@ -225,12 +226,14 @@ namespace HypnicEmpire.PathViz
                 foreach (var app in Arr(v["Applications"]))
                 {
                     if (Str(app, "Op") != "AddMax") continue;
-                    var target = Str(app, "Target") ?? "";
-                    int colon = target.IndexOf(':');
-                    if (colon < 0) continue;
-                    var entry = (target.Substring(0, colon), target.Substring(colon + 1));
-                    if (!addMaxOf.TryGetValue(vn, out var list)) { list = new List<(string, string)>(); addMaxOf[vn] = list; }
-                    list.Add(entry);
+                    foreach (var target in ApplicationTargets(app))
+                    {
+                        int colon = target.IndexOf(':');
+                        if (colon < 0) continue;
+                        var entry = (target.Substring(0, colon), target.Substring(colon + 1));
+                        if (!addMaxTargets.TryGetValue(vn, out var list)) { list = new List<(string, string)>(); addMaxTargets[vn] = list; }
+                        list.Add(entry);
+                    }
                 }
             }
             var groupMembers = new Dictionary<string, List<string>>();
@@ -240,6 +243,22 @@ namespace HypnicEmpire.PathViz
                     if (!groupMembers.TryGetValue(er.Group, out var m)) { m = new List<string>(); groupMembers[er.Group] = m; }
                     m.Add(er.Id);
                 }
+
+            // Which resources each AddMax modifier actually raises, resolved through the groups. A set,
+            // because an application's targets are alternatives: one naming a group and a resource inside
+            // it raises that resource's storage once, exactly as ModifierValueSystem counts it.
+            var addMaxResources = new Dictionary<string, HashSet<string>>();
+            foreach (var kv in addMaxTargets)
+            {
+                var reached = new HashSet<string>();
+                foreach (var (kind, tname) in kv.Value)
+                {
+                    if (kind == "Resource") reached.Add(tname);
+                    else if (kind == "ResourceGroup" && groupMembers.TryGetValue(tname, out var members))
+                        foreach (var mr in members) reached.Add(mr);
+                }
+                addMaxResources[kv.Key] = reached;
+            }
 
             var bRoot = Load("Buildings.json");
             foreach (var b in Arr(bRoot?["BuildingTypes"]))
@@ -267,16 +286,10 @@ namespace HypnicEmpire.PathViz
                 {
                     if (!string.IsNullOrEmpty(Str(av, "Trigger"))) continue; // conditional; ignored until modelled
                     var vn = Str(av, "ValueName");
-                    if (string.IsNullOrEmpty(vn) || !addMaxOf.TryGetValue(vn, out var apps)) continue;
+                    if (string.IsNullOrEmpty(vn) || !addMaxResources.TryGetValue(vn, out var reached)) continue;
                     int amount = (int)Dbl(av, "Amount");
-                    foreach (var (kind, tname) in apps)
-                    {
-                        if (kind == "Resource")
-                            eb.CapRaisePerCopy[tname] = (eb.CapRaisePerCopy.TryGetValue(tname, out var e) ? e : 0) + amount;
-                        else if (kind == "ResourceGroup" && groupMembers.TryGetValue(tname, out var members))
-                            foreach (var mr in members)
-                                eb.CapRaisePerCopy[mr] = (eb.CapRaisePerCopy.TryGetValue(mr, out var e2) ? e2 : 0) + amount;
-                    }
+                    foreach (var rid in reached)
+                        eb.CapRaisePerCopy[rid] = (eb.CapRaisePerCopy.TryGetValue(rid, out var e) ? e : 0) + amount;
                 }
                 econ.Buildings.Add(eb);
             }
@@ -356,6 +369,26 @@ namespace HypnicEmpire.PathViz
         {
             var t = (n as JObject)?[field];
             return (t != null && (t.Type == JTokenType.Integer || t.Type == JTokenType.Float)) ? t.Value<double>() : 0.0;
+        }
+
+        private static bool Bool(JToken n, string field)
+        {
+            var t = (n as JObject)?[field];
+            return t != null && t.Type == JTokenType.Boolean && t.Value<bool>();
+        }
+
+        //  Everything a modifier application reaches, authored either as the one Target or as a Targets
+        //  list. Mirrors ModifierApplication.ParsedTargets.
+        private static IEnumerable<string> ApplicationTargets(JToken app)
+        {
+            var single = Str(app, "Target");
+            if (!string.IsNullOrEmpty(single)) yield return single;
+
+            foreach (var target in Arr((app as JObject)?["Targets"]))
+            {
+                var name = target?.ToString();
+                if (!string.IsNullOrEmpty(name)) yield return name;
+            }
         }
 
         private static ComputedValue Amount(JToken n, string field)

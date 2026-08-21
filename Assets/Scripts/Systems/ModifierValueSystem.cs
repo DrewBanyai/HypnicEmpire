@@ -92,8 +92,11 @@ namespace HypnicEmpire
                 {
                     _modifiers.Add((av.Name, av.Applications));
                     foreach (var app in av.Applications)
-                        if (app.Op == "AddValue" && app.TargetKind == "Value")
-                            _drivenNames.Add(app.TargetName);
+                    {
+                        if (app.Op != "AddValue") continue;
+                        foreach (var target in app.ParsedTargets)
+                            if (target.Kind == "Value") _drivenNames.Add(target.Name);
+                    }
                 }
             }
 
@@ -253,15 +256,22 @@ namespace HypnicEmpire
                     return AlterableValueSystem.ValueMap.TryGetValue(name, out var av) ? av.Clamp(raw) : raw;
                 }
 
+                // AddValue fans out rather than matching: an application naming several values folds this
+                // modifier into every one of them. For the ops queried below, by contrast, several targets
+                // are alternative ways of being reached and so are worth the modifier's value only once.
                 var adjust = new Dictionary<string, int>();
                 foreach (var (modName, apps) in _modifiers)
                     foreach (var app in apps)
-                        if (app.Op == "AddValue" && app.TargetKind == "Value")
+                    {
+                        if (app.Op != "AddValue") continue;
+                        foreach (var target in app.ParsedTargets)
                         {
+                            if (target.Kind != "Value") continue;
                             int delta = Effective(modName) * (app.Reduces ? -1 : 1);
-                            adjust.TryGetValue(app.TargetName, out int cur);
-                            adjust[app.TargetName] = cur + delta;
+                            adjust.TryGetValue(target.Name, out int cur);
+                            adjust[target.Name] = cur + delta;
                         }
+                    }
 
                 // 3. Write final values (SetValue clamps + fires ValueUnlocks thresholds).
                 foreach (var name in _drivenNames)
@@ -300,15 +310,14 @@ namespace HypnicEmpire
         public static int Value(string modifierName) => AlterableValueSystem.GetAlterableValueCurrentVal(modifierName);
 
         // Additive storage bonus for a resource (its own AddMax modifiers + its group's).
-        // Folded INTO GetMaximum before the unlock multipliers (design §3.1).
+        // Folded INTO GetMaximum after the resource's one-off unlock alterations and before its
+        // continuous ones, so only a continuous multiplier scales what buildings grant.
         public static int GetResourceMaxAdditive(string resourceName, string resourceGroup)
         {
             int sum = 0;
             foreach (var (name, apps) in _modifiers)
                 foreach (var app in apps)
-                    if (app.Op == "AddMax" &&
-                        ((app.TargetKind == "Resource" && app.TargetName == resourceName) ||
-                         (app.TargetKind == "ResourceGroup" && app.TargetName == resourceGroup)))
+                    if (app.Op == "AddMax" && MatchesResourceStorage(app, resourceName, resourceGroup))
                         sum += Value(name);
             return sum;
         }
@@ -361,7 +370,7 @@ namespace HypnicEmpire
             int cap = BaseJobCap;
             foreach (var (name, apps) in _modifiers)
                 foreach (var app in apps)
-                    if (app.Op == "JobCap" && app.TargetKind == "Section" && app.TargetName == jobSection)
+                    if (app.Op == "JobCap" && MatchesSection(app, jobSection))
                         cap += Value(name);
             return cap;
         }
@@ -371,6 +380,11 @@ namespace HypnicEmpire
             => JobSectionByAction.TryGetValue(actionName, out var s) ? s : actionSection;
 
         // -- matching helpers ---------------------------------------------------
+        //
+        // An application's targets are alternatives: being reached by any one of them is being reached,
+        // and no more so for being reached by two. That is what lets a storage modifier name a resource
+        // group and a resource outside it (Food is grouped with the consumables in the UI but stored with
+        // the basics) without paying the named resource twice over.
 
         private static bool SectionMatches(string section, string actionName, string actionSection)
         {
@@ -378,28 +392,48 @@ namespace HypnicEmpire
             return JobSectionByAction.TryGetValue(actionName, out var js) && js == section;
         }
 
+        private static bool MatchesResourceStorage(ModifierApplication app, string resourceName, string resourceGroup)
+        {
+            foreach (var target in app.ParsedTargets)
+                if ((target.Kind == "Resource" && target.Name == resourceName) ||
+                    (target.Kind == "ResourceGroup" && target.Name == resourceGroup))
+                    return true;
+            return false;
+        }
+
+        private static bool MatchesSection(ModifierApplication app, string jobSection)
+        {
+            foreach (var target in app.ParsedTargets)
+                if (target.Kind == "Section" && target.Name == jobSection)
+                    return true;
+            return false;
+        }
+
         private static bool MatchesActionOrSection(ModifierApplication app, string actionName, string actionSection)
         {
-            switch (app.TargetKind)
-            {
-                case "Action":  return app.TargetName == "*" || app.TargetName == actionName;
-                case "Section": return SectionMatches(app.TargetName, actionName, actionSection);
-                default: return false;
-            }
+            foreach (var target in app.ParsedTargets)
+                switch (target.Kind)
+                {
+                    case "Action":  if (target.Name == "*" || target.Name == actionName) return true; break;
+                    case "Section": if (SectionMatches(target.Name, actionName, actionSection)) return true; break;
+                }
+            return false;
         }
 
         private static bool MatchesGain(ModifierApplication app, string actionName, string actionSection, string resourceName)
         {
-            bool nameMatch;
-            switch (app.TargetKind)
-            {
-                case "Action":   nameMatch = app.TargetName == "*" || app.TargetName == actionName; break;
-                case "Section":  nameMatch = SectionMatches(app.TargetName, actionName, actionSection); break;
-                case "Resource": nameMatch = app.TargetName == resourceName; break;
-                default: return false;
-            }
-            bool resourceMatch = string.IsNullOrEmpty(app.Resource) || app.Resource == resourceName;
-            return nameMatch && resourceMatch;
+            // The optional Resource filter narrows every target at once: FarmingFoodGainPercent reaches the
+            // whole Farming section, but only that section's Food.
+            if (!string.IsNullOrEmpty(app.Resource) && app.Resource != resourceName) return false;
+
+            foreach (var target in app.ParsedTargets)
+                switch (target.Kind)
+                {
+                    case "Action":   if (target.Name == "*" || target.Name == actionName) return true; break;
+                    case "Section":  if (SectionMatches(target.Name, actionName, actionSection)) return true; break;
+                    case "Resource": if (target.Name == resourceName) return true; break;
+                }
+            return false;
         }
 
         // -- diagnostics --------------------------------------------------------
@@ -410,7 +444,7 @@ namespace HypnicEmpire
             sb.AppendLine($"ModifierValueSystem — {_modifiers.Count} modifiers");
             foreach (var (name, apps) in _modifiers)
             {
-                string a = string.Join(", ", apps.Select(x => x.Op + "->" + x.Target + (x.Reduces ? "(reduces)" : "")));
+                string a = string.Join(", ", apps.Select(x => x.Op + "->" + string.Join("+", x.ParsedTargets) + (x.Reduces ? "(reduces)" : "")));
                 sb.AppendLine($"  {name,-28} = {Value(name),8}   [{a}]");
             }
             return sb.ToString();

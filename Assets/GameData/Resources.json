@@ -91,7 +91,8 @@
             "UnlockAlterations": {
                 "Unlock_Double_Max_Storage_Space": {
                     "MaxAdditive": 0.0,
-                    "MaxMultiplier": 2.0
+                    "MaxMultiplier": 2.0,
+                    "AppliesOnce": true
                 }
             }
         },
@@ -111,7 +112,8 @@
             "UnlockAlterations": {
                 "Unlock_Double_Max_Storage_Space": {
                     "MaxAdditive": 0.0,
-                    "MaxMultiplier": 2.0
+                    "MaxMultiplier": 2.0,
+                    "AppliesOnce": true
                 }
             }
         },
@@ -136,7 +138,8 @@
             "UnlockAlterations": {
                 "Unlock_Double_Max_Storage_Space": {
                     "MaxAdditive": 0.0,
-                    "MaxMultiplier": 2.0
+                    "MaxMultiplier": 2.0,
+                    "AppliesOnce": true
                 }
             }
         },
@@ -156,7 +159,8 @@
             "UnlockAlterations": {
                 "Unlock_Double_Max_Storage_Space": {
                     "MaxAdditive": 0.0,
-                    "MaxMultiplier": 2.0
+                    "MaxMultiplier": 2.0,
+                    "AppliesOnce": true
                 }
             }
         },
@@ -176,7 +180,8 @@
             "UnlockAlterations": {
                 "Unlock_Double_Max_Storage_Space": {
                     "MaxAdditive": 0.0,
-                    "MaxMultiplier": 2.0
+                    "MaxMultiplier": 2.0,
+                    "AppliesOnce": true
                 }
             }
         },
@@ -196,7 +201,8 @@
             "UnlockAlterations": {
                 "Unlock_Double_Max_Storage_Space": {
                     "MaxAdditive": 0.0,
-                    "MaxMultiplier": 2.0
+                    "MaxMultiplier": 2.0,
+                    "AppliesOnce": true
                 }
             }
         },
@@ -216,7 +222,8 @@
             "UnlockAlterations": {
                 "Unlock_Double_Max_Storage_Space": {
                     "MaxAdditive": 0.0,
-                    "MaxMultiplier": 2.0
+                    "MaxMultiplier": 2.0,
+                    "AppliesOnce": true
                 }
             }
         },
@@ -236,7 +243,8 @@
             "UnlockAlterations": {
                 "Unlock_Double_Max_Storage_Space": {
                     "MaxAdditive": 0.0,
-                    "MaxMultiplier": 2.0
+                    "MaxMultiplier": 2.0,
+                    "AppliesOnce": true
                 }
             }
         },
@@ -256,7 +264,8 @@
             "UnlockAlterations": {
                 "Unlock_Double_Max_Storage_Space": {
                     "MaxAdditive": 0.0,
-                    "MaxMultiplier": 2.0
+                    "MaxMultiplier": 2.0,
+                    "AppliesOnce": true
                 }
             }
         },
@@ -276,7 +285,8 @@
             "UnlockAlterations": {
                 "Unlock_Double_Max_Storage_Space": {
                     "MaxAdditive": 0.0,
-                    "MaxMultiplier": 2.0
+                    "MaxMultiplier": 2.0,
+                    "AppliesOnce": true
                 }
             }
         },
@@ -296,7 +306,8 @@
             "UnlockAlterations": {
                 "Unlock_Double_Max_Storage_Space": {
                     "MaxAdditive": 0.0,
-                    "MaxMultiplier": 2.0
+                    "MaxMultiplier": 2.0,
+                    "AppliesOnce": true
                 }
             }
         },
@@ -316,7 +327,8 @@
             "UnlockAlterations": {
                 "Unlock_Double_Max_Storage_Space": {
                     "MaxAdditive": 0.0,
-                    "MaxMultiplier": 2.0
+                    "MaxMultiplier": 2.0,
+                    "AppliesOnce": true
                 }
             }
         },
@@ -336,7 +348,8 @@
             "UnlockAlterations": {
                 "Unlock_Double_Max_Storage_Space": {
                     "MaxAdditive": 0.0,
-                    "MaxMultiplier": 2.0
+                    "MaxMultiplier": 2.0,
+                    "AppliesOnce": true
                 }
             }
         },
@@ -356,7 +369,8 @@
             "UnlockAlterations": {
                 "Unlock_Double_Max_Storage_Space": {
                     "MaxAdditive": 0.0,
-                    "MaxMultiplier": 2.0
+                    "MaxMultiplier": 2.0,
+                    "AppliesOnce": true
                 }
             }
         }
