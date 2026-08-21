@@ -105,3 +105,6 @@ InitTestScene*.unity*
 
 # Auto-generated files from the validation check system
 GameDataValidationReport.txt
+
+# Testing Data files
+TestingData/
